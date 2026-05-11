@@ -1,0 +1,47 @@
+﻿@page "/"
+@inject Albatross.Services.INewsService NewsService
+
+<h1>Latest News</h1>
+
+<button class="btn" @onclick="Refresh">Refresh</button>
+
+@if (news is null)
+{
+    <p>Loading...</p>
+}
+else if (!news.Any())
+{
+    <p>No news available.</p>
+}
+else
+{
+    <ul>
+        @foreach (var item in news)
+        {
+            <li>
+                <h3>@item.Title</h3>
+                <p>@item.Summary</p>
+                <small>@item.PublishedAt.ToLocalTime().ToString("g")</small>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private IEnumerable<Albatross.Services.NewsItem>? news;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadNews();
+    }
+
+    private async Task LoadNews()
+    {
+        news = await NewsService.GetLatestAsync();
+    }
+
+    private async Task Refresh()
+    {
+        await LoadNews();
+    }
+}
