@@ -1,0 +1,137 @@
+@page "/"
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Components.Web
+@inject HttpClient Http
+
+<PageTitle>Albatross 뉴스</PageTitle>
+
+<div class="hero">
+    <h1>🦅 Albatross News</h1>
+    <p class="subtitle">최신 뉴스를 한눈에</p>
+</div>
+
+@if (_loading)
+{
+    <div class="loading">
+        <div class="spinner"></div>
+        <p>뉴스를 불러오는 중...</p>
+    </div>
+}
+else if (_error is not null)
+{
+    <div class="error-box">⚠️ @_error</div>
+}
+else if (_items is null || !_items.Any())
+{
+    <div class="empty">수집된 뉴스가 없습니다. Collector를 먼저 실행해 주세요.</div>
+}
+else
+{
+    <div class="news-sections">
+        @foreach (var categoryGroup in GroupedItems)
+        {
+            <section class="category-section">
+                <h2 class="category-title">@categoryGroup.Key</h2>
+                <div class="news-grid">
+                    @foreach (var item in categoryGroup)
+                    {
+                        <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
+                            <div class="card-meta">
+                                <span class="source-badge">@item.Source</span>
+                                <span class="time">@FormatTime(item.PublishedAt)</span>
+                            </div>
+                            <h3>@item.Title</h3>
+                            <p class="summary">@item.Summary</p>
+                        </a>
+                    }
+                </div>
+            </section>
+        }
+    </div>
+}
+
+<style>
+    .category-section { margin-bottom: 3rem; }
+    .category-title { 
+        font-size: 1.5rem; 
+        border-left: 5px solid #007bff; 
+        padding-left: 1rem; 
+        margin-bottom: 1.5rem;
+        color: #333;
+    }
+    .card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; }
+    .news-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+        gap: 1.5rem; 
+    }
+    .news-card {
+        display: block;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .news-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+    .news-card h3 { font-size: 1.1rem; margin: 0.5rem 0; line-height: 1.4; }
+    .summary { font-size: 0.9rem; color: #666; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+</style>
+
+@code {
+    private bool _loading = true;
+    private string? _error;
+    private List<NewsDto>? _items;
+
+    private IEnumerable<IGrouping<string, NewsDto>> GroupedItems => 
+        (_items ?? Enumerable.Empty<NewsDto>())
+        .GroupBy(i => i.Category)
+        .OrderBy(g => g.Key == "정치" ? 0 : g.Key == "사회" ? 1 : g.Key == "스포츠" ? 2 : 3);
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _items = await Http.GetFromJsonAsync<List<NewsDto>>("data/news.json");
+        }
+        catch (HttpRequestException)
+        {
+            _items =
+            [
+                new NewsDto("1", "정치 뉴스 예시", "정치 카테고리의 뉴스입니다.", "https://github.com", "Albatross", DateTimeOffset.Now, "정치"),
+                new NewsDto("2", "사회 뉴스 예시", "사회 카테고리의 뉴스입니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-5), "사회"),
+                new NewsDto("3", "스포츠 뉴스 예시", "스포츠 카테고리의 뉴스입니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-10), "스포츠"),
+                new NewsDto("4", "IT 뉴스 예시", "IT 기술 카테고리의 뉴스입니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-15), "IT/기술"),
+            ];
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+
+    private static string FormatTime(DateTimeOffset dt)
+    {
+        var diff = DateTimeOffset.Now - dt;
+        return diff.TotalMinutes < 60
+            ? $"{(int)diff.TotalMinutes}분 전"
+            : diff.TotalHours < 24
+                ? $"{(int)diff.TotalHours}시간 전"
+                : dt.ToString("MM/dd HH:mm");
+    }
+
+    private record NewsDto(
+        string Id,
+        string Title,
+        string Summary,
+        string Url,
+        string Source,
+        DateTimeOffset PublishedAt,
+        string Category);
+}
