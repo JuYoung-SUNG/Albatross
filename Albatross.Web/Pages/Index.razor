@@ -44,24 +44,29 @@
                     var hasRelated = cluster.RelatedItems.Any();
 
                     <div class="news-cluster">
-                        <div class="news-card-content" style="padding: 1.5rem;">
+                        <div class="chapter-image" style="background-image: url('https://picsum.photos/seed/@clusterId/800/400');"></div>
+                        <div class="news-card-content" style="padding: 2rem;">
                             <div class="card-meta">
                                 @{
                                     var allSources = new[] { cluster.MainItem.Source }.Concat(cluster.RelatedItems.Select(r => r.Source)).Distinct().ToList();
                                 }
-                                <span class="source-badge" style="background: #28a745;">
-                                    @string.Join(", ", allSources.Take(2)) @(allSources.Count > 2 ? "외" : "") 보도
+                                <span class="source-badge" style="background: #28a745; font-size: 0.9rem; padding: 4px 10px;">
+                                    @string.Join(", ", allSources.Take(3)) @(allSources.Count > 3 ? "외" : "") 보도
                                 </span>
-                                <span class="time">@FormatTime(item.PublishedAt)</span>
+                                <span class="time" style="font-size: 0.9rem;">@FormatTime(item.PublishedAt)</span>
                             </div>
                             
-                            <h4 style="margin-top: 1rem; font-size: 1.2rem; color: var(--text-color); font-weight: bold;">
+                            <h4 style="margin-top: 1rem; font-size: 1.8rem; color: var(--text-color); font-weight: bold; line-height: 1.3;">
                                 @GenerateShortSummary(cluster)
                             </h4>
+                            
+                            <p class="summary" style="margin-top: 1rem; font-size: 1.1rem; color: var(--text-color); opacity: 0.8; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                                @item.Summary
+                            </p>
                         </div>
 
-                        <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)">
-                            🔗 관련 기사 @(cluster.RelatedItems.Count + 1) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "목록 보기 ▼")
+                        <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)" style="padding: 1.2rem; font-size: 1rem;">
+                            🔗 이 챕터의 관련 기사 @(cluster.RelatedItems.Count + 1) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "목록 보기 ▼")
                         </button>
                         
                         @if (_expandedRelated.Contains(clusterId))
@@ -137,9 +142,19 @@
     .content-area { padding: 0 5%; }
 
     .news-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-        gap: 1.5rem; 
+        display: flex; 
+        flex-direction: column;
+        gap: 3rem; 
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .chapter-image {
+        width: 100%;
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        border-bottom: 1px solid var(--border-color);
     }
 
     .news-cluster {
@@ -307,12 +322,12 @@
 
         if (wordCounts.Count >= 2)
         {
-            var summary = $"'{wordCounts[0]}·{wordCounts[1]}' 관련 주요 소식";
+            var summary = $"'{wordCounts[0]}·{wordCounts[1]}' 챕터";
             return summary.Length > 20 ? summary.Substring(0, 18) + ".." : summary;
         }
         else if (wordCounts.Count == 1)
         {
-            var summary = $"'{wordCounts[0]}' 관련 주요 소식";
+            var summary = $"'{wordCounts[0]}' 챕터";
             return summary.Length > 20 ? summary.Substring(0, 18) + ".." : summary;
         }
         
