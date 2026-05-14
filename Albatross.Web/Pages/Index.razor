@@ -76,7 +76,7 @@
                         </div>
 
                         <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)" style="padding: 1.2rem; font-size: 1rem;">
-                            🔗 이 챕터의 관련 기사 @(cluster.RelatedItems.Count + 1) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "목록 보기 ▼")
+                            🔗 관련 기사 @(cluster.RelatedItems.Count + 1) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "목록 보기 ▼")
                         </button>
                         
                         @if (_expandedRelated.Contains(clusterId))
@@ -370,13 +370,13 @@
 
         if (wordCounts.Count >= 2)
         {
-            var summary = $"'{wordCounts[0]}·{wordCounts[1]}' 챕터";
-            return summary.Length > 20 ? summary.Substring(0, 18) + ".." : summary;
+            var summary = $"'{wordCounts[0]}·{wordCounts[1]}' 관련 주요 동향";
+            return summary.Length > 25 ? summary.Substring(0, 23) + ".." : summary;
         }
         else if (wordCounts.Count == 1)
         {
-            var summary = $"'{wordCounts[0]}' 챕터";
-            return summary.Length > 20 ? summary.Substring(0, 18) + ".." : summary;
+            var summary = $"'{wordCounts[0]}' 관련 주요 동향";
+            return summary.Length > 25 ? summary.Substring(0, 23) + ".." : summary;
         }
         
         var title = cluster.MainItem.Title;
