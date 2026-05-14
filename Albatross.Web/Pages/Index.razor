@@ -283,7 +283,7 @@
         return clusters;
     }
 
-    private static readonly string[] StopWords = { "의", "는", "이", "가", "은", "를", "에", "대해", "그리고", "따라", "로", "과", "와", "다", "로", "에서", "부터", "까지", "에게" };
+    private static readonly string[] StopWords = { "의", "는", "이", "가", "은", "를", "에", "대해", "그리고", "따라", "로", "과", "와", "다", "로", "에서", "부터", "까지", "에게", "포토", "사진", "단독", "속보", "종합" };
 
     private bool IsSimilar(string title1, string title2)
     {
@@ -341,11 +341,12 @@
     {
         try
         {
-            _items = await Http.GetFromJsonAsync<List<NewsDto>>("data/news.json");
+            var rawItems = await Http.GetFromJsonAsync<List<NewsDto>>("data/news.json");
+            _items = CleanItems(rawItems);
         }
         catch (HttpRequestException)
         {
-            _items = GetSampleData();
+            _items = CleanItems(GetSampleData());
         }
         catch (Exception ex)
         {
@@ -356,6 +357,21 @@
             BuildTopClusters();
             _loading = false;
         }
+    }
+
+    private List<NewsDto> CleanItems(List<NewsDto>? items)
+    {
+        if (items == null) return new List<NewsDto>();
+        
+        return items.Select(i => 
+        {
+            var cleanTitle = i.Title
+                .Replace("[포토]", "").Replace("[사진]", "")
+                .Replace("(포토)", "").Replace("(사진)", "")
+                .Replace("【포토】", "").Replace("【사진】", "")
+                .Trim();
+            return i with { Title = cleanTitle };
+        }).ToList();
     }
 
     private List<NewsDto> GetSampleData() =>
