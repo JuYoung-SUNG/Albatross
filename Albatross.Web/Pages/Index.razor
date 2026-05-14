@@ -15,12 +15,7 @@
                 </button>
             </div>
         </div>
-        <p class="subtitle">전 세계의 최신 뉴스를 한눈에</p>
-        
-        <div class="filter-tabs">
-            <button class="@(_filterType == FilterType.Category ? "active" : "")" @onclick="() => SetFilter(FilterType.Category)">분야별 보기</button>
-            <button class="@(_filterType == FilterType.Country ? "active" : "")" @onclick="() => SetFilter(FilterType.Country)">국가별 보기</button>
-        </div>
+        <p class="subtitle">실시간 전 세계 주요 이슈 TOP 10</p>
     </div>
 
     <div class="content-area">
@@ -41,81 +36,51 @@
         }
         else
         {
-            <div class="news-sections">
-                @foreach (var group in GroupedItems)
+            <div class="news-grid">
+                @foreach (var cluster in TopClusters)
                 {
-                    <section class="category-section">
-                        <h2 class="category-title" @onclick="() => ToggleSection(group.Key)" style="cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                            <span>@group.Key</span>
-                            <span style="font-size: 1rem; color: var(--accent);">@(_expandedSections.Contains(group.Key) ? "▼" : "▶")</span>
-                        </h2>
-                        @if (_expandedSections.Contains(group.Key))
-                        {
-                            var secondaryType = _filterType == FilterType.Category ? FilterType.Country : FilterType.Category;
-                            var subGroups = group.GroupBy(i => secondaryType == FilterType.Category ? i.Category : i.Country)
-                                                 .OrderBy(g => GetOrder(g.Key, secondaryType));
+                    var item = cluster.MainItem;
+                    var clusterId = item.Id;
+                    var hasRelated = cluster.RelatedItems.Any();
 
-                            foreach (var subGroup in subGroups)
-                            {
-                                var subKey = $"{group.Key}:{subGroup.Key}";
-                                <h3 class="subcategory-title" @onclick="() => ToggleSubSection(subKey)" style="cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                    <span>@subGroup.Key</span>
-                                    <span style="font-size: 0.9rem; color: var(--accent); opacity: 0.8;">@(_expandedSubSections.Contains(subKey) ? "▼" : "▶")</span>
-                                </h3>
-                                
-                                @if (_expandedSubSections.Contains(subKey))
-                                {
-                                    <div class="news-grid">
-                                    @foreach (var cluster in GroupIntoClusters(subGroup))
-                                    {
-                                        var item = cluster.MainItem;
-                                        var clusterId = item.Id;
-                                        var hasRelated = cluster.RelatedItems.Any();
-
-                                        <div class="news-cluster">
-                                            <div class="news-card-content" style="padding: 1.5rem;">
-                                                <div class="card-meta">
-                                                    @{
-                                                        var allSources = new[] { cluster.MainItem.Source }.Concat(cluster.RelatedItems.Select(r => r.Source)).Distinct().ToList();
-                                                    }
-                                                    <span class="source-badge" style="background: #28a745;">
-                                                        @string.Join(", ", allSources.Take(2)) @(allSources.Count > 2 ? "외" : "") 보도
-                                                    </span>
-                                                    <span class="time">@FormatTime(item.PublishedAt)</span>
-                                                </div>
-                                                
-                                                <h4 style="margin-top: 1rem; font-size: 1.2rem; color: var(--text-color); font-weight: bold;">
-                                                    @GenerateShortSummary(cluster)
-                                                </h4>
-                                            </div>
-
-                                            <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)">
-                                                🔗 관련 기사 @(cluster.RelatedItems.Count + 1) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "목록 보기 ▼")
-                                            </button>
-                                            
-                                            @if (_expandedRelated.Contains(clusterId))
-                                            {
-                                                <div class="related-list">
-                                                    <a href="@cluster.MainItem.Url" target="_blank" class="related-item">
-                                                        <span class="related-source">@cluster.MainItem.Source</span>
-                                                        <span class="related-title">@cluster.MainItem.Title</span>
-                                                    </a>
-                                                    @foreach (var related in cluster.RelatedItems)
-                                                    {
-                                                        <a href="@related.Url" target="_blank" class="related-item">
-                                                            <span class="related-source">@related.Source</span>
-                                                            <span class="related-title">@related.Title</span>
-                                                        </a>
-                                                    }
-                                                </div>
-                                            }
-                                        </div>
-                                    }
-                                </div>
+                    <div class="news-cluster">
+                        <div class="news-card-content" style="padding: 1.5rem;">
+                            <div class="card-meta">
+                                @{
+                                    var allSources = new[] { cluster.MainItem.Source }.Concat(cluster.RelatedItems.Select(r => r.Source)).Distinct().ToList();
                                 }
-                            }
+                                <span class="source-badge" style="background: #28a745;">
+                                    @string.Join(", ", allSources.Take(2)) @(allSources.Count > 2 ? "외" : "") 보도
+                                </span>
+                                <span class="time">@FormatTime(item.PublishedAt)</span>
+                            </div>
+                            
+                            <h4 style="margin-top: 1rem; font-size: 1.2rem; color: var(--text-color); font-weight: bold;">
+                                @GenerateShortSummary(cluster)
+                            </h4>
+                        </div>
+
+                        <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)">
+                            🔗 관련 기사 @(cluster.RelatedItems.Count + 1) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "목록 보기 ▼")
+                        </button>
+                        
+                        @if (_expandedRelated.Contains(clusterId))
+                        {
+                            <div class="related-list">
+                                <a href="@cluster.MainItem.Url" target="_blank" class="related-item">
+                                    <span class="related-source">@cluster.MainItem.Source</span>
+                                    <span class="related-title">@cluster.MainItem.Title</span>
+                                </a>
+                                @foreach (var related in cluster.RelatedItems)
+                                {
+                                    <a href="@related.Url" target="_blank" class="related-item">
+                                        <span class="related-source">@related.Source</span>
+                                        <span class="related-title">@related.Title</span>
+                                    </a>
+                                }
+                            </div>
                         }
-                    </section>
+                    </div>
                 }
             </div>
         }
@@ -169,44 +134,7 @@
         font-weight: bold;
     }
 
-    .filter-tabs { display: flex; gap: 1rem; margin-top: 1.5rem; }
-    .filter-tabs button {
-        padding: 0.5rem 1.5rem;
-        border: none;
-        background: transparent;
-        color: var(--text-color);
-        cursor: pointer;
-        font-weight: bold;
-        border-bottom: 3px solid transparent;
-        transition: all 0.2s;
-        opacity: 0.7;
-    }
-    .filter-tabs button.active {
-        opacity: 1;
-        border-bottom-color: var(--accent);
-        color: var(--accent);
-    }
-
     .content-area { padding: 0 5%; }
-
-    .category-section { margin-bottom: 3rem; }
-    .category-title { 
-        font-size: 1.5rem; 
-        border-left: 5px solid var(--accent); 
-        padding-left: 1rem; 
-        margin-bottom: 1.5rem;
-        color: var(--text-color);
-    }
-
-    .subcategory-title {
-        font-size: 1.2rem;
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-        color: var(--text-color);
-        opacity: 0.9;
-        padding-left: 0.5rem;
-        border-left: 3px solid var(--border-color);
-    }
 
     .news-grid { 
         display: grid; 
@@ -294,51 +222,17 @@
 </style>
 
 @code {
-    private enum FilterType { Category, Country }
-    private FilterType _filterType = FilterType.Category;
     private bool _darkMode = false;
-    private HashSet<string> _expandedSections = new();
-    private HashSet<string> _expandedSubSections = new();
     private HashSet<string> _expandedRelated = new();
     private bool _loading = true;
     private string? _error;
     private List<NewsDto>? _items;
 
-    private IEnumerable<IGrouping<string, NewsDto>> GroupedItems => 
-        (_items ?? Enumerable.Empty<NewsDto>())
-        .GroupBy(i => _filterType == FilterType.Category ? i.Category : i.Country)
-        .OrderBy(g => GetOrder(g.Key, _filterType));
-
-    private int GetOrder(string key, FilterType type)
-    {
-        if (type == FilterType.Category)
-            return key switch { "정치" => 0, "경제" => 1, "사회" => 2, "IT" => 3, "일반" => 4, "스포츠" => 5, _ => 6 };
-        else
-            return key switch { "한국" => 0, "미국" => 1, "영국" => 2, "중국" => 3, _ => 4 };
-    }
-
-    private void SetFilter(FilterType type)
-    {
-        _filterType = type;
-        _expandedSections.Clear();
-        _expandedSubSections.Clear();
-    }
-
-    private void ToggleSection(string key)
-    {
-        if (_expandedSections.Contains(key))
-            _expandedSections.Remove(key);
-        else
-            _expandedSections.Add(key);
-    }
-
-    private void ToggleSubSection(string subKey)
-    {
-        if (_expandedSubSections.Contains(subKey))
-            _expandedSubSections.Remove(subKey);
-        else
-            _expandedSubSections.Add(subKey);
-    }
+    private IEnumerable<NewsCluster> TopClusters => 
+        GroupIntoClusters(_items ?? Enumerable.Empty<NewsDto>())
+        .OrderByDescending(c => c.RelatedItems.Count)
+        .ThenByDescending(c => c.MainItem.PublishedAt)
+        .Take(10);
 
     private void ToggleRelated(string clusterId)
     {
