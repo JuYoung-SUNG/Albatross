@@ -57,20 +57,28 @@
 
                             foreach (var subGroup in subGroups)
                             {
-                                <h3 class="subcategory-title">@subGroup.Key</h3>
-                                <div class="news-grid">
-                                    @foreach (var item in subGroup)
-                                    {
-                                        <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
-                                            <div class="card-meta">
-                                                <span class="source-badge">@item.Source</span>
-                                                <span class="time">@FormatTime(item.PublishedAt)</span>
-                                            </div>
-                                            <h4>@item.Title</h4>
-                                            <p class="summary">@item.Summary</p>
-                                        </a>
-                                    }
-                                </div>
+                                var subKey = $"{group.Key}:{subGroup.Key}";
+                                <h3 class="subcategory-title" @onclick="() => ToggleSubSection(subKey)" style="cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+                                    <span>@subGroup.Key</span>
+                                    <span style="font-size: 0.9rem; color: var(--accent); opacity: 0.8;">@(_expandedSubSections.Contains(subKey) ? "▼" : "▶")</span>
+                                </h3>
+                                
+                                @if (_expandedSubSections.Contains(subKey))
+                                {
+                                    <div class="news-grid">
+                                        @foreach (var item in subGroup)
+                                        {
+                                            <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
+                                                <div class="card-meta">
+                                                    <span class="source-badge">@item.Source</span>
+                                                    <span class="time">@FormatTime(item.PublishedAt)</span>
+                                                </div>
+                                                <h4>@item.Title</h4>
+                                                <p class="summary">@item.Summary</p>
+                                            </a>
+                                        }
+                                    </div>
+                                }
                             }
                         }
                     </section>
@@ -201,6 +209,7 @@
     private FilterType _filterType = FilterType.Category;
     private bool _darkMode = false;
     private HashSet<string> _expandedSections = new();
+    private HashSet<string> _expandedSubSections = new();
     private bool _loading = true;
     private string? _error;
     private List<NewsDto>? _items;
@@ -222,6 +231,7 @@
     {
         _filterType = type;
         _expandedSections.Clear();
+        _expandedSubSections.Clear();
     }
 
     private void ToggleSection(string key)
@@ -230,6 +240,14 @@
             _expandedSections.Remove(key);
         else
             _expandedSections.Add(key);
+    }
+
+    private void ToggleSubSection(string subKey)
+    {
+        if (_expandedSubSections.Contains(subKey))
+            _expandedSubSections.Remove(subKey);
+        else
+            _expandedSubSections.Add(subKey);
     }
 
     protected override async Task OnInitializedAsync()
