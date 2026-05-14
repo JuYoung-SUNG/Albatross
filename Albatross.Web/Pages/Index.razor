@@ -66,8 +66,13 @@
                                 @if (_expandedSubSections.Contains(subKey))
                                 {
                                     <div class="news-grid">
-                                        @foreach (var item in subGroup)
-                                        {
+                                    @foreach (var cluster in GroupIntoClusters(subGroup))
+                                    {
+                                        var item = cluster.MainItem;
+                                        var clusterId = item.Id;
+                                        var hasRelated = cluster.RelatedItems.Any();
+
+                                        <div class="news-cluster">
                                             <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
                                                 <div class="card-meta">
                                                     <span class="source-badge">@item.Source</span>
@@ -76,8 +81,28 @@
                                                 <h4>@item.Title</h4>
                                                 <p class="summary">@item.Summary</p>
                                             </a>
-                                        }
-                                    </div>
+
+                                            @if (hasRelated)
+                                            {
+                                                <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)">
+                                                    🔗 유사 기사 @cluster.RelatedItems.Count 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "더보기 ▼")
+                                                </button>
+                                                @if (_expandedRelated.Contains(clusterId))
+                                                {
+                                                    <div class="related-list">
+                                                        @foreach (var related in cluster.RelatedItems)
+                                                        {
+                                                            <a href="@related.Url" target="_blank" class="related-item">
+                                                                <span class="related-source">@related.Source</span>
+                                                                <span class="related-title">@related.Title</span>
+                                                            </a>
+                                                        }
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                    }
+                                </div>
                                 }
                             }
                         }
@@ -180,19 +205,77 @@
         gap: 1.5rem; 
     }
 
+    .news-cluster {
+        display: flex;
+        flex-direction: column;
+        background: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        overflow: hidden;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .news-cluster:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
     .news-card {
         display: flex;
         flex-direction: column;
         padding: 1.5rem;
-        background: var(--card-bg);
-        border-radius: 12px;
-        box-shadow: var(--shadow);
         text-decoration: none;
         color: inherit;
-        transition: transform 0.2s, box-shadow 0.2s;
-        border: 1px solid var(--border-color);
     }
-    .news-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+    .related-toggle {
+        background: rgba(0, 123, 255, 0.05);
+        border: none;
+        border-top: 1px solid var(--border-color);
+        padding: 0.8rem;
+        width: 100%;
+        text-align: center;
+        color: var(--accent);
+        font-weight: bold;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .related-toggle:hover { background: rgba(0, 123, 255, 0.1); }
+
+    .related-list {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid var(--border-color);
+        background: rgba(0,0,0,0.02);
+    }
+    .dark-mode .related-list { background: rgba(255,255,255,0.02); }
+
+    .related-item {
+        padding: 0.8rem 1.5rem;
+        text-decoration: none;
+        color: var(--text-color);
+        font-size: 0.9rem;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        transition: background 0.2s;
+    }
+    .related-item:last-child { border-bottom: none; }
+    .related-item:hover { background: rgba(0,0,0,0.05); }
+    .dark-mode .related-item:hover { background: rgba(255,255,255,0.05); }
+
+    .related-source {
+        font-size: 0.7rem;
+        background: #6c757d;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 4px;
+        white-space: nowrap;
+    }
+    .related-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
     .card-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem; font-size: 0.75rem; opacity: 0.8; }
     .source-badge { background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; }
@@ -210,6 +293,7 @@
     private bool _darkMode = false;
     private HashSet<string> _expandedSections = new();
     private HashSet<string> _expandedSubSections = new();
+    private HashSet<string> _expandedRelated = new();
     private bool _loading = true;
     private string? _error;
     private List<NewsDto>? _items;
@@ -249,6 +333,60 @@
         else
             _expandedSubSections.Add(subKey);
     }
+
+    private void ToggleRelated(string clusterId)
+    {
+        if (_expandedRelated.Contains(clusterId))
+            _expandedRelated.Remove(clusterId);
+        else
+            _expandedRelated.Add(clusterId);
+    }
+
+    // --- Clustering Logic ---
+    private IEnumerable<NewsCluster> GroupIntoClusters(IEnumerable<NewsDto> items)
+    {
+        var clusters = new List<NewsCluster>();
+        foreach (var item in items)
+        {
+            var matchedCluster = clusters.FirstOrDefault(c => IsSimilar(c.MainItem.Title, item.Title));
+            if (matchedCluster != null)
+            {
+                matchedCluster.RelatedItems.Add(item);
+            }
+            else
+            {
+                clusters.Add(new NewsCluster(item, new List<NewsDto>()));
+            }
+        }
+        return clusters;
+    }
+
+    private static readonly string[] StopWords = { "의", "는", "이", "가", "은", "를", "에", "대해", "그리고", "따라", "로", "과", "와", "다", "로", "에서", "부터", "까지", "에게" };
+
+    private bool IsSimilar(string title1, string title2)
+    {
+        var words1 = GetSignificantWords(title1);
+        var words2 = GetSignificantWords(title2);
+
+        if (words1.Count == 0 || words2.Count == 0) return false;
+
+        var intersection = words1.Intersect(words2).Count();
+        var union = words1.Union(words2).Count();
+        
+        if (union == 0) return false;
+        
+        var similarity = (double)intersection / union;
+        return similarity >= 0.25; // 25% 이상 단어가 겹치면 유사 기사로 판별
+    }
+
+    private HashSet<string> GetSignificantWords(string text)
+    {
+        return text.Split(new[] { ' ', ',', '.', '!', '?', '\'', '\"', '[', ']', '(', ')', ':', '-', '·', '‘', '’', '“', '”' }, StringSplitOptions.RemoveEmptyEntries)
+                   .Where(w => w.Length > 1 && !StopWords.Contains(w))
+                   .Select(w => w.ToLower())
+                   .ToHashSet();
+    }
+    // ------------------------
 
     protected override async Task OnInitializedAsync()
     {
@@ -295,4 +433,8 @@
         DateTimeOffset PublishedAt,
         string Category,
         string Country);
+
+    private record NewsCluster(
+        NewsDto MainItem,
+        List<NewsDto> RelatedItems);
 }
