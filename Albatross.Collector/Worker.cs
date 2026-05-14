@@ -52,7 +52,7 @@ namespace Albatross.Collector
                         var opts = new System.Text.Json.JsonSerializerOptions { PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase, WriteIndented = true };
 
                         // convert to simple DTO for frontend
-                        var dto = items.Select(i => new { id = i.Id, title = i.Title, summary = i.Summary, url = i.Url, publishedAt = i.PublishedAt, source = i.Source, category = i.Category });
+                        var dto = items.Select(i => new { id = i.Id, title = i.Title, summary = i.Summary, url = i.Url, publishedAt = i.PublishedAt, source = i.Source, category = i.Category, country = i.Country });
                         await System.IO.File.WriteAllTextAsync(outPath, System.Text.Json.JsonSerializer.Serialize(dto, opts), stoppingToken);
                         _logger.LogInformation("Wrote {path}", outPath);
                     }
