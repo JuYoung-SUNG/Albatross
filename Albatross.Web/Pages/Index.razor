@@ -5,90 +5,201 @@
 
 <PageTitle>Albatross 뉴스</PageTitle>
 
-<div class="hero">
-    <h1>🦅 Albatross News</h1>
-    <p class="subtitle">최신 뉴스를 한눈에</p>
-</div>
-
-@if (_loading)
-{
-    <div class="loading">
-        <div class="spinner"></div>
-        <p>뉴스를 불러오는 중...</p>
+<div class="app-container @(_darkMode ? "dark-mode" : "light-mode")">
+    <div class="hero">
+        <div class="header-top">
+            <h1>🦅 Albatross News</h1>
+            <div class="controls">
+                <button class="theme-toggle" @onclick="() => _darkMode = !_darkMode">
+                    @(_darkMode ? "🌞 Light" : "🌙 Dark")
+                </button>
+            </div>
+        </div>
+        <p class="subtitle">전 세계의 최신 뉴스를 한눈에</p>
+        
+        <div class="filter-tabs">
+            <button class="@(_filterType == FilterType.Category ? "active" : "")" @onclick="() => _filterType = FilterType.Category">분야별 보기</button>
+            <button class="@(_filterType == FilterType.Country ? "active" : "")" @onclick="() => _filterType = FilterType.Country">국가별 보기</button>
+        </div>
     </div>
-}
-else if (_error is not null)
-{
-    <div class="error-box">⚠️ @_error</div>
-}
-else if (_items is null || !_items.Any())
-{
-    <div class="empty">수집된 뉴스가 없습니다. Collector를 먼저 실행해 주세요.</div>
-}
-else
-{
-    <div class="news-sections">
-        @foreach (var categoryGroup in GroupedItems)
+
+    <div class="content-area">
+        @if (_loading)
         {
-            <section class="category-section">
-                <h2 class="category-title">@categoryGroup.Key</h2>
-                <div class="news-grid">
-                    @foreach (var item in categoryGroup)
-                    {
-                        <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
-                            <div class="card-meta">
-                                <span class="source-badge">@item.Source</span>
-                                <span class="time">@FormatTime(item.PublishedAt)</span>
-                            </div>
-                            <h3>@item.Title</h3>
-                            <p class="summary">@item.Summary</p>
-                        </a>
-                    }
-                </div>
-            </section>
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>뉴스를 불러오는 중...</p>
+            </div>
+        }
+        else if (_error is not null)
+        {
+            <div class="error-box">⚠️ @_error</div>
+        }
+        else if (_items is null || !_items.Any())
+        {
+            <div class="empty">수집된 뉴스가 없습니다. Collector를 먼저 실행해 주세요.</div>
+        }
+        else
+        {
+            <div class="news-sections">
+                @foreach (var group in GroupedItems)
+                {
+                    <section class="category-section">
+                        <h2 class="category-title">@group.Key</h2>
+                        <div class="news-grid">
+                            @foreach (var item in group)
+                            {
+                                <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
+                                    <div class="card-meta">
+                                        <span class="source-badge">@item.Source</span>
+                                        @if (_filterType == FilterType.Category)
+                                        {
+                                            <span class="country-badge">@item.Country</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="category-badge">@item.Category</span>
+                                        }
+                                        <span class="time">@FormatTime(item.PublishedAt)</span>
+                                    </div>
+                                    <h3>@item.Title</h3>
+                                    <p class="summary">@item.Summary</p>
+                                </a>
+                            }
+                        </div>
+                    </section>
+                }
+            </div>
         }
     </div>
-}
+</div>
 
 <style>
+    :root {
+        --bg-color: #f8f9fa;
+        --text-color: #333;
+        --card-bg: white;
+        --hero-bg: #fff;
+        --border-color: #eee;
+        --shadow: 0 4px 6px rgba(0,0,0,0.05);
+        --accent: #007bff;
+    }
+
+    .dark-mode {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --card-bg: #1e1e1e;
+        --hero-bg: #181818;
+        --border-color: #333;
+        --shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .app-container { 
+        min-height: 100vh; 
+        background-color: var(--bg-color); 
+        color: var(--text-color); 
+        transition: background-color 0.3s, color 0.3s;
+        padding-bottom: 3rem;
+    }
+
+    .hero { 
+        background-color: var(--hero-bg); 
+        padding: 2rem 5%; 
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 2rem;
+    }
+
+    .header-top { display: flex; justify-content: space-between; align-items: center; }
+    
+    .theme-toggle {
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        background: var(--card-bg);
+        color: var(--text-color);
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .filter-tabs { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    .filter-tabs button {
+        padding: 0.5rem 1.5rem;
+        border: none;
+        background: transparent;
+        color: var(--text-color);
+        cursor: pointer;
+        font-weight: bold;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s;
+        opacity: 0.7;
+    }
+    .filter-tabs button.active {
+        opacity: 1;
+        border-bottom-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .content-area { padding: 0 5%; }
+
     .category-section { margin-bottom: 3rem; }
     .category-title { 
         font-size: 1.5rem; 
-        border-left: 5px solid #007bff; 
+        border-left: 5px solid var(--accent); 
         padding-left: 1rem; 
         margin-bottom: 1.5rem;
-        color: #333;
+        color: var(--text-color);
     }
-    .card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; font-size: 0.8rem; }
+
     .news-grid { 
         display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
         gap: 1.5rem; 
     }
+
     .news-card {
-        display: block;
+        display: flex;
+        flex-direction: column;
         padding: 1.5rem;
-        background: white;
+        background: var(--card-bg);
         border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        box-shadow: var(--shadow);
         text-decoration: none;
         color: inherit;
         transition: transform 0.2s, box-shadow 0.2s;
+        border: 1px solid var(--border-color);
     }
-    .news-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-    .news-card h3 { font-size: 1.1rem; margin: 0.5rem 0; line-height: 1.4; }
-    .summary { font-size: 0.9rem; color: #666; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .news-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+    .card-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem; font-size: 0.75rem; opacity: 0.8; }
+    .source-badge { background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; }
+    .country-badge, .category-badge { border: 1px solid var(--border-color); padding: 2px 8px; border-radius: 4px; }
+
+    .news-card h3 { font-size: 1.1rem; margin: 0.5rem 0; line-height: 1.4; font-weight: 600; }
+    .summary { font-size: 0.9rem; color: var(--text-color); opacity: 0.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+    .loading, .empty, .error-box { text-align: center; padding: 4rem; font-size: 1.2rem; }
 </style>
 
 @code {
+    private enum FilterType { Category, Country }
+    private FilterType _filterType = FilterType.Category;
+    private bool _darkMode = false;
     private bool _loading = true;
     private string? _error;
     private List<NewsDto>? _items;
 
     private IEnumerable<IGrouping<string, NewsDto>> GroupedItems => 
         (_items ?? Enumerable.Empty<NewsDto>())
-        .GroupBy(i => i.Category)
-        .OrderBy(g => g.Key == "정치" ? 0 : g.Key == "사회" ? 1 : g.Key == "스포츠" ? 2 : 3);
+        .GroupBy(i => _filterType == FilterType.Category ? i.Category : i.Country)
+        .OrderBy(g => GetOrder(g.Key));
+
+    private int GetOrder(string key)
+    {
+        if (_filterType == FilterType.Category)
+            return key switch { "정치" => 0, "경제" => 1, "사회" => 2, "IT" => 3, "스포츠" => 4, _ => 5 };
+        else
+            return key switch { "한국" => 0, "미국" => 1, "영국" => 2, "중국" => 3, _ => 4 };
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -98,13 +209,7 @@ else
         }
         catch (HttpRequestException)
         {
-            _items =
-            [
-                new NewsDto("1", "정치 뉴스 예시", "정치 카테고리의 뉴스입니다.", "https://github.com", "Albatross", DateTimeOffset.Now, "정치"),
-                new NewsDto("2", "사회 뉴스 예시", "사회 카테고리의 뉴스입니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-5), "사회"),
-                new NewsDto("3", "스포츠 뉴스 예시", "스포츠 카테고리의 뉴스입니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-10), "스포츠"),
-                new NewsDto("4", "IT 뉴스 예시", "IT 기술 카테고리의 뉴스입니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-15), "IT/기술"),
-            ];
+            _items = GetSampleData();
         }
         catch (Exception ex)
         {
@@ -116,14 +221,20 @@ else
         }
     }
 
+    private List<NewsDto> GetSampleData() =>
+    [
+        new NewsDto("1", "한국 기술 혁신 소식", "한국의 IT 산업이 글로벌 시장에서 주목받고 있습니다.", "https://github.com", "Albatross", DateTimeOffset.Now, "IT", "한국"),
+        new NewsDto("2", "미국 경제 지표 발표", "미국 연준의 금리 동결 소식에 증시가 반응하고 있습니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-10), "경제", "미국"),
+        new NewsDto("3", "영국 스포츠 리그 결승", "프리미어리그 결승전에서 극적인 역전승이 나왔습니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-20), "스포츠", "영국"),
+        new NewsDto("4", "중국 시장 경제 전망", "중국의 기술 수출 규모가 작년 대비 크게 성장했습니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-30), "경제", "중국")
+    ];
+
     private static string FormatTime(DateTimeOffset dt)
     {
         var diff = DateTimeOffset.Now - dt;
-        return diff.TotalMinutes < 60
-            ? $"{(int)diff.TotalMinutes}분 전"
-            : diff.TotalHours < 24
-                ? $"{(int)diff.TotalHours}시간 전"
-                : dt.ToString("MM/dd HH:mm");
+        return diff.TotalMinutes < 60 ? $"{(int)diff.TotalMinutes}분 전" :
+               diff.TotalHours < 24 ? $"{(int)diff.TotalHours}시간 전" :
+               dt.ToString("MM/dd HH:mm");
     }
 
     private record NewsDto(
@@ -133,5 +244,6 @@ else
         string Url,
         string Source,
         DateTimeOffset PublishedAt,
-        string Category);
+        string Category,
+        string Country);
 }
