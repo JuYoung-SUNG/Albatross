@@ -75,51 +75,39 @@
                                         <div class="news-cluster">
                                             <div class="news-card-content" style="padding: 1.5rem;">
                                                 <div class="card-meta">
-                                                    @if (hasRelated)
-                                                    {
+                                                    @{
                                                         var allSources = new[] { cluster.MainItem.Source }.Concat(cluster.RelatedItems.Select(r => r.Source)).Distinct().ToList();
-                                                        <span class="source-badge" style="background: #28a745;">@string.Join(", ", allSources.Take(3)) @(allSources.Count > 3 ? "외" : "") 집중 보도</span>
                                                     }
-                                                    else
-                                                    {
-                                                        <span class="source-badge">@item.Source</span>
-                                                    }
+                                                    <span class="source-badge" style="background: #28a745;">
+                                                        @string.Join(", ", allSources.Take(2)) @(allSources.Count > 2 ? "외" : "") 보도
+                                                    </span>
                                                     <span class="time">@FormatTime(item.PublishedAt)</span>
                                                 </div>
-                                                <a href="@item.Url" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                                                    <h4>@item.Title</h4>
-                                                </a>
                                                 
-                                                @if (hasRelated)
-                                                {
-                                                    var keywords = GetSignificantWords(item.Title).Take(4);
-                                                    <div class="cluster-keywords" style="margin-bottom: 0.5rem;">
-                                                        @foreach (var kw in keywords)
-                                                        {
-                                                            <span style="color: var(--accent); font-size: 0.85rem; font-weight: bold; margin-right: 0.5rem;">#@kw</span>
-                                                        }
-                                                    </div>
-                                                }
-                                                <p class="summary">@item.Summary</p>
+                                                <h4 style="margin-top: 1rem; font-size: 1.2rem; color: var(--text-color); font-weight: bold;">
+                                                    @GenerateShortSummary(cluster)
+                                                </h4>
                                             </div>
 
-                                            @if (hasRelated)
+                                            <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)">
+                                                🔗 관련 기사 @(cluster.RelatedItems.Count + 1) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "목록 보기 ▼")
+                                            </button>
+                                            
+                                            @if (_expandedRelated.Contains(clusterId))
                                             {
-                                                <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)">
-                                                    🔗 유사 기사 @cluster.RelatedItems.Count 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "더보기 ▼")
-                                                </button>
-                                                @if (_expandedRelated.Contains(clusterId))
-                                                {
-                                                    <div class="related-list">
-                                                        @foreach (var related in cluster.RelatedItems)
-                                                        {
-                                                            <a href="@related.Url" target="_blank" class="related-item">
-                                                                <span class="related-source">@related.Source</span>
-                                                                <span class="related-title">@related.Title</span>
-                                                            </a>
-                                                        }
-                                                    </div>
-                                                }
+                                                <div class="related-list">
+                                                    <a href="@cluster.MainItem.Url" target="_blank" class="related-item">
+                                                        <span class="related-source">@cluster.MainItem.Source</span>
+                                                        <span class="related-title">@cluster.MainItem.Title</span>
+                                                    </a>
+                                                    @foreach (var related in cluster.RelatedItems)
+                                                    {
+                                                        <a href="@related.Url" target="_blank" class="related-item">
+                                                            <span class="related-source">@related.Source</span>
+                                                            <span class="related-title">@related.Title</span>
+                                                        </a>
+                                                    }
+                                                </div>
                                             }
                                         </div>
                                     }
@@ -403,6 +391,33 @@
                    .Where(w => w.Length > 1 && !StopWords.Contains(w))
                    .Select(w => w.ToLower())
                    .ToHashSet();
+    }
+
+    private string GenerateShortSummary(NewsCluster cluster)
+    {
+        var allTitles = new List<string> { cluster.MainItem.Title };
+        allTitles.AddRange(cluster.RelatedItems.Select(x => x.Title));
+
+        var wordCounts = allTitles
+            .SelectMany(GetSignificantWords)
+            .GroupBy(w => w)
+            .OrderByDescending(g => g.Count())
+            .Select(g => g.Key)
+            .ToList();
+
+        if (wordCounts.Count >= 2)
+        {
+            var summary = $"[{wordCounts[0]}·{wordCounts[1]}] 관련 주요 소식";
+            return summary.Length > 20 ? summary.Substring(0, 18) + ".." : summary;
+        }
+        else if (wordCounts.Count == 1)
+        {
+            var summary = $"[{wordCounts[0]}] 관련 주요 소식";
+            return summary.Length > 20 ? summary.Substring(0, 18) + ".." : summary;
+        }
+        
+        var title = cluster.MainItem.Title;
+        return title.Length > 20 ? title.Substring(0, 18) + ".." : title;
     }
     // ------------------------
 
