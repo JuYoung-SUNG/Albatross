@@ -13,14 +13,29 @@ public class RssNewsScraperService : INewsService
     private readonly HttpClient _http;
     private readonly ILogger<RssNewsScraperService> _logger;
 
-    // 수집할 공개 RSS 피드 목록 (카테고리별)
-    private static readonly (string Source, string Url, string Category)[] RssFeeds =
+    // 수집할 공개 RSS 피드 목록 (카테고리별, 국가별)
+    private static readonly (string Source, string Url, string Category, string Country)[] RssFeeds =
     [
-        ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/politics/?outputType=xml", "정치"),
-        ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/national/?outputType=xml", "사회"),
-        ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/sports/?outputType=xml",   "스포츠"),
-        ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/technology/?outputType=xml", "IT/기술"),
-        ("Hacker News", "https://hnrss.org/frontpage", "해외/IT"),
+        // 한국
+        ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/politics/?outputType=xml", "정치", "한국"),
+        ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/national/?outputType=xml", "사회", "한국"),
+        ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/sports/?outputType=xml",   "스포츠", "한국"),
+        ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/technology/?outputType=xml", "IT", "한국"),
+        ("매일경제", "https://www.mk.co.kr/rss/30000001/", "경제", "한국"),
+        
+        // 미국
+        ("CNN", "http://rss.cnn.com/rss/edition.rss", "일반", "미국"),
+        ("NY Times", "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml", "경제", "미국"),
+        ("NY Times", "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml", "IT", "미국"),
+        ("Hacker News", "https://hnrss.org/frontpage", "IT", "미국"),
+
+        // 영국
+        ("BBC", "http://feeds.bbci.co.uk/news/rss.xml", "일반", "영국"),
+        ("BBC", "http://feeds.bbci.co.uk/news/business/rss.xml", "경제", "영국"),
+
+        // 중국 (영문 서비스 위주)
+        ("SCMP", "https://www.scmp.com/rss/2/feed", "일반", "중국"),
+        ("SCMP", "https://www.scmp.com/rss/92/feed", "경제", "중국")
     ];
 
     public RssNewsScraperService(HttpClient http, ILogger<RssNewsScraperService> logger)
@@ -33,14 +48,14 @@ public class RssNewsScraperService : INewsService
     {
         var results = new List<NewsItem>();
 
-        foreach (var (source, feedUrl, category) in RssFeeds)
+        foreach (var (source, feedUrl, category, country) in RssFeeds)
         {
             try
             {
                 var xml = await _http.GetStringAsync(feedUrl, cancellationToken);
-                var items = ParseRss(xml, source, category);
+                var items = ParseRss(xml, source, category, country);
                 results.AddRange(items);
-                _logger.LogInformation("Fetched {count} items from {source} ({category})", items.Count, source, category);
+                _logger.LogInformation("Fetched {count} items from {source} ({category}/{country})", items.Count, source, category, country);
             }
             catch (Exception ex)
             {
@@ -50,10 +65,10 @@ public class RssNewsScraperService : INewsService
 
         return results
             .OrderByDescending(i => i.PublishedAt)
-            .Take(100); // 카테고리가 많아졌으므로 100개로 상향
+            .Take(200); // 데이터가 많아졌으므로 200개로 상향
     }
 
-    private static List<NewsItem> ParseRss(string xml, string source, string category)
+    private static List<NewsItem> ParseRss(string xml, string source, string category, string country)
     {
         var doc = XDocument.Parse(xml);
         XNamespace? dc = "http://purl.org/dc/elements/1.1/";
@@ -77,7 +92,8 @@ public class RssNewsScraperService : INewsService
                 return new NewsItem(guid, title, cleanSummary, link, publishedAt)
                 {
                     Source = source,
-                    Category = category
+                    Category = category,
+                    Country = country
                 };
             })
             .ToList();
