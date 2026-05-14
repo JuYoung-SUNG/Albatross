@@ -42,9 +42,10 @@
                     var item = cluster.MainItem;
                     var clusterId = item.Id;
                     var hasRelated = cluster.RelatedItems.Any();
+                    var imageSeed = Math.Abs(clusterId.GetHashCode());
 
                     <div class="news-cluster">
-                        <div class="chapter-image" style="background-image: url('https://picsum.photos/seed/@clusterId/800/400');"></div>
+                        <div class="chapter-image" style="background-image: url('https://picsum.photos/seed/@imageSeed/800/400');"></div>
                         <div class="news-card-content" style="padding: 2rem;">
                             <div class="card-meta">
                                 @{
