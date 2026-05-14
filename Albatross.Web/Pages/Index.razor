@@ -37,7 +37,7 @@
         else
         {
             <div class="news-grid">
-                @foreach (var cluster in TopClusters)
+                @foreach (var cluster in _topClusters)
                 {
                     var item = cluster.MainItem;
                     var clusterId = item.Id;
@@ -227,12 +227,18 @@
     private bool _loading = true;
     private string? _error;
     private List<NewsDto>? _items;
+    private List<NewsCluster> _topClusters = new();
 
-    private IEnumerable<NewsCluster> TopClusters => 
-        GroupIntoClusters(_items ?? Enumerable.Empty<NewsDto>())
-        .OrderByDescending(c => c.RelatedItems.Count)
-        .ThenByDescending(c => c.MainItem.PublishedAt)
-        .Take(10);
+    private void BuildTopClusters()
+    {
+        if (_items == null || !_items.Any()) return;
+
+        _topClusters = GroupIntoClusters(_items)
+            .OrderByDescending(c => c.RelatedItems.Count)
+            .ThenByDescending(c => c.MainItem.PublishedAt)
+            .Take(10)
+            .ToList();
+    }
 
     private void ToggleRelated(string clusterId)
     {
@@ -301,12 +307,12 @@
 
         if (wordCounts.Count >= 2)
         {
-            var summary = $"[{wordCounts[0]}·{wordCounts[1]}] 관련 주요 소식";
+            var summary = $"'{wordCounts[0]}·{wordCounts[1]}' 관련 주요 소식";
             return summary.Length > 20 ? summary.Substring(0, 18) + ".." : summary;
         }
         else if (wordCounts.Count == 1)
         {
-            var summary = $"[{wordCounts[0]}] 관련 주요 소식";
+            var summary = $"'{wordCounts[0]}' 관련 주요 소식";
             return summary.Length > 20 ? summary.Substring(0, 18) + ".." : summary;
         }
         
@@ -331,6 +337,7 @@
         }
         finally
         {
+            BuildTopClusters();
             _loading = false;
         }
     }
