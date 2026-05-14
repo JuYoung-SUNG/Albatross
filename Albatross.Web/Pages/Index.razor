@@ -18,8 +18,8 @@
         <p class="subtitle">전 세계의 최신 뉴스를 한눈에</p>
         
         <div class="filter-tabs">
-            <button class="@(_filterType == FilterType.Category ? "active" : "")" @onclick="() => _filterType = FilterType.Category">분야별 보기</button>
-            <button class="@(_filterType == FilterType.Country ? "active" : "")" @onclick="() => _filterType = FilterType.Country">국가별 보기</button>
+            <button class="@(_filterType == FilterType.Category ? "active" : "")" @onclick="() => SetFilter(FilterType.Category)">분야별 보기</button>
+            <button class="@(_filterType == FilterType.Country ? "active" : "")" @onclick="() => SetFilter(FilterType.Country)">국가별 보기</button>
         </div>
     </div>
 
@@ -45,28 +45,34 @@
                 @foreach (var group in GroupedItems)
                 {
                     <section class="category-section">
-                        <h2 class="category-title">@group.Key</h2>
-                        <div class="news-grid">
-                            @foreach (var item in group)
-                            {
-                                <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
-                                    <div class="card-meta">
-                                        <span class="source-badge">@item.Source</span>
-                                        @if (_filterType == FilterType.Category)
-                                        {
-                                            <span class="country-badge">@item.Country</span>
-                                        }
-                                        else
-                                        {
-                                            <span class="category-badge">@item.Category</span>
-                                        }
-                                        <span class="time">@FormatTime(item.PublishedAt)</span>
-                                    </div>
-                                    <h3>@item.Title</h3>
-                                    <p class="summary">@item.Summary</p>
-                                </a>
-                            }
-                        </div>
+                        <h2 class="category-title" @onclick="() => ToggleSection(group.Key)" style="cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+                            <span>@group.Key</span>
+                            <span style="font-size: 1rem; color: var(--accent);">@(_expandedSections.Contains(group.Key) ? "▼" : "▶")</span>
+                        </h2>
+                        @if (_expandedSections.Contains(group.Key))
+                        {
+                            <div class="news-grid">
+                                @foreach (var item in group)
+                                {
+                                    <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
+                                        <div class="card-meta">
+                                            <span class="source-badge">@item.Source</span>
+                                            @if (_filterType == FilterType.Category)
+                                            {
+                                                <span class="country-badge">@item.Country</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="category-badge">@item.Category</span>
+                                            }
+                                            <span class="time">@FormatTime(item.PublishedAt)</span>
+                                        </div>
+                                        <h3>@item.Title</h3>
+                                        <p class="summary">@item.Summary</p>
+                                    </a>
+                                }
+                            </div>
+                        }
                     </section>
                 }
             </div>
@@ -184,6 +190,7 @@
     private enum FilterType { Category, Country }
     private FilterType _filterType = FilterType.Category;
     private bool _darkMode = false;
+    private HashSet<string> _expandedSections = new();
     private bool _loading = true;
     private string? _error;
     private List<NewsDto>? _items;
@@ -199,6 +206,20 @@
             return key switch { "정치" => 0, "경제" => 1, "사회" => 2, "IT" => 3, "스포츠" => 4, _ => 5 };
         else
             return key switch { "한국" => 0, "미국" => 1, "영국" => 2, "중국" => 3, _ => 4 };
+    }
+
+    private void SetFilter(FilterType type)
+    {
+        _filterType = type;
+        _expandedSections.Clear();
+    }
+
+    private void ToggleSection(string key)
+    {
+        if (_expandedSections.Contains(key))
+            _expandedSections.Remove(key);
+        else
+            _expandedSections.Add(key);
     }
 
     protected override async Task OnInitializedAsync()
