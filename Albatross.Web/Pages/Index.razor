@@ -16,6 +16,15 @@
             </div>
         </div>
         <p class="subtitle">실시간 전 세계 주요 이슈 TOP 10</p>
+        
+        <div class="category-tabs">
+            @foreach (var cat in _categories)
+            {
+                <button class="@(_selectedCategory == cat ? "active" : "")" @onclick="() => SelectCategory(cat)">
+                    @cat
+                </button>
+            }
+        </div>
     </div>
 
     <div class="content-area">
@@ -140,6 +149,32 @@
         font-weight: bold;
     }
 
+    .category-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        justify-content: flex-start;
+    }
+    .category-tabs button {
+        padding: 0.5rem 1.2rem;
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        background: var(--card-bg);
+        color: var(--text-color);
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.2s;
+    }
+    .category-tabs button.active {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+    }
+    .category-tabs button:hover:not(.active) {
+        background: rgba(0, 123, 255, 0.1);
+    }
+
     .content-area { padding: 0 5%; }
 
     .news-grid { 
@@ -244,12 +279,24 @@
     private string? _error;
     private List<NewsDto>? _items;
     private List<NewsCluster> _topClusters = new();
+    private string _selectedCategory = "전체";
+    private readonly string[] _categories = { "전체", "정치", "경제", "사회", "스포츠", "연예", "IT", "일반" };
+
+    private void SelectCategory(string category)
+    {
+        _selectedCategory = category;
+        BuildTopClusters();
+    }
 
     private void BuildTopClusters()
     {
         if (_items == null || !_items.Any()) return;
 
-        _topClusters = GroupIntoClusters(_items)
+        var filteredItems = _selectedCategory == "전체" 
+            ? _items 
+            : _items.Where(i => i.Category == _selectedCategory).ToList();
+
+        _topClusters = GroupIntoClusters(filteredItems)
             .OrderByDescending(c => c.RelatedItems.Count)
             .ThenByDescending(c => c.MainItem.PublishedAt)
             .Take(10)
