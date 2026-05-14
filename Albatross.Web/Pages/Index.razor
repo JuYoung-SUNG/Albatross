@@ -73,14 +73,35 @@
                                         var hasRelated = cluster.RelatedItems.Any();
 
                                         <div class="news-cluster">
-                                            <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
+                                            <div class="news-card-content" style="padding: 1.5rem;">
                                                 <div class="card-meta">
-                                                    <span class="source-badge">@item.Source</span>
+                                                    @if (hasRelated)
+                                                    {
+                                                        var allSources = new[] { cluster.MainItem.Source }.Concat(cluster.RelatedItems.Select(r => r.Source)).Distinct().ToList();
+                                                        <span class="source-badge" style="background: #28a745;">@string.Join(", ", allSources.Take(3)) @(allSources.Count > 3 ? "외" : "") 집중 보도</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="source-badge">@item.Source</span>
+                                                    }
                                                     <span class="time">@FormatTime(item.PublishedAt)</span>
                                                 </div>
-                                                <h4>@item.Title</h4>
+                                                <a href="@item.Url" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                                                    <h4>@item.Title</h4>
+                                                </a>
+                                                
+                                                @if (hasRelated)
+                                                {
+                                                    var keywords = GetSignificantWords(item.Title).Take(4);
+                                                    <div class="cluster-keywords" style="margin-bottom: 0.5rem;">
+                                                        @foreach (var kw in keywords)
+                                                        {
+                                                            <span style="color: var(--accent); font-size: 0.85rem; font-weight: bold; margin-right: 0.5rem;">#@kw</span>
+                                                        }
+                                                    </div>
+                                                }
                                                 <p class="summary">@item.Summary</p>
-                                            </a>
+                                            </div>
 
                                             @if (hasRelated)
                                             {
@@ -217,12 +238,9 @@
     }
     .news-cluster:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
 
-    .news-card {
+    .news-card-content {
         display: flex;
         flex-direction: column;
-        padding: 1.5rem;
-        text-decoration: none;
-        color: inherit;
     }
 
     .related-toggle {
