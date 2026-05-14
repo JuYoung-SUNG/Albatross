@@ -20,8 +20,10 @@ public class RssNewsScraperService : INewsService
         ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/politics/?outputType=xml", "정치", "한국"),
         ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/national/?outputType=xml", "사회", "한국"),
         ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/sports/?outputType=xml",   "스포츠", "한국"),
+        ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/entertainments/?outputType=xml", "연예", "한국"),
         ("조선일보", "https://www.chosun.com/arc/outboundfeeds/rss/category/technology/?outputType=xml", "IT", "한국"),
         ("매일경제", "https://www.mk.co.kr/rss/30000001/", "경제", "한국"),
+        ("매일경제", "https://www.mk.co.kr/rss/50300009/", "연예", "한국"),
         
         // 미국
         ("CNN", "http://rss.cnn.com/rss/edition.rss", "일반", "미국"),
