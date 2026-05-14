@@ -51,27 +51,27 @@
                         </h2>
                         @if (_expandedSections.Contains(group.Key))
                         {
-                            <div class="news-grid">
-                                @foreach (var item in group)
-                                {
-                                    <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
-                                        <div class="card-meta">
-                                            <span class="source-badge">@item.Source</span>
-                                            @if (_filterType == FilterType.Category)
-                                            {
-                                                <span class="country-badge">@item.Country</span>
-                                            }
-                                            else
-                                            {
-                                                <span class="category-badge">@item.Category</span>
-                                            }
-                                            <span class="time">@FormatTime(item.PublishedAt)</span>
-                                        </div>
-                                        <h3>@item.Title</h3>
-                                        <p class="summary">@item.Summary</p>
-                                    </a>
-                                }
-                            </div>
+                            var secondaryType = _filterType == FilterType.Category ? FilterType.Country : FilterType.Category;
+                            var subGroups = group.GroupBy(i => secondaryType == FilterType.Category ? i.Category : i.Country)
+                                                 .OrderBy(g => GetOrder(g.Key, secondaryType));
+
+                            foreach (var subGroup in subGroups)
+                            {
+                                <h3 class="subcategory-title">@subGroup.Key</h3>
+                                <div class="news-grid">
+                                    @foreach (var item in subGroup)
+                                    {
+                                        <a class="news-card" href="@item.Url" target="_blank" rel="noopener noreferrer">
+                                            <div class="card-meta">
+                                                <span class="source-badge">@item.Source</span>
+                                                <span class="time">@FormatTime(item.PublishedAt)</span>
+                                            </div>
+                                            <h4>@item.Title</h4>
+                                            <p class="summary">@item.Summary</p>
+                                        </a>
+                                    }
+                                </div>
+                            }
                         }
                     </section>
                 }
@@ -156,6 +156,16 @@
         color: var(--text-color);
     }
 
+    .subcategory-title {
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+        opacity: 0.9;
+        padding-left: 0.5rem;
+        border-left: 3px solid var(--border-color);
+    }
+
     .news-grid { 
         display: grid; 
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
@@ -180,7 +190,7 @@
     .source-badge { background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; }
     .country-badge, .category-badge { border: 1px solid var(--border-color); padding: 2px 8px; border-radius: 4px; }
 
-    .news-card h3 { font-size: 1.1rem; margin: 0.5rem 0; line-height: 1.4; font-weight: 600; }
+    .news-card h4 { font-size: 1.1rem; margin: 0.5rem 0; line-height: 1.4; font-weight: 600; }
     .summary { font-size: 0.9rem; color: var(--text-color); opacity: 0.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
     .loading, .empty, .error-box { text-align: center; padding: 4rem; font-size: 1.2rem; }
@@ -198,12 +208,12 @@
     private IEnumerable<IGrouping<string, NewsDto>> GroupedItems => 
         (_items ?? Enumerable.Empty<NewsDto>())
         .GroupBy(i => _filterType == FilterType.Category ? i.Category : i.Country)
-        .OrderBy(g => GetOrder(g.Key));
+        .OrderBy(g => GetOrder(g.Key, _filterType));
 
-    private int GetOrder(string key)
+    private int GetOrder(string key, FilterType type)
     {
-        if (_filterType == FilterType.Category)
-            return key switch { "정치" => 0, "경제" => 1, "사회" => 2, "IT" => 3, "스포츠" => 4, _ => 5 };
+        if (type == FilterType.Category)
+            return key switch { "정치" => 0, "경제" => 1, "사회" => 2, "IT" => 3, "일반" => 4, "스포츠" => 5, _ => 6 };
         else
             return key switch { "한국" => 0, "미국" => 1, "영국" => 2, "중국" => 3, _ => 4 };
     }
