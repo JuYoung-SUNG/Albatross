@@ -74,6 +74,7 @@ public class RssNewsScraperService : INewsService
     {
         var doc = XDocument.Parse(xml);
         XNamespace? dc = "http://purl.org/dc/elements/1.1/";
+        XNamespace media = "http://search.yahoo.com/mrss/";
 
         return doc.Descendants("item")
             .Select(item =>
@@ -83,6 +84,40 @@ public class RssNewsScraperService : INewsService
                 var description = item.Element("description")?.Value ?? string.Empty;
                 var pubDateStr  = item.Element("pubDate")?.Value;
                 var guid        = item.Element("guid")?.Value ?? link;
+
+                // Extract image
+                string? imageUrl = null;
+                
+                // 1. Try media:content
+                var mediaContent = item.Elements(media + "content")
+                                       .FirstOrDefault(x => x.Attribute("medium")?.Value == "image" || x.Attribute("type")?.Value.StartsWith("image/") == true);
+                if (mediaContent != null)
+                {
+                    imageUrl = mediaContent.Attribute("url")?.Value;
+                }
+
+                // 2. Try enclosure
+                if (string.IsNullOrEmpty(imageUrl))
+                {
+                    var enclosure = item.Elements("enclosure")
+                                        .FirstOrDefault(x => x.Attribute("type")?.Value.StartsWith("image/") == true);
+                    if (enclosure != null)
+                    {
+                        imageUrl = enclosure.Attribute("url")?.Value;
+                    }
+                }
+
+                // 3. Try parsing img from description
+                if (string.IsNullOrEmpty(imageUrl) && !string.IsNullOrWhiteSpace(description))
+                {
+                    var hap = new HtmlAgilityPack.HtmlDocument();
+                    hap.LoadHtml(description);
+                    var img = hap.DocumentNode.SelectSingleNode("//img");
+                    if (img != null)
+                    {
+                        imageUrl = img.GetAttributeValue("src", null);
+                    }
+                }
 
                 // description 에서 HTML 태그 제거
                 var cleanSummary = HtmlStrip(description);
@@ -95,7 +130,8 @@ public class RssNewsScraperService : INewsService
                 {
                     Source = source,
                     Category = category,
-                    Country = country
+                    Country = country,
+                    ImageUrl = imageUrl
                 };
             })
             .ToList();
