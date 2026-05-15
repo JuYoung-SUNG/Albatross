@@ -19,4 +19,5 @@ public class NewsItem
     public string Source { get; set; } = string.Empty;
     public string Category { get; set; } = "기타";
     public string Country { get; set; } = "한국";
+    public string? ImageUrl { get; set; }
 }
