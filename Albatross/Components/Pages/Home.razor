@@ -1,5 +1,5 @@
 ﻿@page "/"
-@inject Albatross.Services.INewsService NewsService
+@inject System.Net.Http.HttpClient Http
 
 <h1>Latest News</h1>
 
@@ -21,14 +21,16 @@ else
             <li>
                 <h3>@item.Title</h3>
                 <p>@item.Summary</p>
-                <small>@item.PublishedAt.ToLocalTime().ToString("g")</small>
+                <a href="@item.Url" target="_blank">Read more</a>
+                <br />
+                <small>@item.PublishedAt.ToLocalTime().ToString("g") - @item.Source</small>
             </li>
         }
     </ul>
 }
 
 @code {
-    private IEnumerable<Albatross.Services.NewsItem>? news;
+    private IEnumerable<Albatross.Shared.Models.NewsItem>? news;
 
     protected override async Task OnInitializedAsync()
     {
@@ -37,7 +39,15 @@ else
 
     private async Task LoadNews()
     {
-        news = await NewsService.GetLatestAsync();
+        try
+        {
+            // Placeholder endpoint - replace with actual API endpoint later
+            news = await Http.GetFromJsonAsync<IEnumerable<Albatross.Shared.Models.NewsItem>>("/api/news/latest");
+        }
+        catch
+        {
+            news = Array.Empty<Albatross.Shared.Models.NewsItem>();
+        }
     }
 
     private async Task Refresh()
