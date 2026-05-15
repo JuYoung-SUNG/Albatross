@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Albatross.Services;
+using Albatross.Shared.Interfaces;
 
 namespace Albatross
 {
@@ -17,8 +17,7 @@ namespace Albatross
 
             builder.Services.AddMauiBlazorWebView();
 
-            // Register a simple news service used by the Blazor UI
-            builder.Services.AddSingleton<INewsService, MockNewsService>();
+            // INewsService will be provided by Albatross.Web or a backend API.
 
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();
