@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Albatross - 최신 뉴스를 자동으로 수집하고 한눈에 확인하는 서비스" />
+    <title>Albatross 뉴스</title>
+    <base href="/" />
+    <link href="css/app.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background:#0d1117;color:#e6edf3;font-family:sans-serif;">
+        <svg width="50" height="50" viewBox="0 0 50 50" style="margin-bottom:1rem;animation:spin 1s linear infinite;">
+          <circle cx="25" cy="25" r="20" fill="none" stroke="#2ea043" stroke-width="4" stroke-dasharray="80 40"/>
+        </svg>
+        <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+        <p>Albatross 로딩 중...</p>
+      </div>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+  </body>
+</html>
