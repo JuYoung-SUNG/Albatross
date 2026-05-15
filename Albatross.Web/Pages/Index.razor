@@ -60,8 +60,7 @@
                                      : $"https://picsum.photos/seed/{imageSeed}/800/400";
 
                     <div class="news-cluster">
-                        <div class="chapter-image" style="background-image: url('@bgImageUrl');"></div>
-                        <div class="news-card-content" style="padding: 2rem;">
+                        <div class="news-card-content" style="padding: 2rem 2rem 1rem 2rem;">
                             <div class="card-meta">
                                 @{
                                     var allSources = new[] { cluster.MainItem.Source }.Concat(cluster.RelatedItems.Select(r => r.Source)).Distinct().ToList();
@@ -72,10 +71,12 @@
                                 <span class="time" style="font-size: 0.9rem;">@FormatTime(item.PublishedAt)</span>
                             </div>
                             
-                            <h4 style="margin-top: 1rem; font-size: 1.8rem; color: var(--text-color); font-weight: bold; line-height: 1.3;">
+                            <h4 style="margin-top: 1rem; font-size: 1.8rem; color: var(--text-color); font-weight: bold; line-height: 1.3; margin-bottom: 0;">
                                 @GenerateShortSummary(cluster)
                             </h4>
                         </div>
+
+                        <div class="chapter-image" style="background-image: url('@bgImageUrl');"></div>
 
                         <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)" style="padding: 1.2rem; font-size: 1rem;">
                             🔗 관련 기사 @(cluster.RelatedItems.Count + 1) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "목록 보기 ▼")
