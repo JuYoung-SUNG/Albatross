@@ -2,9 +2,9 @@ name: Auto News Collector
 
 on:
   schedule:
-    # 매 시간마다 정각에 실행 (UTC 기준)
-    - cron: '0 * * * *'
-  workflow_dispatch: # 수동 실행 버튼 허용
+    # 10분마다 실행 (UTC 기준이므로 한국 시간과는 무관하게 10분 간격 실행)
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # GitHub 웹 UI에서 'Run workflow' 버튼으로 수동 실행 가능하게 함
 
 permissions:
   contents: write
@@ -20,17 +20,17 @@ jobs:
     - name: .NET 환경 설정
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '10.0.x' # 로컬 환경과 동일하게 맞춤
+        dotnet-version: '10.0.x' # 프로젝트 버전에 맞춰 설정 (현재 10.0 기준)
 
     - name: Albatross.Collector 실행
-      run: dotnet run --project Albatross.Collector/Albatross.Collector.csproj
+      run: dotnet run --project Albatross.Collector/Albatross.Collector.csproj -- --once
 
     - name: 수집된 뉴스 데이터 Commit & Push
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add Albatross.Web/wwwroot/data/news.json
-        # 변경 사항이 있을 때만 커밋
+        # 변경 사항이 있을 때만 커밋 및 푸시
         if ! git diff --cached --quiet; then
           git commit -m "Auto-update: 수집된 뉴스 데이터 갱신"
           git push
