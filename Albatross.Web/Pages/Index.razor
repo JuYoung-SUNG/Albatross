@@ -426,10 +426,10 @@
 
     private List<NewsDto> GetSampleData() =>
     [
-        new NewsDto("1", "한국 기술 혁신 소식", "한국의 IT 산업이 글로벌 시장에서 주목받고 있습니다.", "https://github.com", "Albatross", DateTimeOffset.Now, "IT", "한국", null),
-        new NewsDto("2", "미국 경제 지표 발표", "미국 연준의 금리 동결 소식에 증시가 반응하고 있습니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-10), "경제", "미국", null),
-        new NewsDto("3", "영국 스포츠 리그 결승", "프리미어리그 결승전에서 극적인 역전승이 나왔습니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-20), "스포츠", "영국", null),
-        new NewsDto("4", "중국 시장 경제 전망", "중국의 기술 수출 규모가 작년 대비 크게 성장했습니다.", "https://github.com", "Albatross", DateTimeOffset.Now.AddMinutes(-30), "경제", "중국", null)
+        new NewsDto("1", "한국 기술 혁신 소식", "한국의 IT 산업이 글로벌 시장에서 주목받고 있습니다.", "https://github.com", DateTimeOffset.Now, "Albatross", "IT", "한국", null),
+        new NewsDto("2", "미국 경제 지표 발표", "미국 연준의 금리 동결 소식에 증시가 반응하고 있습니다.", "https://github.com", DateTimeOffset.Now.AddMinutes(-10), "Albatross", "경제", "미국", null),
+        new NewsDto("3", "영국 스포츠 리그 결승", "프리미어리그 결승전에서 극적인 역전승이 나왔습니다.", "https://github.com", DateTimeOffset.Now.AddMinutes(-20), "Albatross", "스포츠", "영국", null),
+        new NewsDto("4", "중국 시장 경제 전망", "중국의 기술 수출 규모가 작년 대비 크게 성장했습니다.", "https://github.com", DateTimeOffset.Now.AddMinutes(-30), "Albatross", "경제", "중국", null)
     ];
 
     private static string FormatTime(DateTimeOffset dt)
