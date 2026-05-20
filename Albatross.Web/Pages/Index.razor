@@ -1,9 +1,20 @@
 @page "/"
 @using System.Net.Http.Json
 @using Microsoft.AspNetCore.Components.Web
+@using Microsoft.Extensions.Logging
+@inject ILogger<Index> Logger
 @inject HttpClient Http
 
 <PageTitle>Albatross 뉴스</PageTitle>
+
+@code {
+    protected override void OnInitialized()
+    {
+        // 🔥 [로그 추가] 화면 부품이 준비 완료되어 켜지는 시점 파악
+        Logger.LogInformation("[3단계] Index.razor - 메인 화면 컴포넌트 초기화(OnInitialized) 시작! 곧 news.json을 읽어옵니다.");
+    }
+}
+
 
 <div class="app-container @(_darkMode ? "dark-mode" : "light-mode")">
     <div class="hero">
