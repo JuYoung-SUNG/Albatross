@@ -20,10 +20,17 @@ else
         {
             <li>
                 <h3>@item.Title</h3>
-                <p>@item.Summary</p>
-                <a href="@item.Url" target="_blank">Read more</a>
-                <br />
-                <small>@item.PublishedAt.ToLocalTime().ToString("g") - @item.Source</small>
+                <p>@item.Content</p>
+                <small>@item.PublishedAt - @item.Category</small>
+                @if (item.RelatedUrls != null && item.RelatedUrls.Any())
+                {
+                    <ul>
+                        @foreach (var url in item.RelatedUrls)
+                        {
+                            <li><a href="@url" target="_blank">관련 기사</a></li>
+                        }
+                    </ul>
+                }
             </li>
         }
     </ul>

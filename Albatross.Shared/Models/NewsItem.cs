@@ -6,10 +6,10 @@ namespace Albatross.Shared.Models
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string Title { get; set; } = string.Empty;
-        public string Summary { get; set; } = string.Empty;
-        public string? Url { get; set; }
+        public string Content { get; set; } = string.Empty;
         public string? ImageUrl { get; set; }
-        public string Source { get; set; } = string.Empty;
-        public DateTime PublishedAt { get; set; }
+        public string Category { get; set; } = "일반";
+        public string PublishedAt { get; set; } = string.Empty;
+        public List<string> RelatedUrls { get; set; } = new();
     }
 }

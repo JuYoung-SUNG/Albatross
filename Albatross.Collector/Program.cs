@@ -3,6 +3,8 @@ using Albatross.Collector.News.Services;
 using Serilog;
 using Serilog.Events;
 
+System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+
 // 1. 수집기 전용 로그 경로 세팅 (실행 경로 내부 logs 폴더)
 string baseDir = AppDomain.CurrentDomain.BaseDirectory;
 string logFilePath = Path.Combine(baseDir, "logs", "collector_log-.txt");
@@ -16,7 +18,8 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File(
         path: logFilePath,
         rollingInterval: RollingInterval.Day,
-        outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}"
+        outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",
+        encoding: System.Text.Encoding.UTF8
     )
     .CreateLogger();
 

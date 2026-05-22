@@ -7,15 +7,6 @@
 
 <PageTitle>Albatross 뉴스</PageTitle>
 
-@code {
-    protected override void OnInitialized()
-    {
-        // 🔥 [로그 추가] 화면 부품이 준비 완료되어 켜지는 시점 파악
-        Logger.LogInformation("[3단계] Index.razor - 메인 화면 컴포넌트 초기화(OnInitialized) 시작! 곧 news.json을 읽어옵니다.");
-    }
-}
-
-
 <div class="app-container @(_darkMode ? "dark-mode" : "light-mode")">
     <div class="hero">
         <div class="header-top">
@@ -26,7 +17,7 @@
                 </button>
             </div>
         </div>
-        <p class="subtitle">실시간 전 세계 주요 이슈 TOP 10</p>
+        <p class="subtitle">실시간 전 세계 주요 이슈</p>
         
         <div class="category-tabs">
             @foreach (var cat in _categories)
@@ -57,57 +48,54 @@
         else
         {
             <div class="news-grid">
-                @foreach (var cluster in _topClusters)
+                @foreach (var item in _filteredItems)
                 {
-                    var item = cluster.MainItem;
                     var clusterId = item.Id;
-                    var hasRelated = cluster.RelatedItems.Any();
-                    
-                    var representativeImage = cluster.MainItem.ImageUrl 
-                                              ?? cluster.RelatedItems.FirstOrDefault(r => !string.IsNullOrEmpty(r.ImageUrl))?.ImageUrl;
-                    var imageSeed = Math.Abs(clusterId.GetHashCode());
-                    var bgImageUrl = !string.IsNullOrEmpty(representativeImage) 
-                                     ? representativeImage 
-                                     : $"https://picsum.photos/seed/{imageSeed}/800/400";
+                    var bgImageUrl = !string.IsNullOrEmpty(item.ImageUrl) 
+                                     ? item.ImageUrl 
+                                     : $"https://picsum.photos/seed/{clusterId.GetHashCode()}/800/400";
 
                     <div class="news-cluster">
-                        <div class="news-card-content" style="padding: 2rem 2rem 1rem 2rem;">
-                            <div class="card-meta">
-                                @{
-                                    var allSources = new[] { cluster.MainItem.Source }.Concat(cluster.RelatedItems.Select(r => r.Source)).Distinct().ToList();
-                                }
-                                <span class="source-badge" style="background: #28a745; font-size: 0.9rem; padding: 4px 10px;">
-                                    @string.Join(", ", allSources.Take(3)) @(allSources.Count > 3 ? "외" : "") 보도
-                                </span>
-                                <span class="time" style="font-size: 0.9rem;">@FormatTime(item.PublishedAt)</span>
-                            </div>
-                            
-                            <h4 style="margin-top: 1rem; font-size: 1.8rem; color: #ff8c00; font-weight: bold; line-height: 1.3; margin-bottom: 0;">
-                                @GenerateShortSummary(cluster)
+                        <div class="news-card-content">
+                            <!-- CATEGORY -->
+                            <div class="category-badge">@item.Category</div>
+
+                            <!-- TITLE -->
+                            <h4 class="cluster-title">
+                                @item.Title
                             </h4>
+
+                            <!-- IMAGE -->
+                            <div class="chapter-image" style="background-image: url('@bgImageUrl');"></div>
+
+                            <!-- CONTENT -->
+                            <p class="short-summary">
+                                @item.Content
+                            </p>
+
+                            <div class="card-meta">
+                                <span class="time">@item.PublishedAt</span>
+                            </div>
                         </div>
 
-                        <div class="chapter-image" style="background-image: url('@bgImageUrl');"></div>
-
-                        <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)" style="padding: 1.2rem; font-size: 1rem;">
-                            🔗 관련 기사 @(cluster.RelatedItems.Count + 1) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "목록 보기 ▼")
-                        </button>
-                        
-                        @if (_expandedRelated.Contains(clusterId))
+                        <!-- LINK -->
+                        @if (item.RelatedUrls != null && item.RelatedUrls.Any())
                         {
-                            <div class="related-list">
-                                <a href="@cluster.MainItem.Url" target="_blank" class="related-item">
-                                    <span class="related-source">@cluster.MainItem.Source</span>
-                                    <span class="related-title">@cluster.MainItem.Title</span>
-                                </a>
-                                @foreach (var related in cluster.RelatedItems)
-                                {
-                                    <a href="@related.Url" target="_blank" class="related-item">
-                                        <span class="related-source">@related.Source</span>
-                                        <span class="related-title">@related.Title</span>
-                                    </a>
-                                }
-                            </div>
+                            <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)">
+                                🔗 관련 기사 @(item.RelatedUrls.Count) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "보기 ▼")
+                            </button>
+                            
+                            @if (_expandedRelated.Contains(clusterId))
+                            {
+                                <div class="related-list">
+                                    @foreach (var url in item.RelatedUrls)
+                                    {
+                                        <a href="@url" target="_blank" class="related-item">
+                                            <span class="related-title">@url</span>
+                                        </a>
+                                    }
+                                </div>
+                            }
                         }
                     </div>
                 }
@@ -149,6 +137,7 @@
         padding: 2rem 5%; 
         border-bottom: 1px solid var(--border-color);
         margin-bottom: 2rem;
+        text-align: center;
     }
 
     .header-top { display: flex; justify-content: space-between; align-items: center; }
@@ -168,16 +157,16 @@
         flex-wrap: wrap;
         gap: 0.5rem;
         margin-top: 1.5rem;
-        justify-content: flex-start;
+        justify-content: center;
     }
     .category-tabs button {
-        padding: 0.5rem 1.2rem;
+        padding: 0.4rem 1rem;
         border: 1px solid var(--border-color);
         border-radius: 20px;
         background: var(--card-bg);
         color: var(--text-color);
         cursor: pointer;
-        font-weight: bold;
+        font-size: 0.9rem;
         transition: all 0.2s;
     }
     .category-tabs button.active {
@@ -185,26 +174,21 @@
         color: white;
         border-color: var(--accent);
     }
-    .category-tabs button:hover:not(.active) {
-        background: rgba(0, 123, 255, 0.1);
-    }
 
     .content-area { padding: 0 5%; }
 
     .news-grid { 
-        display: flex; 
-        flex-direction: column;
-        gap: 3rem; 
-        max-width: 900px;
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 2rem; 
+        max-width: 1200px;
         margin: 0 auto;
     }
 
-    .chapter-image {
-        width: 100%;
-        height: 400px;
-        background-size: cover;
-        background-position: center;
-        border-bottom: 1px solid var(--border-color);
+    @@media (max-width: 850px) {
+        .news-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     .news-cluster {
@@ -215,17 +199,66 @@
         box-shadow: var(--shadow);
         border: 1px solid var(--border-color);
         overflow: hidden;
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition: transform 0.2s;
     }
-    .news-cluster:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .news-cluster:hover { transform: translateY(-5px); }
 
     .news-card-content {
+        padding: 1.5rem;
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
     }
 
+    .category-badge {
+        font-size: 0.75rem;
+        color: var(--accent);
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    .cluster-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 3.4rem;
+    }
+
+    .chapter-image {
+        width: 100%;
+        height: 220px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+
+    .short-summary {
+        font-size: 0.95rem;
+        color: var(--text-color);
+        opacity: 0.8;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    .card-meta { 
+        display: flex; 
+        justify-content: space-between;
+        align-items: center; 
+        font-size: 0.8rem; 
+        opacity: 0.7;
+        margin-top: auto;
+    }
+
     .related-toggle {
-        background: rgba(0, 123, 255, 0.05);
+        background: var(--bg-color);
         border: none;
         border-top: 1px solid var(--border-color);
         padding: 0.8rem;
@@ -233,55 +266,28 @@
         text-align: center;
         color: var(--accent);
         font-weight: bold;
-        font-size: 0.85rem;
         cursor: pointer;
-        transition: background 0.2s;
     }
-    .related-toggle:hover { background: rgba(0, 123, 255, 0.1); }
 
     .related-list {
-        display: flex;
-        flex-direction: column;
-        border-top: 1px solid var(--border-color);
         background: rgba(0,0,0,0.02);
+        max-height: 300px;
+        overflow-y: auto;
     }
     .dark-mode .related-list { background: rgba(255,255,255,0.02); }
 
     .related-item {
-        padding: 0.8rem 1.5rem;
+        padding: 0.6rem 1rem;
         text-decoration: none;
         color: var(--text-color);
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         border-bottom: 1px solid var(--border-color);
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        transition: background 0.2s;
-    }
-    .related-item:last-child { border-bottom: none; }
-    .related-item:hover { background: rgba(0,0,0,0.05); }
-    .dark-mode .related-item:hover { background: rgba(255,255,255,0.05); }
-
-    .related-source {
-        font-size: 0.7rem;
-        background: #6c757d;
-        color: white;
-        padding: 2px 6px;
-        border-radius: 4px;
-        white-space: nowrap;
-    }
-    .related-title {
+        display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-
-    .card-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem; font-size: 0.75rem; opacity: 0.8; }
-    .source-badge { background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; }
-    .country-badge, .category-badge { border: 1px solid var(--border-color); padding: 2px 8px; border-radius: 4px; }
-
-    .news-card h4 { font-size: 1.1rem; margin: 0.5rem 0; line-height: 1.4; font-weight: 600; }
-    .summary { font-size: 0.9rem; color: var(--text-color); opacity: 0.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .related-item:hover { background: rgba(0,0,0,0.05); }
 
     .loading, .empty, .error-box { text-align: center; padding: 4rem; font-size: 1.2rem; }
 </style>
@@ -292,29 +298,30 @@
     private bool _loading = true;
     private string? _error;
     private List<NewsDto>? _items;
-    private List<NewsCluster> _topClusters = new();
+    private List<NewsDto> _filteredItems = new();
     private string _selectedCategory = "전체";
-    private readonly string[] _categories = { "전체", "정치", "경제", "사회", "스포츠", "연예", "IT", "일반" };
+    private readonly string[] _categories = { "전체", "정치", "사회", "경제", "스포츠", "연예", "IT", "일반" };
+
+    protected override void OnInitialized()
+    {
+        Logger.LogInformation("Index.razor initialized.");
+    }
 
     private void SelectCategory(string category)
     {
         _selectedCategory = category;
-        BuildTopClusters();
+        FilterItems();
     }
 
-    private void BuildTopClusters()
+    private void FilterItems()
     {
-        if (_items == null || !_items.Any()) return;
+        if (_items == null) return;
 
-        var filteredItems = _selectedCategory == "전체" 
+        _filteredItems = _selectedCategory == "전체" 
             ? _items 
             : _items.Where(i => i.Category == _selectedCategory).ToList();
-
-        _topClusters = GroupIntoClusters(filteredItems)
-            .OrderByDescending(c => c.RelatedItems.Count)
-            .ThenByDescending(c => c.MainItem.PublishedAt)
-            .Take(10)
-            .ToList();
+        
+        _filteredItems = _filteredItems.OrderByDescending(i => i.PublishedAt).ToList();
     }
 
     private void ToggleRelated(string clusterId)
@@ -325,144 +332,36 @@
             _expandedRelated.Add(clusterId);
     }
 
-    // --- Clustering Logic ---
-    private IEnumerable<NewsCluster> GroupIntoClusters(IEnumerable<NewsDto> items)
-    {
-        var clusters = new List<NewsCluster>();
-        foreach (var item in items)
-        {
-            var matchedCluster = clusters.FirstOrDefault(c => IsSimilar(c.MainItem.Title, item.Title));
-            if (matchedCluster != null)
-            {
-                matchedCluster.RelatedItems.Add(item);
-            }
-            else
-            {
-                clusters.Add(new NewsCluster(item, new List<NewsDto>()));
-            }
-        }
-        return clusters;
-    }
-
-    private static readonly string[] StopWords = { "의", "는", "이", "가", "은", "를", "에", "대해", "그리고", "따라", "로", "과", "와", "다", "로", "에서", "부터", "까지", "에게", "포토", "사진", "단독", "속보", "종합" };
-
-    private bool IsSimilar(string title1, string title2)
-    {
-        var words1 = GetSignificantWords(title1);
-        var words2 = GetSignificantWords(title2);
-
-        if (words1.Count == 0 || words2.Count == 0) return false;
-
-        var intersection = words1.Intersect(words2).Count();
-        var union = words1.Union(words2).Count();
-        
-        if (union == 0) return false;
-        
-        var similarity = (double)intersection / union;
-        return similarity >= 0.25; // 25% 이상 단어가 겹치면 유사 기사로 판별
-    }
-
-    private HashSet<string> GetSignificantWords(string text)
-    {
-        return text.Split(new[] { ' ', ',', '.', '!', '?', '\'', '\"', '[', ']', '(', ')', ':', '-', '·', '‘', '’', '“', '”' }, StringSplitOptions.RemoveEmptyEntries)
-                   .Where(w => w.Length > 1 && !StopWords.Contains(w))
-                   .Select(w => w.ToLower())
-                   .ToHashSet();
-    }
-
-    private string GenerateShortSummary(NewsCluster cluster)
-    {
-        var allTitles = new List<string> { cluster.MainItem.Title };
-        allTitles.AddRange(cluster.RelatedItems.Select(x => x.Title));
-
-        var wordCounts = allTitles
-            .SelectMany(GetSignificantWords)
-            .GroupBy(w => w)
-            .OrderByDescending(g => g.Count())
-            .Select(g => g.Key)
-            .ToList();
-
-        if (wordCounts.Count >= 2)
-        {
-            var summary = $"'{wordCounts[0]}·{wordCounts[1]}' 관련 주요 동향";
-            return summary.Length > 25 ? summary.Substring(0, 23) + ".." : summary;
-        }
-        else if (wordCounts.Count == 1)
-        {
-            var summary = $"'{wordCounts[0]}' 관련 주요 동향";
-            return summary.Length > 25 ? summary.Substring(0, 23) + ".." : summary;
-        }
-        
-        var title = cluster.MainItem.Title;
-        return title.Length > 20 ? title.Substring(0, 18) + ".." : title;
-    }
-    // ------------------------
-
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            var rawItems = await Http.GetFromJsonAsync<List<NewsDto>>("data/news.json");
-            _items = CleanItems(rawItems);
-        }
-        catch (HttpRequestException)
-        {
-            _items = CleanItems(GetSampleData());
+            _items = await Http.GetFromJsonAsync<List<NewsDto>>("data/news.json");
         }
         catch (Exception ex)
         {
             _error = ex.Message;
+            _items = GetSampleData();
         }
         finally
         {
-            BuildTopClusters();
+            FilterItems();
             _loading = false;
         }
     }
 
-    private List<NewsDto> CleanItems(List<NewsDto>? items)
-    {
-        if (items == null) return new List<NewsDto>();
-        
-        return items.Select(i => 
-        {
-            var cleanTitle = i.Title
-                .Replace("[포토]", "").Replace("[사진]", "")
-                .Replace("(포토)", "").Replace("(사진)", "")
-                .Replace("【포토】", "").Replace("【사진】", "")
-                .Trim();
-            return i with { Title = cleanTitle };
-        }).ToList();
-    }
-
     private List<NewsDto> GetSampleData() =>
     [
-        new NewsDto("1", "한국 기술 혁신 소식", "한국의 IT 산업이 글로벌 시장에서 주목받고 있습니다.", "https://github.com", DateTimeOffset.Now, "Albatross", "IT", "한국", null),
-        new NewsDto("2", "미국 경제 지표 발표", "미국 연준의 금리 동결 소식에 증시가 반응하고 있습니다.", "https://github.com", DateTimeOffset.Now.AddMinutes(-10), "Albatross", "경제", "미국", null),
-        new NewsDto("3", "영국 스포츠 리그 결승", "프리미어리그 결승전에서 극적인 역전승이 나왔습니다.", "https://github.com", DateTimeOffset.Now.AddMinutes(-20), "Albatross", "스포츠", "영국", null),
-        new NewsDto("4", "중국 시장 경제 전망", "중국의 기술 수출 규모가 작년 대비 크게 성장했습니다.", "https://github.com", DateTimeOffset.Now.AddMinutes(-30), "Albatross", "경제", "중국", null)
+        new NewsDto("1", "한국 기술 혁신 소식", "한국의 IT 산업이 글로벌 시장에서 주목받고 있습니다. AI와 반도체 분야에서의 성과가 두드러집니다.", "https://picsum.photos/seed/1/800/400", "IT", "2026-05-22 10:00:00", new List<string> { "https://example.com/1" }),
+        new NewsDto("2", "경제 지표 발표", "주요 경제 지표가 발표되었습니다. 인플레이션 둔화 조짐이 보이며 시장은 긍정적으로 반응하고 있습니다.", "https://picsum.photos/seed/2/800/400", "경제", "2026-05-22 09:30:00", new List<string> { "https://example.com/2" })
     ];
-
-    private static string FormatTime(DateTimeOffset dt)
-    {
-        var diff = DateTimeOffset.Now - dt;
-        return diff.TotalMinutes < 60 ? $"{(int)diff.TotalMinutes}분 전" :
-               diff.TotalHours < 24 ? $"{(int)diff.TotalHours}시간 전" :
-               dt.ToString("MM/dd HH:mm");
-    }
 
     private record NewsDto(
         string Id,
         string Title,
-        string Summary,
-        string Url,
-        DateTimeOffset PublishedAt,
-        string Source,
+        string Content,
+        string? ImageUrl,
         string Category,
-        string Country,
-        string? ImageUrl);
-
-    private record NewsCluster(
-        NewsDto MainItem,
-        List<NewsDto> RelatedItems);
+        string PublishedAt,
+        List<string> RelatedUrls);
 }
