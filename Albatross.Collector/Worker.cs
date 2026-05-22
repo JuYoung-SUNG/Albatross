@@ -73,7 +73,7 @@ namespace Albatross.Collector
                                 WriteIndented = true
                             };
                             _logger.LogInformation(" ------------ Chatper 6 -----------------------");
-                            var dto = items.Select(i => new { id = i.Id, title = i.Title, summary = i.Summary, url = i.Url, publishedAt = i.PublishedAt, source = i.Source, category = i.Category, country = i.Country, imageUrl = i.ImageUrl });
+                            var analyzedNews = await AnalyzeNewsWithAI(items, stoppingToken);
                             string jsonString = System.Text.Json.JsonSerializer.Serialize(dto, opts);
                             _logger.LogInformation("💾 [검증 1] 직렬화된 JSON 크기: {length} 글자", jsonString.Length);
 
