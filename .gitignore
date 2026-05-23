@@ -42,6 +42,7 @@ secrets.json
 # MAUI artifacts
 *.db
 *.sqlite
+!Albatross.Web/wwwroot/data/albatross-news.db
 *.apk
 *.aab
 *.ipa

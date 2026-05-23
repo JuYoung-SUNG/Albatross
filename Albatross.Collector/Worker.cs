@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -16,6 +17,7 @@ namespace Albatross.Collector
         private readonly INewsService _news;
         private readonly IConfiguration _config;
         private readonly HttpClient _httpClient;
+        private readonly IHostApplicationLifetime _appLifetime;
 
         private static readonly JsonSerializerOptions JsonOptions = new()
         {
@@ -24,12 +26,19 @@ namespace Albatross.Collector
             WriteIndented = true
         };
 
-        public Worker(ILogger<Worker> logger, INewsService news, IConfiguration config, IHttpClientFactory httpClientFactory)
+        public Worker(
+            ILogger<Worker> logger,
+            INewsService news,
+            IConfiguration config,
+            IHttpClientFactory httpClientFactory,
+            IHostApplicationLifetime appLifetime)
         {
             _logger = logger;
             _news = news;
             _config = config;
             _httpClient = httpClientFactory.CreateClient();
+            _httpClient.Timeout = TimeSpan.FromMinutes(5);
+            _appLifetime = appLifetime;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -52,14 +61,25 @@ namespace Albatross.Collector
                     {
                         databasePath = Path.Combine(dataDir, "albatross-news.db");
                     }
+                    else
+                    {
+                        databasePath = Path.GetFullPath(databasePath);
+                    }
+
+                    var databaseDirectory = Path.GetDirectoryName(databasePath);
+                    if (!string.IsNullOrWhiteSpace(databaseDirectory))
+                    {
+                        Directory.CreateDirectory(databaseDirectory);
+                    }
 
                     await InitializeDatabaseAsync(databasePath, stoppingToken);
 
                     var fetchedItems = (await _news.GetLatestAsync(stoppingToken)).ToList();
                     _logger.LogInformation("Fetched {count} news items", fetchedItems.Count);
 
+                    _logger.LogInformation("Starting SQLite save for raw news rows. Count: {count}", fetchedItems.Count);
                     var insertedOrUpdated = await SaveRawNewsAsync(databasePath, fetchedItems, stoppingToken);
-                    _logger.LogInformation("Saved {count} raw news rows into SQLite", insertedOrUpdated);
+                    _logger.LogInformation("Completed SQLite save for raw news rows. Saved rows: {count}", insertedOrUpdated);
 
                     var rawItems = await LoadRawNewsAsync(databasePath, stoppingToken);
                     _logger.LogInformation("Loaded {count} raw news rows from SQLite for Gemini analysis", rawItems.Count);
@@ -71,7 +91,9 @@ namespace Albatross.Collector
 
                         if (summarizedNews.Count > 0)
                         {
+                            _logger.LogInformation("Starting SQLite save for summarized news rows. Count: {count}", summarizedNews.Count);
                             await ReplaceSummarizedNewsAsync(databasePath, summarizedNews, stoppingToken);
+                            _logger.LogInformation("Completed SQLite save for summarized news rows. Saved rows: {count}", summarizedNews.Count);
 
                             var outPath = Path.Combine(dataDir, "news.json");
                             await ExportSummarizedNewsToJsonAsync(databasePath, outPath, stoppingToken);
@@ -87,6 +109,7 @@ namespace Albatross.Collector
                 if (singleRun)
                 {
                     _logger.LogInformation("Single-run mode, exiting");
+                    _appLifetime.StopApplication();
                     break;
                 }
 
@@ -106,6 +129,15 @@ namespace Albatross.Collector
 
         private static string ResolveDataDirectory()
         {
+            var configuredDataDir =
+                Environment.GetEnvironmentVariable("COLLECTOR_DATA_DIR")
+                ?? Environment.GetEnvironmentVariable("Collector__DataDirectory");
+
+            if (!string.IsNullOrWhiteSpace(configuredDataDir))
+            {
+                return Path.GetFullPath(configuredDataDir);
+            }
+
             var baseDir = AppContext.BaseDirectory;
 
             if (baseDir.Contains($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}"))
@@ -150,6 +182,7 @@ namespace Albatross.Collector
                     Category TEXT NOT NULL,
                     PublishedAt TEXT NOT NULL,
                     RelatedUrlsJson TEXT NOT NULL,
+                    RelatedArticlesJson TEXT NOT NULL DEFAULT '[]',
                     SummaryJson TEXT NOT NULL,
                     CreatedAt TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
                 );
@@ -158,6 +191,22 @@ namespace Albatross.Collector
                 """;
 
             await command.ExecuteNonQueryAsync(cancellationToken);
+
+            var migrateCommand = connection.CreateCommand();
+            migrateCommand.CommandText =
+                """
+                ALTER TABLE SummarizedNews
+                ADD COLUMN RelatedArticlesJson TEXT NOT NULL DEFAULT '[]';
+                """;
+
+            try
+            {
+                await migrateCommand.ExecuteNonQueryAsync(cancellationToken);
+            }
+            catch (SqliteException ex) when (ex.SqliteErrorCode == 1 && ex.Message.Contains("duplicate column name", StringComparison.OrdinalIgnoreCase))
+            {
+                // Existing databases already have the column.
+            }
         }
 
         private static async Task<int> SaveRawNewsAsync(string databasePath, IEnumerable<NewsItem> items, CancellationToken cancellationToken)
@@ -269,9 +318,9 @@ namespace Albatross.Collector
                 command.CommandText =
                     """
                     INSERT OR REPLACE INTO SummarizedNews
-                        (Id, Title, Content, ImageUrl, Category, PublishedAt, RelatedUrlsJson, SummaryJson)
+                        (Id, Title, Content, ImageUrl, Category, PublishedAt, RelatedUrlsJson, RelatedArticlesJson, SummaryJson)
                     VALUES
-                        ($id, $title, $content, $imageUrl, $category, $publishedAt, $relatedUrlsJson, $summaryJson);
+                        ($id, $title, $content, $imageUrl, $category, $publishedAt, $relatedUrlsJson, $relatedArticlesJson, $summaryJson);
                     """;
 
                 command.Parameters.AddWithValue("$id", item.Id);
@@ -281,6 +330,7 @@ namespace Albatross.Collector
                 command.Parameters.AddWithValue("$category", item.Category);
                 command.Parameters.AddWithValue("$publishedAt", item.PublishedAt);
                 command.Parameters.AddWithValue("$relatedUrlsJson", JsonSerializer.Serialize(item.RelatedUrls, JsonOptions));
+                command.Parameters.AddWithValue("$relatedArticlesJson", JsonSerializer.Serialize(item.RelatedArticles, JsonOptions));
                 command.Parameters.AddWithValue("$summaryJson", JsonSerializer.Serialize(item, JsonOptions));
 
                 await command.ExecuteNonQueryAsync(cancellationToken);
@@ -324,6 +374,7 @@ namespace Albatross.Collector
 
         private async Task<IEnumerable<Albatross.Shared.Models.NewsItem>> AnalyzeNewsWithAI(IEnumerable<NewsItem> items, CancellationToken stoppingToken)
         {
+            var sourceItems = items.ToList();
             var apiKey = _config["GEMINI_API_KEY"];
             if (string.IsNullOrEmpty(apiKey))
             {
@@ -339,8 +390,22 @@ namespace Albatross.Collector
 
             var apiUrl = $"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={apiKey}";
             var nowKst = GetKoreaNow();
+            var titleByUrl = sourceItems
+                .Where(i => !string.IsNullOrWhiteSpace(i.Url))
+                .GroupBy(i => i.Url, StringComparer.OrdinalIgnoreCase)
+                .ToDictionary(g => g.Key, g => g.First().Title, StringComparer.OrdinalIgnoreCase);
+            var jsonEscapeRules =
+                """
+                [JSON escape rules]
+                - Return valid JSON only.
+                - Do not write invalid escape sequences such as \uH, \u/, or a single backslash.
+                - If a string contains a backslash, escape it as \\.
+                - Do not use \u escapes. Write normal UTF-8 text directly.
+                - For relatedArticles.title, use an empty string. The application will attach original titles by URL.
+                """;
 
             var prompt = $@"
+{jsonEscapeRules}
 다음 뉴스 기사들을 주제별로 그룹핑하고 간단히 정리해줘.
 응답은 반드시 아래 JSON 배열 형식만 반환하고, 설명 문장은 포함하지 마.
 
@@ -350,10 +415,11 @@ namespace Albatross.Collector
 3. content는 핵심만 100자 내외의 한국어 문장으로 정리해줘.
 4. imageUrl은 관련 기사 이미지 중 가장 적절한 URL을 선택하고 없으면 null로 둬.
 5. category는 정치, 사회, 경제, 스포츠, 연예, IT, 일반 중 하나로 분류해줘.
-6. relatedUrls에는 분석에 사용한 원본 기사 URL을 모두 넣어줘.
+6. relatedArticles에는 분석에 사용한 원본 기사 제목과 URL을 모두 넣어줘.
+7. relatedUrls에는 기존 호환성을 위해 relatedArticles의 URL만 같은 순서로 넣어줘.
 
 [데이터]
-{JsonSerializer.Serialize(items.Select(i => new { i.Title, i.Summary, i.Url, i.ImageUrl, i.Source, i.Category, i.Country, i.PublishedAt }), JsonOptions)}
+{JsonSerializer.Serialize(sourceItems.Select(i => new { i.Title, i.Summary, i.Url, i.ImageUrl, i.Source, i.Category, i.Country, i.PublishedAt }), JsonOptions)}
 
 [응답 형식]
 [
@@ -364,6 +430,10 @@ namespace Albatross.Collector
     ""imageUrl"": ""이미지 URL 또는 null"",
     ""category"": ""뉴스 분류"",
     ""publishedAt"": ""{nowKst:yyyy-MM-dd HH:mm:ss}"",
+    ""relatedArticles"": [
+      {{ ""title"": ""원본 기사 제목 1"", ""url"": ""url1"" }},
+      {{ ""title"": ""원본 기사 제목 2"", ""url"": ""url2"" }}
+    ],
     ""relatedUrls"": [""url1"", ""url2""]
   }}
 ]
@@ -386,36 +456,225 @@ namespace Albatross.Collector
 
             try
             {
-                _logger.LogInformation("Calling Gemini API: {url}", apiUrl.Split('?')[0] + "?key=HIDDEN");
+                _logger.LogInformation(
+                    "Calling Gemini API: {url}. Model: {model}, source news count: {count}, prompt length: {promptLength}",
+                    apiUrl.Split('?')[0] + "?key=HIDDEN",
+                    model,
+                    sourceItems.Count,
+                    prompt.Length);
+
+                var stopwatch = Stopwatch.StartNew();
                 var response = await _httpClient.PostAsync(apiUrl, requestContent, stoppingToken);
+                stopwatch.Stop();
                 var responseContent = await response.Content.ReadAsStringAsync(stoppingToken);
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    _logger.LogError("Gemini API Error: {status} - {msg}", response.StatusCode, responseContent);
+                    _logger.LogError(
+                        "Gemini API Error after {elapsedMs} ms: {status} - {msg}",
+                        stopwatch.ElapsedMilliseconds,
+                        response.StatusCode,
+                        responseContent);
                     return Enumerable.Empty<Albatross.Shared.Models.NewsItem>();
                 }
 
-                using var doc = JsonDocument.Parse(responseContent);
-                var jsonText = doc.RootElement
-                    .GetProperty("candidates")[0]
-                    .GetProperty("content")
-                    .GetProperty("parts")[0]
-                    .GetProperty("text")
-                    .GetString();
+                _logger.LogInformation("Gemini API call succeeded in {elapsedMs} ms", stopwatch.ElapsedMilliseconds);
+
+                string? jsonText;
+                try
+                {
+                    using var doc = JsonDocument.Parse(responseContent);
+                    jsonText = doc.RootElement
+                        .GetProperty("candidates")[0]
+                        .GetProperty("content")
+                        .GetProperty("parts")[0]
+                        .GetProperty("text")
+                        .GetString();
+                }
+                catch (JsonException ex)
+                {
+                    var failedPath = await SaveFailedGeminiResponseAsync(responseContent, "gemini-wrapper-json", stoppingToken);
+                    _logger.LogError(ex, "Failed to parse Gemini API wrapper response. Raw response saved to: {path}", failedPath);
+                    return Enumerable.Empty<Albatross.Shared.Models.NewsItem>();
+                }
 
                 if (string.IsNullOrWhiteSpace(jsonText))
                 {
                     return Enumerable.Empty<Albatross.Shared.Models.NewsItem>();
                 }
 
-                var analyzedData = JsonSerializer.Deserialize<IEnumerable<Albatross.Shared.Models.NewsItem>>(jsonText, JsonOptions);
-                return analyzedData ?? Enumerable.Empty<Albatross.Shared.Models.NewsItem>();
+                var analyzedData = await DeserializeGeminiNewsAsync(jsonText, apiUrl, model, sourceItems.Count, stoppingToken);
+                var normalizedData = NormalizeRelatedArticles(analyzedData, titleByUrl).ToList();
+                if (normalizedData.Count > 0)
+                {
+                    _logger.LogInformation("Gemini analysis design succeeded. Summarized rows: {count}", normalizedData.Count);
+                }
+
+                return normalizedData;
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error calling Google Gemini API.");
                 return Enumerable.Empty<Albatross.Shared.Models.NewsItem>();
+            }
+        }
+
+        private async Task<IEnumerable<Albatross.Shared.Models.NewsItem>> DeserializeGeminiNewsAsync(
+            string jsonText,
+            string apiUrl,
+            string model,
+            int sourceItemCount,
+            CancellationToken cancellationToken)
+        {
+            try
+            {
+                return JsonSerializer.Deserialize<IEnumerable<Albatross.Shared.Models.NewsItem>>(jsonText, JsonOptions)
+                    ?? Enumerable.Empty<Albatross.Shared.Models.NewsItem>();
+            }
+            catch (JsonException ex)
+            {
+                var failedPath = await SaveFailedGeminiResponseAsync(jsonText, "gemini-analysis-json", cancellationToken);
+                _logger.LogError(ex, "Failed to parse Gemini analysis JSON. Raw response saved to: {path}", failedPath);
+
+                var repairPrompt = $@"
+The previous response was invalid JSON and failed to parse.
+Return only a corrected, valid JSON array. Do not add markdown or explanations.
+Do not use \u escapes. Write UTF-8 text directly.
+If a string contains a backslash, escape it as \\.
+For relatedArticles.title, use an empty string and preserve each URL.
+
+[Invalid JSON to fix]
+{jsonText}
+";
+
+                var repairedJsonText = await CallGeminiRepairAsync(apiUrl, model, sourceItemCount, repairPrompt, cancellationToken);
+                if (string.IsNullOrWhiteSpace(repairedJsonText))
+                {
+                    return Enumerable.Empty<Albatross.Shared.Models.NewsItem>();
+                }
+
+                try
+                {
+                    return JsonSerializer.Deserialize<IEnumerable<Albatross.Shared.Models.NewsItem>>(repairedJsonText, JsonOptions)
+                        ?? Enumerable.Empty<Albatross.Shared.Models.NewsItem>();
+                }
+                catch (JsonException retryEx)
+                {
+                    var retryFailedPath = await SaveFailedGeminiResponseAsync(repairedJsonText, "gemini-analysis-json-retry", cancellationToken);
+                    _logger.LogError(retryEx, "Failed to parse repaired Gemini analysis JSON. Raw response saved to: {path}", retryFailedPath);
+                    return Enumerable.Empty<Albatross.Shared.Models.NewsItem>();
+                }
+            }
+        }
+
+        private async Task<string?> CallGeminiRepairAsync(
+            string apiUrl,
+            string model,
+            int sourceItemCount,
+            string prompt,
+            CancellationToken cancellationToken)
+        {
+            var requestBody = new
+            {
+                contents = new[]
+                {
+                    new { parts = new[] { new { text = prompt } } }
+                },
+                generationConfig = new
+                {
+                    responseMimeType = "application/json"
+                }
+            };
+
+            var jsonRequest = JsonSerializer.Serialize(requestBody, JsonOptions);
+            using var requestContent = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+
+            _logger.LogInformation(
+                "Retrying Gemini JSON repair: {url}. Model: {model}, source news count: {count}, prompt length: {promptLength}",
+                apiUrl.Split('?')[0] + "?key=HIDDEN",
+                model,
+                sourceItemCount,
+                prompt.Length);
+
+            var stopwatch = Stopwatch.StartNew();
+            var response = await _httpClient.PostAsync(apiUrl, requestContent, cancellationToken);
+            stopwatch.Stop();
+            var responseContent = await response.Content.ReadAsStringAsync(cancellationToken);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogError(
+                    "Gemini JSON repair API Error after {elapsedMs} ms: {status} - {msg}",
+                    stopwatch.ElapsedMilliseconds,
+                    response.StatusCode,
+                    responseContent);
+                return null;
+            }
+
+            _logger.LogInformation("Gemini JSON repair call succeeded in {elapsedMs} ms", stopwatch.ElapsedMilliseconds);
+
+            try
+            {
+                using var doc = JsonDocument.Parse(responseContent);
+                return doc.RootElement
+                    .GetProperty("candidates")[0]
+                    .GetProperty("content")
+                    .GetProperty("parts")[0]
+                    .GetProperty("text")
+                    .GetString();
+            }
+            catch (JsonException ex)
+            {
+                var failedPath = await SaveFailedGeminiResponseAsync(responseContent, "gemini-repair-wrapper-json", cancellationToken);
+                _logger.LogError(ex, "Failed to parse Gemini JSON repair wrapper response. Raw response saved to: {path}", failedPath);
+                return null;
+            }
+        }
+
+        private static async Task<string> SaveFailedGeminiResponseAsync(string content, string prefix, CancellationToken cancellationToken)
+        {
+            var dataDir = ResolveDataDirectory();
+            var failureDir = Path.Combine(dataDir, "gemini-failures");
+            Directory.CreateDirectory(failureDir);
+
+            var fileName = $"{prefix}-{DateTimeOffset.Now:yyyyMMdd-HHmmss-fff}.json";
+            var path = Path.Combine(failureDir, fileName);
+            await File.WriteAllTextAsync(path, content, Encoding.UTF8, cancellationToken);
+            return path;
+        }
+
+        private static IEnumerable<Albatross.Shared.Models.NewsItem> NormalizeRelatedArticles(
+            IEnumerable<Albatross.Shared.Models.NewsItem> items,
+            IReadOnlyDictionary<string, string> titleByUrl)
+        {
+            foreach (var item in items)
+            {
+                if (item.RelatedArticles.Count == 0 && item.RelatedUrls.Count > 0)
+                {
+                    item.RelatedArticles = item.RelatedUrls
+                        .Where(url => !string.IsNullOrWhiteSpace(url))
+                        .Select(url => new Albatross.Shared.Models.RelatedArticle
+                        {
+                            Title = titleByUrl.TryGetValue(url, out var title) ? title : url,
+                            Url = url
+                        })
+                        .ToList();
+                }
+
+                if (item.RelatedUrls.Count == 0 && item.RelatedArticles.Count > 0)
+                {
+                    item.RelatedUrls = item.RelatedArticles
+                        .Where(article => !string.IsNullOrWhiteSpace(article.Url))
+                        .Select(article => article.Url)
+                        .ToList();
+                }
+
+                foreach (var article in item.RelatedArticles.Where(article => !string.IsNullOrWhiteSpace(article.Url)))
+                {
+                    article.Title = titleByUrl.TryGetValue(article.Url, out var title) ? title : article.Url;
+                }
+
+                yield return item;
             }
         }
 

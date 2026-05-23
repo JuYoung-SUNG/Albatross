@@ -1,39 +1,72 @@
-name: Auto News Collector
+name: News Collector and Cloudflare Pages Deploy
 
 on:
   schedule:
-    # 10분마다 실행 (UTC 기준이므로 한국 시간과는 무관하게 10분 간격 실행)
-    - cron: '*/10 * * * *'
-  workflow_dispatch: # GitHub 웹 UI에서 'Run workflow' 버튼으로 수동 실행 가능하게 함
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
+  deployments: write
+
+concurrency:
+  group: news-updater-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  DOTNET_VERSION: "10.0.x"
+  COLLECTOR_DATA_DIR: Albatross.Web/wwwroot/data
+  COLLECTOR_DB_PATH: Albatross.Web/wwwroot/data/albatross-news.db
+  PUBLISH_DIR: Albatross.Web/bin/Release/net10.0/publish/wwwroot
 
 jobs:
-  update-news:
+  collect-build-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 저장소 체크아웃
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: .NET 환경 설정
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '10.0.x' # 프로젝트 버전에 맞춰 설정 (현재 10.0 기준)
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: Albatross.Collector 실행
-      run: dotnet run --project Albatross.Collector/Albatross.Collector.csproj -- --once
+      - name: Restore
+        run: |
+          dotnet restore Albatross.Collector/Albatross.Collector.csproj
+          dotnet restore Albatross.Web/Albatross.Web.csproj
 
-    - name: 수집된 뉴스 데이터 Commit & Push
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add Albatross.Web/wwwroot/data/news.json
-        # 변경 사항이 있을 때만 커밋 및 푸시
-        if ! git diff --cached --quiet; then
-          git commit -m "Auto-update: 수집된 뉴스 데이터 갱신"
-          git push
-        else
-          echo "No changes to commit"
-        fi
+      - name: Run collector
+        timeout-minutes: 20
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          Collector__DataDirectory: ${{ env.COLLECTOR_DATA_DIR }}
+          Collector__DatabasePath: ${{ env.COLLECTOR_DB_PATH }}
+        run: dotnet run --no-restore --configuration Release --project Albatross.Collector/Albatross.Collector.csproj -- --once
+
+      - name: Commit collector outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Albatross.Web/wwwroot/data/news.json
+          git add -f Albatross.Web/wwwroot/data/albatross-news.db
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-update news data"
+            git push
+          else
+            echo "No collector output changes to commit."
+          fi
+
+      - name: Publish Blazor WebAssembly
+        run: dotnet publish Albatross.Web/Albatross.Web.csproj --configuration Release --no-restore
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ${{ env.PUBLISH_DIR }} --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=${{ github.ref_name }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

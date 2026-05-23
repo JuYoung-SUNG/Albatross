@@ -5,20 +5,36 @@
 @inject ILogger<Index> Logger
 @inject HttpClient Http
 
-<PageTitle>Albatross 뉴스</PageTitle>
+<PageTitle>Albatross News</PageTitle>
 
-<div class="app-container @(_darkMode ? "dark-mode" : "light-mode")">
+<div class="app-container @(DarkMode ? "dark-mode" : "light-mode")">
     <div class="hero">
         <div class="header-top">
-            <h1>🦅 Albatross News</h1>
+            <h1>Albatross News</h1>
             <div class="controls">
-                <button class="theme-toggle" @onclick="() => _darkMode = !_darkMode">
-                    @(_darkMode ? "🌞 Light" : "🌙 Dark")
+                <div class="column-picker" aria-label="뉴스 열 개수 선택">
+                    @foreach (var count in _columnOptions)
+                    {
+                        <button class="column-button @(count == _columnCount ? "active" : "")"
+                                title="@($"{count}열 보기")"
+                                aria-label="@($"{count}열 보기")"
+                                @onclick="() => SetColumnCount(count)">
+                            <span class="column-icon" style="--icon-columns: @count">
+                                @for (var i = 0; i < count; i++)
+                                {
+                                    <span></span>
+                                }
+                            </span>
+                        </button>
+                    }
+                </div>
+                <button class="theme-toggle" @onclick="() => DarkMode = !DarkMode">
+                    @(DarkMode ? "Light" : "Dark")
                 </button>
             </div>
         </div>
-        <p class="subtitle">실시간 전 세계 주요 이슈</p>
-        
+        <p class="subtitle">실시간 주요 뉴스 요약</p>
+
         <div class="category-tabs">
             @foreach (var cat in _categories)
             {
@@ -39,7 +55,7 @@
         }
         else if (_error is not null)
         {
-            <div class="error-box">⚠️ @_error</div>
+            <div class="error-box">오류: @_error</div>
         }
         else if (_items is null || !_items.Any())
         {
@@ -47,51 +63,43 @@
         }
         else
         {
-            <div class="news-grid">
+            <div class="news-grid" style="--column-count: @_columnCount">
                 @foreach (var item in _filteredItems)
                 {
                     var clusterId = item.Id;
-                    var bgImageUrl = !string.IsNullOrEmpty(item.ImageUrl) 
-                                     ? item.ImageUrl 
-                                     : $"https://picsum.photos/seed/{clusterId.GetHashCode()}/800/400";
+                    var bgImageUrl = !string.IsNullOrEmpty(item.ImageUrl)
+                        ? item.ImageUrl
+                        : $"https://picsum.photos/seed/{clusterId.GetHashCode()}/800/400";
+                    var relatedArticles = GetRelatedArticles(item);
 
                     <div class="news-cluster">
                         <div class="news-card-content">
-                            <!-- CATEGORY -->
                             <div class="category-badge">@item.Category</div>
 
-                            <!-- TITLE -->
-                            <h4 class="cluster-title">
-                                @item.Title
-                            </h4>
+                            <h4 class="cluster-title">@item.Title</h4>
 
-                            <!-- IMAGE -->
                             <div class="chapter-image" style="background-image: url('@bgImageUrl');"></div>
 
-                            <!-- CONTENT -->
-                            <p class="short-summary">
-                                @item.Content
-                            </p>
+                            <p class="short-summary">@item.Content</p>
 
                             <div class="card-meta">
                                 <span class="time">@item.PublishedAt</span>
                             </div>
                         </div>
 
-                        <!-- LINK -->
-                        @if (item.RelatedUrls != null && item.RelatedUrls.Any())
+                        @if (relatedArticles.Any())
                         {
                             <button class="related-toggle" @onclick="() => ToggleRelated(clusterId)">
-                                🔗 관련 기사 @(item.RelatedUrls.Count) 건 @(_expandedRelated.Contains(clusterId) ? "접기 ▲" : "보기 ▼")
+                                관련 기사 @relatedArticles.Count 건 @(_expandedRelated.Contains(clusterId) ? "접기" : "보기")
                             </button>
-                            
+
                             @if (_expandedRelated.Contains(clusterId))
                             {
                                 <div class="related-list">
-                                    @foreach (var url in item.RelatedUrls)
+                                    @foreach (var article in relatedArticles)
                                     {
-                                        <a href="@url" target="_blank" class="related-item">
-                                            <span class="related-title">@url</span>
+                                        <a href="@article.Url" target="_blank" rel="noopener noreferrer" class="related-item" title="@article.Title">
+                                            <span class="related-title">@article.Title</span>
                                         </a>
                                     }
                                 </div>
@@ -107,152 +115,225 @@
 <style>
     :root {
         --bg-color: #f8f9fa;
-        --text-color: #333;
-        --card-bg: white;
-        --hero-bg: #fff;
-        --border-color: #eee;
-        --shadow: 0 4px 6px rgba(0,0,0,0.05);
-        --accent: #007bff;
+        --text-color: #24292f;
+        --card-bg: #ffffff;
+        --hero-bg: #ffffff;
+        --border-color: #d8dee4;
+        --shadow: 0 4px 14px rgba(27,31,36,0.08);
+        --accent: #0969da;
     }
 
     .dark-mode {
-        --bg-color: #121212;
-        --text-color: #e0e0e0;
-        --card-bg: #1e1e1e;
-        --hero-bg: #181818;
-        --border-color: #333;
-        --shadow: 0 4px 10px rgba(0,0,0,0.3);
+        --bg-color: #0d1117;
+        --text-color: #e6edf3;
+        --card-bg: #161b22;
+        --hero-bg: #111820;
+        --border-color: #30363d;
+        --shadow: 0 8px 22px rgba(0,0,0,0.35);
+        --accent: #2f81f7;
     }
 
-    .app-container { 
-        min-height: 100vh; 
-        background-color: var(--bg-color); 
-        color: var(--text-color); 
+    .app-container {
+        min-height: 100vh;
+        background-color: var(--bg-color);
+        color: var(--text-color);
         transition: background-color 0.3s, color 0.3s;
         padding-bottom: 3rem;
     }
 
-    .hero { 
-        background-color: var(--hero-bg); 
-        padding: 2rem 5%; 
+    .hero {
+        background-color: var(--hero-bg);
+        padding: 1.5rem 5% 1.75rem;
         border-bottom: 1px solid var(--border-color);
         margin-bottom: 2rem;
         text-align: center;
     }
 
-    .header-top { display: flex; justify-content: space-between; align-items: center; }
-    
-    .theme-toggle {
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .header-top h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        margin: 0.5rem 0 0;
+        opacity: 0.72;
+    }
+
+    .controls {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .theme-toggle,
+    .column-button {
         border: 1px solid var(--border-color);
         background: var(--card-bg);
         color: var(--text-color);
         cursor: pointer;
-        font-weight: bold;
+        transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+
+    .theme-toggle {
+        min-height: 2.25rem;
+        padding: 0.45rem 0.9rem;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    .column-picker {
+        display: flex;
+        gap: 0.35rem;
+        padding: 0.25rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: color-mix(in srgb, var(--card-bg) 86%, var(--bg-color));
+    }
+
+    .column-button {
+        width: 2.15rem;
+        height: 2rem;
+        border-radius: 6px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .column-button.active {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #ffffff;
+    }
+
+    .column-icon {
+        display: grid;
+        grid-template-columns: repeat(var(--icon-columns), 1fr);
+        gap: 2px;
+        width: 1.35rem;
+        height: 1rem;
+    }
+
+    .column-icon span {
+        border: 1px solid currentColor;
+        border-radius: 2px;
+        opacity: 0.9;
     }
 
     .category-tabs {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        margin-top: 1.5rem;
+        margin-top: 1.3rem;
         justify-content: center;
     }
+
     .category-tabs button {
         padding: 0.4rem 1rem;
         border: 1px solid var(--border-color);
-        border-radius: 20px;
+        border-radius: 8px;
         background: var(--card-bg);
         color: var(--text-color);
         cursor: pointer;
         font-size: 0.9rem;
         transition: all 0.2s;
     }
+
     .category-tabs button.active {
         background: var(--accent);
-        color: white;
+        color: #ffffff;
         border-color: var(--accent);
     }
 
-    .content-area { padding: 0 5%; }
-
-    .news-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-        gap: 2rem; 
-        max-width: 1200px;
-        margin: 0 auto;
+    .content-area {
+        padding: 0 5%;
     }
 
-    @@media (max-width: 850px) {
-        .news-grid {
-            grid-template-columns: 1fr;
-        }
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
+        gap: 1.25rem;
+        width: 100%;
+        margin: 0 auto;
     }
 
     .news-cluster {
         display: flex;
         flex-direction: column;
         background: var(--card-bg);
-        border-radius: 12px;
+        border-radius: 8px;
         box-shadow: var(--shadow);
         border: 1px solid var(--border-color);
         overflow: hidden;
         transition: transform 0.2s;
+        min-width: 0;
     }
-    .news-cluster:hover { transform: translateY(-5px); }
+
+    .news-cluster:hover {
+        transform: translateY(-3px);
+    }
 
     .news-card-content {
-        padding: 1.5rem;
+        padding: 1.1rem;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
+        min-width: 0;
     }
 
     .category-badge {
         font-size: 0.75rem;
         color: var(--accent);
-        font-weight: bold;
+        font-weight: 700;
         margin-bottom: 0.5rem;
         text-transform: uppercase;
     }
 
     .cluster-title {
-        font-size: 1.2rem;
-        font-weight: bold;
+        font-size: 1.05rem;
+        font-weight: 700;
         color: var(--text-color);
-        margin-bottom: 1rem;
-        line-height: 1.4;
+        margin-bottom: 0.9rem;
+        line-height: 1.45;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        min-height: 3.4rem;
+        min-height: 3rem;
     }
 
     .chapter-image {
         width: 100%;
-        height: 220px;
+        aspect-ratio: 16 / 9;
         background-size: cover;
         background-position: center;
-        border-radius: 8px;
-        margin-bottom: 1rem;
+        border-radius: 7px;
+        margin-bottom: 0.9rem;
     }
 
     .short-summary {
-        font-size: 0.95rem;
+        font-size: 0.92rem;
         color: var(--text-color);
-        opacity: 0.8;
+        opacity: 0.82;
         margin-bottom: 1rem;
         line-height: 1.6;
     }
 
-    .card-meta { 
-        display: flex; 
+    .card-meta {
+        display: flex;
         justify-content: space-between;
-        align-items: center; 
-        font-size: 0.8rem; 
+        align-items: center;
+        font-size: 0.78rem;
         opacity: 0.7;
         margin-top: auto;
     }
@@ -261,46 +342,100 @@
         background: var(--bg-color);
         border: none;
         border-top: 1px solid var(--border-color);
-        padding: 0.8rem;
+        padding: 0.75rem;
         width: 100%;
         text-align: center;
         color: var(--accent);
-        font-weight: bold;
+        font-weight: 700;
         cursor: pointer;
     }
 
     .related-list {
-        background: rgba(0,0,0,0.02);
+        background: rgba(0,0,0,0.025);
         max-height: 300px;
         overflow-y: auto;
     }
-    .dark-mode .related-list { background: rgba(255,255,255,0.02); }
+
+    .dark-mode .related-list {
+        background: rgba(255,255,255,0.025);
+    }
 
     .related-item {
         padding: 0.6rem 1rem;
         text-decoration: none;
         color: var(--text-color);
-        font-size: 0.85rem;
+        font-size: 0.86rem;
         border-bottom: 1px solid var(--border-color);
         display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .related-item:hover { background: rgba(0,0,0,0.05); }
 
-    .loading, .empty, .error-box { text-align: center; padding: 4rem; font-size: 1.2rem; }
+    .related-item:hover {
+        background: rgba(0,0,0,0.05);
+    }
+
+    .dark-mode .related-item:hover {
+        background: rgba(255,255,255,0.06);
+    }
+
+    .loading,
+    .empty,
+    .error-box {
+        text-align: center;
+        padding: 4rem;
+        font-size: 1.1rem;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid var(--border-color);
+        border-top-color: var(--accent);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin: 0 auto 1rem;
+    }
+
+    @@keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    @@media (max-width: 980px) {
+        .news-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @@media (max-width: 640px) {
+        .header-top {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .controls {
+            justify-content: flex-start;
+            width: 100%;
+        }
+
+        .news-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 
 @code {
-    private bool _darkMode = false;
+    private bool DarkMode { get; set; }
     private HashSet<string> _expandedRelated = new();
     private bool _loading = true;
     private string? _error;
     private List<NewsDto>? _items;
     private List<NewsDto> _filteredItems = new();
     private string _selectedCategory = "전체";
-    private readonly string[] _categories = { "전체", "정치", "사회", "경제", "스포츠", "연예", "IT", "일반" };
+    private int _columnCount = 2;
+    private readonly int[] _columnOptions = [2, 3, 4, 5];
+    private readonly string[] _categories = ["전체", "정치", "사회", "경제", "스포츠", "연예", "IT", "일반"];
 
     protected override void OnInitialized()
     {
@@ -313,23 +448,31 @@
         FilterItems();
     }
 
+    private void SetColumnCount(int count)
+    {
+        _columnCount = count;
+    }
+
     private void FilterItems()
     {
-        if (_items == null) return;
+        if (_items == null)
+        {
+            return;
+        }
 
-        _filteredItems = _selectedCategory == "전체" 
-            ? _items 
+        _filteredItems = _selectedCategory == "전체"
+            ? _items
             : _items.Where(i => i.Category == _selectedCategory).ToList();
-        
+
         _filteredItems = _filteredItems.OrderByDescending(i => i.PublishedAt).ToList();
     }
 
     private void ToggleRelated(string clusterId)
     {
-        if (_expandedRelated.Contains(clusterId))
+        if (!_expandedRelated.Add(clusterId))
+        {
             _expandedRelated.Remove(clusterId);
-        else
-            _expandedRelated.Add(clusterId);
+        }
     }
 
     protected override async Task OnInitializedAsync()
@@ -350,18 +493,82 @@
         }
     }
 
+    private static List<RelatedArticleDto> GetRelatedArticles(NewsDto item)
+    {
+        if (item.RelatedArticles is { Count: > 0 })
+        {
+            return item.RelatedArticles
+                .Where(article => !string.IsNullOrWhiteSpace(article.Url))
+                .Select(article => article with
+                {
+                    Title = string.IsNullOrWhiteSpace(article.Title) ? article.Url : article.Title
+                })
+                .ToList();
+        }
+
+        return item.RelatedUrls
+            .Where(url => !string.IsNullOrWhiteSpace(url))
+            .Select(url => new RelatedArticleDto(url, url))
+            .ToList();
+    }
+
     private List<NewsDto> GetSampleData() =>
     [
-        new NewsDto("1", "한국 기술 혁신 소식", "한국의 IT 산업이 글로벌 시장에서 주목받고 있습니다. AI와 반도체 분야에서의 성과가 두드러집니다.", "https://picsum.photos/seed/1/800/400", "IT", "2026-05-22 10:00:00", new List<string> { "https://example.com/1" }),
-        new NewsDto("2", "경제 지표 발표", "주요 경제 지표가 발표되었습니다. 인플레이션 둔화 조짐이 보이며 시장은 긍정적으로 반응하고 있습니다.", "https://picsum.photos/seed/2/800/400", "경제", "2026-05-22 09:30:00", new List<string> { "https://example.com/2" })
+        new NewsDto(
+            "1",
+            "한국 기술 혁신 소식",
+            "한국 IT 산업이 글로벌 시장에서 주목받고 있습니다. AI와 반도체 분야에서 성과가 이어지고 있습니다.",
+            "https://picsum.photos/seed/1/800/400",
+            "IT",
+            "2026-05-22 10:00:00",
+            [new RelatedArticleDto("한국 AI 반도체 투자 확대", "https://example.com/1")],
+            ["https://example.com/1"]),
+        new NewsDto(
+            "2",
+            "경제 지표 발표",
+            "주요 경제 지표가 발표됐습니다. 인플레이션 둔화 조짐이 보이며 시장은 긍정적으로 반응하고 있습니다.",
+            "https://picsum.photos/seed/2/800/400",
+            "경제",
+            "2026-05-22 09:30:00",
+            [new RelatedArticleDto("물가 지표 둔화에 금융시장 안정", "https://example.com/2")],
+            ["https://example.com/2"])
     ];
 
-    private record NewsDto(
-        string Id,
-        string Title,
-        string Content,
-        string? ImageUrl,
-        string Category,
-        string PublishedAt,
-        List<string> RelatedUrls);
+    private class NewsDto
+    {
+        public NewsDto()
+        {
+        }
+
+        public NewsDto(
+            string id,
+            string title,
+            string content,
+            string? imageUrl,
+            string category,
+            string publishedAt,
+            List<RelatedArticleDto>? relatedArticles,
+            List<string>? relatedUrls)
+        {
+            Id = id;
+            Title = title;
+            Content = content;
+            ImageUrl = imageUrl;
+            Category = category;
+            PublishedAt = publishedAt;
+            RelatedArticles = relatedArticles;
+            RelatedUrls = relatedUrls ?? [];
+        }
+
+        public string Id { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
+        public string Content { get; set; } = string.Empty;
+        public string? ImageUrl { get; set; }
+        public string Category { get; set; } = string.Empty;
+        public string PublishedAt { get; set; } = string.Empty;
+        public List<RelatedArticleDto>? RelatedArticles { get; set; }
+        public List<string> RelatedUrls { get; set; } = [];
+    }
+
+    private record RelatedArticleDto(string Title, string Url);
 }
