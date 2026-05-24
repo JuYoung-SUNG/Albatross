@@ -401,7 +401,7 @@ namespace Albatross.Collector
                 - Do not write invalid escape sequences such as \uH, \u/, or a single backslash.
                 - If a string contains a backslash, escape it as \\.
                 - Do not use \u escapes. Write normal UTF-8 text directly.
-                - For relatedArticles.title, use an empty string. The application will attach original titles by URL.
+                - Do not return relatedArticles. Return relatedUrls only; the application will attach original titles by URL.
                 """;
 
             var prompt = $@"
@@ -415,8 +415,8 @@ namespace Albatross.Collector
 3. content는 핵심만 100자 내외의 한국어 문장으로 정리해줘.
 4. imageUrl은 관련 기사 이미지 중 가장 적절한 URL을 선택하고 없으면 null로 둬.
 5. category는 정치, 사회, 경제, 스포츠, 연예, IT, 일반 중 하나로 분류해줘.
-6. relatedArticles에는 분석에 사용한 원본 기사 제목과 URL을 모두 넣어줘.
-7. relatedUrls에는 기존 호환성을 위해 relatedArticles의 URL만 같은 순서로 넣어줘.
+6. relatedUrls에는 분석에 사용한 원본 기사 URL만 넣어줘.
+7. relatedArticles는 반환하지 마. 앱에서 URL 기준으로 원본 제목을 붙일 거야.
 
 [데이터]
 {JsonSerializer.Serialize(sourceItems.Select(i => new { i.Title, i.Summary, i.Url, i.ImageUrl, i.Source, i.Category, i.Country, i.PublishedAt }), JsonOptions)}
@@ -430,10 +430,6 @@ namespace Albatross.Collector
     ""imageUrl"": ""이미지 URL 또는 null"",
     ""category"": ""뉴스 분류"",
     ""publishedAt"": ""{nowKst:yyyy-MM-dd HH:mm:ss}"",
-    ""relatedArticles"": [
-      {{ ""title"": ""원본 기사 제목 1"", ""url"": ""url1"" }},
-      {{ ""title"": ""원본 기사 제목 2"", ""url"": ""url2"" }}
-    ],
     ""relatedUrls"": [""url1"", ""url2""]
   }}
 ]
@@ -533,15 +529,38 @@ namespace Albatross.Collector
             }
             catch (JsonException ex)
             {
-                var failedPath = await SaveFailedGeminiResponseAsync(jsonText, "gemini-analysis-json", cancellationToken);
-                _logger.LogError(ex, "Failed to parse Gemini analysis JSON. Raw response saved to: {path}", failedPath);
+                var locallyRepairedJsonText = RepairInvalidJsonEscapes(jsonText);
+                if (!string.Equals(jsonText, locallyRepairedJsonText, StringComparison.Ordinal))
+                {
+                    try
+                    {
+                        var locallyRepairedData = JsonSerializer.Deserialize<IEnumerable<Albatross.Shared.Models.NewsItem>>(locallyRepairedJsonText, JsonOptions)
+                            ?? Enumerable.Empty<Albatross.Shared.Models.NewsItem>();
+
+                        _logger.LogInformation("Parsed Gemini analysis JSON after repairing invalid escape sequences locally.");
+                        return locallyRepairedData;
+                    }
+                    catch (JsonException localRepairEx)
+                    {
+                        var failedPath = await SaveFailedGeminiResponseAsync(jsonText, "gemini-analysis-json", cancellationToken);
+                        _logger.LogError(ex, "Failed to parse Gemini analysis JSON. Raw response saved to: {path}", failedPath);
+
+                        var localRepairFailedPath = await SaveFailedGeminiResponseAsync(locallyRepairedJsonText, "gemini-analysis-json-local-repair", cancellationToken);
+                        _logger.LogWarning(localRepairEx, "Failed to parse locally repaired Gemini analysis JSON. Repaired response saved to: {path}", localRepairFailedPath);
+                    }
+                }
+                else
+                {
+                    var failedPath = await SaveFailedGeminiResponseAsync(jsonText, "gemini-analysis-json", cancellationToken);
+                    _logger.LogError(ex, "Failed to parse Gemini analysis JSON. Raw response saved to: {path}", failedPath);
+                }
 
                 var repairPrompt = $@"
 The previous response was invalid JSON and failed to parse.
 Return only a corrected, valid JSON array. Do not add markdown or explanations.
 Do not use \u escapes. Write UTF-8 text directly.
 If a string contains a backslash, escape it as \\.
-For relatedArticles.title, use an empty string and preserve each URL.
+Omit relatedArticles or return it as an empty array. Preserve each URL in relatedUrls.
 
 [Invalid JSON to fix]
 {jsonText}
@@ -566,6 +585,52 @@ For relatedArticles.title, use an empty string and preserve each URL.
                 }
             }
         }
+
+        private static string RepairInvalidJsonEscapes(string jsonText)
+        {
+            var repaired = new StringBuilder(jsonText.Length);
+
+            for (var i = 0; i < jsonText.Length; i++)
+            {
+                var current = jsonText[i];
+                if (current != '\\' || i == jsonText.Length - 1)
+                {
+                    repaired.Append(current);
+                    continue;
+                }
+
+                var next = jsonText[i + 1];
+                if (next is '"' or '\\' or '/' or 'b' or 'f' or 'n' or 'r' or 't')
+                {
+                    repaired.Append(current);
+                    repaired.Append(next);
+                    i++;
+                    continue;
+                }
+
+                if (next == 'u' && i + 5 < jsonText.Length
+                    && IsHexDigit(jsonText[i + 2])
+                    && IsHexDigit(jsonText[i + 3])
+                    && IsHexDigit(jsonText[i + 4])
+                    && IsHexDigit(jsonText[i + 5]))
+                {
+                    repaired.Append(current);
+                    repaired.Append(jsonText, i + 1, 5);
+                    i += 5;
+                    continue;
+                }
+
+                repaired.Append(next);
+                i++;
+            }
+
+            return repaired.ToString();
+        }
+
+        private static bool IsHexDigit(char value) =>
+            value is >= '0' and <= '9'
+                or >= 'a' and <= 'f'
+                or >= 'A' and <= 'F';
 
         private async Task<string?> CallGeminiRepairAsync(
             string apiUrl,
