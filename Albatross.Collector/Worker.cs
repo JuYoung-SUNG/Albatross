@@ -116,11 +116,6 @@ namespace Albatross.Collector
                 var intervalMinutes = _config.GetValue<int>("Collector:IntervalMinutes", 10);
                 var delayTime = TimeSpan.FromMinutes(intervalMinutes);
 
-#if DEBUG
-                delayTime = TimeSpan.FromHours(1);
-                _logger.LogInformation("Debug mode active: Next tick will run in 1 hour.");
-#endif
-
                 await Task.Delay(delayTime, stoppingToken);
             }
 
