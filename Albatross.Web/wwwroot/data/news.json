@@ -1,8 +1,159 @@
 [
   {
-    "id": "Sum_20260527_003_14",
-    "title": "\uC564\uB514 \uBC88\uD584 \uC2DC\uC7A5, \uBE14\uB808\uC5B4 \uC804 \uCD1D\uB9AC\uC758 \u0027\uC911\uB3C4\uC218\uC6A9\u0027 \uC8FC\uC7A5 \uC815\uBA74 \uBC18\uBC15",
-    "content": "\uC601\uAD6D \uB178\uB3D9\uB2F9 \uC18C\uC18D\uC758 \uC564\uB514 \uBC88\uD584 \uB9E8\uCCB4\uC2A4\uD130 \uC2DC\uC7A5\uC774 \u0027\uAE09\uC9C4\uC801 \uC911\uB3C4\u0027\uB85C\uC758 \uD68C\uADC0\uB97C \uC694\uAD6C\uD55C \uD1A0\uB2C8 \uBE14\uB808\uC5B4 \uC804 \uCD1D\uB9AC\uC758 \uC870\uC5B8\uC744 \uBC18\uBC15\uD558\uBA70 \uADF8\uAC00 \uC7AC\uC784 \uAE30\uAC04 \uB3D9\uC548 \uC0AC\uD68C\uC801 \uBD88\uD3C9\uB4F1\uC744 \uBB34\uC2DC\uD588\uB2E4\uACE0 \uBE44\uD310\uD588\uC2B5\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_25",
+    "title": "\uC601\uB18D \uC5F0\uB8CC\uBE44 \uB4F1 \uAE09\uACA9\uD55C \uACE0\uBE44\uC6A9\uC5D0 \uB18D\uAC00 \uB300\uBB3C\uB9BC \uD3EC\uAE30 \uC6B0\uB824\uD558\uB294 \uC601\uAD6D \uB18D\uBD80",
+    "content": "\uC601\uAD6D\uC758 \uD55C \uB18D\uBD80\uB294 \uBE44\uB18D\uC5C5\uC6A9 \uC720\uB958\uC778 \uB18D\uC0AC\uC6A9 \uC801\uC0C9 \uB514\uC824\uC720 \uBD80\uB2F4\uC774 \uC5F0 27,000\uD30C\uC6B4\uB4DC\uC5D0\uC11C 54,000\uD30C\uC6B4\uB4DC\uB85C 2\uBC30 \uCE58\uC19F\uC740 \uC808\uB9DD\uC801\uC778 \uC0AC\uC815\uC744 \uBC1D\uD788\uBA70, \uC790\uB140\uC5D0\uAC8C \uC601\uB18D\uC744 \uC2B9\uACC4\uD560 \uC218 \uC788\uC744\uC9C0 \uB9C9\uB9C9\uD568\uC744 \uD45C\uBA85\uD588\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "\uACBD\uC81C",
+    "publishedAt": "2026-05-28 00:13:31",
+    "relatedArticles": [
+      {
+        "title": "\u0027I fear for my son\u0027s farming future due to costs\u0027",
+        "url": "https://www.bbc.com/news/articles/c6261x08n4wo?at_medium=RSS\u0026at_campaign=rss"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.bbc.com/news/articles/c6261x08n4wo?at_medium=RSS\u0026at_campaign=rss"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_20",
+    "title": "\uBBF8\uAD6D \uBC95\uC6D0, \uD2B9\uC815 \uB378\uB77C\uC6E8\uC5B4 \uC9C0\uBC29\uC790\uCE58\uB2E8\uCCB4 \uC120\uAC70\uC11C \uAE30\uC5C5\uC758 \uD22C\uD45C\uAD8C \uC778\uC815 \uC774\uC0C9 \uD310\uACB0",
+    "content": "\uBBF8\uAD6D \uB378\uB77C\uC6E8\uC5B4\uC8FC \uBC95\uC6D0\uC758 \uCE58\uD504 \uD310\uC0AC\uAC00 \uC790\uCE58\uB3C4\uC2DC\uC778 \uD0C0\uC6B4 \uC120\uAC70\uC5D0\uC11C \uC77C\uC815 \uC790\uACA9\uC744 \uCDA9\uC871\uD55C \uD604\uC9C0 \uAE30\uC5C5 \uBC95\uC778\uB4E4\uB3C4 \uB3D9\uB4F1\uD558\uAC8C \uC9C1\uC811 \uC120\uAC70 \uD22C\uD45C\uAD8C\uC744 \uD589\uC0AC\uD560 \uAD8C\uB9AC\uAC00 \uC778\uC815\uB41C\uB2E4\uB294 \uCDE8\uC9C0\uC758 \uD2B9\uBCC4\uD55C \uD310\uACB0\uC744 \uB0B4\uB838\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "IT",
+    "publishedAt": "2026-05-28 00:05:16",
+    "relatedArticles": [
+      {
+        "title": "Corporations can vote in some Delaware elections, judge says",
+        "url": "https://news.bloomberglaw.com/esg/corporations-have-the-right-to-vote-in-delaware-town-judge-says"
+      }
+    ],
+    "relatedUrls": [
+      "https://news.bloomberglaw.com/esg/corporations-have-the-right-to-vote-in-delaware-town-judge-says"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_7",
+    "title": "\uC778\uACF5\uC9C0\uB2A5(AI) \uC5F4\uD48D \uC18D \uBA54\uBAA8\uB9AC \uBC18\uB3C4\uCCB4 3\uB300 \uCC9C\uC655 \u0027\uC870 \uB2EC\uB7EC\u0027 \uD074\uB7FD \uC785\uC131",
+    "content": "\uC0BC\uC131\uC804\uC790, SK\uD558\uC774\uB2C9\uC2A4, \uB9C8\uC774\uD06C\uB860 \uD14C\uD06C\uB180\uB85C\uC9C0 \uB4F1 \uAE00\uB85C\uBC8C \uBA54\uBAA8\uB9AC \uBC18\uB3C4\uCCB4 3\uB300 \uB300\uAE30\uC5C5\uC774 \uC778\uACF5\uC9C0\uB2A5(AI) \uD601\uBA85\uC744 \uC8FC\uB3C4\uD558\uBA70 \uC8FC\uAC00\uAC00 \uAE09\uB4F1, \uC870 \uB2EC\uB7EC \uAC00\uCE58 \uAE30\uC5C5\uC758 \uBC18\uC5F4\uC5D0 \uC624\uB974\uBA70 \uC815\uCE58\uAD8C\uACFC \uAE08\uC735\uAC00\uC758 \uD070 \uC8FC\uBAA9\uC744 \uBC1B\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://static01.nyt.com/images/2026/05/27/multimedia/27db-micron-gkvc/27db-micron-gkvc-mediumSquareAt3X.jpg",
+    "category": "\uACBD\uC81C",
+    "publishedAt": "2026-05-28 00:00:43",
+    "relatedArticles": [
+      {
+        "title": "Why Memory Chips Are Dominating the A.I. Rally",
+        "url": "https://www.nytimes.com/2026/05/27/business/dealbook/ai-chips-war-samsung-micron.html"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.nytimes.com/2026/05/27/business/dealbook/ai-chips-war-samsung-micron.html"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_1",
+    "title": "LG \uD2B8\uC708\uC2A4, \uB86F\uB370\uC5D0 \uADF9\uC801\uC778 \uC5ED\uC804\uC2B9\uC73C\uB85C 4\uC5F0\uC2B9 \uC9C8\uC8FC\u2026 \uAE40\uD0DC\uD615 \uAC10\uB3C5\uC740 \uD56D\uC758 \uC911 \uD1F4\uC7A5",
+    "content": "LG \uD2B8\uC708\uC2A4\uAC00 \uB86F\uB370 \uC790\uC774\uC5B8\uCE20\uC640\uC758 \uACBD\uAE30\uC5D0\uC11C 6\uC810 \uCC28 \uB9AC\uB4DC\uB97C \uB4A4\uC9D1\uB294 \uB300\uC5ED\uC804\uADF9\uC744 \uD3BC\uCE58\uBA70 4\uC5F0\uC2B9\uC744 \uB2EC\uB838\uC2B5\uB2C8\uB2E4. \uBC18\uBA74 \uB86F\uB370\uB294 3\uC5F0\uD328\uC5D0 \uBE60\uC84C\uC73C\uBA70, \uAE40\uD0DC\uD615 \uAC10\uB3C5\uC740 9\uD68C\uB9D0 \uBE44\uB514\uC624\uD310\uB3C5 \uD310\uC815\uC5D0 \uD56D\uC758\uD558\uB2E4 \uC2DC\uC98C \uCCAB \uD1F4\uC7A5\uC744 \uB2F9\uD588\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://www.chosun.com/resizer/v2/MU2GEMZTGY4TCNZVGRRDCYTGGE.jpg?auth=5622e49b03c430714e61bc0dfdc6963e3c5da077ffed43d300038f4b4af6fd23\u0026smart=true\u0026width=700\u0026height=921",
+    "category": "\uC2A4\uD3EC\uCE20",
+    "publishedAt": "2026-05-28 00:00:00",
+    "relatedArticles": [
+      {
+        "title": "5\uC810 \uB9AC\uB4DC \uBABB \uC9C0\uD0A4\uACE0 \uC5ED\uC804\uD328...\uAE40\uD0DC\uD615 \uAC10\uB3C5 \uC2DC\uC98C \uCCAB \uD1F4\uC7A5, \uBE44\uB514\uC624\uD310\uB3C5 \uC5B4\uD544\uD558\uB2E4",
+        "url": "https://www.chosun.com/sports/baseball/2026/05/28/MRQTKMJUG43DIMBVGYZDIYZTGI/"
+      },
+      {
+        "title": "\u0027\uD074\uB7EC\uCE58\u0027 \uD558\uBA74 \uBC14\uB85C \uB098! \u2192 LG \uBC15\uB3D9\uC6D0 \u0022\uC774\uB807\uAC8C \uC88B\uC740 \uC5ED\uC804\uC2B9 \uC0DD\uAC01\uB3C4 \uBABB\uD588\uB2E4\u0022 [\uBD80\uC0B0 \uD604\uC7A5]",
+        "url": "https://www.chosun.com/sports/baseball/2026/05/27/GY2TOZRVMVQWMYLBMMZGGOLBMQ/"
+      },
+      {
+        "title": "4\uC5F0\uC2B9 \uC9C8\uC8FC! \uACFC\uC5F0 \uC5FC\uAC08\uB7C9\uC774\uB2E4 \u2192 \uC5FC\uACBD\uC5FD LG \uAC10\uB3C5 \u0022\uCE58\uB9AC\uB178\uC2A4 \uD754\uB4E4\uB9AC\uBA74\uC11C \uC5B4\uB824\uC6B4 \uACBD\uAE30\uC600\uB294\uB370..\u0022 [\uBD80\uC0B0 \uD604\uC7A5]",
+        "url": "https://www.chosun.com/sports/baseball/2026/05/27/MYZGGOLFGU4GIMJSMY3DENJRMU/"
+      },
+      {
+        "title": "\uCE58\uB9AC\uB178\uC2A4 6\uC810 \uC918\uB3C4 \uC774\uAE30\uB124! LG 4\uC5F0\uC2B9 \uC9C8\uC8FC \u2192 \u0027\uAE40\uD0DC\uD615 \uAC10\uB3C5 \uD1F4\uC7A5\u0027 \uB86F\uB370 3\uC5F0\uD328 \uC218\uB801 [\uBD80\uC0B0 \uD604\uC7A5]",
+        "url": "https://www.chosun.com/sports/baseball/2026/05/27/GI4TCMRVGRSDAZDBMQZTKNJVMI/"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.chosun.com/sports/baseball/2026/05/28/MRQTKMJUG43DIMBVGYZDIYZTGI/",
+      "https://www.chosun.com/sports/baseball/2026/05/27/GY2TOZRVMVQWMYLBMMZGGOLBMQ/",
+      "https://www.chosun.com/sports/baseball/2026/05/27/MYZGGOLFGU4GIMJSMY3DENJRMU/",
+      "https://www.chosun.com/sports/baseball/2026/05/27/GI4TCMRVGRSDAZDBMQZTKNJVMI/"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_31",
+    "title": "BP \uC804 \uD68C\uC7A5 \uC568\uBC84\uD2B8 \uB9E4\uB2C8\uD3F4\uB4DC, \uC790\uC2E0\uC5D0 \uB300\uD55C \uACBD\uC9C8 \uC0AC\uC720\uC640 \uD68C\uC0AC \uBC1C\uD45C \uACBD\uC704 \uC804\uBA74 \uBD80\uC778",
+    "content": "\uC784\uBA85\uB41C \uC9C0 1\uB144\uB3C4 \uB418\uC9C0 \uC54A\uC544 \uACBD\uC601\uC9C4\uC5D0 \uC758\uD574 \uC804\uACA9 \uACBD\uC9C8\uB41C \uC568\uBC84\uD2B8 \uB9E4\uB2C8\uD3F4\uB4DC \uC804 BP \uD68C\uC7A5\uC774, \uD68C\uC0AC\uAC00 \uC5B8\uB860\uC5D0 \uBC1C\uD45C\uD55C \u0027\uC724\uB9AC\uC801 \uC9D5\uACC4 \uC870\uCE58\uC5D0 \uC758\uD55C \uD574\uACE0\u0027\uB77C\uB294 \uC131\uBA85\uACFC \uB2EC\uB9AC \uC790\uC2E0\uC740 \uD0C0\uB2F9\uD55C \uC774\uC720\uB97C \uC804\uB2EC\uBC1B\uC9C0 \uBABB\uD588\uB2E4\uACE0 \uBC18\uBC15\uD588\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "\uACBD\uC81C",
+    "publishedAt": "2026-05-27 23:59:50",
+    "relatedArticles": [
+      {
+        "title": "BP\u2019s Former Chairman, Albert Manifold, Disputes How Company Characterized His Dismissal",
+        "url": "https://www.nytimes.com/2026/05/27/business/bp-albert-manifold.html"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.nytimes.com/2026/05/27/business/bp-albert-manifold.html"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_26",
+    "title": "\uC601\uAD6D \uC170\uD544\uB4DC \uC720\uD765\uAC00 \uC220\uC9D1 \uBC16 \uBC1C\uC0DD\uD55C \uC758\uBB38\uC758 \uCD1D\uACA9\uC73C\uB85C \uC0AC\uB9DD\uD55C 30\uC138 \uC5EC\uC131 \uC2E0\uC6D0 \uACF5\uAC1C",
+    "content": "\uC601\uAD6D \uC170\uD544\uB4DC \uC2DC\uB0B4\uC758 \uB300\uD615 \uC720\uD765\uC8FC\uC810 \uC778\uADFC \uACE8\uBAA9\uC5D0\uC11C \uAD34\uD55C\uC774 \uC3DC \uBB3B\uC9C0\uB9C8 \uCD1D\uACA9\uC5D0 \uC5B5\uC6B8\uD558\uAC8C \uC228\uC9C4 \uD53C\uD574\uC790 \uC2E0\uC6D0\uC774 \uC790\uC120 \uC7AC\uB2E8 \uC9C1\uC6D0\uC774\uC790 \uC131\uC2E4\uD55C \uB9CC\uD559\uB3C4 \uC5EC\uC131\uC778 30\uC138 \uC0E4\uB2C8\uC2A4 \uBE0C\uB8E9\uC2A4\uB85C \uACF5\uC2DD \uBC1C\uD45C\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "\uC77C\uBC18",
+    "publishedAt": "2026-05-27 23:59:12",
+    "relatedArticles": [
+      {
+        "title": "Mum, 30, killed in shooting outside Sheffield bar named",
+        "url": "https://www.bbc.com/news/articles/c0q2yle5e0yo?at_medium=RSS\u0026at_campaign=rss"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.bbc.com/news/articles/c0q2yle5e0yo?at_medium=RSS\u0026at_campaign=rss"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_9",
+    "title": "\uBC30\uC6B0 \uC774\uC9C0\uD6C8, \uADF9\uC131 \uBD80\uBAA8 \uB17C\uB780 \uC0AC\uACFC\uC640 \uB354\uBD88\uC5B4 \uB538\uC758 \uBC14\uC774\uB7EC\uC2A4 \uAC10\uC5FC \uAC00\uC815\uC0AC \uACE0\uBC31",
+    "content": "\uBC30\uC6B0 \uC774\uC9C0\uD6C8\uC774 \uC5B4\uB9B0\uC774\uC9D1 \uAD00\uB828\uD55C \uADF9\uC131 \uBD80\uBAA8 \uB17C\uB780\uC5D0 \uB300\uD574 \uC0AC\uACFC\uC758 \uAE00\uC744 \uC62C\uB838\uC2B5\uB2C8\uB2E4. \uB610\uD55C \uAE4A\uC740 \uC0AC\uACFC\uC640 \uC131\uCC30\uC758 \uB9C8\uC74C\uC744 \uC804\uD558\uBA70 \uD604\uC7AC \uB538 \uB8E8\uD76C\uAC00 \uBC14\uC774\uB7EC\uC2A4 \uAC10\uC5FC\uC99D\uC73C\uB85C \uD22C\uBCD1 \uC911\uC778 \uAC1C\uC778\uC0AC\uB97C \uD138\uC5B4\uB193\uC558\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://www.chosun.com/resizer/v2/MZRTSMRYGE3DSOLDMVQWKYRQME.jpg?auth=27161fe294c115445b0f0fe455b8b10f7fd5d36be6df1779fe65d95b2188df18\u0026smart=true\u0026width=530\u0026height=569",
+    "category": "\uC5F0\uC608",
+    "publishedAt": "2026-05-27 23:52:00",
+    "relatedArticles": [
+      {
+        "title": "\u0027\uC544\uC57C\uB124\u2665\u0027 \uC774\uC9C0\uD6C8, \uADF9\uC131 \uBD80\uBAA8 \uB17C\uB780 \uC0AC\uACFC \uC18D \u0022\uB538 \uB8E8\uD76C, \uBC14\uC774\uB7EC\uC2A4 \uAC10\uC5FC\u0022",
+        "url": "https://www.chosun.com/entertainments/broadcast/2026/05/27/GZSTCNZTGIZDEOLCMYYTQMBWMI/"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.chosun.com/entertainments/broadcast/2026/05/27/GZSTCNZTGIZDEOLCMYYTQMBWMI/"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_10",
+    "title": "6\uC6D4 \uC790\uC5F0\uC8FC\uC758 \uCD9C\uC0B0 \uC608\uC815\uC778 \uB0A8\uBCF4\uB77C, \uC544\uB984\uB2E4\uC6B4 \uB4DC\uB808\uC2A4 \uC790\uD0DC \uB9CC\uC0AD \uD654\uBCF4 \uACF5\uAC1C",
+    "content": "\uBC30\uC6B0 \uB0A8\uBCF4\uB77C\uAC00 \uC624\uB294 6\uC6D4 \uC790\uC5F0\uC8FC\uC758 \uCD9C\uC0B0\uC744 \uBAA9\uC804\uC5D0 \uB450\uACE0 \uB2E8\uC544\uD55C \uC790\uD0DC\uC758 \uB9CC\uC0AD \uD654\uBCF4\uB97C \uACF5\uAC1C\uD588\uC2B5\uB2C8\uB2E4. \uB0A8\uBCF4\uB77C\uB294 \uC784\uC2E0 \uB9C8\uC9C0\uB9C9 \uB2EC\uC758 \uACE0\uD1B5\uC744 \uD138\uC5B4\uB193\uC73C\uBA74\uC11C\uB3C4 \uC2E0\uBD80 \uAC19\uC740 \uC21C\uBC31 \uB4DC\uB808\uC2A4 \uBBF8\uBAA8\uB97C \uBF50\uB0C8\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://www.chosun.com/resizer/v2/HEZTAYZRMNSGGMRWGU3DCZRYMU.jpg?auth=3dfa5c4b792e7d7427fb0929d802d488b9eee13f8137f8c394dbf94df2334e3e\u0026smart=true\u0026width=530\u0026height=847",
+    "category": "\uC5F0\uC608",
+    "publishedAt": "2026-05-27 23:50:00",
+    "relatedArticles": [
+      {
+        "title": "\u00276\uC6D4 \uC790\uC5F0\uC8FC\uC758 \uCD9C\uC0B0\u0027 \uB0A8\uBCF4\uB77C, \uB9CC\uC0AD \uD654\uBCF4 \uACF5\uAC1C \u0022\uB9C9\uB2EC, \uB108\uBB34 \uC544\uD504\uB2E4\u0022",
+        "url": "https://www.chosun.com/entertainments/broadcast/2026/05/27/GBSTKNJRGMZGMYRTMMZDCZLDGM/"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.chosun.com/entertainments/broadcast/2026/05/27/GBSTKNJRGMZGMYRTMMZDCZLDGM/"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_6",
+    "title": "\uC601\uAD6D \uB178\uB3D9\uB2F9 \uBC88\uD584 \uC2DC\uC7A5, \uBD88\uD3C9\uB4F1 \uBC29\uCE58\uD588\uB2E4\uBA70 \uBE14\uB808\uC5B4 \uC804 \uCD1D\uB9AC\uC758 \u0027\uC911\uB3C4 \uC8FC\uC758\u0027 \uAD8C\uACE0 \uBE44\uD310",
+    "content": "\uC601\uAD6D \uB178\uB3D9\uB2F9\uC758 \uC564\uB514 \uBC88\uD584 \uB9E8\uCCB4\uC2A4\uD130 \uC2DC\uC7A5\uC774 \u0027\uAE09\uC9C4\uC801 \uC911\uB3C4\u0027\uB97C \uD45C\uBC29\uD558\uB294 \uD1A0\uB2C8 \uBE14\uB808\uC5B4 \uC804 \uCD1D\uB9AC\uC758 \uB2F9 \uAC1C\uC785 \uAD8C\uC720\uB97C \uC815\uBA74 \uAC70\uBD80\uD558\uBA70, \uACFC\uAC70 \uBE14\uB808\uC5B4 \uC815\uBD80\uAC00 \uC601\uAD6D\uC758 \uBD88\uD3C9\uB4F1 \uBB38\uC81C\uB97C \uBC29\uCE58\uD558\uACE0 \uAC00\uC911\uC2DC\uCF30\uB2E4\uACE0 \uB0A0\uC744 \uC138\uC6E0\uC2B5\uB2C8\uB2E4.",
     "imageUrl": null,
     "category": "\uC77C\uBC18",
     "publishedAt": "2026-05-27 23:49:16",
@@ -22,9 +173,26 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_9",
-    "title": "\uB808\uC54C \uB9C8\uB4DC\uB9AC\uB4DC \uBE44\uB2C8\uC2DC\uC6B0\uC2A4, \uB77C\uCEE4\uB8F8 \uB0B4 \uB9AC\uB354\uC2ED \uBD80\uC7AC \uC194\uC9C1 \uACE0\uBC31",
-    "content": "\uBE0C\uB77C\uC9C8 \uB300\uD45C\uD300\uC5D0 \uD569\uB958\uD55C \uB808\uC54C \uB9C8\uB4DC\uB9AC\uB4DC\uC758 \uBE44\uB2C8\uC2DC\uC6B0\uC2A4 \uC8FC\uB2C8\uC624\uB974\uAC00 \uD300\uC758 \uBD80\uC9C4\uACFC \uAD00\uB828\uB41C \uB0B4\uBD84\uC5D0 \uC785\uC744 \uC5F4\uC5C8\uC2B5\uB2C8\uB2E4. \uADF8\uB294 \uC790\uC2E0\uC774 \uC544\uC9C1 \uB77C\uCEE4\uB8F8\uC744 \uD1B5\uC81C\uD560 \uC218\uC900\uC758 \uBCA0\uD14C\uB791 \uB9AC\uB354\uC2ED\uC774 \uBD80\uC871\uD568\uC744 \uC194\uC9C1\uD558\uAC8C \uC2DC\uC778\uD588\uC2B5\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_14",
+    "title": "\uBC30\uC6B0 \uD558\uC9C0\uC6D0, \uACBD\uD76C\uB300\uD559\uAD50 \uCD95\uC81C \uC751\uC6D0\uB2E8 \uAE5C\uC9DD \uB4F1\uD310\u2026 \uBE57\uC18D \uC5F4\uC815\uC801 \uD37C\uD3EC\uBA3C\uC2A4",
+    "content": "\uACBD\uD76C\uB300\uD559\uAD50 26\uD559\uBC88 \uC0C8\uB0B4\uAE30\uB85C \uD65C\uC57D \uC911\uC778 \uBC30\uC6B0 \uD558\uC9C0\uC6D0\uC774 \uB300\uD559 \uB300\uB3D9\uC81C \uCD95\uC81C\uB97C \uB9DE\uC544 \uACBD\uD76C\uB300 \uC751\uC6D0\uB2E8 \uC720\uB2C8\uD3FC\uC744 \uAC16\uCDB0 \uC785\uACE0 \uBB34\uB300\uC5D0 \uC11C\uC11C \uD3ED\uC6B0 \uC18D\uC5D0\uC11C\uB3C4 \uD559\uC0DD\uB4E4\uACFC \uD558\uB098 \uB418\uC5B4 \uC5F4\uC815\uC801\uC778 \uC751\uC6D0 \uBB34\uB300\uB97C \uAFB8\uBA84\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://www.chosun.com/resizer/v2/HA3WEOJQGRSGMYZQMVQTGZDEG4.jpg?auth=716d846666acc69397e069fb774e94c3d59683284a677ce92b92dad58bffdd3d\u0026smart=true\u0026width=650\u0026height=642",
+    "category": "\uC5F0\uC608",
+    "publishedAt": "2026-05-27 23:49:00",
+    "relatedArticles": [
+      {
+        "title": "\u0027\uACBD\uD76C\uB300 26\uD559\uBC88\u0027 \uD558\uC9C0\uC6D0, \uBE57\uC18D\uC5D0\uC11C \uB354 \uB728\uAC81\uAC8C\u2026\uC751\uC6D0\uB2E8 \uCD95\uC81C \uC804\uACA9 \uB4F1\uD310 [\uD56B\uD53C\uD50C]",
+        "url": "https://www.chosun.com/entertainments/broadcast/2026/05/27/GU4DEOJSMQZGCYRUMQ3TSOLBMY/"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.chosun.com/entertainments/broadcast/2026/05/27/GU4DEOJSMQZGCYRUMQ3TSOLBMY/"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_18",
+    "title": "\uB808\uC54C \uB9C8\uB4DC\uB9AC\uB4DC \uC5D0\uC774\uC2A4 \uBE44\uB2C8\uC2DC\uC6B0\uC2A4, \uD300\uC758 2\uB144 \uC5F0\uC18D \uC2E4\uD328 \uBC0F \uB9AC\uB354\uC2ED \uBD80\uC7AC \uC194\uC9C1 \uC778\uC815",
+    "content": "\uB808\uC54C \uB9C8\uB4DC\uB9AC\uB4DC\uC758 \uC8FC\uCD95 \uBE44\uB2C8\uC2DC\uC6B0\uC2A4 \uC8FC\uB2C8\uC624\uB974\uAC00 \uCD5C\uADFC \uC18C\uC18D\uD300 \uB0B4\uC5D0\uC11C \uC81C\uAE30\uB418\uB294 \uBD88\uD654 \uBC0F \uACB0\uC18D\uB825 \uC640\uD574 \uB17C\uB780\uC5D0 \uB300\uD574, \uB77C\uCEE4\uB8F8 \uC911\uC2EC\uC744 \uC7A1\uC744 \uBCA0\uD14C\uB791 \uB9AC\uB354\uC2ED\uC774 \uBD80\uC871\uD574 \uC2E4\uD328\uB97C \uACAA\uC5C8\uC74C\uC744 \uB364\uB364\uD788 \uC778\uC815\uD588\uC2B5\uB2C8\uB2E4.",
     "imageUrl": "https://www.chosun.com/resizer/v2/MIZDOMLBMEZWENLEMRSDMNZSHA.jpg?auth=d9417ed244f3417e945a765cf1ce1634ca1542a251255165bad737228d1a44d1\u0026smart=true\u0026width=650\u0026height=503",
     "category": "\uC2A4\uD3EC\uCE20",
     "publishedAt": "2026-05-27 23:48:00",
@@ -39,34 +207,226 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_1",
-    "title": "LG \uD2B8\uC708\uC2A4, \uB86F\uB370\uC5D0 \uC5ED\uC804\uC2B9 \uAC70\uB450\uBA70 4\uC5F0\uC2B9 \uC9C8\uC8FC",
-    "content": "LG \uD2B8\uC708\uC2A4\uAC00 \uB86F\uB370 \uC790\uC774\uC5B8\uCE20\uC640\uC758 \uACBD\uAE30\uC5D0\uC11C 1-6\uC73C\uB85C \uB4A4\uC9C0\uB358 \uACBD\uAE30\uB97C \uB4A4\uC9D1\uACE0 8\uB300 6\uC73C\uB85C \uC9DC\uB9BF\uD55C \uC5ED\uC804\uC2B9\uC744 \uAC70\uB450\uBA70 4\uC5F0\uC2B9\uC744 \uB2EC\uB838\uC2B5\uB2C8\uB2E4. \uB86F\uB370\uB294 3\uC5F0\uD328 \uC218\uB801\uC5D0 \uBE60\uC84C\uC73C\uBA70, \uAE40\uD0DC\uD615 \uAC10\uB3C5\uC740 \uBE44\uB514\uC624 \uD310\uB3C5 \uD56D\uC758\uB85C \uD1F4\uC7A5\uB2F9\uD588\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": "https://www.chosun.com/resizer/v2/MU4WMNRWGUZTCNRXGVSTMM3FMQ.jpg?auth=cc81b066abaa66f09294da610d2d40236d802b7f75074661bc4b9196edf931e4\u0026smart=true\u0026width=700\u0026height=468",
-    "category": "\uC2A4\uD3EC\uCE20",
-    "publishedAt": "2026-05-27 23:46:04",
+    "id": "Sum_20260528_002_5",
+    "title": "\uB3C4\uB110\uB4DC \uD2B8\uB7FC\uD504 \uC804 \uBBF8\uAD6D \uB300\uD1B5\uB839, \uC785\uB9C9\uC74C \uB3C8 \uAE30\uC18C \uC0AC\uAC74\uC5D0 34\uAC74 \uD610\uC758 \uC804\uBA74 \uBB34\uC8C4 \uC8FC\uC7A5",
+    "content": "\uB3C4\uB110\uB4DC \uD2B8\uB7FC\uD504 \uC804 \uBBF8\uAD6D \uB300\uD1B5\uB839\uC774 \uC131\uCD94\uBB38 \uC785\uB9C9\uC74C \uB3C8 \uC9C0\uAE09 \uBC0F \uC7A5\uBD80 \uC870\uC791 \uAD00\uB828 \uAE30\uC18C \uC0AC\uAC74 \uC7AC\uD310\uC5D0\uC11C \uAC80\uCC30 \uCE21\uC774 \uC81C\uAE30\uD55C 34\uAC1C\uC758 \uC911\uBC94\uC8C4 \uD610\uC758\uC5D0 \uB300\uD574 \uC804\uD600 \uC0AC\uC2E4\uC774 \uC544\uB2C8\uB77C\uBA70 \uBB34\uC8C4\uB97C \uC8FC\uC7A5\uD588\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "\uC77C\uBC18",
+    "publishedAt": "2026-05-27 23:42:02",
     "relatedArticles": [
       {
-        "title": "4\uC5F0\uC2B9 \uC9C8\uC8FC! \uACFC\uC5F0 \uC5FC\uAC08\uB7C9\uC774\uB2E4 \u2192 \uC5FC\uACBD\uC5FD LG \uAC10\uB3C5 \u0022\uCE58\uB9AC\uB178\uC2A4 \uD754\uB4E4\uB9AC\uBA74\uC11C \uC5B4\uB824\uC6B4 \uACBD\uAE30\uC600\uB294\uB370..\u0022 [\uBD80\uC0B0 \uD604\uC7A5]",
-        "url": "https://www.chosun.com/sports/baseball/2026/05/27/MYZGGOLFGU4GIMJSMY3DENJRMU/"
+        "title": "READ: Trump indictment related to hush money payment",
+        "url": "https://cnn.it/411KYN7"
       },
       {
-        "title": "\uCE58\uB9AC\uB178\uC2A4 6\uC810 \uC918\uB3C4 \uC774\uAE30\uB124! LG 4\uC5F0\uC2B9 \uC9C8\uC8FC \u2192 \u0027\uAE40\uD0DC\uD615 \uAC10\uB3C5 \uD1F4\uC7A5\u0027 \uB86F\uB370 3\uC5F0\uD328 \uC218\uB801 [\uBD80\uC0B0 \uD604\uC7A5]",
-        "url": "https://www.chosun.com/sports/baseball/2026/05/27/GI4TCMRVGRSDAZDBMQZTKNJVMI/"
+        "title": "Trump pleads not guilty to 34 felony counts",
+        "url": "https://edition.cnn.com/webview/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23/index.html"
       }
     ],
     "relatedUrls": [
-      "https://www.chosun.com/sports/baseball/2026/05/27/MYZGGOLFGU4GIMJSMY3DENJRMU/",
-      "https://www.chosun.com/sports/baseball/2026/05/27/GI4TCMRVGRSDAZDBMQZTKNJVMI/"
+      "https://cnn.it/411KYN7",
+      "https://edition.cnn.com/webview/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23/index.html"
     ]
   },
   {
-    "id": "Sum_20260527_003_5",
-    "title": "\u2018\uB098\uB294 \uC194\uB85C\u2019 31\uAE30, \uACBD\uC218\uB97C \uB458\uB7EC\uC2FC \uC625\uC21C\u00B7\uC21C\uC790\u00B7\uC601\uC219\uC758 \uAE4A\uC5B4\uC9C4 \uAC08\uB4F1",
-    "content": "SBS Plus\u00B7ENA \uC608\uB2A5 \u2018\uB098\uB294 \uC194\uB85C\u2019 31\uAE30 \uC194\uB85C\uB098\uB77C\uC5D0\uC11C \uACBD\uC218\uB97C \uD5A5\uD55C \uC21C\uC790\uC758 \uAC70\uCE68\uC5C6\uB294 \uC9D1\uCC29\uACFC \uAE30\uC2F8\uC6C0\uC774 \uADF8\uB824\uC84C\uC2B5\uB2C8\uB2E4. \uC625\uC21C\uACFC \uC601\uC219\uC758 \uBB18\uD55C \uC2E0\uACBD\uC804\uC774 \uC0BC\uAC01\uAD00\uACC4\uB97C \uACE0\uC870\uC2DC\uD0A4\uBA70 \uAE34\uC7A5\uAC10\uC744 \uB354\uD588\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": "https://www.chosun.com/resizer/v2/MJSWCZDGMRQTAODBGBSWIM3BMI.jpg?auth=17e608e002fe206c520dd927544380ab03384e6b12b55b7c24e180bdd196589b\u0026smart=true\u0026width=650\u0026height=367",
+    "id": "Sum_20260528_002_28",
+    "title": "\uC911\uAD6D \uC720\uBA85 \uD560\uC778 \uC1FC\uD551 \uC571 \uB0B4 \uC228\uACA8\uC9C4 \uACE0\uC704\uD5D8 \uBCF4\uC548 \uBC31\uB3C4\uC5B4 \uBC0F \uC545\uC131\uCF54\uB4DC \uACBD\uACE0",
+    "content": "\uBCF4\uC548 \uC5F0\uD569 \uBC0F \uB124\uD2B8\uC6CC\uD06C \uC804\uBB38\uAC00\uB4E4\uC5D0 \uC758\uD558\uBA74 \uC911\uAD6D\uC758 \uBAA8 \uC800\uAC00 \uD2B9\uAC00 \uC9C1\uAD6C \uC1FC\uD551 \uC571 \uB0B4\uBD80 \uBC31\uADF8\uB77C\uC6B4\uB4DC\uC5D0 \uBD88\uBC95 \uC815\uBCF4 \uD0C8\uCDE8 \uBC0F \uAC15\uC81C \uAE30\uAE30 \uAC10\uC5FC \uAE30\uB2A5\uC744 \uAC00\uC9C4 \uACE0\uB3C4\uC758 \uC2A4\uD30C\uC774\uC6E8\uC5B4 \uC545\uC131\uCF54\uB4DC\uAC00 \uBC1C\uACAC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "\uC77C\uBC18",
+    "publishedAt": "2026-05-27 23:42:02",
+    "relatedArticles": [
+      {
+        "title": "Hundreds of millions at risk from Chinese shopping app malware ",
+        "url": "https://cnn.it/40OSomK"
+      }
+    ],
+    "relatedUrls": [
+      "https://cnn.it/40OSomK"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_29",
+    "title": "\uB7EC\uC2DC\uC544 \uC5F0\uBC29 \uBCF4\uC548\uBD80, \uC0C1\uD2B8\uD398\uD14C\uB974\uBD80\uB974\uD06C \uCE5C\uC815\uBD80 \uC778\uC0AC \uC800\uACA9 \uD3ED\uD0C4 \uD14C\uB7EC \uC6A9\uC758\uC790 \uAC80\uAC70",
+    "content": "\uB7EC\uC2DC\uC544 \uC218\uC0AC \uB2F9\uAD6D\uC774 \uC0C1\uD2B8\uD398\uD14C\uB974\uBD80\uB974\uD06C \uC720\uBA85 \uCE74\uD398\uC5D0\uC11C \uAD70\uC0AC \uBE14\uB85C\uAC70 \uB4F1 \uD478\uD2F4 \uC9C0\uC9C0 \uC131\uD5A5 \uC815\uACC4 \uC778\uC0AC\uB97C \uD45C\uC801\uC73C\uB85C \uC0BC\uC544 \uBC1C\uC0DD\uD55C \uD3ED\uBC1C \uD14C\uB7EC \uC0AC\uAC74\uC758 \uC720\uB825\uD55C \uBC30\uD6C4 \uBC0F \uC6A9\uC758\uC790\uB97C \uC804\uACA9 \uD604\uC7A5 \uAC80\uAC70\uD574 \uC774\uC1A1\uD588\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "\uC77C\uBC18",
+    "publishedAt": "2026-05-27 23:42:02",
+    "relatedArticles": [
+      {
+        "title": "Russian authorities detain suspect over St. Petersburg cafe blast",
+        "url": "https://edition.cnn.com/webview/europe/live-news/russia-ukraine-war-news-04-03-23/index.html"
+      }
+    ],
+    "relatedUrls": [
+      "https://edition.cnn.com/webview/europe/live-news/russia-ukraine-war-news-04-03-23/index.html"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_27",
+    "title": "\uC601\uAD6D \uD3ED\uC5FC \uAE30\uAC04 \uBB3C\uB180\uC774 \uC2E4\uC885 \uBC0F \uAE09\uC791\uC2A4\uB7EC\uC6B4 \uC775\uC0AC \uC0AC\uB9DD \uAE09\uC99D\uC73C\uB85C \uAE34\uAE09 \uB300\uCC98\uB839 \uBC1C\uB839",
+    "content": "\uC601\uAD6D \uC804\uC5ED\uC744 \uAC15\uD0C0\uD55C \uC7A5\uAE30 \uACE0\uC628 \uC5F4\uD30C \uD604\uC0C1 \uC640\uC911\uC5D0 \uAC1C\uCC9C \uBC0F \uC778\uADFC \uD638\uC218 \uC218\uC601 \uC704\uD5D8\uC9C0\uB300 \uB4F1\uC5D0\uC11C \uC0AC\uC804\uC5D0 \uC900\uBE44 \uC5C6\uC774 \uBB3C\uB180\uC774\uB97C \uC990\uAE30\uB2E4 \uAD6C\uC870\uB97C \uBABB \uBC1B\uACE0 \uBB34\uB824 9\uBA85\uC774 \uC787\uB2EC\uC544 \uC775\uC0AC\uD574 \uB2F9\uAD6D\uC774 \uC8FC\uC758\uB97C \uB2F9\uBD80\uD588\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "\uC77C\uBC18",
+    "publishedAt": "2026-05-27 23:40:59",
+    "relatedArticles": [
+      {
+        "title": "Water safety warning after nine people die during heatwave",
+        "url": "https://www.bbc.com/news/articles/cp8plymvm47o?at_medium=RSS\u0026at_campaign=rss"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.bbc.com/news/articles/cp8plymvm47o?at_medium=RSS\u0026at_campaign=rss"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_11",
+    "title": "\uCD5C\uC900\uD76C, \uBBF8\uAD6D \uC5EC\uD589 \uC911 \u0027\uC2A4\uD0C0\uBC85\uC2A4 \uB17C\uB780\u0027 \uD574\uBA85 \uBC0F \uC545\uC131 \uB313\uAE00\uC5D0 \uC77C\uCE68",
+    "content": "\u6545 \uCD5C\uC9C4\uC2E4\uC758 \uB538 \uCD5C\uC900\uD76C\uAC00 \uB0A8\uD3B8\uACFC \uD568\uAED8 \uBBF8\uAD6D LA \uC5EC\uD589 \uC911 \uC62C\uB9B0 \uC2A4\uD0C0\uBC85\uC2A4 \uC778\uC99D\uC0F7 \uBD88\uB9E4 \uC6B4\uB3D9 \uB17C\uB780\uC5D0 \uBD84\uD1B5\uC744 \uD130\uB728\uB838\uC2B5\uB2C8\uB2E4. \uADF8\uB140\uB294 \uAC1C\uC778 SNS\uB97C \uD1B5\uD574 \uACFC\uD55C \uCC38\uACAC\uC774\uB77C\uBA70 \uBD88\uCF8C\uD55C \uAC10\uC815\uC744 \uC9C1\uC811\uC801\uC73C\uB85C \uD45C\uD604\uD588\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://www.chosun.com/resizer/v2/GFQTQOJWGUZWGYRUMQ4TIYTGGY.jpg?auth=0f654985ed729c4c692bdc5f75be0e96eabada4ea46f72cde86af2b208a39196\u0026smart=true\u0026width=650\u0026height=568",
     "category": "\uC5F0\uC608",
-    "publishedAt": "2026-05-27 23:43:00",
+    "publishedAt": "2026-05-27 23:33:00",
+    "relatedArticles": [
+      {
+        "title": "\u0027\uC2A4\uBC85 \uC778\uC99D \uB17C\uB780\u0027 \uCD5C\uC900\uD76C, \uC2EC\uAE30 \uBD88\uD3B8 \uC785\uC7A5\u2026\u0022\uB0A8\uC774\uC0AC \uCEE4\uD53C \uC0AC\uBA39\uB4E0 \uB9D0\uB4E0\u0022 [\uD56B\uD53C\uD50C]",
+        "url": "https://www.chosun.com/entertainments/broadcast/2026/05/27/MRSGIMTBG4YWKYJVGE2DSMJQGI/"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.chosun.com/entertainments/broadcast/2026/05/27/MRSGIMTBG4YWKYJVGE2DSMJQGI/"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_16",
+    "title": "KIA \uC5D0\uC774\uC2A4 \uC81C\uC784\uC2A4 \uB124\uC77C, 7\uC774\uB2DD 1\uC2E4\uC810 \uC5ED\uD22C\uB85C 47\uC77C \uB9CC\uC5D0 \uAE30\uC801 \uAC19\uC740 \uC120\uBC1C\uC2B9",
+    "content": "KIA \uD0C0\uC774\uAC70\uC988 \uC5D0\uC774\uC2A4 \uC81C\uC784\uC2A4 \uB124\uC77C\uC774 \uACE0\uCC99 \uB3D4\uC5D0\uC11C \uC5F4\uB9B0 \uD0A4\uC6C0 \uD788\uC5B4\uB85C\uC988\uC640\uC758 \uACBD\uAE30\uC5D0\uC11C 7\uC774\uB2DD 8\uD0C8\uC0BC\uC9C4 1\uC2E4\uC810\uC758 \uC644\uBCBD \uD22C\uAD6C\uB85C \uD300 \uD0C0\uC120 \uC9C0\uC6D0 \uC0AC\uACA9\uC744 \uBC1B\uC544 \uC9C0\uB09C\uB2EC \uC774\uD6C4 47\uC77C \uB9CC\uC5D0 \uB2EC\uCF64\uD55C \uC120\uBC1C\uC2B9\uC744 \uCC28\uC9C0\uD588\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://www.chosun.com/resizer/v2/GU3DCNTDG43TGYJXG42DENTFME.jpg?auth=a1e3bd9c571494cdf7814129ee23bfcf2a161f52c1dedf4fddd67fc4c0ca3d81\u0026smart=true\u0026width=700\u0026height=533",
+    "category": "\uC2A4\uD3EC\uCE20",
+    "publishedAt": "2026-05-27 23:32:14",
+    "relatedArticles": [
+      {
+        "title": "47\uC77C \uB9CC\uC758 \uAC10\uACA9\uC2B9\u2026\uC5D0\uC774\uC2A4\uAC00 \uBC1B\uC544\uB4E4\uC778 \uC219\uBA85 \u0022\uD0C0\uC790\uB3C4 \uC0C1\uB300 1\uC120\uBC1C\uC5D0 \uD798\uB4E4\uC5C8\uACA0\uC8E0\u0022",
+        "url": "https://www.chosun.com/sports/baseball/2026/05/27/GBRWINTGMU3TONRXGQ4TCMTGMI/"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.chosun.com/sports/baseball/2026/05/27/GBRWINTGMU3TONRXGQ4TCMTGMI/"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_30",
+    "title": "[\uC624\uB298\uC758 \uB0A0\uC528] 2026\uB144 5\uC6D4 28\uC77C \uC804\uAD6D \uB300\uAE30 \uC815\uBCF4 \uBC0F \uC9C0\uC5ED\uBCC4 \uAC15\uC218 \uBD84\uD3EC \uC608\uBCF4",
+    "content": "2026\uB144 5\uC6D4 28\uC77C \uC77C\uC77C \uAE30\uC628 \uB370\uC774\uD130 \uBC0F \uD574\uC0C1 \uAE30\uD6C4 \uAD00\uCE21 \uC790\uB8CC\uC5D0 \uC785\uAC01\uD55C \uAE30\uC0C1\uCCAD \uC804\uAD6D \uB300\uAE30 \uBC0F \uAC15\uC218 \uD655\uB960\uC5D0 \uAD00\uD55C \uC0C1\uC138 \uB0A0\uC528 \uBE0C\uB9AC\uD551 \uC790\uB8CC\uC785\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "\uC0AC\uD68C",
+    "publishedAt": "2026-05-27 23:31:00",
+    "relatedArticles": [
+      {
+        "title": "[\uC624\uB298\uC758 \uB0A0\uC528] 2026\uB144 5\uC6D4 28\uC77C",
+        "url": "https://www.chosun.com/national/transport-environment/2026/05/27/UBXUB5VESRHGJFVZZIGN6PHSN4/"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.chosun.com/national/transport-environment/2026/05/27/UBXUB5VESRHGJFVZZIGN6PHSN4/"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_2",
+    "title": "\uCE74\uCE74\uC624 \uB178\uC0AC 2\uCC28 \uC870\uC815 \uACB0\uB82C\u2026 \uCC3D\uC0AC \uC774\uB798 \uCCAB \uD30C\uC5C5 \uC704\uAE30 \uD604\uC2E4\uD654",
+    "content": "\uCE74\uCE74\uC624 \uB178\uC0AC\uC758 2\uCC28 \uC784\uAE08 \uBC0F \uB2E8\uCCB4\uD611\uC57D \uC870\uC815\uC774 \uACB0\uB82C\uB418\uBA70 \uB178\uB3D9\uC704\uC6D0\uD68C\uAC00 \uC870\uC815 \uC911\uC9C0 \uACB0\uC815\uC744 \uB0B4\uB838\uC2B5\uB2C8\uB2E4. \uC774\uB85C\uC368 \uCE74\uCE74\uC624 \uB178\uB3D9\uC870\uD569\uC740 \uD569\uBC95\uC801\uC778 \uC7C1\uC758\uAD8C\uC744 \uD655\uBCF4\uD558\uC5EC \uCC3D\uC0AC \uC774\uB798 \uCCAB \uD30C\uC5C5 \uAC00\uB2A5\uC131\uC774 \uB9E4\uC6B0 \uB192\uC544\uC84C\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://pimg.mk.co.kr/news/cms/202605/27/news-p.v1.20260527.a8abfc2157104d398ed6d66cdc0f1b84_R.png",
+    "category": "\uACBD\uC81C",
+    "publishedAt": "2026-05-27 23:28:42",
+    "relatedArticles": [
+      {
+        "title": "\uCE74\uCE74\uC624 \uBCF8\uC0AC \uD30C\uC5C5 \uD604\uC2E4\uD654\u00B7\u00B7\u00B72\uCC28 \uC870\uC815\uB3C4 \u2018\uC911\uC9C0\u2019 \uACB0\uC815",
+        "url": "https://www.mk.co.kr/news/business/12059372"
+      },
+      {
+        "title": "[\uC18D\uBCF4] \uCE74\uCE74\uC624 \uB178\uC0AC 2\uCC28 \uC870\uC815 \uACB0\uB82C\u2026\uCC3D\uC0AC \uC774\uB798 \uCCAB \uD30C\uC5C5 \uD604\uC2E4\uB418\uB098",
+        "url": "https://www.mk.co.kr/news/society/12059365"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.mk.co.kr/news/business/12059372",
+      "https://www.mk.co.kr/news/society/12059365"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_19",
+    "title": "\uC601\uAD6D \uC804\uACF5\uC758 \uB178\uB3D9\uC870\uD569, \uC815\uBD80 \uC0C1\uB300\uB85C 6\uC6D4\uC5D0 16\uBC88\uC9F8 \uCD1D\uD30C\uC5C5 \uAC1C\uC2DC \uC608\uACE0",
+    "content": "\uC601\uAD6D \uC758\uD559\uD611\uD68C(BMA) \uC804\uACF5\uC758 \uC9C0\uBD80\uAC00 \uC815\uBD80\uC758 \uBBF8\uC628\uC801\uC778 \uC5F0\uBD09 \uC778\uC0C1 \uC81C\uC548\uC5D0 \uD06C\uAC8C \uBC18\uBC1C\uD558\uBA70, \uB2E4\uAC00\uC624\uB294 6\uC6D4 15\uC77C\uBD80\uD130 \uB098\uD758\uC5D0 \uAC78\uCCD0 \uC0AC\uC0C1 16\uBC88\uC9F8 \uC5F0\uC1C4 \uB300\uADDC\uBAA8 \uCD1D\uD30C\uC5C5\uC5D0 \uB2E4\uC2DC \uB3CC\uC785\uD55C\uB2E4\uACE0 \uACBD\uACE0\uD588\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "\uC77C\uBC18",
+    "publishedAt": "2026-05-27 23:28:32",
+    "relatedArticles": [
+      {
+        "title": "Resident doctors to strike for 16th time over pay",
+        "url": "https://www.bbc.com/news/articles/c8xw2vvlxeko?at_medium=RSS\u0026at_campaign=rss"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.bbc.com/news/articles/c8xw2vvlxeko?at_medium=RSS\u0026at_campaign=rss"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_13",
+    "title": "\uD398\uB77C\uB9AC \uCD5C\uCD08\uC758 \uC21C\uC218 \uC804\uAE30 \uC2A4\uD3EC\uCE20\uCE74 \uACF5\uAC1C, \uC774\uD0C8\uB9AC\uC544 \uC548\uD30E\uC11C \uD639\uD3C9 \uC138\uB840 \uC9C1\uBA74",
+    "content": "\uC288\uD37C\uCE74\uC758 \uB300\uBA85\uC0AC\uC778 \uD398\uB77C\uB9AC\uAC00 \uCD9C\uC2DC\uD55C \uCCAB \uC804\uB3D9\uD654 \uC804\uAE30 \uC2A4\uD3EC\uCE20\uCE74 \uBAA8\uB378\uC774 \uBE0C\uB79C\uB4DC \uD2B9\uC720\uC758 \uC18C\uB9AC\uC640 \uC57C\uC131\uC744 \uC783\uC5C8\uB2E4\uB294 \uBE44\uD310\uACFC \uD568\uAED8 \uBC08\uC73C\uB85C \uC870\uB871\uC744 \uBC1B\uC73C\uBA70 \uC8FC\uAC00 \uAE09\uB77D \uBC0F \uC560\uB110\uB9AC\uC2A4\uD2B8\uB4E4\uC758 \uBD80\uC815\uC801\uC778 \uC6B0\uB824\uC5D0 \uBD80\uB52A\uD614\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://static01.nyt.com/images/2026/05/27/multimedia/27DB-Ferrari-kpjc/27DB-Ferrari-kpjc-mediumSquareAt3X.jpg",
+    "category": "\uACBD\uC81C",
+    "publishedAt": "2026-05-27 23:27:13",
+    "relatedArticles": [
+      {
+        "title": "Ferrari\u2019s First Electric Car Runs Into Backlash in Italy and Beyond",
+        "url": "https://www.nytimes.com/2026/05/27/business/ferrari-luce-electric-ev-backlash.html"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.nytimes.com/2026/05/27/business/ferrari-luce-electric-ev-backlash.html"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_23",
+    "title": "1980\uB144\uB300 \uC81C\uC791\uB41C CIA \uADF9\uBE44 \uBC0F \uC815\uBC00 \uC9C0\uB3C4 \uCEEC\uB809\uC158 \uB300\uAC70 \uB300\uC911\uC5D0 \uACF5\uAC1C",
+    "content": "\uACFC\uAC70 \uB0C9\uC804 \uC2DC\uAE30\uC5D0 \uBBF8\uAD6D\uC758 \uC911\uC559\uC815\uBCF4\uAD6D(CIA) \uC9C0\uB9AC\uD559 \uD300\uC774 \uC9C1\uC811 \uC5F0\uAD6C \uBC0F \uC2E4\uC0AC\uC5D0 \uAE30\uBC18\uD558\uC5EC \uBE44\uBC00\uB9AC\uC5D0 \uC138\uBD80 \uC81C\uC791\uD588\uB358 1980\uB144\uB300 \uAE30\uBC00 \uC9C0\uB3C4\uB4E4\uC774 \uAD6D\uB9BD\uAE30\uB85D\uC6D0 \uD574\uC81C \uC870\uCE58\uB85C \uC5ED\uC0AC \uC9C0\uB9AC\uD559 \uB9E4\uCCB4\uC5D0 \uACF5\uAC1C\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "IT",
+    "publishedAt": "2026-05-27 23:21:20",
+    "relatedArticles": [
+      {
+        "title": "Declassified CIA Cartography Maps from the 1980s",
+        "url": "https://brilliantmaps.com/cia-maps-1980s/"
+      }
+    ],
+    "relatedUrls": [
+      "https://brilliantmaps.com/cia-maps-1980s/"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_22",
+    "title": "\uB9E8\uC720, \uC62C\uC5EC\uB984 \uC544\uD0C8\uB780\uD0C0\uC758 \uD575\uC2EC \uBE0C\uB77C\uC9C8 \uBBF8\uB4DC\uD544\uB354 \uC5D0\uB370\uB974\uC1A1 \uC601\uC785 \uC720\uB825",
+    "content": "\uC789\uAE00\uB79C\uB4DC \uD504\uB9AC\uBBF8\uC5B4\uB9AC\uADF8 \uB9E8\uCCB4\uC2A4\uD130 \uC720\uB098\uC774\uD2F0\uB4DC\uAC00 \uC138\uB9AC\uC5D0 A \uC544\uD0C8\uB780\uD0C0\uC758 \uC804\uCC9C\uD6C4 \uBE0C\uB77C\uC9C8 \uBBF8\uB4DC\uD544\uB354 \uC5D0\uB370\uB974\uC1A1\uC744 \uCCAB \uBC88\uC9F8 \uC774\uC801 \uC2E0\uD638\uD0C4\uC73C\uB85C \uC0BC\uACE0 4,160\uB9CC \uD30C\uC6B4\uB4DC \uC774\uC801\uB8CC\uC5D0 \uD569\uC758\uAC00 \uAC00\uAE4C\uC6B4 \uC774\uC801 \uD611\uC0C1\uC744 \uC9C4\uD589\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": null,
+    "category": "\uC77C\uBC18",
+    "publishedAt": "2026-05-27 23:20:10",
+    "relatedArticles": [
+      {
+        "title": "Man Utd closing in on \u00A342m Ederson deal",
+        "url": "https://www.bbc.com/sport/football/articles/czd2ev0ggj5o?at_medium=RSS\u0026at_campaign=rss"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.bbc.com/sport/football/articles/czd2ev0ggj5o?at_medium=RSS\u0026at_campaign=rss"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_3",
+    "title": "\u0027\uB098\uB294 \uC194\uB85C\u0027 31\uAE30 \uC21C\uC790\uC758 \uC9D1\uCC29\uACFC \uAC08\uB4F1\uC73C\uB85C \uAE4A\uC5B4\uC9C0\uB294 \uCD9C\uC5F0\uC790 \uAC04 \uAC10\uC815\uC758 \uACE8",
+    "content": "\u0027\uB098\uB294 \uC194\uB85C\u0027 31\uAE30 \uBC29\uC1A1\uC5D0\uC11C \uC21C\uC790\uAC00 \uACBD\uC218\uB97C \uD5A5\uD574 \uC9D1\uCC29 \uC11E\uC778 \uD589\uBCF4\uB97C \uBCF4\uC774\uBA70 \uC2A4\uD0A8\uC2ED\uC744 \uC774\uC5B4\uAC14\uC2B5\uB2C8\uB2E4. \uC774\uC5D0 \uC601\uC219, \uC625\uC21C \uB4F1 \uB2E4\uB978 \uC5EC\uC131 \uCD9C\uC5F0\uC790\uB4E4\uACFC\uC758 \uAE30\uC2F8\uC6C0 \uBC0F \uAE34\uC7A5\uAC10\uC774 \uACE0\uC870\uB418\uBA74\uC11C \uC0BC\uAC01\uAD00\uACC4\uC758 \uAC08\uB4F1\uC774 \uD55C\uCE35 \uAE4A\uC5B4\uC84C\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://www.chosun.com/resizer/v2/GFSWEMZTMIYTAMZUGA3GCYJQHA.jpg?auth=77472ea49961d88e7b8f7c5df6bde3567f2e6384fb0e8b875eb09f92c7ee3371\u0026smart=true\u0026width=650\u0026height=367",
+    "category": "\uC5F0\uC608",
+    "publishedAt": "2026-05-27 23:12:00",
     "relatedArticles": [
       {
         "title": "\u0022\uC774\uBBF8 \uAC10\uC815\uC758 \uACE8 \uC0DD\uACBC\uC5B4\u0022 31\uAE30 \uC625\uC21C...\uC21C\uC790 \uB450\uACE0 \uB2E8\uCCB4 \uC190\uC808 \uC2DC\uADF8\uB110? (\u0027\uB098\uB294 \uC194\uB85C\u0027) [\uD56B\uD53C\uD50C]",
@@ -88,223 +448,9 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_13",
-    "title": "\uD2B8\uB7FC\uD504 \uC804 \uB300\uD1B5\uB839, \uC131\uCD94\uBB38 \uBB34\uB9C8 34\uAC74\uC758 \uC911\uC8C4 \uAE30\uC18C\uC5D0 \u0027\uBB34\uC8C4\u0027 \uC8FC\uC7A5",
-    "content": "\uC131\uCD94\uBB38 \uAD6C\uC124\uC218\uB97C \uC7A0\uC7AC\uC6B0\uAE30 \uC704\uD574 \uBD88\uBC95 \uC790\uAE08\uC744 \uC9C0\uAE09\uD588\uB2E4\uB294 \uD610\uC758\uB85C \uD615\uC0AC \uAE30\uC18C\uB41C \uB3C4\uB110\uB4DC \uD2B8\uB7FC\uD504 \uC804 \uBBF8\uAD6D \uB300\uD1B5\uB839\uC774 \uBC95\uC815\uC5D0 \uCD9C\uC11D\uD574 34\uAC74\uC758 \uBAA8\uB4E0 \uD610\uC758\uC5D0 \uB300\uD574 \uACB0\uBC31\uC744 \uC8FC\uC7A5\uD588\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": null,
-    "category": "\uC77C\uBC18",
-    "publishedAt": "2026-05-27 23:42:02",
-    "relatedArticles": [
-      {
-        "title": "READ: Trump indictment related to hush money payment",
-        "url": "https://cnn.it/411KYN7"
-      },
-      {
-        "title": "Trump pleads not guilty to 34 felony counts",
-        "url": "https://edition.cnn.com/webview/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23/index.html"
-      }
-    ],
-    "relatedUrls": [
-      "https://cnn.it/411KYN7",
-      "https://edition.cnn.com/webview/politics/live-news/trump-indictment-stormy-daniels-news-04-03-23/index.html"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_16",
-    "title": "\uC911\uAD6D \uC1FC\uD551 \uC571 \uC545\uC131\uCF54\uB4DC \uD0D1\uC7AC\uB85C \uC218\uC5B5 \uBA85\uC758 \uAC1C\uC778\uC815\uBCF4 \uB178\uCD9C \uC704\uD611",
-    "content": "\uC77C\uBD80 \uC911\uAD6D\uACC4 \uC800\uAC00 \uC1FC\uD551 \uC560\uD50C\uB9AC\uCF00\uC774\uC158\uC5D0\uC11C \uBC31\uB3C4\uC5B4\uC640 \uC545\uC131\uCF54\uB4DC\uAC00 \uAC80\uCD9C\uB418\uC5B4 \uC804 \uC138\uACC4 \uC218\uC5B5 \uBA85\uC5D0 \uB2EC\uD558\uB294 \uC0AC\uC6A9\uC790\uC758 \uC2A4\uB9C8\uD2B8\uD3F0 \uC815\uBCF4 \uC720\uCD9C \uBC0F \uD574\uD0B9 \uD53C\uD574 \uC6B0\uB824\uAC00 \uAE09\uC99D\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": null,
-    "category": "IT",
-    "publishedAt": "2026-05-27 23:42:02",
-    "relatedArticles": [
-      {
-        "title": "Hundreds of millions at risk from Chinese shopping app malware ",
-        "url": "https://cnn.it/40OSomK"
-      }
-    ],
-    "relatedUrls": [
-      "https://cnn.it/40OSomK"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_17",
-    "title": "\uB7EC\uC2DC\uC544 \uC0C1\uD2B8\uD398\uD14C\uB974\uBD80\uB974\uD06C \uCE74\uD398 \uD3ED\uBC1C \uCC38\uC0AC \uC6A9\uC758\uC790 \uAC80\uAC70",
-    "content": "\uB7EC\uC2DC\uC544 \uC5F0\uBC29 \uBCF4\uC548 \uB2F9\uAD6D\uC774 \uC0C1\uD2B8\uD398\uD14C\uB974\uBD80\uB974\uD06C \uB3C4\uC2EC\uC758 \uD55C \uCE74\uD398\uC5D0\uC11C \uBC1C\uC0DD\uD574 \uC778\uBA85 \uD53C\uD574\uB97C \uB0B8 \uD3ED\uBC1C \uC0AC\uACE0\uC758 \uC720\uB825 \uC6A9\uC758\uC790\uB97C \uCD94\uC801 \uB05D\uC5D0 \uAD6C\uAE08\uD558\uACE0 \uBC30\uD6C4 \uC870\uC0AC\uB97C \uC804\uAC1C\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": null,
-    "category": "\uC77C\uBC18",
-    "publishedAt": "2026-05-27 23:42:02",
-    "relatedArticles": [
-      {
-        "title": "Russian authorities detain suspect over St. Petersburg cafe blast",
-        "url": "https://edition.cnn.com/webview/europe/live-news/russia-ukraine-war-news-04-03-23/index.html"
-      }
-    ],
-    "relatedUrls": [
-      "https://edition.cnn.com/webview/europe/live-news/russia-ukraine-war-news-04-03-23/index.html"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_18",
-    "title": "\uC601\uAD6D \uD3ED\uC5FC \uC18D \uBB3C\uB180\uC774 \uC0AC\uB9DD \uAE09\uC99D, \uB2E8\uCCB4\uB4E4 \uC548\uC804 \uC8FC\uC758\uBCF4 \uAE34\uAE09 \uBC1C\uB839",
-    "content": "\uC601\uAD6D \uC804\uC5ED\uC744 \uB36E\uCE5C \uC774\uC0C1 \uAE30\uD6C4 \uD3ED\uC5FC \uAE30\uAC04 \uB3D9\uC548 \uC57C\uC678 \uBB3C\uB180\uC774\uB97C \uD558\uB358 \uB3C4\uC911 \uCD5C\uC18C 9\uBA85\uC774 \uC775\uC0AC\uD558\uC790 \uD574\uC548\uACBD\uBE44\uB300 \uB4F1 \uAD6C\uC870 \uAD6C\uD638 \uC790\uC120 \uB2E8\uCCB4\uB4E4\uC774 \uC218\uC2EC \uC548\uC804 \uC8FC\uC758\uBCF4\uB97C \uC120\uD3EC\uD588\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": null,
-    "category": "\uC0AC\uD68C",
-    "publishedAt": "2026-05-27 23:40:59",
-    "relatedArticles": [
-      {
-        "title": "Water safety warning after nine people die during heatwave",
-        "url": "https://www.bbc.com/news/articles/cp8plymvm47o?at_medium=RSS\u0026at_campaign=rss"
-      }
-    ],
-    "relatedUrls": [
-      "https://www.bbc.com/news/articles/cp8plymvm47o?at_medium=RSS\u0026at_campaign=rss"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_6",
-    "title": "\uCD5C\uC900\uD76C, LA \uC2E0\uD63C\uC5EC\uD589 \uC911 \uC2A4\uD0C0\uBC85\uC2A4 \uC778\uC99D\uC0F7 \uBD88\uB9E4 \uB17C\uB780 \uD574\uBA85",
-    "content": "\u6545 \uCD5C\uC9C4\uC2E4\uC758 \uB538 \uCD5C\uC900\uD76C\uAC00 \uBBF8\uAD6D LA \uC5EC\uD589 \uB3C4\uC911 \uC62C\uB9B0 \uC2A4\uD0C0\uBC85\uC2A4 \uC74C\uB8CC \uC0AC\uC9C4\uC73C\uB85C \uBD88\uAC70\uC9C4 \uB17C\uB780\uC5D0 \uBD88\uD3B8\uD55C \uC2EC\uACBD\uC744 \uBCF4\uC600\uC2B5\uB2C8\uB2E4. SNS\uB97C \uD1B5\uD574 \u0022\uB0A8\uC774 \uC0AC \uBA39\uB4E0 \uB9D0\uB4E0\u0022\uC774\uB77C\uBA70 \uAC1C\uC778\uC801 \uC18C\uBE44\uC5D0 \uB300\uD55C \uC9C0\uC801\uC5D0 \uC815\uBA74 \uB300\uC751\uD588\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": "https://www.chosun.com/resizer/v2/GFQTQOJWGUZWGYRUMQ4TIYTGGY.jpg?auth=0f654985ed729c4c692bdc5f75be0e96eabada4ea46f72cde86af2b208a39196\u0026smart=true\u0026width=650\u0026height=568",
-    "category": "\uC5F0\uC608",
-    "publishedAt": "2026-05-27 23:33:00",
-    "relatedArticles": [
-      {
-        "title": "\u0027\uC2A4\uBC85 \uC778\uC99D \uB17C\uB780\u0027 \uCD5C\uC900\uD76C, \uC2EC\uAE30 \uBD88\uD3B8 \uC785\uC7A5\u2026\u0022\uB0A8\uC774\uC0AC \uCEE4\uD53C \uC0AC\uBA39\uB4E0 \uB9D0\uB4E0\u0022 [\uD56B\uD53C\uD50C]",
-        "url": "https://www.chosun.com/entertainments/broadcast/2026/05/27/MRSGIMTBG4YWKYJVGE2DSMJQGI/"
-      }
-    ],
-    "relatedUrls": [
-      "https://www.chosun.com/entertainments/broadcast/2026/05/27/MRSGIMTBG4YWKYJVGE2DSMJQGI/"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_3",
-    "title": "KIA \uC5D0\uC774\uC2A4 \uC81C\uC784\uC2A4 \uB124\uC77C, 47\uC77C \uB9CC\uC5D0 \uC120\uBC1C \uC2B9\uB9AC \uD22C\uC218 \uB2EC\uC131",
-    "content": "KIA \uD0C0\uC774\uAC70\uC988\uC758 \uC5D0\uC774\uC2A4 \uC81C\uC784\uC2A4 \uB124\uC77C\uC774 \uD0A4\uC6C0 \uD788\uC5B4\uB85C\uC988\uC804\uC5D0\uC11C 7\uC774\uB2DD 1\uC2E4\uC810 8\uD0C8\uC0BC\uC9C4\uC758 \uC644\uBCBD\uD55C \uD638\uD22C\uB97C \uC120\uBCF4\uC600\uC2B5\uB2C8\uB2E4. \uC9C0\uB09C\uB2EC \uD55C\uD654\uC804 \uC774\uD6C4 7\uACBD\uAE30 \uC5F0\uC18D \uC2B9\uB9AC\uAC00 \uC5C6\uB358 \uAC08\uC99D\uC744 47\uC77C \uB9CC\uC5D0 \uC53B\uC5B4\uB0C8\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": "https://www.chosun.com/resizer/v2/GU3DCNTDG43TGYJXG42DENTFME.jpg?auth=a1e3bd9c571494cdf7814129ee23bfcf2a161f52c1dedf4fddd67fc4c0ca3d81\u0026smart=true\u0026width=700\u0026height=533",
-    "category": "\uC2A4\uD3EC\uCE20",
-    "publishedAt": "2026-05-27 23:32:14",
-    "relatedArticles": [
-      {
-        "title": "47\uC77C \uB9CC\uC758 \uAC10\uACA9\uC2B9\u2026\uC5D0\uC774\uC2A4\uAC00 \uBC1B\uC544\uB4E4\uC778 \uC219\uBA85 \u0022\uD0C0\uC790\uB3C4 \uC0C1\uB300 1\uC120\uBC1C\uC5D0 \uD798\uB4E4\uC5C8\uACA0\uC8E0\u0022",
-        "url": "https://www.chosun.com/sports/baseball/2026/05/27/GBRWINTGMU3TONRXGQ4TCMTGMI/"
-      }
-    ],
-    "relatedUrls": [
-      "https://www.chosun.com/sports/baseball/2026/05/27/GBRWINTGMU3TONRXGQ4TCMTGMI/"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_15",
-    "title": "2026\uB144 5\uC6D4 28\uC77C \uC624\uB298\uC758 \uB0A0\uC528 \uC608\uBCF4",
-    "content": "2026\uB144 5\uC6D4 28\uC77C \uBAA9\uC694\uC77C\uC5D0 \uC608\uC815\uB41C \uC804\uAD6D\uC758 \uB0A0\uC528 \uC0C1\uD669 \uBC0F \uAE30\uC628 \uC804\uB9DD\uC5D0 \uB300\uD55C \uC0C1\uC138 \uAE30\uC0C1\uCCAD \uC815\uBCF4\uC785\uB2C8\uB2E4. \uC678\uCD9C \uC804 \uB0A0\uC528\uB97C \uBBF8\uB9AC \uCCB4\uD06C\uD558\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.",
-    "imageUrl": null,
-    "category": "\uC0AC\uD68C",
-    "publishedAt": "2026-05-27 23:31:00",
-    "relatedArticles": [
-      {
-        "title": "[\uC624\uB298\uC758 \uB0A0\uC528] 2026\uB144 5\uC6D4 28\uC77C",
-        "url": "https://www.chosun.com/national/transport-environment/2026/05/27/UBXUB5VESRHGJFVZZIGN6PHSN4/"
-      }
-    ],
-    "relatedUrls": [
-      "https://www.chosun.com/national/transport-environment/2026/05/27/UBXUB5VESRHGJFVZZIGN6PHSN4/"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_7",
-    "title": "\uCE74\uCE74\uC624 \uCC3D\uC0AC \uC774\uB798 \uCCAB \uD30C\uC5C5 \uC704\uAE30\u2026\uB178\uC0AC 2\uCC28 \uC870\uC815\uB3C4 \uCD5C\uC885 \uACB0\uB82C",
-    "content": "\uCE74\uCE74\uC624 \uB178\uC0AC\uAC00 \uACBD\uAE30\uC9C0\uBC29\uB178\uB3D9\uC704\uC6D0\uD68C \uC8FC\uC7AC\uC758 2\uCC28 \uC870\uC815 \uD68C\uC758\uC5D0\uC11C 8\uC2DC\uAC04\uC774 \uB118\uB294 \uB9C8\uB77C\uD1A4 \uD611\uC0C1 \uB05D\uC5D0 \uD569\uC758\uC548\uC744 \uB3C4\uCD9C\uD558\uC9C0 \uBABB\uD588\uC2B5\uB2C8\uB2E4. \uC774\uC5D0 \uB530\uB77C \uB178\uB3D9\uC870\uD569\uC774 \uC7C1\uC758\uAD8C\uC744 \uD655\uBCF4\uD558\uAC8C \uB418\uC5B4 \uCCAB \uD30C\uC5C5 \uAC00\uB2A5\uC131\uC774 \uB208\uC55E\uC5D0 \uB2E4\uAC00\uC654\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": "https://pimg.mk.co.kr/news/cms/202605/27/news-p.v1.20260527.a8abfc2157104d398ed6d66cdc0f1b84_R.png",
-    "category": "\uACBD\uC81C",
-    "publishedAt": "2026-05-27 23:28:42",
-    "relatedArticles": [
-      {
-        "title": "\uCE74\uCE74\uC624 \uBCF8\uC0AC \uD30C\uC5C5 \uD604\uC2E4\uD654\u00B7\u00B7\u00B72\uCC28 \uC870\uC815\uB3C4 \u2018\uC911\uC9C0\u2019 \uACB0\uC815",
-        "url": "https://www.mk.co.kr/news/business/12059372"
-      },
-      {
-        "title": "[\uC18D\uBCF4] \uCE74\uCE74\uC624 \uB178\uC0AC 2\uCC28 \uC870\uC815 \uACB0\uB82C\u2026\uCC3D\uC0AC \uC774\uB798 \uCCAB \uD30C\uC5C5 \uD604\uC2E4\uB418\uB098",
-        "url": "https://www.mk.co.kr/news/society/12059365"
-      }
-    ],
-    "relatedUrls": [
-      "https://www.mk.co.kr/news/business/12059372",
-      "https://www.mk.co.kr/news/society/12059365"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_19",
-    "title": "\uC601\uAD6D \uC804\uACF5\uC758\uB4E4, \uAE09\uC5EC \uC778\uC0C1 \uC694\uAD6C\uD558\uBA70 6\uC6D4 \uB610\uB2E4\uC2DC \uCD1D\uD30C\uC5C5 \uC120\uC5B8",
-    "content": "\uC601\uAD6D \uC804\uACF5\uC758 \uD611\uC758\uD68C(BMA)\uAC00 \uC784\uAE08 \uD604\uC2E4\uD654 \uBD84\uC7C1 \uD574\uACB0\uC744 \uC694\uAD6C\uD558\uBA70 \uC624\uB294 6\uC6D4 15\uC77C\uBD80\uD130 \uB098\uD758\uC5D0 \uAC78\uCCD0 \uC0AC\uC0C1 16\uBC88\uC9F8 \uD30C\uC5C5\uC744 \uB3CC\uC785\uD55C\uB2E4\uACE0 \uACF5\uC2DD \uC608\uACE0\uD574 \uC758\uB8CC \uCC28\uC9C8\uC774 \uC608\uC0C1\uB429\uB2C8\uB2E4.",
-    "imageUrl": null,
-    "category": "\uC0AC\uD68C",
-    "publishedAt": "2026-05-27 23:28:32",
-    "relatedArticles": [
-      {
-        "title": "Resident doctors to strike for 16th time over pay",
-        "url": "https://www.bbc.com/news/articles/c8xw2vvlxeko?at_medium=RSS\u0026at_campaign=rss"
-      }
-    ],
-    "relatedUrls": [
-      "https://www.bbc.com/news/articles/c8xw2vvlxeko?at_medium=RSS\u0026at_campaign=rss"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_12",
-    "title": "\uD398\uB77C\uB9AC \uCD5C\uCD08\uC758 \uC21C\uC218 \uC804\uAE30\uCC28, \uC5C5\uACC4 \uC548\uD30E\uC5D0\uC11C \uAC70\uC13C \uD639\uD3C9 \uC9C1\uBA74",
-    "content": "\uD398\uB77C\uB9AC\uAC00 \uC0C8\uB86D\uAC8C \uACF5\uAC1C\uD55C \uCCAB \uC804\uAE30 \uC2A4\uD3EC\uCE20\uCE74\uAC00 \uB514\uC790\uC778\uACFC \uC815\uCCB4\uC131 \uD6FC\uC190 \uB4F1\uC758 \uBB38\uC81C\uB85C \uC8FC\uC8FC\uC640 \uC18C\uBE44\uC790\uB4E4\uC5D0\uAC8C \uD639\uD3C9\uC744 \uBC1B\uC558\uC2B5\uB2C8\uB2E4. \uC804 \uD68C\uC7A5\uB9C8\uC800 \u0022\uC804\uC124\uC744 \uD30C\uAD34\uD558\uB294 \uD589\uC704\u0022\uB77C\uBA70 \uAC15\uD558\uAC8C \uC9C0\uC801\uD588\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": "https://static01.nyt.com/images/2026/05/27/multimedia/27DB-Ferrari-kpjc/27DB-Ferrari-kpjc-mediumSquareAt3X.jpg",
-    "category": "\uACBD\uC81C",
-    "publishedAt": "2026-05-27 23:27:13",
-    "relatedArticles": [
-      {
-        "title": "Ferrari\u2019s First Electric Car Runs Into Backlash in Italy and Beyond",
-        "url": "https://www.nytimes.com/2026/05/27/business/ferrari-luce-electric-ev-backlash.html"
-      }
-    ],
-    "relatedUrls": [
-      "https://www.nytimes.com/2026/05/27/business/ferrari-luce-electric-ev-backlash.html"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_20",
-    "title": "1980\uB144\uB300 \uC81C\uC791\uB41C \uBBF8\uAD6D CIA \uAE30\uBC00 \uC9C0\uB3C4 \uCEEC\uB809\uC158 \uC804\uACA9 \uD574\uC81C",
-    "content": "\uB0C9\uC804 \uC2DC\uB300 \uB9C9\uBC14\uC9C0\uC600\uB358 1980\uB144\uB300 \uBBF8 \uC911\uC559\uC815\uBCF4\uAD6D(CIA) \uC9C0\uB9AC\uD559 \uD300\uC774 \uC9C1\uC811 \uC815\uAD50\uD558\uAC8C \uC81C\uC791\uD55C \uC138\uACC4 \uC815\uC138 \uBC0F \uC9C0\uD615 \uC815\uCC30\uC6A9 \uAE30\uBC00 \uC9C0\uB3C4\uCCA9 \uBB38\uC11C\uB4E4\uC774 \uB514\uC9C0\uD138\uB85C \uB300\uC911\uC5D0\uAC8C \uACF5\uAC1C\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": null,
-    "category": "IT",
-    "publishedAt": "2026-05-27 23:21:20",
-    "relatedArticles": [
-      {
-        "title": "Declassified CIA Cartography Maps from the 1980s",
-        "url": "https://brilliantmaps.com/cia-maps-1980s/"
-      }
-    ],
-    "relatedUrls": [
-      "https://brilliantmaps.com/cia-maps-1980s/"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_21",
-    "title": "\uB9E8\uC720, \uC544\uD0C8\uB780\uD0C0\uC758 \uBBF8\uB4DC\uD544\uB354 \uC5D0\uB370\uB974\uC1A1 \uC601\uC785\uC5D0 4,200\uB9CC \uD30C\uC6B4\uB4DC \uD569\uC758 \uC784\uBC15",
-    "content": "\uB9E8\uCCB4\uC2A4\uD130 \uC720\uB098\uC774\uD2F0\uB4DC\uAC00 \uC544\uD0C8\uB780\uD0C0\uC758 \uBE0C\uB77C\uC9C8 \uBBF8\uB4DC\uD544\uB354 \uC5D0\uB370\uB974\uC1A1\uC744 \uC62C\uC5EC\uB984 \uCCAB \uC601\uC785 \uB300\uC0C1\uC73C\uB85C \uC124\uC815\uD558\uACE0 4,160\uB9CC \uD30C\uC6B4\uB4DC \uADDC\uBAA8\uC758 \uCD5C\uC885 \uC774\uC801 \uD611\uC0C1 \uACE0\uC9C0\uB97C \uB208\uC55E\uC5D0 \uB450\uC5C8\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": null,
-    "category": "\uC2A4\uD3EC\uCE20",
-    "publishedAt": "2026-05-27 23:20:10",
-    "relatedArticles": [
-      {
-        "title": "Man Utd closing in on \u00A342m Ederson deal",
-        "url": "https://www.bbc.com/sport/football/articles/czd2ev0ggj5o?at_medium=RSS\u0026at_campaign=rss"
-      }
-    ],
-    "relatedUrls": [
-      "https://www.bbc.com/sport/football/articles/czd2ev0ggj5o?at_medium=RSS\u0026at_campaign=rss"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_10",
-    "title": "\uACBD\uCC30, LG\uC804\uC790 \uC0AC\uBB34\uC2E4 \uD749\uAE30 \uB09C\uB3D9 \uD611\uB825\uC5C5\uCCB4 \uC9C1\uC6D0 \uAD6C\uC18D\uC601\uC7A5 \uAC80\uD1A0",
-    "content": "\uC11C\uC6B8 \uAC15\uC11C\uACBD\uCC30\uC11C\uB294 \uC11C\uC6B8 \uAC15\uC11C\uAD6C LG\uC804\uC790 \uC0AC\uBB34\uC2E4\uC5D0\uC11C \uD749\uAE30\uB97C \uD718\uB458\uB7EC \uC9C1\uC6D0\uB4E4\uC744 \uC704\uD611\uD55C \uD611\uB825\uC5C5\uCCB4 \uB0A8\uC131 \uC9C1\uC6D0\uC5D0 \uB300\uD574 \uD2B9\uC218\uD611\uBC15 \uD610\uC758 \uB4F1\uC73C\uB85C \uAD6C\uC18D\uC601\uC7A5 \uC2E0\uCCAD\uC744 \uB2E4\uAC01\uB3C4\uB85C \uAC80\uD1A0\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_15",
+    "title": "\uC11C\uC6B8 \uAC15\uC11C\uAD6C LG\uC804\uC790 \uC5F0\uAD6C\uC2E4\uC11C \uD749\uAE30 \uB09C\uB3D9 \uBD80\uB9B0 \uD611\uB825\uC0AC \uC9C1\uC6D0 \uAD6C\uC18D\uC601\uC7A5 \uAC80\uD1A0",
+    "content": "\uC11C\uC6B8 \uAC15\uC11C\uACBD\uCC30\uC11C\uB294 \uAC15\uC11C\uAD6C LG\uC804\uC790 \uC0AC\uBB34\uC2E4 \uAC74\uBB3C \uB0B4\uC5D0\uC11C \uB3D9\uB8CC \uC9C1\uC6D0 2\uBA85\uC744 \uD5A5\uD574 \uC704\uD611\uC801\uC73C\uB85C \uD749\uAE30\uB97C \uD718\uB450\uB974\uBA70 \uB09C\uB3D9\uC744 \uBD80\uB9B0 \uD611\uB825\uC5C5\uCCB4 \uC18C\uC18D \uB0A8\uC131\uC5D0 \uB300\uD558\uC5EC \uD2B9\uC218\uD611\uBC15 \uD610\uC758 \uB4F1\uC73C\uB85C \uAD6C\uC18D\uC601\uC7A5 \uCCAD\uAD6C\uB97C \uAC80\uD1A0\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
     "imageUrl": "https://pimg.mk.co.kr/news/cms/202605/27/rcv.YNA.20260527.PYH2026052713660001300_R.jpg",
     "category": "\uC0AC\uD68C",
     "publishedAt": "2026-05-27 23:10:39",
@@ -319,9 +465,9 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_22",
-    "title": "\uC2E4\uC9C8\uC801 \uD6A8\uACFC \uC5C6\uB294 \u0027\uBCF4\uC548 \uBD84\uC704\uAE30 \uC870\uC131\u0027\uC5D0 \uB300\uD55C \uD68C\uC758\uB860\uACFC \uBCC0\uD654 \uB300\uB450",
-    "content": "\uBCF4\uC548 \uC5C5\uACC4\uC5D0\uC11C \uD615\uC2DD\uC0C1\uC758 \uADDC\uC815\uACFC \uC0DD\uC0C9\uB0B4\uAE30\uC6A9 \uC808\uCC28\uC5D0\uB9CC \uAE09\uAE09\uD55C \uC774\uB978\uBC14 \u0027\uBC14\uC774\uBE0C\uC139(VibeSec)\u0027 \uD604\uC0C1\uC758 \uD5C8\uC810\uC744 \uC9C0\uC801\uD558\uACE0 \uC2E4\uC804 \uC911\uC2EC\uC758 \uC778\uD504\uB77C \uC804\uD658\uC744 \uC694\uAD6C\uD558\uB294 \uBAA9\uC18C\uB9AC\uAC00 \uCEE4\uC9D1\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_32",
+    "title": "\uB9C8\uD2F4 \uD30C\uC6B8\uB7EC, \uC2E4\uCCB4\uAC00 \uACB0\uC5EC\uB41C IT \uAE30\uC5C5 \uBCF4\uC548 \uD3C9\uAC00 \uD589\uD0DC \u0027\uBC14\uC774\uBE0C\uC139(VibeSec)\u0027 \uD2B8\uB80C\uB4DC \uACBD\uACE0",
+    "content": "\uC720\uBA85 \uC124\uACC4\uC790 \uB9C8\uD2F4 \uD30C\uC6B8\uB7EC \uBE14\uB85C\uADF8 \uAE30\uACE0\uAE00\uC744 \uD1B5\uD574, \uCD5C\uADFC \uD14C\uD06C \uC2E0\uC5D0\uC11C \uAD6C\uCCB4\uC801\uC778 \uACC4\uB7C9 \uB370\uC774\uD130 \uC99D\uBA85 \uC5C6\uC774 \uB2E8\uC21C\uD55C \uAC89\uCE58\uB808 \uBC0F \uCD94\uC0C1\uC801\uC778 \uB290\uB08C\uC73C\uB85C \uC218\uB9BD\uD558\uB294 \uC77C\uBA85 \u0027\uBC14\uC774\uBE0C\uC139\u0027 \uBCF4\uC548\uC758 \uC704\uD5D8\uC131\uC774 \uB2E4\uAC01\uB3C4\uB85C \uD3ED\uB85C\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",
     "imageUrl": null,
     "category": "IT",
     "publishedAt": "2026-05-27 23:09:44",
@@ -336,9 +482,9 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_23",
-    "title": "\uC8FC\uB2C8\uC5B4\uB098\uC774\uCE20 \uBC18\uD3EC U10 \uB18D\uAD6C\uD300, \uCC3D\uB2E8 5\uAC1C\uC6D4 \uB9CC\uC5D0 \uC804\uAD6D\uB300\uD68C \uC740\uBA54\uB2EC",
-    "content": "SK \uB098\uC774\uCE20 \uC8FC\uB2C8\uC5B4\uB18D\uAD6C\uD074\uB7FD \uBC18\uD3EC\uC810\uC758 4\uD559\uB144 \uB300\uD45C\uD300(U10)\uC774 \uACB0\uC131 \uB2E8 5\uAC1C\uC6D4\uC774\uB77C\uB294 \uC9E7\uC740 \uAE30\uAC04\uC5D0\uB3C4 \uBD88\uAD6C\uD558\uACE0 \uC804\uAD6D \uAD74\uC9C0\uC758 \uBA54\uC774\uC800 \uB300\uD68C\uC5D0\uC11C \uC900\uC6B0\uC2B9\uC744 \uCC28\uC9C0\uD558\uBA70 \uB3CC\uD48D\uC744 \uC77C\uC73C\uCF30\uC2B5\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_33",
+    "title": "SK \uC8FC\uB2C8\uC5B4\uB098\uC774\uCE20 \uBC18\uD3EC U10 \uB18D\uAD6C\uD300, \uCC3D\uB2E8 5\uAC1C\uC6D4 \uB9CC\uC5D0 \uC804\uAD6D \uB18D\uAD6C\uB300\uD68C \uC900\uC6B0\uC2B9 \uCF8C\uAC70",
+    "content": "\uB2E8 5\uAC1C\uC6D4\uC774\uB77C\uB294 \uC9E7\uC740 \uAE30\uAC04 \uB3D9\uC548 \uD300\uC6CC\uD06C\uB97C \uB2E4\uC9C4 SK \uB098\uC774\uCE20 \uC8FC\uB2C8\uC5B4 \uBC18\uD3EC\uC810 4\uD559\uB144 \uCD08\uB4F1 \uB300\uD45C \uC720\uC18C\uB144 \uB18D\uAD6C\uD300\uC774, \uC804\uAD6D \uCD5C\uC815\uC0C1 \uAC15\uD638\uB4E4\uC774 \uC9D1\uACB0\uD55C \uCEF5\uB300\uD68C\uC5D0 \uCC98\uB140 \uCD9C\uC804\uD574 \uB2F9\uB2F9\uD788 \uC740\uBA54\uB2EC\uC744 \uBAA9\uC5D0 \uAC70\uB294 \uAE30\uC5FC\uC744 \uD1A0\uD588\uC2B5\uB2C8\uB2E4.",
     "imageUrl": "https://www.chosun.com/resizer/v2/MVQWKYJSMQ3DMNBQGU4WEMLCHE.jpg?auth=83ff9683d82399a02ab2a9d781e907b49ccf63ebcc4dcd2fbf4839d64f317e38\u0026smart=true\u0026width=650\u0026height=433",
     "category": "\uC2A4\uD3EC\uCE20",
     "publishedAt": "2026-05-27 23:06:00",
@@ -353,9 +499,9 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_24",
-    "title": "\uC5EC\uB984\uCCA0 \uBB34\uB354\uC704 \uC18D \uBC18\uB824\uACAC \uC5F4\uC0AC\uBCD1 \uC9D5\uD6C4 \uBC0F \uC608\uBC29 \uB300\uCC45 \uAD8C\uACE0",
-    "content": "\uD3ED\uC5FC \uC2DC \uBC18\uB824\uACAC\uC774 \uB098\uD0C0\uB0B4\uAE30 \uC26C\uC6B4 \uACFC\uD638\uD761 \uB4F1 \uCCB4\uC628 \uC870\uC808 \uC2E4\uD328\uB85C \uC778\uD55C \uC5F4\uC0AC\uBCD1 \uCD08\uAE30 \uC99D\uC0C1\uC744 \uAD6C\uBD84\uD558\uACE0, \uC544\uC774\uC2A4\uD329\uACFC \uC804\uC6A9 \uC218\uBD84 \uACF5\uAE09 \uC7A5\uCE58\uB85C \uC548\uC804\uC744 \uB3D5\uB294 \uAC00\uC774\uB4DC\uAC00 \uB098\uC654\uC2B5\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_34",
+    "title": "\uD3ED\uC5FC \uC2DC \uBC18\uB824\uACAC\uC744 \uC704\uD5D8\uC5D0 \uBE60\uB728\uB9AC\uB294 \uAE09\uC131 \uAC15\uC544\uC9C0 \uC5F4\uC0AC\uBCD1 \uC9D5\uD6C4 \uBC0F \uAC00\uC815\uC2DD \uAE34\uAE09 \uCC98\uBC29\uC804",
+    "content": "\uAC11\uC791\uC2A4\uB7EC\uC6B4 \uC5EC\uB984 \uBB34\uB354\uC704 \uB178\uCD9C \uC2DC \uAC00\uBFD0 \uD638\uD761 \uB4F1 \uB3D9\uBB3C\uC758 \uC0DD\uBA85\uACFC \uC9C1\uACB0\uB418\uB294 \uAE09\uC131 \uC5F4\uC0AC\uBCD1 \uC870\uAE30 \uACBD\uBCF4 \uC9D5\uD6C4\uB97C \uC54C\uC544\uBCF4\uACE0, \uC774\uB97C \uC778\uC9C0\uD588\uC744 \uB54C \uCC28\uAC00\uC6B4 \uBB3C\uC218\uAC74 \uB9C8\uC0AC\uC9C0 \uB4F1 \uACAC\uC8FC\uAC00 \uCDE8\uD574\uC57C \uD560 \uC62C\uBC14\uB978 \uC751\uAE09 \uAC00\uC774\uB4DC\uC785\uB2C8\uB2E4.",
     "imageUrl": null,
     "category": "\uC77C\uBC18",
     "publishedAt": "2026-05-27 23:05:55",
@@ -370,11 +516,11 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_8",
-    "title": "\uC11C\uC18C\uBB38\uACE0\uAC00 \uBD95\uAD34 \uC774\uD2C0\uC9F8\u2026\uCCA0\uB3C4 \uB9C8\uBE44\uC5D0 \uCD9C\uD1F4\uADFC\uAE38 \uC2DC\uBBFC \uB300\uB780 \uC9C0\uC18D",
-    "content": "\uC11C\uC18C\uBB38\uACE0\uAC00 \uBD95\uAD34 \uC5EC\uD30C\uB85C \uAE30\uCC28\uD3B8\uC774 \uC787\uB530\uB77C \uCDE8\uC18C\uB418\uBA74\uC11C \uAD50\uD1B5 \uB300\uB780\uC774 \uC774\uC5B4\uC9C0\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC8FC\uB9D0\uAE4C\uC9C0 \uCCA0\uAC70 \uBC0F \uC548\uC804 \uBCF5\uAD6C \uACF5\uC0AC\uAC00 \uACC4\uC18D\uB420 \uC608\uC815\uC778 \uAC00\uC6B4\uB370 \uB300\uCCB4 \uAD50\uD1B5 \uC218\uB2E8 \uC774\uC6A9 \uC2DC\uBBFC\uB4E4\uC774 \uD070 \uBD88\uD3B8\uC744 \uD638\uC18C\uD588\uC2B5\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_8",
+    "title": "\uC11C\uC18C\uBB38\uACE0\uAC00 \uBD95\uAD34 \uC774\uD2C0\uC9F8\u2026 \uCCA0\uB3C4 \uB300\uB780\uC5D0 \uAE30\uCC28\uD45C \uC608\uB9E4 \uCDE8\uC18C \uC787\uB530\uB77C",
+    "content": "\uC11C\uC18C\uBB38\uACE0\uAC00 \uB3C4\uB85C \uBD95\uAD34 \uC0AC\uACE0 \uC5EC\uD30C\uAC00 \uC9C0\uC18D\uB418\uBA74\uC11C \uAE30\uCC28 \uC6B4\uD589 \uCDE8\uC18C\uAC00 \uC787\uB530\uB77C \uAE30\uCC28\uD45C\uB97C \uAD6C\uD558\uC9C0 \uBABB\uD55C \uC2DC\uBBFC\uB4E4\uC774 \uB9CC\uC6D0 \uBC84\uC2A4 \uB4F1\uC73C\uB85C \uBAB0\uB824 \uADF9\uC2EC\uD55C \uAD50\uD1B5 \uBD88\uD3B8\uACFC \uB300\uB780\uC744 \uACAA\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
     "imageUrl": "https://pimg.mk.co.kr/news/cms/202605/27/news-p.v1.20260527.b2f5343bb46a4d50ab6f585fb57dee3e_R.jpeg",
-    "category": "\uC0AC\uD68C",
+    "category": "\uACBD\uC81C",
     "publishedAt": "2026-05-27 23:03:15",
     "relatedArticles": [
       {
@@ -387,11 +533,11 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_25",
-    "title": "\uC815\uCE58 \uAD11\uACE0\uC758 \uBBF8\uB798\uB97C \uBE44\uCD98 \uBBF8 \uC2A4\uD0C0 \uC2A4\uD39C\uC11C \uD504\uB7AB\uC758 AI \uC120\uAC70 \uBE44\uB514\uC624",
-    "content": "\uBBF8\uAD6D \uBC29\uC1A1 \uC2A4\uD0C0 \uC2A4\uD39C\uC11C \uD504\uB7AB\uC758 \uC2DC\uC7A5 \uC120\uAC70 \uB3C4\uC804\uC5D0 \uAC00\uC0C1 \uC81C\uC791\uB41C AI \uAD11\uACE0 \uC601\uC0C1\uC774 \uB17C\uB780\uACFC \uD638\uC751\uC744 \uBD88\uB7EC\uC77C\uC73C\uD0A4\uBA70 \uD5A5\uD6C4 \uB525\uD398\uC774\uD06C \uC815\uCE58 \uBBF8\uB514\uC5B4 \uD65C\uC6A9\uC5D0 \uAD00\uD55C \uC9C0\uD3C9\uC744 \uC81C\uC2DC\uD588\uC2B5\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_35",
+    "title": "\uB9AC\uC5BC\uB9AC\uD2F0 \uC2A4\uD0C0 \uC2A4\uD39C\uC11C \uD504\uB7AB\uC758 \uAC00\uC0C1 \uBC30\uD2B8\uB9E8 \uAD11\uACE0\uAC00 \uC120\uBCF4\uC778 \uC120\uAC70 AI \uB300\uC548\uC758 \uBBF8\uB798",
+    "content": "\uACFC\uAC70 \uBBF8 \uBC29\uC1A1\uACC4\uB97C \uB2EC\uAD9C\uB358 \uC2A4\uD39C\uC11C \uD504\uB7AB\uC774 \uC815\uACC4 \uC9C4\uCD9C \uCD9C\uC0AC\uD45C\uB97C AI \uC544\uBC14\uD0C0 \uBC0F \uBC30\uD2B8\uB9E8 \uD569\uC131 \uBE44\uB514\uC624 \uD074\uB9BD\uC73C\uB85C \uC7A5\uC2DD\uD558\uBA70, \uAE30\uC131 \uC815\uCE58 \uCEA0\uD398\uC778\uC5D0 \uBBF8\uCE60 \uD601\uC2E0\uC801\uC774\uACE0 \uD30C\uAD34\uC801\uC778 \uC815\uCE58 \uC0DD\uC131 \uAD11\uACE0\uC758 \uC2DC\uB300\uB97C \uD658\uAE30\uC2DC\uCF30\uC2B5\uB2C8\uB2E4.",
     "imageUrl": null,
-    "category": "IT",
+    "category": "\uACBD\uC81C",
     "publishedAt": "2026-05-27 22:53:20",
     "relatedArticles": [
       {
@@ -404,9 +550,9 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_26",
-    "title": "\uC774\uD0C8\uB9AC\uC544 \uB86C\uBC14\uB974\uB514\uC544\uC8FC, \uB179\uC9C0\uB300 \uB0B4 \uB370\uC774\uD130\uC13C\uD130 \uC2E0\uCD95 \uC2DC 200% \uC911\uC138 \uBD80\uACFC",
-    "content": "\uC774\uD0C8\uB9AC\uC544 \uBD81\uBD80 \uB86C\uBC14\uB974\uB514\uC544 \uC9C0\uBC29\uC815\uBD80\uAC00 \uBB34\uBD84\uBCC4\uD55C \uD1A0\uC9C0 \uC804\uC6A9\uC744 \uB9C9\uAE30 \uC704\uD574 \uB179\uC9C0\uB098 \uB18D\uC5C5 \uBCF4\uC874 \uAD6C\uC5ED\uC5D0 \uB300\uADDC\uBAA8 \uB370\uC774\uD130\uC13C\uD130\uB97C \uBB34\uB9AC\uD558\uAC8C \uAC74\uC124\uD560 \uACBD\uC6B0 \uCD5C\uB300 2\uBC30\uC758 \uC138\uAE08\uC744 \uBD80\uACFC\uD558\uB294 \uD30C\uACA9\uC801\uC778 \uBC95\uC548\uC744 \uD1B5\uACFC\uC2DC\uCF30\uC2B5\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_21",
+    "title": "\uC774\uD0C8\uB9AC\uC544 \uB86C\uBC14\uB974\uB514\uC544\uC8FC, \uB179\uC9C0\uC5D0 \uB370\uC774\uD130\uC13C\uD130 \uAC74\uB9BD \uC2DC \uCD5C\uB300 200% \uC138\uAE08 \uBD80\uACFC \uBC95\uC548 \uC2B9\uC778",
+    "content": "\uC774\uD0C8\uB9AC\uC544 \uBC00\uB77C\uB178\uAC00 \uC788\uB294 \uB86C\uBC14\uB974\uB514\uC544 \uC9C0\uBC29\uC815\uBD80\uAC00 \uB179\uC9C0 \uACBD\uAD00 \uBCF4\uC874\uC744 \uBAA9\uC801\uC73C\uB85C \uC0B0\uB9BC \uBC0F \uB18D\uC5C5 \uC6A9\uC9C0\uC5D0 \uC138\uC6CC\uC9C0\uB294 \uAC70\uB300 \uB370\uC774\uD130\uC13C\uD130 \uC778\uD504\uB77C \uAC74\uC124 \uD5C8\uAC00 \uBE44\uC6A9\uC5D0 \uCD5C\uACE0 200% \uADDC\uBAA8\uC758 \uC911\uACFC\uC138\uB97C \uC804\uACA9 \uADDC\uC815\uD588\uC2B5\uB2C8\uB2E4.",
     "imageUrl": null,
     "category": "IT",
     "publishedAt": "2026-05-27 22:52:48",
@@ -421,9 +567,9 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_11",
-    "title": "\uBE44\uC6A9 \uC808\uAC10 \uBE44\uC0C1 \uAC78\uB9B0 \uB3C5\uC77C \uC790\uB3D9\uCC28 \uC5C5\uACC4, \uBCA4\uCE20\uB3C4 \uACF5\uC7A5 \uB9E4\uAC01 \uAC80\uD1A0",
-    "content": "\uB3C5\uC77C\uC758 \uBA54\uB974\uC138\uB370\uC2A4-\uBCA4\uCE20\uAC00 \uC790\uAD6D \uB0B4 \uACF5\uC7A5 1\uACF3\uC744 \uBC29\uC0B0\uC5C5\uCCB4\uC5D0 \uB9E4\uAC01\uD558\uB294 \uBC29\uC548\uC744 \uACE0\uB824 \uC911\uC785\uB2C8\uB2E4. \uD3ED\uC2A4\uBC14\uAC90\uC5D0 \uC774\uC5B4 \uBCA4\uCE20\uAE4C\uC9C0 \uBE44\uC6A9 \uC808\uAC10\uC744 \uADF9\uB300\uD654\uD558\uAE30 \uC704\uD574 \uC790\uC0B0 \uC815\uB9AC\uC5D0 \uCC29\uC218\uD55C \uBAA8\uC2B5\uC785\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_12",
+    "title": "\uB3C5\uC77C \uBCA4\uCE20 \uC790\uB3D9\uCC28, \uB300\uB300\uC801\uC778 \uBE44\uC6A9 \uC808\uAC10\uC758 \uC77C\uD658\uC73C\uB85C \uD604\uC9C0 \uACF5\uC7A5 \uB9E4\uAC01 \uAC80\uD1A0",
+    "content": "\uBA54\uB974\uC138\uB370\uC2A4-\uBCA4\uCE20\uAC00 \uD3ED\uC2A4\uBC14\uAC90\uC758 \uC804\uBC29\uC704\uC801 \uBE44\uC6A9 \uC808\uAC10 \uC870\uCE58\uC5D0 \uC774\uC5B4, \uB3C5\uC77C \uB0B4 \uACF5\uC7A5 \uC911 \uD55C \uACF3\uC744 \uD604\uC9C0 \uBC29\uC0B0\uC5C5\uCCB4\uC5D0 \uB9E4\uAC01\uD558\uB294 \uD30C\uACA9\uC801\uC778 \uBE44\uC0C1 \uBE44\uC6A9 \uC808\uAC10 \uB300\uCC45\uC744 \uC2E0\uC911\uD558\uAC8C \uAC80\uD1A0\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
     "imageUrl": "https://pimg.mk.co.kr/news/cms/202605/27/news-p.v1.20260527.eccf8a385d384532a2d1b586e4b6aa8f_R.png",
     "category": "\uACBD\uC81C",
     "publishedAt": "2026-05-27 22:50:54",
@@ -438,12 +584,46 @@
     ]
   },
   {
-    "id": "Sum_20260527_003_2",
-    "title": "\uC120\uB450 \uC0BC\uC131 \uB77C\uC774\uC628\uC988 \uC2B9\uB9AC, SSG \uB79C\uB354\uC2A4\uB294 \uCDA9\uACA9\uC758 8\uC5F0\uD328",
-    "content": "\uC0BC\uC131 \uB77C\uC774\uC628\uC988\uAC00 SSG \uB79C\uB354\uC2A4\uB97C \uC0C1\uB300\uB85C 4\uB300 1 \uC2B9\uB9AC\uB97C \uAC70\uB450\uBA70 \uB9AC\uADF8 \uB2E8\uB3C5 \uC120\uB450 \uC790\uB9AC\uB97C \uAD73\uAC74\uD788 \uC9C0\uCF30\uC2B5\uB2C8\uB2E4. \uBC18\uBA74 SSG\uB294 \uC6B0\uC911 \uD608\uD22C \uC18D\uC5D0\uC11C \uBB34\uAE30\uB825\uD55C \uD328\uBC30\uB97C \uAE30\uB85D\uD558\uBA70 \uCDA9\uACA9\uC758 8\uC5F0\uD328 \uC218\uB801\uC5D0 \uBE60\uC84C\uC2B5\uB2C8\uB2E4.",
+    "id": "Sum_20260528_002_24",
+    "title": "\uBBF8\uAD6D\uACFC \uC774\uB780 \uAC04 \uC7A0\uC815\uC801\uC778 \uAE34\uC7A5 \uC644\uD654 \uBC0F \uC784\uC2DC \uB300\uD654 \uC7AC\uAC1C\uB85C \uAD6D\uC81C \uC720\uAC00 \uC18C\uD3ED \uD558\uB77D",
+    "content": "\uBBF8\uAD6D \uD589\uC815\uBD80\uC640 \uC774\uB780\uC758 \uC2E4\uBB34\uC9C4 \uAC04 \uBE44\uACF5\uC2DD \uD611\uC57D \uD0C0\uC9C4 \uBC0F \uC77C\uC2DC\uC801 \uAE34\uC7A5 \uC644\uD654 \uBD84\uC704\uAE30\uAC00 \uD638\uC7AC\uB85C \uC791\uC6A9\uD558\uBA70, \uACF5\uAE09 \uCDA9\uACA9\uC744 \uC6B0\uB824\uD558\uB358 \uC6D0\uC720 \uC2DC\uC7A5 \uD22C\uC790\uC790\uB4E4\uC758 \uD22C\uB9E4\uB85C \uAD6D\uC81C \uC720\uAC00\uAC00 \uD558\uB77D \uBC18\uC804\uD588\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://static01.nyt.com/images/2026/05/27/multimedia/27biz-oil-promo-fmct/27biz-oil-promo-fmct-mediumSquareAt3X.jpg",
+    "category": "\uACBD\uC81C",
+    "publishedAt": "2026-05-27 22:46:25",
+    "relatedArticles": [
+      {
+        "title": "Oil Prices Fall as Uneasy Truce Holds Between U.S. and Iran",
+        "url": "https://www.nytimes.com/2026/05/27/business/oil-gas-price-iran.html"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.nytimes.com/2026/05/27/business/oil-gas-price-iran.html"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_17",
+    "title": "NC \uB2E4\uC774\uB178\uC2A4, \uD55C\uD654\uC804 \uC2B9\uB9AC\uB85C 5\uC5F0\uD328 \uC545\uBABD \uD138\uACE0 \uAE30\uC138 \uD0C0\uB294 2\uC5F0\uC2B9 \uC9C8\uC8FC",
+    "content": "NC \uB2E4\uC774\uB178\uC2A4\uAC00 \uC120\uBC1C \uD1A0\uB2E4\uC758 \uD004\uB9AC\uD2F0 \uC2A4\uD0C0\uD2B8 \uD638\uD22C\uC640 \uAD8C\uD76C\uB3D9\uC758 \uC9DC\uB9BF\uD55C \uD648\uB7F0 \uD65C\uC57D\uC5D0 \uD798\uC785\uC5B4 \uD55C\uD654 \uC774\uAE00\uC2A4\uB97C 6\uB3004\uB85C \uBB3C\uB9AC\uCE58\uACE0 \uACE0\uD1B5\uC2A4\uB7EC\uC6B4 5\uC5F0\uD328 \uB2AA\uC5D0\uC11C \uD0C8\uCD9C\uD574 \uC0B0\uB73B\uD55C 2\uC5F0\uC2B9\uC744 \uCC59\uACBC\uC2B5\uB2C8\uB2E4.",
+    "imageUrl": "https://www.chosun.com/resizer/v2/GNSTKYRRMVRTQZRRHE2GGNRXGA.jpg?auth=109b31bfc6eb17349f8623c948665d194efd2fa1b48d7e19ba220e9511ea31fa\u0026smart=true\u0026width=530\u0026height=669",
+    "category": "\uC2A4\uD3EC\uCE20",
+    "publishedAt": "2026-05-27 22:45:00",
+    "relatedArticles": [
+      {
+        "title": "\uBC15\uBBFC\uC6B0-\uBC15\uAC74\uC6B0-\uAD8C\uD76C\uB3D9 \uCF85\uCF85\uCF85! NC 5\uC5F0\uD328 \uD6C4 2\uC5F0\uC2B9...\uD638\uBD80\uC9C0, \u0022\uD1A0\uB2E4 \uC911\uC2EC \uC798 \uC7A1\uC558\uACE0, \uAD8C\uD76C\uB3D9 \uD648\uB7F0 \uACB0\uC815\uC801\u0022 [\uC624!\uC388 \uCC3D\uC6D0]",
+        "url": "https://www.chosun.com/sports/baseball/2026/05/27/MU4WKOLCGAZDGNRTGEYGIMBQHA/"
+      }
+    ],
+    "relatedUrls": [
+      "https://www.chosun.com/sports/baseball/2026/05/27/MU4WKOLCGAZDGNRTGEYGIMBQHA/"
+    ]
+  },
+  {
+    "id": "Sum_20260528_002_4",
+    "title": "\uC0BC\uC131 \uB77C\uC774\uC628\uC988, SSG \uACA9\uD30C\uD558\uBA70 \uB2E8\uB3C5 \uC120\uB450 \uC218\uC131\u2026 SSG \uB79C\uB354\uC2A4\uB294 \uCDA9\uACA9\uC758 8\uC5F0\uD328",
+    "content": "\uC0BC\uC131 \uB77C\uC774\uC628\uC988\uAC00 \uC778\uCC9C\uC5D0\uC11C \uC5F4\uB9B0 SSG \uB79C\uB354\uC2A4\uC640\uC758 \uC6B0\uC911 \uD608\uD22C \uB05D\uC5D0 4\uB3001\uB85C \uC644\uC2B9\uC744 \uAC70\uB450\uBA70 \uB2E8\uB3C5 \uC120\uB450 \uC790\uB9AC\uB97C \uAD73\uAC74\uD788 \uC9C0\uCF30\uC2B5\uB2C8\uB2E4. \uBC18\uBA74 SSG \uB79C\uB354\uC2A4\uB294 \uD22C\uD0C0 \uBD80\uC9C4 \uC18D\uC5D0 \uACB0\uAD6D 8\uC5F0\uD328 \uC218\uB801\uC5D0 \uBE60\uC84C\uC2B5\uB2C8\uB2E4.",
     "imageUrl": "https://www.chosun.com/resizer/v2/GZRTCNDFHEZDQOLGMVSDGNJRHE.jpg?auth=f999829eb9704999b1200a904edc9bb53bb13912eb92ef7d278d99ff35565726\u0026smart=true\u0026width=700\u0026height=439",
     "category": "\uC2A4\uD3EC\uCE20",
-    "publishedAt": "2026-05-27 22:48:45",
+    "publishedAt": "2026-05-27 22:42:26",
     "relatedArticles": [
       {
         "title": "[\uD3EC\uD1A0] SSG, 8\uC5F0\uD328\uB77C\uB2C8",
@@ -507,40 +687,6 @@
       "https://www.chosun.com/sports/sports_photo/2026/05/27/GNRDEODCHBSWKNRYMJSDOMLGGY/",
       "https://www.chosun.com/sports/sports_photo/2026/05/27/G5SGMY3GGZSGMMJTMVSDSMLBGM/",
       "https://www.chosun.com/sports/baseball/2026/05/27/MY4TSNLCME3GGZBXMU2GMNJRMI/"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_27",
-    "title": "\uBBF8\uAD6D\u00B7\uC774\uB780 \uAC04 \uC784\uC2DC \uD734\uC804 \uC720\uC9C0\uB85C \uC2DC\uC7A5 \uBD88\uC548 \uC548\uB3C4\uD558\uBA70 \uAD6D\uC81C \uC720\uAC00 \uD558\uB77D",
-    "content": "\uC911\uB3D9\uC758 \uAE34\uC7A5\uC774 \uB2E8\uAE30 \uC870\uC728 \uAD6D\uBA74\uC744 \uC720\uC9C0\uD558\uACE0 \uC591\uAD6D \uAC04\uC758 \uB300\uD654 \uD0C0\uACB0 \uAD00\uCE21\uC5D0 \uBB34\uAC8C\uAC00 \uC2E4\uB9AC\uBA74\uC11C, \uC720\uAC00 \uD3ED\uB4F1\uC744 \uC6B0\uB824\uD558\uB358 \uAD6D\uC81C \uC11D\uC720 \uC120\uBB3C\uC758 \uC9C0\uD45C \uC720\uAC00 \uAC70\uB798 \uAC00\uACA9\uC774 \uAE09\uC18D \uD558\uB77D\uD588\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": "https://static01.nyt.com/images/2026/05/27/multimedia/27biz-oil-promo-fmct/27biz-oil-promo-fmct-mediumSquareAt3X.jpg",
-    "category": "\uACBD\uC81C",
-    "publishedAt": "2026-05-27 22:46:25",
-    "relatedArticles": [
-      {
-        "title": "Oil Prices Fall as Uneasy Truce Holds Between U.S. and Iran",
-        "url": "https://www.nytimes.com/2026/05/27/business/oil-gas-price-iran.html"
-      }
-    ],
-    "relatedUrls": [
-      "https://www.nytimes.com/2026/05/27/business/oil-gas-price-iran.html"
-    ]
-  },
-  {
-    "id": "Sum_20260527_003_4",
-    "title": "NC \uB2E4\uC774\uB178\uC2A4, \uD55C\uD654 \uAEBE\uACE0 5\uC5F0\uD328 \uD0C8\uCD9C \uD6C4 2\uC5F0\uC2B9 \uAC00\uC18D",
-    "content": "NC \uB2E4\uC774\uB178\uC2A4\uAC00 \uBC15\uBBFC\uC6B0, \uBC15\uAC74\uC6B0, \uAD8C\uD76C\uB3D9\uC758 \uB9F9\uD65C\uC57D\uC5D0 \uD798\uC785\uC5B4 \uD55C\uD654 \uC774\uAE00\uC2A4\uB97C 6\uB300 4\uB85C \uC81C\uC555\uD588\uC2B5\uB2C8\uB2E4. \uC120\uBC1C \uD1A0\uB2E4\uAC00 6\uC774\uB2DD 2\uC2E4\uC810\uC73C\uB85C \uD004\uB9AC\uD2F0\uC2A4\uD0C0\uD2B8\uB97C \uAE30\uB85D\uD558\uBA70 \uC2B9\uB9AC\uC758 \uBC1C\uD310\uC744 \uB9C8\uB828\uD588\uC2B5\uB2C8\uB2E4.",
-    "imageUrl": "https://www.chosun.com/resizer/v2/GNSTKYRRMVRTQZRRHE2GGNRXGA.jpg?auth=109b31bfc6eb17349f8623c948665d194efd2fa1b48d7e19ba220e9511ea31fa\u0026smart=true\u0026width=530\u0026height=669",
-    "category": "\uC2A4\uD3EC\uCE20",
-    "publishedAt": "2026-05-27 22:45:00",
-    "relatedArticles": [
-      {
-        "title": "\uBC15\uBBFC\uC6B0-\uBC15\uAC74\uC6B0-\uAD8C\uD76C\uB3D9 \uCF85\uCF85\uCF85! NC 5\uC5F0\uD328 \uD6C4 2\uC5F0\uC2B9...\uD638\uBD80\uC9C0, \u0022\uD1A0\uB2E4 \uC911\uC2EC \uC798 \uC7A1\uC558\uACE0, \uAD8C\uD76C\uB3D9 \uD648\uB7F0 \uACB0\uC815\uC801\u0022 [\uC624!\uC388 \uCC3D\uC6D0]",
-        "url": "https://www.chosun.com/sports/baseball/2026/05/27/MU4WKOLCGAZDGNRTGEYGIMBQHA/"
-      }
-    ],
-    "relatedUrls": [
-      "https://www.chosun.com/sports/baseball/2026/05/27/MU4WKOLCGAZDGNRTGEYGIMBQHA/"
     ]
   }
 ]
