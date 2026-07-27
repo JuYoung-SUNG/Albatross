@@ -1,0 +1,5173 @@
+[
+  {
+    "gameDate": "2026-07-31",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": null,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": null,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": null,
+        "homeTeam": "KT",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": null,
+        "homeTeam": "NC",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": null,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": null
+      }
+    ],
+    "issues": []
+  },
+  {
+    "gameDate": "2026-07-30",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": null,
+        "homeTeam": "LG",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": null,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": null,
+        "homeTeam": "SSG",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": null,
+        "homeTeam": "NC",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": null,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": null
+      }
+    ],
+    "issues": []
+  },
+  {
+    "gameDate": "2026-07-29",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": null,
+        "homeTeam": "LG",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": null,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": null,
+        "homeTeam": "SSG",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": null,
+        "homeTeam": "NC",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": null,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": null
+      }
+    ],
+    "issues": []
+  },
+  {
+    "gameDate": "2026-07-28",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": null,
+        "homeTeam": "LG",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": null,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": null,
+        "homeTeam": "SSG",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": null,
+        "homeTeam": "NC",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": null,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": null
+      }
+    ],
+    "issues": []
+  },
+  {
+    "gameDate": "2026-07-26",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 0,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "KT",
+        "awayScore": 1,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 15
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "NC",
+        "awayScore": 5,
+        "homeTeam": "SSG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 8,
+        "homeTeam": "KIA",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "LG",
+        "awayScore": 4,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 14
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uC6C5\uBE48(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC0C1\uC900(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBE14\uB808\uC778(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-25",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 4,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "KT",
+        "awayScore": 6,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "NC",
+        "awayScore": 4,
+        "homeTeam": "SSG",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 5,
+        "homeTeam": "KIA",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "LG",
+        "awayScore": 15,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 11
+      }
+    ],
+    "issues": [
+      "\uAE40\uC6C5\uBE48(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCE74\uC2A4\uD2B8\uB85C(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB370\uC774\uBE44\uC2A8(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC0C1\uC900(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-24",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 15,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 5,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 3,
+        "homeTeam": "SSG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 8,
+        "homeTeam": "KIA",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 4,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 8
+      }
+    ],
+    "issues": [
+      "\uCE74\uC2A4\uD2B8\uB85C(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uC6C5\uBE48(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB370\uC774\uBE44\uC2A8(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC0C1\uC900(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-23",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 7,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 5,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 9,
+        "homeTeam": "KIA",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": null,
+        "homeTeam": "KT",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 3,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uCE74\uC2A4\uD2B8\uB85C(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAD6C\uC790\uC6B1(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC6C5\uBE48(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB370\uC774\uBE44\uC2A8(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-22",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": null,
+        "homeTeam": "LG",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 7,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 7,
+        "homeTeam": "KIA",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": null,
+        "homeTeam": "KT",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 1,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 3
+      }
+    ],
+    "issues": [
+      "\uAD6C\uC790\uC6B1(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC6C5\uBE48(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB370\uC774\uBE44\uC2A8(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uCC2C\uD601(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCE74\uC2A4\uD2B8\uB85C(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-21",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 7,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 2,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 3,
+        "homeTeam": "KIA",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 2,
+        "homeTeam": "KT",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 8,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAD6C\uC790\uC6B1(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC601\uC6C5(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB370\uC774\uBE44\uC2A8(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-19",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:00",
+        "awayTeam": "KT",
+        "awayScore": 4,
+        "homeTeam": "LG",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 11,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "KIA",
+        "awayScore": 9,
+        "homeTeam": "SSG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 10,
+        "homeTeam": "NC",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 9,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 9
+      }
+    ],
+    "issues": [
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uBC15\uCC2C\uD601(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC548\uC7AC\uC11D(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uC2B9\uD638(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAD6C\uC790\uC6B1(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC601\uC6C5(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-18",
+    "highlight": "2026\uB144 KBO \uACBD\uAE30\uC640 \uAD00\uB828\uB41C \uC18C\uC2DD\uC73C\uB85C\uB294 LG \uD2B8\uC708\uC2A4\uAC00 \uC0C1\uC704\uAD8C \uACBD\uC7C1\uD300\uC778 \uC0BC\uC131\uACFC KT\uC5D0 \uC5F0\uB2EC\uC544 \uD328\uD558\uBA70 3\uC5F0\uD328 \uC704\uAE30\uB97C \uACAA\uB294 \uB4F1 \uACE0\uC804\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC774\uB0A0 \uB450\uC0B0 \uBCA0\uC5B4\uC2A4\uB294 \uC7A0\uC2E4\uC5D0\uC11C \uC0BC\uC131 \uB77C\uC774\uC628\uC988\uC640\uC758 \uC815\uADDC\uC2DC\uC98C \uB9DE\uB300\uACB0\uC744 \uD1B5\uD574 \u00277\uC6D4 \uBCA0\uC5B4\uC2A4\uB370\uC774\u0027 \uC774\uBCA4\uD2B8\uB97C \uC9C4\uD589\uD560 \uC608\uC815\uC785\uB2C8\uB2E4. \uB610\uD55C, \uAE40\uB3C4\uC601 \uC120\uC218\uAC00 \uD3EC\uD568\uB41C \uD300 \uC120\uC218\uB4E4\uC758 \uD648\uB7F0\uC655 \uB3C4\uC804 \uACFC\uC815\uACFC \uAD00\uB828\uD558\uC5EC \uB2E4\uC591\uD55C \uC0AC\uC5F0\uB4E4\uC774 \uC8FC\uBAA9\uBC1B\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
+    "games": [
+      {
+        "gameTime": "18:00",
+        "awayTeam": "KT",
+        "awayScore": 8,
+        "homeTeam": "LG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 0,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "KIA",
+        "awayScore": 12,
+        "homeTeam": "SSG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 12,
+        "homeTeam": "NC",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 4,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 2
+      }
+    ],
+    "issues": [
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uBC15\uCC2C\uD601(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC548\uC7AC\uC11D(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uC601\uC6C5(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uC815\uBE48(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-17",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:00",
+        "awayTeam": "KT",
+        "awayScore": 6,
+        "homeTeam": "LG",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": null,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "KIA",
+        "awayScore": 6,
+        "homeTeam": "SSG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 7,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uCC2C\uD601(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD5C8\uC778\uC11C(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD788\uC6B0\uB77C(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB370\uC774\uBE44\uC2A8(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uBB38\uD604\uBE48(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-16",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 4,
+        "homeTeam": "LG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 1,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 0,
+        "homeTeam": "SSG",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 2,
+        "homeTeam": "NC",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 14,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBBFC\uD638(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC601\uC6C5(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD615\uC900(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC804\uC758\uC0B0(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-09",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 0,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 5,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 5,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": null,
+        "homeTeam": "KT",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 4,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD615\uC900(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBBFC\uD638(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC804\uC758\uC0B0(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-08",
+    "highlight": "7\uC6D4 8\uC77C \uC11C\uC6B8 \uC7A0\uC2E4\uC57C\uAD6C\uC7A5\uC5D0\uC11C\uB294 \u20182026 \uC2E0\uD55C SOL Bank KBO\uB9AC\uADF8\u2019\uC758 \uB450\uC0B0 \uBCA0\uC5B4\uC2A4\uC640 SSG \uB79C\uB354\uC2A4 \uAC04 \uACBD\uAE30\uAC00 \uAC1C\uCD5C\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uACBD\uAE30 \uD604\uC7A5\uC5D0\uB294 \uBC30\uC6B0 \uC548\uC8FC\uBBF8\uAC00 \uC2DC\uAD6C\uC5D0 \uB098\uC11C\uBA70 \uC57C\uAD6C\uD32C\uB4E4\uC5D0\uAC8C \uC990\uAC70\uC6B4 \uBD84\uC704\uAE30\uB97C \uC120\uC0AC\uD588\uC2B5\uB2C8\uB2E4. \uB610\uD55C, 8\uC77C \uBD80\uC0B0 \uC0AC\uC9C1\uAD6C\uC7A5\uC5D0\uC11C \uC5F4\uB9B0 \uB86F\uB370\uC640 KIA\uC758 \uACBD\uAE30\uC5D0\uC11C\uB294 \uB098\uADE0\uC548\uC774 \uC720\uACA9\uC218 \uC804\uBBFC\uC7AC\uC758 \uB6F0\uC5B4\uB09C \uC218\uBE44\uC5D0 \uAC10\uD0C4\uD558\uB294 \uBAA8\uC2B5\uC774 \uD3EC\uCC29\uB418\uAE30\uB3C4 \uD588\uC2B5\uB2C8\uB2E4.",
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 3,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 8,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 3,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 11
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 3,
+        "homeTeam": "KT",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": null,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": null
+      }
+    ],
+    "issues": [
+      "\uACE0\uBA85\uC900(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBBFC\uD638(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC804\uC758\uC0B0(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD55C\uB3D9\uD76C(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAD6C\uC790\uC6B1(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 11\uAC1C",
+      "\uB808\uC774\uC608\uC2A4(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 11\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-07",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 4,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 2,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 2,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 0,
+        "homeTeam": "KT",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 9,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uACE0\uBA85\uC900(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD615\uC900(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBBFC\uD638(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAC15\uC2B9\uD638(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-05",
+    "highlight": "\uC0BC\uC131 \uB77C\uC774\uC628\uC988\uAC00 7\uC6D4 5\uC77C \uC778\uCC9C SSG \uB79C\uB354\uC2A4\uD544\uB4DC\uB97C \uCC3E\uC544 \uC6D0\uC815 \uACBD\uAE30\uB97C \uD3BC\uCCE4\uC73C\uBA70, \uC774\uB0A0 \uACBD\uAE30\uC5D0\uC11C SSG\uB97C \uC0C1\uB300\uB85C \uC555\uC2B9\uC744 \uAC70\uB450\uBA70 11 \uB300 3\uC774\uB77C\uB294 \uC2A4\uCF54\uC5B4\uB97C \uAE30\uB85D\uD588\uC2B5\uB2C8\uB2E4. \uC774\uBC88 \uC2B9\uB9AC\uB294 \uC0BC\uC131\uC758 \uC5F0\uC18D\uB41C \uD638\uC131\uC801\uACFC \uD32C\uB4E4\uC758 \uAD00\uC2EC\uC744 \uC9D1\uC911\uC2DC\uD0A4\uACE0 \uC788\uC73C\uBA70, \uD2B9\uD788 \uBC15\uC9C4\uB9CC \uAC10\uB3C5\uC758 \uC9C0\uB3C4\uB825 \uC544\uB798 \uD300\uC774 \uC5F0\uC2B9 \uD750\uB984\uC5D0 \uD798\uC785\uC740 \uBAA8\uC2B5\uC785\uB2C8\uB2E4. \uC774\uB0A0 \uACBD\uAE30\uB97C \uD1B5\uD574 \uC591\uCC3D\uC12D \uC120\uC218\uAC00 \uB9C8\uC6B4\uB4DC\uC5D0\uC11C \uD65C\uC57D\uC744 \uD3BC\uCE58\uB294 \uB4F1 \uC5EC\uB7EC \uC120\uC218\uB4E4\uC774 \uC88B\uC740 \uBAA8\uC2B5\uC744 \uBCF4\uC5EC\uC8FC\uBA70 \uC2B9\uB9AC\uC5D0 \uAE30\uC5EC\uD588\uC2B5\uB2C8\uB2E4.",
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 8,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": null,
+        "homeTeam": "LG",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 13,
+        "homeTeam": "SSG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "NC",
+        "awayScore": null,
+        "homeTeam": "KIA",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 2,
+        "homeTeam": "KT",
+        "homeScore": 4
+      }
+    ],
+    "issues": [
+      "\uACE0\uBA85\uC900(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBBFC\uD638(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAC15\uC2B9\uD638(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD55C\uB3D9\uD76C(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC9C0\uCC2C(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uAE40\uBBFC\uC11D(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uAC15\uC2B9\uD638(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-04",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 3,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 13,
+        "homeTeam": "SSG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "NC",
+        "awayScore": 5,
+        "homeTeam": "KIA",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 4,
+        "homeTeam": "KT",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 8,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uACE0\uBA85\uC900(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD615\uC900(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uC2B9\uD638(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-03",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 8,
+        "homeTeam": "LG",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 6,
+        "homeTeam": "SSG",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 11,
+        "homeTeam": "KIA",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 4,
+        "homeTeam": "KT",
+        "homeScore": 0
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 5,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 5\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uD615\uC900(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uC2B9\uD638(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-02",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 3,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 7,
+        "homeTeam": "KIA",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 6,
+        "homeTeam": "NC",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 3,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 14
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 7,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 5\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD615\uC900(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-07-01",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 5,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 6,
+        "homeTeam": "KIA",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 5,
+        "homeTeam": "NC",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 7,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 10,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 4
+      }
+    ],
+    "issues": [
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD615\uC900(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD718\uC9D1(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-30",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 0,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 3,
+        "homeTeam": "KIA",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 13,
+        "homeTeam": "NC",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": null,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 0,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 5\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uCC2C\uD601(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC548\uCE58\uD64D(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAD6C\uC790\uC6B1(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-28",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KIA",
+        "awayScore": 12,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KT",
+        "awayScore": 4,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "LG",
+        "awayScore": 9,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 11
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 6,
+        "homeTeam": "SSG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 2,
+        "homeTeam": "NC",
+        "homeScore": 9
+      }
+    ],
+    "issues": [
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC6B0\uC131(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-27",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KIA",
+        "awayScore": 1,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KT",
+        "awayScore": 3,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "LG",
+        "awayScore": 8,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 8,
+        "homeTeam": "SSG",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 3,
+        "homeTeam": "NC",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 5\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uC815\uBE48(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-26",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 2,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 1,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 2,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 9,
+        "homeTeam": "SSG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 11
+      }
+    ],
+    "issues": [
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uC815\uBE48(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-25",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 13,
+        "homeTeam": "LG",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 8,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 7,
+        "homeTeam": "KT",
+        "homeScore": 12
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 5,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 9,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 4
+      }
+    ],
+    "issues": [
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-24",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 0,
+        "homeTeam": "LG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 3,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 5,
+        "homeTeam": "KT",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 7,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 10,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 3
+      }
+    ],
+    "issues": [
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uBB38\uC815\uBE48(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBCC0\uC6B0\uD601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC1A1\uCC2C\uC758(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-23",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 3,
+        "homeTeam": "LG",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 2,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 2,
+        "homeTeam": "KT",
+        "homeScore": 13
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 2,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 7,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 3
+      }
+    ],
+    "issues": [
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBCC0\uC6B0\uD601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC1A1\uCC2C\uC758(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-21",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 6,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 3,
+        "homeTeam": "LG",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KIA",
+        "awayScore": 11,
+        "homeTeam": "KT",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "SSG",
+        "awayScore": 7,
+        "homeTeam": "NC",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 3,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uBB38\uC815\uBE48(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uBCF4\uACBD(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC1A1\uCC2C\uC758(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-20",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 2,
+        "homeTeam": "LG",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KIA",
+        "awayScore": 9,
+        "homeTeam": "KT",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "SSG",
+        "awayScore": 12,
+        "homeTeam": "NC",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 4,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 7,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC2B9\uC5FD(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uBCF4\uACBD(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC804\uBBFC\uC7AC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-19",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 2,
+        "homeTeam": "LG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 11,
+        "homeTeam": "KT",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 3,
+        "homeTeam": "NC",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 3,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 2,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC2B9\uC5FD(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC804\uBBFC\uC7AC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-18",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 1,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 3,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 2,
+        "homeTeam": "SSG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 2,
+        "homeTeam": "KIA",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 0,
+        "homeTeam": "NC",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC2B9\uC5FD(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC804\uBBFC\uC7AC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD55C\uB3D9\uD76C(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-17",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 8,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 0,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 2,
+        "homeTeam": "SSG",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 4,
+        "homeTeam": "KIA",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC804\uBBFC\uC7AC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC2B9\uC5FD(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD55C\uB3D9\uD76C(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-16",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 6,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 1,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 10,
+        "homeTeam": "SSG",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 8,
+        "homeTeam": "KIA",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 5,
+        "homeTeam": "NC",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD55C\uB3D9\uD76C(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC2B9\uC5FD(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC190\uD638\uC601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC804\uBBFC\uC7AC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-14",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 2,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 1,
+        "homeTeam": "LG",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "SSG",
+        "awayScore": 8,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 8,
+        "homeTeam": "KIA",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "NC",
+        "awayScore": null,
+        "homeTeam": "KT",
+        "homeScore": null
+      }
+    ],
+    "issues": [
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC190\uD638\uC601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD64D\uCC3D\uAE30(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uBC15\uCC2C\uD638(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-13",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 3,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "SSG",
+        "awayScore": 6,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 1,
+        "homeTeam": "KIA",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "NC",
+        "awayScore": 9,
+        "homeTeam": "KT",
+        "homeScore": 11
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 1,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 3
+      }
+    ],
+    "issues": [
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC190\uD638\uC601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD604\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uAD8C\uD76C\uB3D9(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uC11C\uAC74\uCC3D(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-12",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 16,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 5,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 4,
+        "homeTeam": "KIA",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 2,
+        "homeTeam": "KT",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 3,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 4
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC190\uD638\uC601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAD8C\uD76C\uB3D9(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-11",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 1,
+        "homeTeam": "LG",
+        "homeScore": 15
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 12,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 8,
+        "homeTeam": "KT",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 1,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 3,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 2
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCE74\uBA54\uB860(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-10",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 6,
+        "homeTeam": "LG",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 1,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 3,
+        "homeTeam": "KT",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 3,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 4,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 2
+      }
+    ],
+    "issues": [
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC9C0\uD6C8(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-09",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 2,
+        "homeTeam": "LG",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 6,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 2,
+        "homeTeam": "KT",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 6,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 6,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 7
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC9C0\uD6C8(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-07",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 4,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 9,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KT",
+        "awayScore": 0,
+        "homeTeam": "SSG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 6,
+        "homeTeam": "KIA",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "LG",
+        "awayScore": 6,
+        "homeTeam": "NC",
+        "homeScore": 7
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uBBFC\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-06",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KT",
+        "awayScore": 7,
+        "homeTeam": "SSG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 1,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 7,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 3,
+        "homeTeam": "KIA",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "LG",
+        "awayScore": 5,
+        "homeTeam": "NC",
+        "homeScore": 8
+      }
+    ],
+    "issues": [
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uC9C0\uD6C8(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC6C5\uBE48(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uBBFC\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-05",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 3,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 9,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 5,
+        "homeTeam": "SSG",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 2,
+        "homeTeam": "KIA",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 5,
+        "homeTeam": "NC",
+        "homeScore": 4
+      }
+    ],
+    "issues": [
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uC9C0\uD6C8(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC6C5\uBE48(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uBBFC\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-04",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 1,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 6,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 6,
+        "homeTeam": "SSG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 0,
+        "homeTeam": "KIA",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 7,
+        "homeTeam": "KT",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 5\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uD0DC\uACE4(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC6C5\uBE48(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-03",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 3,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "NC",
+        "awayScore": 6,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 4,
+        "homeTeam": "SSG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 8,
+        "homeTeam": "KIA",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "LG",
+        "awayScore": 6,
+        "homeTeam": "KT",
+        "homeScore": 7
+      }
+    ],
+    "issues": [
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC9C0\uD658(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uD0DC\uACE4(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC815\uC218\uBE48(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-06-02",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 3,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 7,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 12,
+        "homeTeam": "SSG",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 4,
+        "homeTeam": "KIA",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 10,
+        "homeTeam": "KT",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uBC15\uB3D9\uC6D0(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC9C0\uD658(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uD0DC\uACE4(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC815\uC218\uBE48(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBBFC\uD638(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-31",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KIA",
+        "awayScore": 3,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 4,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 2,
+        "homeTeam": "NC",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "SSG",
+        "awayScore": 2,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KT",
+        "awayScore": 5,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uBC15\uB3D9\uC6D0(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBBFC\uD638(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB808\uC774\uC608\uC2A4(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-30",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 8,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KIA",
+        "awayScore": 1,
+        "homeTeam": "LG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 2,
+        "homeTeam": "NC",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "SSG",
+        "awayScore": 10,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 13
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KT",
+        "awayScore": 8,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 7
+      }
+    ],
+    "issues": [
+      "\uBC15\uB3D9\uC6D0(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uC6D0\uC900(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBBFC\uD638(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD615\uC900(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-29",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 2,
+        "homeTeam": "LG",
+        "homeScore": 12
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 9,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 6,
+        "homeTeam": "NC",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 3,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 7,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uCD5C\uC6D0\uC900(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBBFC\uD638(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC544\uB370\uB97C\uB9B0(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCE74\uBA54\uB860(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-28",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 11,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 5,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 10,
+        "homeTeam": "SSG",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 18,
+        "homeTeam": "NC",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 5,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 0
+      }
+    ],
+    "issues": [
+      "\uBC15\uB3D9\uC6D0(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC544\uB370\uB97C\uB9B0(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC6D0\uC900(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uBBFC\uD601(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-27",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 0,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 8,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 4,
+        "homeTeam": "SSG",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 9,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 2
+      }
+    ],
+    "issues": [
+      "\uC544\uB370\uB97C\uB9B0(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uBC15\uB3D9\uC6D0(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC804\uBBFC\uC7AC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC6D0\uC900(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uBBFC\uD601(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-26",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 6,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 0
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 2,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": null,
+        "homeTeam": "SSG",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": null,
+        "homeTeam": "NC",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 5,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 2
+      }
+    ],
+    "issues": [
+      "\uC544\uB370\uB97C\uB9B0(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC804\uBBFC\uC7AC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uC6D0\uC900(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC9C0\uD6C8(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uC774\uD615\uC885(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uAE40\uC0C1\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uAE40\uBBFC\uD601(KT) 5\uACBD\uAE30 \uC5F0\uC18D \uC548\uD0C0"
+    ]
+  },
+  {
+    "gameDate": "2026-05-24",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 4,
+        "homeTeam": "LG",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 10,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 0
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "SSG",
+        "awayScore": 2,
+        "homeTeam": "KIA",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "NC",
+        "awayScore": 8,
+        "homeTeam": "KT",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 2,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uAC74\uD76C(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC544\uB370\uB97C\uB9B0(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC8FC\uD5CC(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-23",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 2,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 5,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "SSG",
+        "awayScore": 4,
+        "homeTeam": "KIA",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "NC",
+        "awayScore": 5,
+        "homeTeam": "KT",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 2,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uC804\uBBFC\uC7AC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uAC74\uD76C(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uBBFC\uD601(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uACE0\uC2B9\uBBFC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uAD6C\uC790\uC6B1(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-22",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 7,
+        "homeTeam": "LG",
+        "homeScore": 0
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 7,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 2,
+        "homeTeam": "KIA",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 4,
+        "homeTeam": "KT",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 3,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uAC74\uD76C(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC804\uBBFC\uC7AC(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC2B9\uC5FD(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC0C1\uC900(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-21",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 0,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 5,
+        "homeTeam": "KIA",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 8,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 0,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 5,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 8
+      }
+    ],
+    "issues": [
+      "\uAE40\uAC74\uD76C(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD55C\uB3D9\uD76C(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC0C1\uC900(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-20",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": null,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": null,
+        "homeTeam": "KIA",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": null,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 5,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": null,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": null
+      }
+    ],
+    "issues": [
+      "\uAE40\uAC74\uD76C(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC784\uBCD1\uC6B1(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC784\uBCD1\uC6B1(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uBC15\uC131\uD55C(SSG) 5\uACBD\uAE30 \uC5F0\uC18D \uC548\uD0C0",
+      "\uC11C\uAC74\uCC3D(\uD0A4\uC6C0) 5\uACBD\uAE30 \uC5F0\uC18D \uC548\uD0C0",
+      "\uC5D0\uB808\uB514\uC544(SSG) 5\uACBD\uAE30 \uC5F0\uC18D \uC548\uD0C0"
+    ]
+  },
+  {
+    "gameDate": "2026-05-19",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 3,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 0,
+        "homeTeam": "KIA",
+        "homeScore": 14
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 6,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 6,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 2,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 10
+      }
+    ],
+    "issues": [
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD55C\uB3D9\uD76C(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-17",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 4,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KIA",
+        "awayScore": 16,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "LG",
+        "awayScore": 6,
+        "homeTeam": "SSG",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 7,
+        "homeTeam": "KT",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 3,
+        "homeTeam": "NC",
+        "homeScore": 2
+      }
+    ],
+    "issues": [
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC784\uBCD1\uC6B1(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-16",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 10,
+        "homeTeam": "KT",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 9,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KIA",
+        "awayScore": 2,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "LG",
+        "awayScore": 3,
+        "homeTeam": "SSG",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 2,
+        "homeTeam": "NC",
+        "homeScore": 9
+      }
+    ],
+    "issues": [
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD5C8\uC778\uC11C(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC724\uC900\uD638(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC784\uBCD1\uC6B1(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-15",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 6,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 5,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 8,
+        "homeTeam": "SSG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 5,
+        "homeTeam": "KT",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC724\uC900\uD638(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC8FC\uD5CC(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-14",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 9,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 5,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 3,
+        "homeTeam": "KIA",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 16,
+        "homeTeam": "KT",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 10,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC774\uC7AC\uD604(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC7AC\uD658(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC8FC\uD5CC(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-13",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 3,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 5,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 2,
+        "homeTeam": "KIA",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 4,
+        "homeTeam": "KT",
+        "homeScore": 18
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 2,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 3
+      }
+    ],
+    "issues": [
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAD6C\uC790\uC6B1(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC544\uB370\uB97C\uB9B0(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC724\uC900\uD638(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-12",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 9,
+        "homeTeam": "LG",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 8,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 5,
+        "homeTeam": "KIA",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 5,
+        "homeTeam": "KT",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 11,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAD6C\uC790\uC6B1(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC8FC\uD658(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-10",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "SSG",
+        "awayScore": 1,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KIA",
+        "awayScore": 3,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 11,
+        "homeTeam": "NC",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "LG",
+        "awayScore": 3,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KT",
+        "awayScore": 1,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC544\uB370\uB97C\uB9B0(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAD6C\uC790\uC6B1(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uC0C1\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 12\uAC1C",
+      "\uBB38\uD604\uBE48(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-09",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "LG",
+        "awayScore": 3,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 11
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "SSG",
+        "awayScore": 4,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KIA",
+        "awayScore": 3,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 5,
+        "homeTeam": "NC",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KT",
+        "awayScore": 6,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uC544\uB370\uB97C\uB9B0(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uD604\uBE48(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC8FC\uD658(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-08",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 4,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 8,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 9,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 8,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 0
+      }
+    ],
+    "issues": [
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD5C8\uC778\uC11C(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uD604\uC885(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-07",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 3,
+        "homeTeam": "LG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 0,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 10,
+        "homeTeam": "SSG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 11,
+        "homeTeam": "KIA",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": null,
+        "homeTeam": "KT",
+        "homeScore": null
+      }
+    ],
+    "issues": [
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uD5C8\uC778\uC11C(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uD604\uC885(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-06",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 1,
+        "homeTeam": "LG",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 1,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 6,
+        "homeTeam": "SSG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 7,
+        "homeTeam": "KIA",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 8,
+        "homeTeam": "KT",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC1A1\uCC2C\uC758(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uD604\uC885(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-05",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 1,
+        "homeTeam": "LG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 1,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 11
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "NC",
+        "awayScore": 7,
+        "homeTeam": "SSG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 7,
+        "homeTeam": "KIA",
+        "homeScore": 12
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 4,
+        "homeTeam": "KT",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uD5C8\uC778\uC11C(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC2DC\uD658(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC7AC\uD604(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC1A1\uCC2C\uC758(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uD604\uC885(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-03",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "NC",
+        "awayScore": 10,
+        "homeTeam": "LG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 6,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 5,
+        "homeTeam": "SSG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KT",
+        "awayScore": 6,
+        "homeTeam": "KIA",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 14,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 3
+      }
+    ],
+    "issues": [
+      "\uD5C8\uC778\uC11C(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC1A1\uCC2C\uC758(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC548\uC7AC\uC11D(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-02",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 7,
+        "homeTeam": "SSG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "NC",
+        "awayScore": 5,
+        "homeTeam": "LG",
+        "homeScore": 13
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 13,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KT",
+        "awayScore": 0,
+        "homeTeam": "KIA",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 2,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 4
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC131\uD55C(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC1A1\uCC2C\uC758(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC548\uC7AC\uC11D(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-05-01",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "17:00",
+        "awayTeam": "NC",
+        "awayScore": 1,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 3,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 10,
+        "homeTeam": "SSG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KT",
+        "awayScore": 4,
+        "homeTeam": "KIA",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 16,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uC1A1\uCC2C\uC758(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC548\uC7AC\uC11D(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD5CC\uACE4(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-30",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 5,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 1,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 6,
+        "homeTeam": "KT",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 2,
+        "homeTeam": "NC",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 14,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 3
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC1A1\uCC2C\uC758(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC548\uCE58\uD64D(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-29",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 0,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 6,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 4,
+        "homeTeam": "KT",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 9,
+        "homeTeam": "NC",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 6,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 4\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC548\uCE58\uD64D(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-28",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 5,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 4,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 5,
+        "homeTeam": "KT",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 6,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 7
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC624\uC120\uC6B0(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uAE40\uC131\uC724(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uBC15\uC131\uD55C(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-26",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "LG",
+        "awayScore": 3,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KT",
+        "awayScore": 12,
+        "homeTeam": "SSG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 5,
+        "homeTeam": "KIA",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "NC",
+        "awayScore": 5,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 0,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 2
+      }
+    ],
+    "issues": [
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC1A1\uCC2C\uC758(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC120\uC6B0(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-25",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "LG",
+        "awayScore": 7,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KT",
+        "awayScore": 1,
+        "homeTeam": "SSG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 3,
+        "homeTeam": "KIA",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "NC",
+        "awayScore": 1,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 2,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 4
+      }
+    ],
+    "issues": [
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uD604\uBE48(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC815\uC218\uBE48(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD398\uB77C\uC790(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC131\uD55C(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C",
+      "\uAE40\uD604\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-24",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 4,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 0,
+        "homeTeam": "SSG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 0,
+        "homeTeam": "KIA",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 7,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 4,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 6
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC815\uC218\uBE48(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCE74\uBA54\uB860(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uAE40\uD604\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-23",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 8,
+        "homeTeam": "LG",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 8,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 1,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 3,
+        "homeTeam": "KT",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 12,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 2
+      }
+    ],
+    "issues": [
+      "\uBB38\uD604\uBE48(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC815\uC218\uBE48(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCE74\uBA54\uB860(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uAE40\uD604\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-22",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 0,
+        "homeTeam": "LG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 3,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 9,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 3,
+        "homeTeam": "KT",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 0,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 3
+      }
+    ],
+    "issues": [
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC815\uC218\uBE48(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB808\uC774\uC608\uC2A4(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uAE40\uC8FC\uC6D0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uAE40\uD604\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-21",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 5,
+        "homeTeam": "LG",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 5,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 6,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 5,
+        "homeTeam": "KT",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 1,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 2
+      }
+    ],
+    "issues": [
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCE74\uBA54\uB860(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC804\uBCD1\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uB808\uC774\uC608\uC2A4(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uBC30\uC815\uB300(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uC774\uB3C4\uC724(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uAE40\uBBFC\uC11D(\uB450\uC0B0) 5\uACBD\uAE30 \uC5F0\uC18D \uC548\uD0C0",
+      "\uAE40\uC120\uBE48(KIA) 5\uACBD\uAE30 \uC5F0\uC18D \uC548\uD0C0"
+    ]
+  },
+  {
+    "gameDate": "2026-04-19",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KIA",
+        "awayScore": 3,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "LG",
+        "awayScore": 5,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 0
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 9,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "SSG",
+        "awayScore": 2,
+        "homeTeam": "NC",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 3,
+        "homeTeam": "KT",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uC7A5\uC131\uC6B0(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD604\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC8FC\uD64D(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC9C0\uD6C8(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCE74\uBA54\uB860(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC6D0\uC900(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-18",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "LG",
+        "awayScore": 2,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "KIA",
+        "awayScore": 4,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 5,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 0
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 2,
+        "homeTeam": "KT",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "SSG",
+        "awayScore": 11,
+        "homeTeam": "NC",
+        "homeScore": 3
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC7A5\uC131\uC6B0(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD604\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC591\uC758\uC9C0(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC6B0\uC131(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC9C0\uD6C8(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCE74\uBA54\uB860(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-17",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 7,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": null,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": null,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 0,
+        "homeTeam": "KT",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": null,
+        "homeTeam": "NC",
+        "homeScore": null
+      }
+    ],
+    "issues": [
+      "\uC7A5\uC131\uC6B0(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD604\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC8FC\uD615(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCE74\uBA54\uB860(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC6D0\uC900(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uAE40\uD638\uB839(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uAE40\uAC74\uD76C(\uD0A4\uC6C0) 5\uACBD\uAE30 \uC5F0\uC18D \uC548\uD0C0"
+    ]
+  },
+  {
+    "gameDate": "2026-04-16",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 4,
+        "homeTeam": "LG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 1,
+        "homeTeam": "SSG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 1,
+        "homeTeam": "KIA",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 6,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uD604\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC8FC\uD615(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC7A5\uC131\uC6B0(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCE74\uBA54\uB860(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB808\uC774\uC608\uC2A4(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uC870\uD615\uC6B0(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C",
+      "\uD55C\uC900\uC218(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 7\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-15",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 2,
+        "homeTeam": "LG",
+        "homeScore": 0
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 0,
+        "homeTeam": "SSG",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 5,
+        "homeTeam": "KIA",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 10,
+        "homeTeam": "NC",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 13,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAE40\uD604\uC218(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC6B0\uC131(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC8FC\uD615(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC7A5\uC131\uC6B0(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC6D0\uC11D(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C",
+      "\uBC15\uC2B9\uADDC(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-14",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 1,
+        "homeTeam": "LG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 11,
+        "homeTeam": "SSG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 2,
+        "homeTeam": "KIA",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 6,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC6B0\uC131(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uC624\uC9C0\uD658(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uC774\uC6D0\uC11D(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-12",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "SSG",
+        "awayScore": 1,
+        "homeTeam": "LG",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "NC",
+        "awayScore": 3,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 1,
+        "homeTeam": "KT",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KIA",
+        "awayScore": 9,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 0,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 2
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uC6B0\uC131(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD5C8\uACBD\uBBFC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C",
+      "\uCE74\uC2A4\uD2B8\uB85C(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-11",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KIA",
+        "awayScore": 6,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "SSG",
+        "awayScore": 3,
+        "homeTeam": "LG",
+        "homeScore": 4
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "NC",
+        "awayScore": 4,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 4,
+        "homeTeam": "KT",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 3,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC548\uD604\uBBFC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uD615\uC885(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C",
+      "\uB958\uC9C0\uD601(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 8\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-10",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 2,
+        "homeTeam": "LG",
+        "homeScore": 10
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 5,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 8,
+        "homeTeam": "KT",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 6,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 3,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 1
+      }
+    ],
+    "issues": [
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uAE40\uB3C4\uC601(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB098\uC131\uBC94(KIA) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB370\uC774\uBE44\uC2A8(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uD615\uC885(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB808\uC774\uC608\uC2A4(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-09",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": null,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": null,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": null,
+        "homeTeam": "SSG",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": null,
+        "homeTeam": "KIA",
+        "homeScore": null
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": null,
+        "homeTeam": "NC",
+        "homeScore": null
+      }
+    ],
+    "issues": []
+  },
+  {
+    "gameDate": "2026-04-08",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 3,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 1,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 4,
+        "homeTeam": "SSG",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 5,
+        "homeTeam": "KIA",
+        "homeScore": 15
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 5,
+        "homeTeam": "NC",
+        "homeScore": 4
+      }
+    ],
+    "issues": [
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uCD5C\uD615\uC6B0(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC774\uD615\uC885(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uD790\uB9AC\uC5B4\uB4DC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB958\uC9C0\uD601(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C",
+      "\uBC15\uC900\uC21C(\uB450\uC0B0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 10\uAC1C",
+      "\uD55C\uB3D9\uD76C(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-07",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 5,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 7,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 6,
+        "homeTeam": "SSG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 10,
+        "homeTeam": "KIA",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 2,
+        "homeTeam": "NC",
+        "homeScore": 0
+      }
+    ],
+    "issues": [
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB178\uC9C4\uD601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB958\uC9C0\uD601(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uD604\uBE48(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC2E0\uC7AC\uC778(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC7A5\uC131\uC6B0(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC815(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC9C0\uD6C8(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-05",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 0,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "SSG",
+        "awayScore": 4,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "NC",
+        "awayScore": 0,
+        "homeTeam": "KIA",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 0,
+        "homeTeam": "KT",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "LG",
+        "awayScore": 6,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB178\uC9C4\uD601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC2E0\uC7AC\uC778(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC548\uD604\uBBFC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC724\uB3D9\uD76C(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC7A5\uC131\uC6B0(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC9C0\uD6C8(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uCC2C\uD601(\uD0A4\uC6C0) \uCD5C\uADFC 5\uACBD\uAE30 \uC548\uD0C0 9\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-04",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 9,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "SSG",
+        "awayScore": 7,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "NC",
+        "awayScore": 6,
+        "homeTeam": "KIA",
+        "homeScore": 0
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 8,
+        "homeTeam": "KT",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "17:00",
+        "awayTeam": "LG",
+        "awayScore": 6,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 4
+      }
+    ],
+    "issues": [
+      "\uC624\uC2A4\uD2F4(LG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC7A5\uC131\uC6B0(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uB178\uC9C4\uD601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB514\uC544\uC988(\uC0BC\uC131) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uD604\uBE48(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC548\uD604\uBBFC(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uCD5C\uC9C0\uD6C8(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-03",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD55C\uD654",
+        "awayScore": 11,
+        "homeTeam": "\uB450\uC0B0",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "SSG",
+        "awayScore": 17,
+        "homeTeam": "\uB86F\uB370",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "NC",
+        "awayScore": 5,
+        "homeTeam": "KIA",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uC0BC\uC131",
+        "awayScore": 2,
+        "homeTeam": "KT",
+        "homeScore": 1
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "LG",
+        "awayScore": 2,
+        "homeTeam": "\uD0A4\uC6C0",
+        "homeScore": 5
+      }
+    ],
+    "issues": [
+      "\uACE0\uBA85\uC900(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC5D0\uB808\uB514\uC544(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC7A5\uC131\uC6B0(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC9C4\uD601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB808\uC774\uC608\uC2A4(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uD604\uBE48(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC190\uD638\uC601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-02",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 1,
+        "homeTeam": "LG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 2,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 1,
+        "homeTeam": "SSG",
+        "homeScore": 11
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 8
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 13,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 8
+      }
+    ],
+    "issues": [
+      "\uB808\uC774\uC608\uC2A4(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uC7A5\uC131\uC6B0(KT) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 3\uAC1C",
+      "\uAC15\uBC31\uD638(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uACE0\uBA85\uC900(SSG) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uB178\uC9C4\uD601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBB38\uD604\uBE48(\uD55C\uD654) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uBC15\uAC74\uC6B0(NC) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C",
+      "\uC190\uD638\uC601(\uB86F\uB370) \uCD5C\uADFC 5\uACBD\uAE30 \uD648\uB7F0 2\uAC1C"
+    ]
+  },
+  {
+    "gameDate": "2026-04-01",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 2,
+        "homeTeam": "LG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 3,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 13
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 11,
+        "homeTeam": "SSG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 4,
+        "homeTeam": "NC",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 14,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 11
+      }
+    ],
+    "issues": []
+  },
+  {
+    "gameDate": "2026-03-31",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KIA",
+        "awayScore": 7,
+        "homeTeam": "LG",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 5,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 3,
+        "homeTeam": "SSG",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 2,
+        "homeTeam": "NC",
+        "homeScore": 9
+      },
+      {
+        "gameTime": "18:30",
+        "awayTeam": "KT",
+        "awayScore": 9,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 4
+      }
+    ],
+    "issues": []
+  },
+  {
+    "gameDate": "2026-03-29",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KT",
+        "awayScore": 6,
+        "homeTeam": "LG",
+        "homeScore": 5
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 6,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 2
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KIA",
+        "awayScore": 6,
+        "homeTeam": "SSG",
+        "homeScore": 11
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 9,
+        "homeTeam": "NC",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 4,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 10
+      }
+    ],
+    "issues": []
+  },
+  {
+    "gameDate": "2026-03-28",
+    "highlight": null,
+    "games": [
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KT",
+        "awayScore": 11,
+        "homeTeam": "LG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB86F\uB370",
+        "awayScore": 6,
+        "homeTeam": "\uC0BC\uC131",
+        "homeScore": 3
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "KIA",
+        "awayScore": 6,
+        "homeTeam": "SSG",
+        "homeScore": 7
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uB450\uC0B0",
+        "awayScore": 0,
+        "homeTeam": "NC",
+        "homeScore": 6
+      },
+      {
+        "gameTime": "14:00",
+        "awayTeam": "\uD0A4\uC6C0",
+        "awayScore": 9,
+        "homeTeam": "\uD55C\uD654",
+        "homeScore": 10
+      }
+    ],
+    "issues": []
+  }
+]
