@@ -510,3 +510,45 @@ html, body {
   .landing-quick { text-align: left; }
   .landing-sub br { display: none; }
 }
+
+/* ── 브랜드(우산) 링크 ── */
+.topnav .brand { text-decoration: none; }
+.topnav .brand:hover { color: var(--accent); }
+
+/* ── 섹션 서브네비 (Albatross KBO / 건강한생활) ── */
+.section-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 1.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.section-nav-title { font-weight: 800; color: var(--text-primary); font-size: 0.98rem; padding-right: 0.4rem; }
+.section-nav-links { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.section-nav-links a {
+  padding: 0.35rem 0.85rem;
+  border-radius: 18px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 600;
+  transition: background 0.15s, color 0.15s;
+}
+.section-nav-links a:hover { background: var(--bg-hover); color: var(--text-primary); }
+.section-nav-links a.active { background: var(--accent-glow); color: var(--accent); font-weight: 700; }
+
+/* ── 빈 섹션(준비 중) ── */
+.empty-section {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.empty-section-ic { font-size: 3rem; }
+.empty-section h1 { margin: 0.6rem 0 0.5rem; color: var(--text-primary); }
+.empty-section p { color: var(--text-muted); }
