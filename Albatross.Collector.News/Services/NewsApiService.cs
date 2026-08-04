@@ -25,7 +25,7 @@ public class NewsApiService : INewsService
     {
         if (string.IsNullOrEmpty(_apiKey))
         {
-            // No API key configured — return sample data so frontend can display during local development
+            // No API key configured ??return sample data so frontend can display during local development
             return new[] {
                 new NewsItem("1", "Sample News 1", "Summary of sample news 1", "https://example.com/news1", DateTimeOffset.UtcNow),
                 new NewsItem("2", "Sample News 2", "Summary of sample news 2", "https://example.com/news2", DateTimeOffset.UtcNow)

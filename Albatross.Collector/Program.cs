@@ -44,11 +44,42 @@ try
                 loggingBuilder.AddSerilog(dispose: true);
             });
 
-            // RSS 스크래퍼 등록
+            // 뉴스 소스 등록 (여러 개 등록하면 Worker가 IEnumerable<INewsService>로 모두 받아 병합 수집)
+            services.AddHttpClient<INewsService, NaverNewsService>();
             services.AddHttpClient<INewsService, RssNewsScraperService>();
-            services.AddHostedService<Worker>();
+            // 날짜별 뉴스 소급(--backfill-news)에서 직접 호출할 수 있도록 concrete 타입으로도 별도 등록
+            services.AddHttpClient<NaverNewsService>();
+
+            // 로컬 AI 분류 서비스 등록 (CPU 추론은 GPU보다 느려 기본 100초 타임아웃을 넘길 수 있음)
+            services.AddHttpClient<GemmaClassificationService>(client =>
+            {
+                client.Timeout = TimeSpan.FromMinutes(5);
+            });
+
+            // KBO 공식 사이트(팀 순위 / 선수 기록) 수집기
+            services.AddHttpClient<KboOfficialSiteService>();
+
+            // 네이버 DataLab 검색어 트렌드 (키워드 검색량 크로스체크용)
+            services.AddHttpClient<NaverDataLabService>();
+
+            // 뉴스 키워드 추출기 (RawNews 급상승 통계 + 로컬 Gemma 정제 + DataLab 검색량)
+            services.AddSingleton<KeywordExtractionService>();
+
+            services.AddSingleton<Worker>();
+            services.AddHostedService<Worker>(sp => sp.GetRequiredService<Worker>());
         })
         .Build();
+
+    // --reclassify 인자 처리
+    if (args.Length >= 2 && args[0] == "--reclassify")
+    {
+        var newsId = args[1];
+        Log.Information("Manual reclassification requested for newsId: {newsId}", newsId);
+        
+        var worker = host.Services.GetRequiredService<Worker>();
+        await worker.ClassifySingleNewsAsync(newsId, CancellationToken.None);
+        return;
+    }
 
     await host.RunAsync();
 }

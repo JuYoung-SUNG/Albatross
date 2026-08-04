@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://api.nuget.org/v3-flatcontainer/sqlitepclraw.lib.e_sqlite3/index.json\")",
+      "Bash(curl -s \"https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlite.core/10.0.9/microsoft.data.sqlite.core.nuspec\")",
+      "Bash(curl -s \"https://api.nuget.org/v3-flatcontainer/microsoft.data.sqlite/10.0.9/microsoft.data.sqlite.nuspec\")",
+      "Bash(dotnet build *)",
+      "Bash(curl -s \"https://api.nuget.org/v3-flatcontainer/sqlitepclraw.lib.e_sqlite3/3.50.3/sqlitepclraw.lib.e_sqlite3.nuspec\")",
+      "Bash(curl -s -m 15 \"https://www.koreabaseball.com/Record/Player/HitterBasic/Basic1.aspx\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -o /tmp/kbo_hitters.html)",
+      "Read(//tmp/**)",
+      "Bash(sed -n '667,720p' /tmp/kbo_hitters.html)",
+      "Bash(curl -s -m 15 \"https://www.koreabaseball.com/Record/Player/PitcherBasic/Basic1.aspx\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -o /tmp/kbo_pitchers.html)",
+      "Bash(curl -s -m 15 \"http://www.statiz.co.kr/stat.php?opt=0&sopt=0&re=0&ys=2026&ye=2026&se=0&te=&tm=&ty=0&qu=auto&po=0&as=0&hi=0&un=0&pl=&da=1&o1=WAR_ALL_ADJ&o2=OBP&de=1&lr=0&tr=&cv=\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -o /tmp/statiz.html)",
+      "Bash(curl -s -m 15 \"http://www.statiz.co.kr/stat.php\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -o /tmp/statiz2.html -L)",
+      "Bash(curl -s -m 15 \"https://statiz.co.kr\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -o /tmp/statiz_home.html -L)",
+      "Bash(curl -s -m 15 \"https://statiz.co.kr/player/?m=playerinfo&p_no=10106\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -o /tmp/statiz_player.html)",
+      "Bash(curl -s -m 15 -o /dev/null -w \"HTTP_STATUS:%{http_code} SIZE:%{size_download}\\\\n\" \"https://statiz.co.kr/player/?m=playerinfo&p_no=10106\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")",
+      "Bash(curl -s -m 15 -o /dev/null -w \"HTTP_STATUS:%{http_code} SIZE:%{size_download}\\\\n\" -e \"https://statiz.co.kr/\" \"https://statiz.co.kr/player/?m=playerinfo&p_no=10106\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")",
+      "Bash(curl -s -m 15 \"https://statiz.co.kr/player/?m=playerinfo&p_no=10106\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")",
+      "Bash(grep -o 'href=\"[^\"]*\"' /tmp/statiz_home.html | grep -v \"player/?m=playerinfo\" | sort -u | head -40)",
+      "Bash(curl -s -m 15 \"https://statiz.co.kr/player/\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -o /tmp/statiz_playerlist.html)",
+      "Bash(sed -n '658,700p' /tmp/kbo_pitchers.html)",
+      "Bash(curl -s -I \"https://www.koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx\" -A \"Mozilla/5.0\")",
+      "Bash(curl -s \"https://www.koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx\" -A \"Mozilla/5.0\")",
+      "Bash(curl -s \"https://www.koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx\" -A \"Mozilla/5.0\" -o /tmp/kbo_rank_fresh.html)",
+      "Bash(dotnet run *)",
+      "Bash(curl -s -m 30 \"https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js\" -o \"C:/works/Albatross/Albatross.Web/wwwroot/js/chart.umd.min.js\")",
+      "Bash(tasklist //FI \"IMAGENAME eq dotnet.exe\")",
+      "Bash(awk '/11:15:41/,/11:20:07/' \"C:/works/Albatross/Albatross.Collector/bin/Debug/net10.0/logs/collector_log-20260705.txt\")",
+      "Bash(grep -v \"^\\\\s*$\")",
+      "Bash(\"/c/Program Files \\(x86\\)/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --dump-dom --virtual-time-budget=8000 http://localhost:7841/players)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(\"/c/Program Files \\(x86\\)/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --dump-dom --virtual-time-budget=8000 http://localhost:7841/standings)",
+      "Bash(curl -s -c C:/Users/juyoung/AppData/Local/Temp/claude/c--works-Albatross/49b76a03-46a4-4bcf-ad49-3d6b27328902/scratchpad/teamrank_cookies.txt -A Mozilla/5.0 https://www.koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx -o /dev/null)",
+      "Bash(curl -s -b C:/Users/juyoung/AppData/Local/Temp/claude/c--works-Albatross/49b76a03-46a4-4bcf-ad49-3d6b27328902/scratchpad/teamrank_cookies.txt -A Mozilla/5.0 -H 'Content-Type: application/x-www-form-urlencoded' -H 'Referer: https://www.koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx' --data-binary @C:/Users/juyoung/AppData/Local/Temp/claude/c--works-Albatross/49b76a03-46a4-4bcf-ad49-3d6b27328902/scratchpad/postback_body.txt https://www.koreabaseball.com/Record/TeamRank/TeamRankDaily.aspx -o C:/Users/juyoung/AppData/Local/Temp/claude/c--works-Albatross/49b76a03-46a4-4bcf-ad49-3d6b27328902/scratchpad/postback_response.html)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
+    ]
+  }
+}

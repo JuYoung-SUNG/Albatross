@@ -9,7 +9,10 @@ namespace Albatross.Collector.News.Extensions
     {
         public static IServiceCollection AddNewsCollector(this IServiceCollection services, IConfiguration configuration)
         {
-            // Registers a typed HttpClient for INewsService implemented by NewsApiService
+            // 네이버 뉴스 API 등록 (현재 활성화)
+            services.AddHttpClient<INewsService, NaverNewsService>();
+
+            /* 기존 NewsApi.org 서비스 (필요 시 주석 해제하여 사용)
             services.AddHttpClient<INewsService, NewsApiService>(client =>
             {
                 var endpoint = configuration["NewsApi:Endpoint"];
@@ -18,6 +21,7 @@ namespace Albatross.Collector.News.Extensions
                     client.BaseAddress = uri;
                 }
             });
+            */
 
             return services;
         }

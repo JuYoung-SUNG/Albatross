@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: "*/30 * * * *"
   workflow_dispatch:
+  push:
+    paths:
+      - "Albatross.Web/wwwroot/data/news.json"
 
 permissions:
   contents: write
@@ -40,6 +43,7 @@ jobs:
           dotnet restore Albatross.Web/Albatross.Web.csproj
 
       - name: Run collector
+        if: github.event_name != 'push'
         timeout-minutes: 20
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -48,11 +52,11 @@ jobs:
         run: dotnet run --no-restore --configuration Release --project Albatross.Collector/Albatross.Collector.csproj -- --once
 
       - name: Commit collector outputs
+        if: github.event_name != 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add Albatross.Web/wwwroot/data/news.json
-          git add -f Albatross.Web/wwwroot/data/albatross-news.db
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update news data"
             git push

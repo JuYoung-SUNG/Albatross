@@ -1,16 +1,60 @@
-/* ===== Albatross Web - Dark Theme ===== */
+/* ===== Albatross Web - Switchable Light Themes (White / Blue / Yellow / Green) ===== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-primary:   #0d1117;
-  --bg-card:      #161b22;
-  --bg-hover:     #1c2128;
-  --accent:       #2ea043;
-  --accent-glow:  rgba(46, 160, 67, 0.2);
-  --text-primary: #e6edf3;
-  --text-muted:   #7d8590;
-  --border:       #30363d;
+  /* White (default) */
+  --bg-primary:   #ffffff;
+  --bg-card:      #f8fafc;
+  --bg-hover:     #eef2f6;
+  --accent:       #2563eb;
+  --accent-2:     #16a34a;
+  --accent-glow:  rgba(37, 99, 235, 0.12);
+  --text-primary: #0f172a;
+  --text-muted:   #64748b;
+  --border:       #e2e8f0;
+  --danger:       #dc2626;
   --radius:       12px;
+
+  /* 경기 결과 색상(승/패/무) — 테마와 무관하게 항상 동일 */
+  --result-win:   #3b82f6;
+  --result-lose:  #4b5563;
+  --result-draw:  #ad8b62;
+}
+
+:root[data-theme="blue"] {
+  --bg-primary:   #eef4ff;
+  --bg-card:      #ffffff;
+  --bg-hover:     #dbe7ff;
+  --accent:       #1d4ed8;
+  --accent-2:     #d97706;
+  --accent-glow:  rgba(29, 78, 216, 0.14);
+  --text-primary: #0b1d3a;
+  --text-muted:   #5b6b8c;
+  --border:       #c7d7fb;
+}
+
+:root[data-theme="yellow"] {
+  --bg-primary:   #fffbea;
+  --bg-card:      #ffffff;
+  --bg-hover:     #fff3c4;
+  --accent:       #a16207;
+  --accent-2:     #2563eb;
+  --accent-glow:  rgba(161, 98, 7, 0.14);
+  --text-primary: #4a3b05;
+  --text-muted:   #8a7530;
+  --border:       #f5e6a3;
+}
+
+:root[data-theme="green"] {
+  --bg-primary:   #f0fdf4;
+  --bg-card:      #ffffff;
+  --bg-hover:     #dcfce7;
+  --accent:       #15803d;
+  --accent-2:     #2563eb;
+  --accent-glow:  rgba(21, 128, 61, 0.14);
+  --text-primary: #0d2818;
+  --text-muted:   #4d7a5f;
+  --border:       #bbead0;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,9 +66,258 @@ html, body {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.6;
+  transition: background 0.2s, color 0.2s;
 }
 
 #app { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+/* ── Top Nav ── */
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+.topnav .brand { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); }
+.topnav .nav-links { display: flex; gap: 0.4rem; align-items: center; }
+.topnav .nav-links a {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.topnav .nav-links a:hover { background: var(--bg-hover); color: var(--text-primary); }
+.topnav .nav-links a.active { background: var(--accent-glow); color: var(--accent); font-weight: 700; }
+
+/* ── Theme switcher ── */
+.theme-switch { display: flex; gap: 0.4rem; align-items: center; margin-left: 0.6rem; padding-left: 0.6rem; border-left: 1px solid var(--border); }
+.theme-switch button {
+  width: 1.4rem; height: 1.4rem;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  border: 2px solid var(--border);
+  transition: transform 0.15s, border-color 0.15s;
+}
+.theme-switch button:hover { transform: scale(1.12); }
+.theme-switch button.active { border-color: var(--text-primary); }
+.theme-switch button[data-swatch="white"]  { background: #ffffff; }
+.theme-switch button[data-swatch="blue"]   { background: #2563eb; }
+.theme-switch button[data-swatch="yellow"] { background: #eab308; }
+.theme-switch button[data-swatch="green"]  { background: #16a34a; }
+
+/* ── Cards / common panels ── */
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+}
+
+/* ── Date nav (오늘의 경기) ── */
+.date-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.date-nav button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 50%;
+  width: 2.2rem; height: 2.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.date-nav button:hover { background: var(--bg-hover); }
+.date-nav .current-date { font-size: 1.15rem; font-weight: 700; min-width: 9rem; text-align: center; }
+
+/* ── Schedule calendar (대시보드) ── */
+.cal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 0.5rem 0 1.2rem;
+}
+.cal-nav button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 50%;
+  width: 2.2rem; height: 2.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.cal-nav button:hover { background: var(--bg-hover); }
+.cal-nav .cal-month-label { font-size: 1.15rem; font-weight: 700; min-width: 8rem; text-align: center; }
+
+.calendar-scroll { overflow-x: auto; }
+.calendar { min-width: 900px; }
+
+.calendar-weekdays, .calendar-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.calendar-weekdays { margin-bottom: 6px; }
+.calendar-weekday {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding-bottom: 0.3rem;
+}
+.calendar-row { margin-bottom: 6px; }
+
+.calendar-cell {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  min-height: 132px;
+  padding: 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.calendar-cell:hover { border-color: var(--accent); transform: translateY(-1px); }
+.calendar-cell--empty { background: transparent; border-color: transparent; cursor: default; }
+.calendar-cell--empty:hover { border-color: transparent; transform: none; }
+.calendar-cell--today { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.calendar-daynum { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 2px; }
+.calendar-cell--today .calendar-daynum { color: var(--accent); }
+
+.calendar-weekdays .calendar-weekday:first-child,
+.calendar-row .calendar-cell:first-child .calendar-daynum { color: #dc2626; }
+.calendar-weekdays .calendar-weekday:last-child,
+.calendar-row .calendar-cell:last-child .calendar-daynum { color: var(--accent-2); }
+
+.cal-game {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  font-size: 0.7rem;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+.cal-game .cal-score { font-variant-numeric: tabular-nums; color: var(--text-muted); font-weight: 600; }
+.cal-game .cal-team-win { color: var(--result-win); font-weight: 700; }
+.cal-game .cal-team-lose { color: var(--result-lose); }
+.cal-game .cal-team-draw { color: var(--result-draw); font-weight: 700; }
+
+/* ── Issue card (박스스코어 기반 데이터 이슈) ── */
+.issue-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-2);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.5rem;
+}
+.issue-card .label {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--accent-2); display: block; margin-bottom: 0.6rem;
+}
+.issue-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.issue-list li {
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-left: 0.9rem;
+  position: relative;
+}
+.issue-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.5em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent-2);
+}
+
+/* ── Highlight box ── */
+.highlight-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+.highlight-box .label {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.5rem;
+}
+
+/* ── Game cards ── */
+.game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.game-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.game-card .time { font-size: 0.78rem; color: var(--text-muted); }
+.game-card .matchup { display: flex; align-items: center; justify-content: space-between; font-size: 1.05rem; font-weight: 600; }
+.game-card .team { flex: 1; }
+.game-card .score { font-variant-numeric: tabular-nums; padding: 0 0.6rem; }
+.game-card .winner { color: var(--accent); }
+
+/* ── Chart canvas wrapper ── */
+.chart-wrap { position: relative; height: 360px; margin-bottom: 1.5rem; }
+.chart-wrap--tall { height: 460px; }
+.chart-note { font-size: 0.8rem; color: var(--text-muted); margin: -1rem 0 1.2rem; }
+
+/* ── Simple data table ── */
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.data-table th, .data-table td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); text-align: left; }
+.data-table th { color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.data-table tr:hover td { background: var(--bg-hover); }
+.data-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.data-table th.col-active, .data-table td.col-active { background: var(--accent-glow); color: var(--accent); font-weight: 700; }
+
+/* ── Tabs (타자/투수) ── */
+.tab-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.tab-row button {
+  padding: 0.45rem 1.1rem; border-radius: 8px; border: 1px solid var(--border);
+  background: transparent; color: var(--text-muted); cursor: pointer; font-size: 0.88rem;
+}
+.tab-row button.active { background: var(--accent-glow); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+
+.tab-row--sub { margin-top: -0.4rem; }
+.tab-row--sub button { padding: 0.3rem 0.85rem; font-size: 0.8rem; border-radius: 20px; }
+
+/* ── Trend chart date range picker ── */
+.range-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 0.9rem; margin: 0.6rem 0 1rem; }
+.range-picker label {
+  display: flex; align-items: center; gap: 0.45rem;
+  font-size: 0.8rem; color: var(--text-muted);
+}
+.range-picker input[type="date"] {
+  padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--bg-card); color: var(--text-primary); font-size: 0.85rem;
+}
+.range-reset {
+  padding: 0.3rem 0.85rem; font-size: 0.8rem; border-radius: 20px;
+  border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer;
+}
+.range-reset:hover { background: var(--bg-hover); }
 
 /* ── Hero ── */
 .hero {
@@ -36,7 +329,7 @@ html, body {
 .hero h1 {
   font-size: 2.8rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #58a6ff, var(--accent));
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -64,7 +357,7 @@ html, body {
   color: var(--text-muted);
   margin-top: 2rem;
 }
-.error-box { border-color: #f85149; color: #f85149; }
+.error-box { border-color: var(--danger); color: var(--danger); }
 
 /* ── Source Filter ── */
 .source-filter {
@@ -111,9 +404,9 @@ html, body {
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .news-card:hover {
-  border-color: #58a6ff;
+  border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
 }
 
 .source-badge {

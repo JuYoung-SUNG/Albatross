@@ -42,7 +42,17 @@ secrets.json
 # MAUI artifacts
 *.db
 *.sqlite
-!Albatross.Web/wwwroot/data/albatross-news.db
+Albatross.Web/wwwroot/data/gemini-failures/
 *.apk
 *.aab
 *.ipa
+
+# Local run logs / pid files
+*.log
+collector_log*.txt
+keyword_log.txt
+update_log.txt
+web_run.pid
+
+# Claude Code local overrides
+.claude/settings.local.json
