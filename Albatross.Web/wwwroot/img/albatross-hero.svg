@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-label="바다 위를 활공하는 알바트로스">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bcd8f2"/>
+      <stop offset="0.55" stop-color="#dceaf7"/>
+      <stop offset="1" stop-color="#f2f7fb"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.78" cy="0.72" r="0.5">
+      <stop offset="0" stop-color="#fff6e0" stop-opacity="0.95"/>
+      <stop offset="0.4" stop-color="#ffe9bd" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ffe9bd" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7fa9cf"/>
+      <stop offset="1" stop-color="#436d97"/>
+    </linearGradient>
+    <linearGradient id="wing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dbe4ee"/>
+    </linearGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1200" height="640" fill="url(#sky)"/>
+  <rect width="1200" height="640" fill="url(#sun)"/>
+
+  <!-- distant clouds -->
+  <g fill="#ffffff" opacity="0.55">
+    <ellipse cx="230" cy="120" rx="120" ry="26"/>
+    <ellipse cx="330" cy="135" rx="90" ry="20"/>
+    <ellipse cx="920" cy="90" rx="150" ry="28"/>
+    <ellipse cx="1030" cy="108" rx="100" ry="22"/>
+  </g>
+
+  <!-- sea -->
+  <path d="M0 470 Q300 452 600 470 T1200 470 V640 H0 Z" fill="url(#sea)"/>
+  <g stroke="#ffffff" stroke-opacity="0.28" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M120 522 q40 -12 80 0 t80 0"/>
+    <path d="M520 560 q40 -12 80 0 t80 0"/>
+    <path d="M840 540 q40 -12 80 0 t80 0"/>
+    <path d="M300 600 q46 -12 92 0 t92 0"/>
+  </g>
+  <!-- sun reflection -->
+  <path d="M900 472 q20 90 0 168 q-14 -84 0 -168Z" fill="#fff2cf" opacity="0.5"/>
+
+  <!-- distant albatross -->
+  <g stroke="#5b7085" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7">
+    <path d="M250 205 q40 -26 78 0 q38 -26 78 0"/>
+  </g>
+  <g stroke="#5b7085" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.5">
+    <path d="M1000 240 q30 -20 60 0 q30 -20 60 0"/>
+  </g>
+
+  <!-- main albatross, gliding -->
+  <g transform="translate(600 300) rotate(-7)">
+    <!-- far wing -->
+    <path d="M0 -6
+             C -150 -70, -320 -66, -455 -20
+             C -320 -34, -170 -20, -30 6 Z"
+          fill="#c4cfdc"/>
+    <!-- body -->
+    <path d="M-40 2
+             C -10 -18, 60 -20, 120 -8
+             C 150 -2, 168 6, 176 12
+             C 150 12, 150 22, 128 20
+             C 70 26, 5 26, -40 14 Z"
+          fill="url(#wing)"/>
+    <!-- head + hooked beak -->
+    <path d="M120 -8 C 150 -14, 176 -10, 190 -2
+             C 198 2, 206 2, 210 6
+             C 206 9, 198 9, 192 8
+             C 178 12, 150 12, 128 8 Z"
+          fill="#f4f7fb"/>
+    <path d="M205 4 l 16 3 l -14 6 Z" fill="#e0a24b"/>
+    <circle cx="176" cy="-1" r="3.4" fill="#2b3440"/>
+    <!-- near wing (over body) -->
+    <path d="M-24 4
+             C -150 -66, -338 -78, -486 -34
+             C -520 -24, -545 -6, -556 10
+             C -520 6, -470 12, -430 22
+             C -300 44, -150 34, -20 18 Z"
+          fill="url(#wing)"/>
+    <!-- near wingtip feathers (dark) -->
+    <path d="M-486 -34 C -520 -24, -545 -6, -556 10
+             C -524 6, -486 8, -452 16
+             C -474 2, -486 -18, -486 -34 Z"
+          fill="#3a4657"/>
+    <!-- trailing edge shadow -->
+    <path d="M-20 18 C -150 34, -300 44, -430 22 C -300 34, -150 24, -24 12 Z"
+          fill="#b7c3d3" opacity="0.8"/>
+    <!-- tail -->
+    <path d="M-40 14 C -70 20, -96 26, -112 30 C -96 20, -70 12, -44 4 Z" fill="#dce4ee"/>
+  </g>
+</svg>

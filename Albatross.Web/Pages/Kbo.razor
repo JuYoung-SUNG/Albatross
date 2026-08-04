@@ -1,0 +1,141 @@
+@page "/kbo"
+@using System.Net.Http.Json
+@using Albatross.Shared.Models
+@inject HttpClient Http
+
+<PageTitle>Albatross KBO - 대시보드</PageTitle>
+
+<h1 style="margin-bottom:1rem;">KBO 대시보드</h1>
+
+@if (_loading)
+{
+    <div class="loading"><div class="spinner"></div><p>불러오는 중...</p></div>
+}
+else if (_error is not null)
+{
+    <div class="error-box">데이터를 불러오지 못했습니다: @_error</div>
+}
+else
+{
+    <div class="cal-nav">
+        <button @onclick="GoPrevMonth" aria-label="이전 달">◀</button>
+        <div class="cal-month-label">@_calYear.ToString("0000")년 @_calMonth.ToString("00")월</div>
+        <button @onclick="GoNextMonth" aria-label="다음 달">▶</button>
+    </div>
+
+    <div class="calendar-scroll">
+        <div class="calendar">
+            <div class="calendar-weekdays">
+                @foreach (var w in WeekdayLabels)
+                {
+                    <div class="calendar-weekday">@w</div>
+                }
+            </div>
+            @foreach (var week in CalendarWeeks)
+            {
+                <div class="calendar-row">
+                    @foreach (var date in week)
+                    {
+                        @if (date is null)
+                        {
+                            <div class="calendar-cell calendar-cell--empty"></div>
+                        }
+                        else
+                        {
+                            var day = LookupDay(date.Value);
+                            <a href="@($"games?date={date.Value:yyyy-MM-dd}")"
+                               class="calendar-cell @(date.Value == _today ? "calendar-cell--today" : "")">
+                                <div class="calendar-daynum">@date.Value.Day</div>
+                                @if (day is not null)
+                                {
+                                    @foreach (var g in day.Games.Take(5))
+                                    {
+                                        <div class="cal-game">
+                                            <span class="@TeamResultClass(g.AwayScore, g.HomeScore)">@g.AwayTeam</span>
+                                            <span class="cal-score">@(g.AwayScore?.ToString() ?? "-"):@(g.HomeScore?.ToString() ?? "-")</span>
+                                            <span class="@TeamResultClass(g.HomeScore, g.AwayScore)">@g.HomeTeam</span>
+                                        </div>
+                                    }
+                                }
+                            </a>
+                        }
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    private static readonly string[] WeekdayLabels = ["일", "월", "화", "수", "목", "금", "토"];
+
+    private readonly DateOnly _today = DateOnly.FromDateTime(DateTime.Now);
+
+    private List<KboGameDayDto>? _days;
+    private Dictionary<string, KboGameDayDto> _daysByDate = new();
+    private bool _loading = true;
+    private string? _error;
+
+    private int _calYear;
+    private int _calMonth;
+
+    private List<List<DateOnly?>> CalendarWeeks
+    {
+        get
+        {
+            var firstOfMonth = new DateOnly(_calYear, _calMonth, 1);
+            var daysInMonth = DateTime.DaysInMonth(_calYear, _calMonth);
+            var startWeekday = (int)firstOfMonth.DayOfWeek;
+
+            var cells = new List<DateOnly?>();
+            for (var i = 0; i < startWeekday; i++) cells.Add(null);
+            for (var d = 1; d <= daysInMonth; d++) cells.Add(new DateOnly(_calYear, _calMonth, d));
+            while (cells.Count % 7 != 0) cells.Add(null);
+
+            return cells.Chunk(7).Select(c => c.ToList()).ToList();
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _calYear = _today.Year;
+        _calMonth = _today.Month;
+
+        try
+        {
+            _days = await Http.GetFromJsonAsync<List<KboGameDayDto>>("data/kbo-games.json");
+            _daysByDate = (_days ?? []).ToDictionary(d => d.GameDate);
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+
+    private KboGameDayDto? LookupDay(DateOnly date) =>
+        _daysByDate.TryGetValue(date.ToString("yyyy-MM-dd"), out var d) ? d : null;
+
+    private static string TeamResultClass(int? ownScore, int? opponentScore)
+    {
+        if (ownScore is null || opponentScore is null) return "";
+        if (ownScore > opponentScore) return "cal-team-win";
+        if (ownScore < opponentScore) return "cal-team-lose";
+        return "cal-team-draw";
+    }
+
+    private void GoPrevMonth()
+    {
+        _calMonth--;
+        if (_calMonth < 1) { _calMonth = 12; _calYear--; }
+    }
+
+    private void GoNextMonth()
+    {
+        _calMonth++;
+        if (_calMonth > 12) { _calMonth = 1; _calYear++; }
+    }
+}
