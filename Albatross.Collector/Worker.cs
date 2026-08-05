@@ -335,40 +335,37 @@ namespace Albatross.Collector
             Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", ".."));
 
         /// <summary>
-        /// 사이트가 분리되어 각 사이트가 자기 wwwroot/data에서 JSON을 읽는다.
-        /// KBO 데이터는 AlbatrossKBO, 헬스 데이터는 AlbatrossGym, 뉴스는 포털(Albatross.Web)로 내보낸다.
+        /// 각 사이트가 별도 저장소로 분리되어 이 솔루션의 형제 폴더(C:\works\AlbatrossKBO 등)에 있다.
+        /// 형제 폴더를 먼저 찾고, 없으면(분리 전 환경) 솔루션 안쪽 폴더를 쓴다.
+        /// COLLECTOR_SITE_ROOT 환경변수로 사이트들이 모인 위치를 직접 지정할 수도 있다.
         /// </summary>
         private static string ResolveSiteDataDirectory(string projectFolder)
         {
             var configured = Environment.GetEnvironmentVariable("COLLECTOR_SITE_ROOT");
-            var root = string.IsNullOrWhiteSpace(configured) ? SolutionRoot : Path.GetFullPath(configured);
-            var dir = Path.Combine(root, projectFolder, "wwwroot", "data");
-            Directory.CreateDirectory(dir);
-            return dir;
+            var roots = string.IsNullOrWhiteSpace(configured)
+                ? new[] { Path.GetFullPath(Path.Combine(SolutionRoot, "..")), SolutionRoot }
+                : new[] { Path.GetFullPath(configured) };
+
+            foreach (var root in roots)
+            {
+                var siteDir = Path.Combine(root, projectFolder);
+                if (Directory.Exists(siteDir))
+                {
+                    var found = Path.Combine(siteDir, "wwwroot", "data");
+                    Directory.CreateDirectory(found);
+                    return found;
+                }
+            }
+
+            // 어디에도 없으면 첫 번째 후보 위치에 만들어 준다
+            var fallback = Path.Combine(roots[0], projectFolder, "wwwroot", "data");
+            Directory.CreateDirectory(fallback);
+            return fallback;
         }
 
         private static string KboDataDirectory => ResolveSiteDataDirectory("AlbatrossKBO");
         private static string GymDataDirectory => ResolveSiteDataDirectory("AlbatrossGym");
-
-        /// <summary>
-        /// 골프 사이트는 별도 저장소(C:\works\AlbatrossGolf)로 분리되어 솔루션 밖에 있다.
-        /// 형제 폴더를 먼저 찾고, 없으면(분리 전 환경) 솔루션 안쪽을 쓴다.
-        /// </summary>
-        private static string GolfDataDirectory
-        {
-            get
-            {
-                var sibling = Path.GetFullPath(Path.Combine(SolutionRoot, "..", "AlbatrossGolf"));
-                if (Directory.Exists(sibling))
-                {
-                    var dir = Path.Combine(sibling, "wwwroot", "data");
-                    Directory.CreateDirectory(dir);
-                    return dir;
-                }
-
-                return ResolveSiteDataDirectory("AlbatrossGolf");
-            }
-        }
+        private static string GolfDataDirectory => ResolveSiteDataDirectory("AlbatrossGolf");
 
         private string ResolveDatabasePath()
         {
