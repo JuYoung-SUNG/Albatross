@@ -586,3 +586,38 @@ html, body {
 @media (max-width: 640px) {
   .landing-full { height: calc(100vh - 210px); }
 }
+
+/* ── 섹션 경로(스포츠 › KBO) ── */
+.section-nav-parent {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: color 0.15s;
+}
+.section-nav-parent:hover { color: var(--accent); }
+.section-nav-sep { color: var(--text-muted); font-weight: 700; }
+
+/* ── 스포츠 종목 카드 ── */
+.sport-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.sport-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.9rem;
+  align-items: center;
+  padding: 1.3rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s, background 0.15s;
+}
+.sport-card:hover { border-color: var(--accent); background: var(--bg-hover); transform: translateY(-2px); }
+.sport-card .sport-ic { grid-row: 1 / 3; font-size: 2.2rem; }
+.sport-card .sport-t { font-weight: 800; font-size: 1.15rem; color: var(--text-primary); }
+.sport-card .sport-d { color: var(--text-muted); font-size: 0.84rem; line-height: 1.5; }
