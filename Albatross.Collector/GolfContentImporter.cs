@@ -176,20 +176,67 @@ namespace Albatross.Collector
             return content.Ranges.Count;
         }
 
+        /// <summary>DB 내용으로 검색엔진이 읽을 수 있는 정적 HTML 사이트를 생성한다.</summary>
+        public static async Task<int> GenerateSiteAsync(string databasePath, string siteRoot, CancellationToken ct)
+        {
+            await using var connection = new SqliteConnection($"Data Source={databasePath}");
+            await connection.OpenAsync(ct);
+            await EnsureTablesAsync(connection, ct);
+
+            var ranges = new List<GolfRangeDto>();
+            var cmd = connection.CreateCommand();
+            cmd.CommandText =
+                """
+                SELECT Slug, Name, Type, Region, City, Address, Phone, Hours, Price, LeftHanded, DriverAllowed, Parking,
+                       Summary, HighlightsJson, CautionsJson, SourceUrlsJson, InfoAsOf
+                FROM GolfRanges ORDER BY Region, City, Name;
+                """;
+            await using (var reader = await cmd.ExecuteReaderAsync(ct))
+            {
+                string? S(int i) => reader.IsDBNull(i) ? null : reader.GetString(i);
+                while (await reader.ReadAsync(ct))
+                {
+                    ranges.Add(new GolfRangeDto
+                    {
+                        Slug = reader.GetString(0),
+                        Name = reader.GetString(1),
+                        Type = S(2), Region = S(3), City = S(4), Address = S(5), Phone = S(6), Hours = S(7),
+                        Price = S(8), LeftHanded = S(9), DriverAllowed = S(10), Parking = S(11), Summary = S(12),
+                        Highlights = DeserializeList(reader.GetString(13)),
+                        Cautions = DeserializeList(reader.GetString(14)),
+                        SourceUrls = DeserializeList(reader.GetString(15)),
+                        UpdatedAt = S(16)
+                    });
+                }
+            }
+
+            var publicDir = Path.Combine(siteRoot, "public");
+            return await GolfSiteGenerator.GenerateAsync(ranges, publicDir, ct);
+        }
+
         private static List<string> DeserializeList(string json)
         {
             try { return JsonSerializer.Deserialize<List<string>>(json) ?? new(); }
             catch (JsonException) { return new(); }
         }
 
-        /// <summary>이름에서 URL용 slug 생성 (한글은 그대로 두되 공백·특수문자만 정리)</summary>
+        /// <summary>
+        /// 이름에서 URL용 slug 생성. 한글 URL은 인코딩되면 읽기 어렵고 공유·분석에 불리하므로
+        /// 영문/숫자만 남기고, 남는 게 없으면(순한글 이름) 이름 해시로 안정적인 식별자를 만든다.
+        /// LLM 결과 JSON에 slug를 직접 넣어주면 그 값이 우선한다(권장).
+        /// </summary>
         private static string MakeSlug(string name)
         {
-            var cleaned = new string(name.Trim()
-                .Select(c => char.IsLetterOrDigit(c) ? c : '-')
-                .ToArray());
-            while (cleaned.Contains("--")) cleaned = cleaned.Replace("--", "-");
-            return cleaned.Trim('-').ToLowerInvariant();
+            var ascii = new string(name.Trim().Select(c => char.IsAsciiLetterOrDigit(c) ? char.ToLowerInvariant(c) : '-').ToArray());
+            while (ascii.Contains("--")) ascii = ascii.Replace("--", "-");
+            ascii = ascii.Trim('-');
+
+            if (ascii.Length >= 3) return ascii;
+
+            // 순한글 이름 → 이름 기반 짧은 해시 (같은 이름이면 항상 같은 slug라 재임포트해도 URL 유지)
+            var bytes = System.Security.Cryptography.SHA256.HashData(System.Text.Encoding.UTF8.GetBytes(name.Trim()));
+            var hash = Convert.ToHexString(bytes)[..8].ToLowerInvariant();
+            return $"range-{hash}";
         }
     }
 }

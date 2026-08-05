@@ -165,6 +165,11 @@ namespace Albatross.Collector
 
                 var exported = await GolfContentImporter.ExportAsync(golfDbPath, GolfDataDirectory, stoppingToken);
                 _logger.LogInformation("[골프] golf-ranges.json 내보내기 완료 — 총 {n}곳", exported);
+
+                // 검색엔진이 본문을 그대로 읽을 수 있도록 정적 HTML까지 생성한다
+                var siteRoot = Path.GetFullPath(Path.Combine(GolfDataDirectory, "..", ".."));
+                var pages = await GolfContentImporter.GenerateSiteAsync(golfDbPath, siteRoot, stoppingToken);
+                _logger.LogInformation("[골프] 정적 페이지 생성 완료 — {n}개 (public/)", pages);
                 _appLifetime.StopApplication();
                 return;
             }
