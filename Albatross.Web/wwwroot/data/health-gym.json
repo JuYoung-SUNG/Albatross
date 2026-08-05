@@ -1,0 +1,436 @@
+{
+  "routines": [
+    {
+      "slug": "beginner-3day",
+      "name": "초보자 주 3회 분할",
+      "level": "초급",
+      "goal": "근력 · 근비대",
+      "description": "헬스를 처음 시작할 때 무난한 3분할입니다. 하루 걸러 하루씩(예: 월/수/금) 진행하고, 각 운동은 정확한 자세가 될 때까지 가벼운 무게로 연습하세요.",
+      "days": [
+        {
+          "dayNo": 1,
+          "dayName": "1일차 · 가슴 + 삼두",
+          "items": [
+            {
+              "exerciseSlug": "bench-press",
+              "exerciseName": "벤치프레스",
+              "setsReps": "4세트 x 8~12회"
+            },
+            {
+              "exerciseSlug": "dumbbell-fly",
+              "exerciseName": "덤벨 플라이",
+              "setsReps": "3세트 x 12~15회"
+            },
+            {
+              "exerciseSlug": "triceps-pushdown",
+              "exerciseName": "트라이셉스 푸시다운",
+              "setsReps": "3세트 x 12~15회"
+            }
+          ]
+        },
+        {
+          "dayNo": 2,
+          "dayName": "2일차 · 등 + 이두",
+          "items": [
+            {
+              "exerciseSlug": "lat-pulldown",
+              "exerciseName": "랫풀다운",
+              "setsReps": "4세트 x 10~15회"
+            },
+            {
+              "exerciseSlug": "seated-row",
+              "exerciseName": "시티드 로우",
+              "setsReps": "3세트 x 10~12회"
+            },
+            {
+              "exerciseSlug": "barbell-curl",
+              "exerciseName": "바벨컬",
+              "setsReps": "3세트 x 10~12회"
+            }
+          ]
+        },
+        {
+          "dayNo": 3,
+          "dayName": "3일차 · 하체 + 어깨",
+          "items": [
+            {
+              "exerciseSlug": "squat",
+              "exerciseName": "스쿼트",
+              "setsReps": "4세트 x 8~10회"
+            },
+            {
+              "exerciseSlug": "leg-press",
+              "exerciseName": "레그프레스",
+              "setsReps": "3세트 x 10~15회"
+            },
+            {
+              "exerciseSlug": "shoulder-press",
+              "exerciseName": "숄더프레스",
+              "setsReps": "3세트 x 8~12회"
+            },
+            {
+              "exerciseSlug": "lateral-raise",
+              "exerciseName": "사이드 레터럴 레이즈",
+              "setsReps": "3세트 x 12~15회"
+            },
+            {
+              "exerciseSlug": "plank",
+              "exerciseName": "플랭크",
+              "setsReps": "3세트 x 30~60초"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "fullbody-2day",
+      "name": "시간 없을 때 주 2회 전신",
+      "level": "초급",
+      "goal": "체력 유지",
+      "description": "일주일에 두 번밖에 못 갈 때 쓰는 전신 루틴입니다. 큰 근육 위주로 짧고 굵게 끝냅니다.",
+      "days": [
+        {
+          "dayNo": 1,
+          "dayName": "A일 · 전신",
+          "items": [
+            {
+              "exerciseSlug": "squat",
+              "exerciseName": "스쿼트",
+              "setsReps": "4세트 x 8회"
+            },
+            {
+              "exerciseSlug": "bench-press",
+              "exerciseName": "벤치프레스",
+              "setsReps": "4세트 x 8회"
+            },
+            {
+              "exerciseSlug": "seated-row",
+              "exerciseName": "시티드 로우",
+              "setsReps": "3세트 x 10회"
+            },
+            {
+              "exerciseSlug": "plank",
+              "exerciseName": "플랭크",
+              "setsReps": "3세트 x 30~60초"
+            }
+          ]
+        },
+        {
+          "dayNo": 2,
+          "dayName": "B일 · 전신",
+          "items": [
+            {
+              "exerciseSlug": "deadlift",
+              "exerciseName": "데드리프트",
+              "setsReps": "4세트 x 5~8회"
+            },
+            {
+              "exerciseSlug": "shoulder-press",
+              "exerciseName": "숄더프레스",
+              "setsReps": "3세트 x 10회"
+            },
+            {
+              "exerciseSlug": "lat-pulldown",
+              "exerciseName": "랫풀다운",
+              "setsReps": "3세트 x 10~12회"
+            },
+            {
+              "exerciseSlug": "plank",
+              "exerciseName": "플랭크",
+              "setsReps": "3세트 x 30~60초"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "slug": "bench-press",
+      "name": "벤치프레스",
+      "bodyPart": "가슴",
+      "level": "초급",
+      "equipment": "바벨",
+      "targetMuscles": "대흉근, 삼두근, 전면 삼각근",
+      "setsReps": "3~4세트 x 8~12회",
+      "steps": [
+        "벤치에 누워 눈이 바 바로 아래 오도록 위치를 잡는다.",
+        "어깨를 뒤로 모아 견갑골을 벤치에 고정하고 가슴을 편다.",
+        "어깨너비보다 약간 넓게 바를 잡고 랙에서 들어 올린다.",
+        "숨을 마시며 바를 가슴 중앙까지 천천히 내린다.",
+        "발로 바닥을 밀며 숨을 내쉬고 바를 밀어 올린다."
+      ],
+      "tips": [
+        "손목은 접히지 않게 곧게 세운다.",
+        "팔꿈치는 몸통과 45~75도를 유지한다.",
+        "바는 가슴에 살짝 닿을 정도까지만 내린다."
+      ],
+      "mistakes": [
+        "허리를 과도하게 띄우기",
+        "바를 가슴에 튕기기",
+        "팔꿈치를 90도로 완전히 벌려 어깨에 부담 주기"
+      ]
+    },
+    {
+      "slug": "dumbbell-fly",
+      "name": "덤벨 플라이",
+      "bodyPart": "가슴",
+      "level": "초급",
+      "equipment": "덤벨",
+      "targetMuscles": "대흉근",
+      "setsReps": "3세트 x 12~15회",
+      "steps": [
+        "벤치에 누워 덤벨을 가슴 위로 들어 올린다.",
+        "팔꿈치를 살짝 굽힌 각도를 끝까지 유지한다.",
+        "원을 그리듯 양옆으로 천천히 벌린다.",
+        "가슴이 늘어나는 느낌에서 다시 모아 올린다."
+      ],
+      "tips": [
+        "무게보다 가동 범위에 집중한다.",
+        "팔꿈치 각도를 고정하면 어깨 부담이 줄어든다."
+      ],
+      "mistakes": [
+        "너무 깊게 내려 어깨에 무리 주기",
+        "팔을 완전히 펴서 관절로 버티기"
+      ]
+    },
+    {
+      "slug": "deadlift",
+      "name": "데드리프트",
+      "bodyPart": "등",
+      "level": "중급",
+      "equipment": "바벨",
+      "targetMuscles": "척추기립근, 둔근, 햄스트링, 광배근",
+      "setsReps": "3~5세트 x 5~8회",
+      "steps": [
+        "발은 골반너비, 바가 발등 중앙 위에 오게 선다.",
+        "엉덩이를 뒤로 빼며 어깨너비로 바를 잡는다.",
+        "가슴을 펴고 허리를 중립으로 만든다.",
+        "바를 정강이에 붙인 채 다리로 바닥을 밀며 일어선다.",
+        "선 자세에서 엉덩이를 조이고, 같은 궤적으로 내린다."
+      ],
+      "tips": [
+        "바는 항상 몸에 가깝게 붙인다.",
+        "허리가 아니라 다리와 엉덩이 힘으로 든다.",
+        "목은 척추의 연장선을 유지한다."
+      ],
+      "mistakes": [
+        "허리를 굽힌 채로 들어 올리기",
+        "바가 몸에서 멀어지기",
+        "상단에서 상체를 과도하게 젖히기"
+      ]
+    },
+    {
+      "slug": "lat-pulldown",
+      "name": "랫풀다운",
+      "bodyPart": "등",
+      "level": "초급",
+      "equipment": "머신",
+      "targetMuscles": "광배근, 이두근",
+      "setsReps": "3~4세트 x 10~15회",
+      "steps": [
+        "무릎 패드를 허벅지에 맞게 조절해 몸을 고정한다.",
+        "어깨너비보다 넓게 바를 잡는다.",
+        "가슴을 펴고 상체를 살짝 뒤로 기댄다.",
+        "견갑골을 아래로 내리며 바를 쇄골 쪽으로 당긴다.",
+        "천천히 원위치로 돌아간다."
+      ],
+      "tips": [
+        "팔이 아니라 등으로 당긴다는 느낌으로 한다.",
+        "당기는 마지막에 견갑골을 모아준다."
+      ],
+      "mistakes": [
+        "반동으로 당기기",
+        "목 뒤로 당기기(어깨 부상 위험)",
+        "상체를 과도하게 눕히기"
+      ]
+    },
+    {
+      "slug": "seated-row",
+      "name": "시티드 로우",
+      "bodyPart": "등",
+      "level": "초급",
+      "equipment": "케이블",
+      "targetMuscles": "광배근, 승모근 중부, 이두근",
+      "setsReps": "3~4세트 x 10~12회",
+      "steps": [
+        "발을 발판에 고정하고 무릎을 살짝 굽힌다.",
+        "가슴을 펴고 허리를 중립으로 세운다.",
+        "손잡이를 배꼽 쪽으로 당긴다.",
+        "견갑골을 모았다가 천천히 팔을 편다."
+      ],
+      "tips": [
+        "상체는 고정하고 등 근육으로만 당긴다.",
+        "당길 때 어깨가 으쓱 올라가지 않게 한다."
+      ],
+      "mistakes": [
+        "상체를 앞뒤로 크게 흔들기",
+        "팔 힘으로만 당기기"
+      ]
+    },
+    {
+      "slug": "shoulder-press",
+      "name": "숄더프레스",
+      "bodyPart": "어깨",
+      "level": "초급",
+      "equipment": "덤벨",
+      "targetMuscles": "삼각근(전/측면), 삼두근",
+      "setsReps": "3~4세트 x 8~12회",
+      "steps": [
+        "등받이에 등을 붙이고 앉는다.",
+        "덤벨을 귀 높이까지 들어 올린다.",
+        "팔꿈치는 몸보다 약간 앞쪽에 둔다.",
+        "숨을 내쉬며 머리 위로 밀어 올린다.",
+        "천천히 귀 높이까지 내린다."
+      ],
+      "tips": [
+        "허리를 중립으로 유지한다.",
+        "팔꿈치를 완전히 잠그지 않는다."
+      ],
+      "mistakes": [
+        "허리를 젖히며 밀어 올리기",
+        "무거운 중량으로 반동 쓰기"
+      ]
+    },
+    {
+      "slug": "lateral-raise",
+      "name": "사이드 레터럴 레이즈",
+      "bodyPart": "어깨",
+      "level": "초급",
+      "equipment": "덤벨",
+      "targetMuscles": "측면 삼각근",
+      "setsReps": "3세트 x 12~15회",
+      "steps": [
+        "덤벨을 양옆에 들고 바르게 선다.",
+        "팔꿈치를 살짝 굽힌 상태를 유지한다.",
+        "어깨 높이까지 옆으로 들어 올린다.",
+        "천천히 내리며 힘을 유지한다."
+      ],
+      "tips": [
+        "가벼운 무게로 반동 없이 한다.",
+        "손등이 위를 향하게 들어 올린다."
+      ],
+      "mistakes": [
+        "무거워서 승모근으로 들기",
+        "어깨보다 높이 올리기"
+      ]
+    },
+    {
+      "slug": "squat",
+      "name": "스쿼트",
+      "bodyPart": "하체",
+      "level": "초급",
+      "equipment": "바벨",
+      "targetMuscles": "대퇴사두근, 둔근, 햄스트링",
+      "setsReps": "3~5세트 x 5~10회",
+      "steps": [
+        "바를 승모근 위에 올리고 랙에서 빼낸다.",
+        "발은 어깨너비, 발끝은 15~30도 바깥으로 둔다.",
+        "숨을 마시고 배에 힘을 준 뒤 엉덩이를 뒤로 빼며 앉는다.",
+        "허벅지가 바닥과 평행해질 때까지 내려간다.",
+        "발 전체로 바닥을 밀며 일어선다."
+      ],
+      "tips": [
+        "무릎은 항상 발끝과 같은 방향으로 향한다.",
+        "시선은 정면, 허리는 중립을 유지한다."
+      ],
+      "mistakes": [
+        "무릎이 안쪽으로 모이기",
+        "뒤꿈치가 들리기",
+        "맨 아래에서 허리가 말리기"
+      ]
+    },
+    {
+      "slug": "leg-press",
+      "name": "레그프레스",
+      "bodyPart": "하체",
+      "level": "초급",
+      "equipment": "머신",
+      "targetMuscles": "대퇴사두근, 둔근",
+      "setsReps": "3~4세트 x 10~15회",
+      "steps": [
+        "등과 엉덩이를 시트에 밀착시킨다.",
+        "발은 어깨너비로 발판 중앙에 놓는다.",
+        "안전장치를 풀고 무릎을 90도까지 굽힌다.",
+        "발뒤꿈치로 발판을 밀어낸다."
+      ],
+      "tips": [
+        "무릎을 완전히 잠그지 않는다.",
+        "허리가 시트에서 뜨지 않는 범위까지만 내린다."
+      ],
+      "mistakes": [
+        "무릎을 가슴까지 내려 허리가 말리기",
+        "발끝으로만 밀기"
+      ]
+    },
+    {
+      "slug": "barbell-curl",
+      "name": "바벨컬",
+      "bodyPart": "팔",
+      "level": "초급",
+      "equipment": "바벨",
+      "targetMuscles": "이두근",
+      "setsReps": "3세트 x 10~12회",
+      "steps": [
+        "어깨너비로 바를 언더그립으로 잡는다.",
+        "팔꿈치를 옆구리에 붙여 고정한다.",
+        "팔꿈치만 접어 바를 들어 올린다.",
+        "천천히 원위치로 내린다."
+      ],
+      "tips": [
+        "내릴 때 더 천천히 통제한다.",
+        "손목은 꺾지 않고 곧게 둔다."
+      ],
+      "mistakes": [
+        "허리 반동으로 들어 올리기",
+        "팔꿈치가 앞뒤로 움직이기"
+      ]
+    },
+    {
+      "slug": "triceps-pushdown",
+      "name": "트라이셉스 푸시다운",
+      "bodyPart": "팔",
+      "level": "초급",
+      "equipment": "케이블",
+      "targetMuscles": "삼두근",
+      "setsReps": "3세트 x 12~15회",
+      "steps": [
+        "케이블 바를 어깨너비로 잡는다.",
+        "팔꿈치를 옆구리에 붙여 고정한다.",
+        "팔을 아래로 완전히 편다.",
+        "천천히 시작 자세로 되돌린다."
+      ],
+      "tips": [
+        "팔꿈치 고정이 핵심이다.",
+        "상체를 약간만 앞으로 기울인다."
+      ],
+      "mistakes": [
+        "어깨로 눌러 내리기",
+        "팔꿈치가 옆으로 벌어지기"
+      ]
+    },
+    {
+      "slug": "plank",
+      "name": "플랭크",
+      "bodyPart": "코어",
+      "level": "초급",
+      "equipment": "맨몸",
+      "targetMuscles": "복직근, 복횡근, 척추기립근",
+      "setsReps": "30~60초 x 3세트",
+      "steps": [
+        "팔꿈치를 어깨 바로 아래에 두고 엎드린다.",
+        "발끝으로 지지하며 몸을 들어 올린다.",
+        "머리-엉덩이-발뒤꿈치가 일직선이 되게 한다.",
+        "자세를 유지하며 편안히 호흡한다."
+      ],
+      "tips": [
+        "배꼽을 등쪽으로 당기는 느낌으로 복부에 힘을 준다.",
+        "엉덩이 높이를 수시로 확인한다."
+      ],
+      "mistakes": [
+        "엉덩이가 너무 높거나 아래로 처지기",
+        "호흡을 참기"
+      ]
+    }
+  ]
+}

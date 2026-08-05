@@ -1,0 +1,165 @@
+@page "/health/exercise/gym"
+@using System.Net.Http.Json
+@using Albatross.Shared.Models
+@inject HttpClient Http
+
+<PageTitle>Albatross - 헬스</PageTitle>
+
+<HealthNav />
+
+<div class="section-nav">
+    <a class="section-nav-parent" href="health/exercise">🏃 운동</a>
+    <span class="section-nav-sep">›</span>
+    <span class="section-nav-title">🏋️ 헬스</span>
+</div>
+
+<h1 style="margin-bottom:0.4rem;">헬스 하는 방법</h1>
+<p class="gym-lede">루틴대로 순서를 따라가고, 각 종목의 자세와 주의점은 아래 부위별 도감에서 확인하세요.</p>
+
+@if (_loading)
+{
+    <div class="loading"><div class="spinner"></div><p>불러오는 중...</p></div>
+}
+else if (_error is not null)
+{
+    <div class="error-box">데이터를 불러오지 못했습니다: @_error</div>
+}
+else if (_content is null || _content.Exercises.Count == 0)
+{
+    <div class="empty">아직 등록된 헬스 콘텐츠가 없습니다.</div>
+}
+else
+{
+    <h2 class="gym-h2">📋 루틴</h2>
+    <div class="routine-grid">
+        @foreach (var routine in _content.Routines)
+        {
+            <div class="routine-card">
+                <div class="routine-head">
+                    <span class="routine-name">@routine.Name</span>
+                    @if (!string.IsNullOrWhiteSpace(routine.Level))
+                    {
+                        <span class="badge">@routine.Level</span>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(routine.Goal))
+                    {
+                        <span class="badge badge--soft">@routine.Goal</span>
+                    }
+                </div>
+                @if (!string.IsNullOrWhiteSpace(routine.Description))
+                {
+                    <p class="routine-desc">@routine.Description</p>
+                }
+                @foreach (var day in routine.Days)
+                {
+                    <div class="routine-day">
+                        <div class="routine-day-name">@day.DayName</div>
+                        <ul class="routine-items">
+                            @foreach (var item in day.Items)
+                            {
+                                <li>
+                                    <span class="ri-name">@item.ExerciseName</span>
+                                    <span class="ri-sets">@item.SetsReps</span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+    <h2 class="gym-h2">💪 부위별 종목</h2>
+    <div class="tab-row tab-row--sub">
+        <button class="@(_part is null ? "active" : "")" @onclick="() => _part = null">전체</button>
+        @foreach (var part in BodyParts)
+        {
+            <button class="@(_part == part ? "active" : "")" @onclick="() => _part = part">@part</button>
+        }
+    </div>
+
+    <div class="ex-list">
+        @foreach (var ex in FilteredExercises)
+        {
+            <details class="ex-item">
+                <summary>
+                    <span class="ex-name">@ex.Name</span>
+                    <span class="ex-meta">
+                        <span class="badge badge--soft">@ex.BodyPart</span>
+                        @if (!string.IsNullOrWhiteSpace(ex.Equipment)) { <span class="badge badge--soft">@ex.Equipment</span> }
+                        @if (!string.IsNullOrWhiteSpace(ex.Level)) { <span class="badge">@ex.Level</span> }
+                    </span>
+                </summary>
+
+                <div class="ex-body">
+                    <div class="ex-facts">
+                        @if (!string.IsNullOrWhiteSpace(ex.TargetMuscles))
+                        {
+                            <div><span class="fact-label">타깃 근육</span> @ex.TargetMuscles</div>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(ex.SetsReps))
+                        {
+                            <div><span class="fact-label">권장 세트</span> @ex.SetsReps</div>
+                        }
+                    </div>
+
+                    @if (ex.Steps.Count > 0)
+                    {
+                        <div class="ex-block">
+                            <h4>자세 순서</h4>
+                            <ol class="ex-steps">
+                                @foreach (var s in ex.Steps) { <li>@s</li> }
+                            </ol>
+                        </div>
+                    }
+                    @if (ex.Tips.Count > 0)
+                    {
+                        <div class="ex-block">
+                            <h4>포인트</h4>
+                            <ul class="ex-tips">
+                                @foreach (var t in ex.Tips) { <li>@t</li> }
+                            </ul>
+                        </div>
+                    }
+                    @if (ex.Mistakes.Count > 0)
+                    {
+                        <div class="ex-block">
+                            <h4>흔한 실수</h4>
+                            <ul class="ex-mistakes">
+                                @foreach (var m in ex.Mistakes) { <li>@m</li> }
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </details>
+        }
+    </div>
+}
+
+@code {
+    private static readonly string[] BodyParts = ["가슴", "등", "어깨", "하체", "팔", "코어"];
+
+    private GymContentDto? _content;
+    private bool _loading = true;
+    private string? _error;
+    private string? _part;
+
+    private IEnumerable<GymExerciseDto> FilteredExercises =>
+        _part is null ? _content!.Exercises : _content!.Exercises.Where(e => e.BodyPart == _part);
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _content = await Http.GetFromJsonAsync<GymContentDto>("data/health-gym.json");
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+}

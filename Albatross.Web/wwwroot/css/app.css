@@ -621,3 +621,56 @@ html, body {
 .link-card .link-ic { grid-row: 1 / 3; font-size: 2.2rem; }
 .link-card .link-t { font-weight: 800; font-size: 1.15rem; color: var(--text-primary); }
 .link-card .link-d { color: var(--text-muted); font-size: 0.84rem; line-height: 1.5; }
+
+/* ── 헬스 (건강 > 운동 > 헬스) ── */
+.gym-lede { color: var(--text-muted); margin-bottom: 1.6rem; }
+.gym-h2 { font-size: 1.2rem; margin: 2rem 0 0.9rem; }
+
+.badge {
+  display: inline-block; padding: 0.12rem 0.55rem; border-radius: 20px;
+  font-size: 0.72rem; font-weight: 700;
+  background: var(--accent-glow); color: var(--accent);
+}
+.badge--soft { background: var(--bg-hover); color: var(--text-muted); }
+
+/* 루틴 */
+.routine-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+.routine-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.2rem 1.4rem;
+}
+.routine-head { display: flex; align-items: center; flex-wrap: wrap; gap: 0.45rem; }
+.routine-name { font-weight: 800; font-size: 1.05rem; }
+.routine-desc { color: var(--text-muted); font-size: 0.86rem; margin: 0.6rem 0 1rem; line-height: 1.6; }
+.routine-day { margin-bottom: 0.9rem; }
+.routine-day-name {
+  font-weight: 700; font-size: 0.86rem; color: var(--accent);
+  padding-bottom: 0.35rem; margin-bottom: 0.4rem; border-bottom: 1px solid var(--border);
+}
+.routine-items { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+.routine-items li { display: flex; justify-content: space-between; gap: 0.8rem; font-size: 0.88rem; }
+.routine-items .ri-sets { color: var(--text-muted); font-size: 0.8rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* 부위별 종목 (펼침형) */
+.ex-list { display: flex; flex-direction: column; gap: 0.55rem; }
+.ex-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.ex-item[open] { border-color: var(--accent); }
+.ex-item summary {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  padding: 0.9rem 1.2rem; cursor: pointer; list-style: none;
+}
+.ex-item summary::-webkit-details-marker { display: none; }
+.ex-item summary:hover { background: var(--bg-hover); border-radius: var(--radius); }
+.ex-name { font-weight: 700; font-size: 1rem; }
+.ex-meta { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.ex-body { padding: 0 1.2rem 1.2rem; border-top: 1px solid var(--border); }
+.ex-facts { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; padding: 0.9rem 0; font-size: 0.88rem; }
+.fact-label { color: var(--text-muted); font-size: 0.78rem; font-weight: 700; margin-right: 0.35rem; }
+.ex-block { margin-top: 0.9rem; }
+.ex-block h4 { font-size: 0.85rem; margin-bottom: 0.45rem; color: var(--text-primary); }
+.ex-steps, .ex-tips, .ex-mistakes { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.9rem; line-height: 1.6; }
+.ex-steps li { color: var(--text-primary); }
+.ex-tips li { color: var(--text-primary); }
+.ex-tips { list-style: "✔ "; }
+.ex-mistakes { list-style: "✕ "; }
+.ex-mistakes li { color: var(--text-muted); }

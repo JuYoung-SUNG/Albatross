@@ -77,6 +77,8 @@ namespace Albatross.Collector
             var fillNewsContent = Environment.GetCommandLineArgs().Contains("--fill-news-content");
             // RawNews에서 급상승 키워드를 통계+Gemma로 뽑아 NewsKeywords에 저장하는 1회성 모드 (블로그 소재용)
             var extractKeywords = Environment.GetCommandLineArgs().Contains("--extract-keywords");
+            // 헬스 콘텐츠(운동 종목/루틴)를 SQLite에 넣고 웹용 health-gym.json으로 내보내는 1회성 모드
+            var seedGym = Environment.GetCommandLineArgs().Contains("--seed-gym");
 
             if (backfillSeason)
             {
@@ -118,6 +120,21 @@ namespace Albatross.Collector
             if (extractKeywords)
             {
                 await RunKeywordExtractionAsync(stoppingToken);
+                _appLifetime.StopApplication();
+                return;
+            }
+
+            if (seedGym)
+            {
+                var gymDbPath = ResolveDatabasePath();
+                var gymDataDir = Path.GetDirectoryName(gymDbPath);
+                _logger.LogInformation("[헬스] 콘텐츠 시드 및 JSON 내보내기 시작...");
+                var seeded = await GymContentSeeder.SeedAsync(gymDbPath, stoppingToken);
+                if (!string.IsNullOrWhiteSpace(gymDataDir))
+                {
+                    await GymContentSeeder.ExportAsync(gymDbPath, gymDataDir, stoppingToken);
+                }
+                _logger.LogInformation("[헬스] 완료 — 신규 {n}행 저장, health-gym.json 내보내기 완료", seeded);
                 _appLifetime.StopApplication();
                 return;
             }
