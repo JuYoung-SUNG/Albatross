@@ -79,6 +79,10 @@ namespace Albatross.Collector
             var extractKeywords = Environment.GetCommandLineArgs().Contains("--extract-keywords");
             // 헬스 콘텐츠(운동 종목/루틴)를 SQLite에 넣고 웹용 health-gym.json으로 내보내는 1회성 모드
             var seedGym = Environment.GetCommandLineArgs().Contains("--seed-gym");
+            // LLM으로 정제한 골프 연습장 JSON을 DB에 넣고 사이트용 golf-ranges.json으로 내보내는 모드
+            //   사용법: --import-golf "C:\경로\ranges.json"   /   --export-golf (DB → JSON만 다시 내보내기)
+            var importGolf = Environment.GetCommandLineArgs().Contains("--import-golf");
+            var exportGolf = Environment.GetCommandLineArgs().Contains("--export-golf");
 
             if (backfillSeason)
             {
@@ -135,6 +139,36 @@ namespace Albatross.Collector
                 _appLifetime.StopApplication();
                 return;
             }
+
+            if (importGolf || exportGolf)
+            {
+                var golfDbPath = ResolveDatabasePath();
+                await InitializeDatabaseAsync(golfDbPath, stoppingToken);
+
+                if (importGolf)
+                {
+                    // --import-golf 다음 인자를 JSON 파일 경로로 사용
+                    var args = Environment.GetCommandLineArgs();
+                    var idx = Array.IndexOf(args, "--import-golf");
+                    var jsonPath = idx >= 0 && idx + 1 < args.Length ? args[idx + 1] : null;
+
+                    if (string.IsNullOrWhiteSpace(jsonPath) || !File.Exists(jsonPath))
+                    {
+                        _logger.LogError("[골프] JSON 파일 경로가 필요합니다. 예: --import-golf \"C:\\경로\\ranges.json\"");
+                        _appLifetime.StopApplication();
+                        return;
+                    }
+
+                    var (added, updatedCount) = await GolfContentImporter.ImportAsync(golfDbPath, jsonPath, stoppingToken);
+                    _logger.LogInformation("[골프] 임포트 완료 — 신규 {a}곳, 갱신 {u}곳", added, updatedCount);
+                }
+
+                var exported = await GolfContentImporter.ExportAsync(golfDbPath, GolfDataDirectory, stoppingToken);
+                _logger.LogInformation("[골프] golf-ranges.json 내보내기 완료 — 총 {n}곳", exported);
+                _appLifetime.StopApplication();
+                return;
+            }
+
 
             while (!stoppingToken.IsCancellationRequested)
             {
@@ -315,6 +349,7 @@ namespace Albatross.Collector
 
         private static string KboDataDirectory => ResolveSiteDataDirectory("AlbatrossKBO");
         private static string GymDataDirectory => ResolveSiteDataDirectory("AlbatrossGym");
+        private static string GolfDataDirectory => ResolveSiteDataDirectory("AlbatrossGolf");
 
         private string ResolveDatabasePath()
         {

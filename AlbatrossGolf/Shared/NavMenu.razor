@@ -1,0 +1,46 @@
+@namespace AlbatrossGolf
+@inject IJSRuntime JS
+
+<nav class="topnav">
+    <a class="brand" href="">⛳ Albatross Golf</a>
+    <div class="nav-links">
+        <NavLink href="" Match="NavLinkMatch.All">연습장 찾기</NavLink>
+        <a class="nav-external" href="@PortalUrl" title="Albatross 홈으로">🕊️ Albatross</a>
+        <div class="theme-switch">
+            @foreach (var theme in Themes)
+            {
+                <button data-swatch="@theme"
+                        class="@(theme == _currentTheme ? "active" : "")"
+                        title="@ThemeLabel(theme)"
+                        @onclick="() => SetTheme(theme)"></button>
+            }
+        </div>
+    </div>
+</nav>
+
+@code {
+    private const string PortalUrl = "https://albatross-portal.pages.dev";
+
+    private static readonly string[] Themes = ["white", "blue", "yellow", "green"];
+    private string _currentTheme = "white";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _currentTheme = await JS.InvokeAsync<string>("albatrossTheme.get");
+            StateHasChanged();
+        }
+    }
+
+    private async Task SetTheme(string theme)
+    {
+        _currentTheme = theme;
+        await JS.InvokeVoidAsync("albatrossTheme.set", theme);
+    }
+
+    private static string ThemeLabel(string theme) => theme switch
+    {
+        "white" => "화이트", "blue" => "블루", "yellow" => "옐로", "green" => "그린", _ => theme
+    };
+}

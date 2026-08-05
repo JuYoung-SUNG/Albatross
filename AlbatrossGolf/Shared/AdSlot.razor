@@ -1,0 +1,36 @@
+@namespace AlbatrossGolf
+@inject IJSRuntime JS
+
+@* 구글 애드센스 광고 자리.
+   ClientId(ca-pub-...)와 SlotId를 채우기 전에는 아무것도 렌더링하지 않아,
+   승인 전/미설정 상태에서 빈 광고 박스가 노출되지 않는다.
+   설정 방법은 AlbatrossGolf/README-adsense.md 참고. *@
+@if (Configured)
+{
+    <div class="ad-slot">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="@ClientId"
+             data-ad-slot="@SlotId"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
+}
+
+@code {
+    // 애드센스 승인 후 아래 두 값을 채우고, wwwroot/index.html의 스크립트 주석도 해제하세요.
+    private const string ClientId = "";   // 예: ca-pub-1234567890123456
+    private const string SlotId = "";     // 예: 1234567890
+
+    private static bool Configured => !string.IsNullOrWhiteSpace(ClientId) && !string.IsNullOrWhiteSpace(SlotId);
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // 광고 자리마다 push가 필요 — 설정된 경우에만 호출
+        if (firstRender && Configured)
+        {
+            try { await JS.InvokeVoidAsync("albatrossAds.push"); }
+            catch { /* 광고 차단기 등으로 실패해도 페이지는 정상 동작 */ }
+        }
+    }
+}
