@@ -127,13 +127,10 @@ namespace Albatross.Collector
             if (seedGym)
             {
                 var gymDbPath = ResolveDatabasePath();
-                var gymDataDir = Path.GetDirectoryName(gymDbPath);
                 _logger.LogInformation("[헬스] 콘텐츠 시드 및 JSON 내보내기 시작...");
                 var seeded = await GymContentSeeder.SeedAsync(gymDbPath, stoppingToken);
-                if (!string.IsNullOrWhiteSpace(gymDataDir))
-                {
-                    await GymContentSeeder.ExportAsync(gymDbPath, gymDataDir, stoppingToken);
-                }
+                // 헬스 사이트(AlbatrossGym)가 읽는 위치로 내보낸다
+                await GymContentSeeder.ExportAsync(gymDbPath, GymDataDirectory, stoppingToken);
                 _logger.LogInformation("[헬스] 완료 — 신규 {n}행 저장, health-gym.json 내보내기 완료", seeded);
                 _appLifetime.StopApplication();
                 return;
@@ -292,12 +289,32 @@ namespace Albatross.Collector
 
             if (baseDir.Contains($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}"))
             {
-                var solutionRoot = Path.GetFullPath(Path.Combine(baseDir, "..", "..", "..", ".."));
-                return Path.Combine(solutionRoot, "Albatross.Web", "wwwroot", "data");
+                // DB는 배포되는 wwwroot 밖(솔루션 루트의 data/)에 둔다 — 공개 노출과 파일 잠금을 피하기 위함
+                return Path.Combine(SolutionRoot, "data");
             }
 
             return Path.Combine(baseDir, "data");
         }
+
+        /// <summary>솔루션 루트 (bin/Debug/netX 아래에서 실행될 때 기준으로 역산)</summary>
+        private static string SolutionRoot =>
+            Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", ".."));
+
+        /// <summary>
+        /// 사이트가 분리되어 각 사이트가 자기 wwwroot/data에서 JSON을 읽는다.
+        /// KBO 데이터는 AlbatrossKBO, 헬스 데이터는 AlbatrossGym, 뉴스는 포털(Albatross.Web)로 내보낸다.
+        /// </summary>
+        private static string ResolveSiteDataDirectory(string projectFolder)
+        {
+            var configured = Environment.GetEnvironmentVariable("COLLECTOR_SITE_ROOT");
+            var root = string.IsNullOrWhiteSpace(configured) ? SolutionRoot : Path.GetFullPath(configured);
+            var dir = Path.Combine(root, projectFolder, "wwwroot", "data");
+            Directory.CreateDirectory(dir);
+            return dir;
+        }
+
+        private static string KboDataDirectory => ResolveSiteDataDirectory("AlbatrossKBO");
+        private static string GymDataDirectory => ResolveSiteDataDirectory("AlbatrossGym");
 
         private string ResolveDatabasePath()
         {
@@ -1996,7 +2013,8 @@ Omit relatedArticles or return it as an empty array. Preserve each URL in relate
         /// </summary>
         private static async Task ExportKboDataToJsonAsync(string databasePath, CancellationToken ct)
         {
-            var dataDir = Path.GetDirectoryName(databasePath);
+            // KBO 사이트(AlbatrossKBO)가 읽는 위치로 내보낸다
+            var dataDir = KboDataDirectory;
             if (string.IsNullOrWhiteSpace(dataDir)) return;
 
             await using var connection = new SqliteConnection($"Data Source={databasePath}");
@@ -2014,7 +2032,8 @@ Omit relatedArticles or return it as an empty array. Preserve each URL in relate
         /// </summary>
         private static async Task ExportGamesOnlyAsync(string databasePath, CancellationToken ct)
         {
-            var dataDir = Path.GetDirectoryName(databasePath);
+            // KBO 사이트(AlbatrossKBO)가 읽는 위치로 내보낸다
+            var dataDir = KboDataDirectory;
             if (string.IsNullOrWhiteSpace(dataDir)) return;
 
             await using var connection = new SqliteConnection($"Data Source={databasePath}");

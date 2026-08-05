@@ -56,3 +56,6 @@ web_run.pid
 
 # Claude Code local overrides
 .claude/settings.local.json
+
+# 수집기 로컬 DB (배포 대상 아님)
+/data/

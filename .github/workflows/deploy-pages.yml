@@ -1,6 +1,11 @@
 name: Deploy to Cloudflare Pages
 
 # 데이터 수집(collector)은 로컬 예약 작업에서 돌리고, 여기서는 배포만 담당한다.
+# 사이트가 3개로 분리되어 있어 각각 별도의 Cloudflare Pages 프로젝트로 배포한다.
+#  - 포털(대문) : Albatross.Web      → secrets.CLOUDFLARE_PROJECT_NAME
+#  - KBO        : AlbatrossKBO       → secrets.CLOUDFLARE_PROJECT_NAME_KBO
+#  - 건강       : AlbatrossGym       → secrets.CLOUDFLARE_PROJECT_NAME_GYM
+# 변경된 사이트만 배포되도록 경로 필터를 사용한다.
 on:
   push:
     branches:
@@ -17,31 +22,83 @@ concurrency:
 
 env:
   DOTNET_VERSION: "10.0.x"
-  PUBLISH_DIR: Albatross.Web/bin/Release/net10.0/publish/wwwroot
 
 jobs:
-  build-deploy:
+  changes:
     runs-on: ubuntu-latest
-
+    outputs:
+      portal: ${{ steps.filter.outputs.portal }}
+      kbo: ${{ steps.filter.outputs.kbo }}
+      gym: ${{ steps.filter.outputs.gym }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            portal:
+              - 'Albatross.Web/**'
+              - 'Albatross.Shared/**'
+            kbo:
+              - 'AlbatrossKBO/**'
+              - 'Albatross.Shared/**'
+            gym:
+              - 'AlbatrossGym/**'
+              - 'Albatross.Shared/**'
 
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v4
+  deploy-portal:
+    needs: changes
+    if: needs.changes.outputs.portal == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Restore
-        run: dotnet restore Albatross.Web/Albatross.Web.csproj
-
-      - name: Publish Blazor WebAssembly
-        run: dotnet publish Albatross.Web/Albatross.Web.csproj --configuration Release --no-restore
-
-      - name: Deploy to Cloudflare Pages
+      - name: Publish portal
+        run: dotnet publish Albatross.Web/Albatross.Web.csproj --configuration Release
+      - name: Deploy portal
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy ${{ env.PUBLISH_DIR }} --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=${{ github.ref_name }}
+          command: pages deploy Albatross.Web/bin/Release/net10.0/publish/wwwroot --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=${{ github.ref_name }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy-kbo:
+    needs: changes
+    if: needs.changes.outputs.kbo == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Publish KBO site
+        run: dotnet publish AlbatrossKBO/AlbatrossKBO.csproj --configuration Release
+      - name: Deploy KBO site
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy AlbatrossKBO/bin/Release/net10.0/publish/wwwroot --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME_KBO }} --branch=${{ github.ref_name }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy-gym:
+    needs: changes
+    if: needs.changes.outputs.gym == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Publish Gym site
+        run: dotnet publish AlbatrossGym/AlbatrossGym.csproj --configuration Release
+      - name: Deploy Gym site
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy AlbatrossGym/bin/Release/net10.0/publish/wwwroot --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME_GYM }} --branch=${{ github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

@@ -9,3 +9,22 @@
         <p>넓은 바다를 가로지르는 알바트로스처럼</p>
     </div>
 </section>
+
+<div class="link-grid portal-grid">
+    <a href="@KboUrl" class="link-card">
+        <span class="link-ic">⚾</span>
+        <span class="link-t">Albatross KBO</span>
+        <span class="link-d">한국프로야구 — 대시보드 · 경기 · 선수 기록 · 팀 순위</span>
+    </a>
+    <a href="@GymUrl" class="link-card">
+        <span class="link-ic">🌿</span>
+        <span class="link-t">Albatross 건강</span>
+        <span class="link-d">운동(헬스) · 식사 · 영양제</span>
+    </a>
+</div>
+
+@code {
+    // 각 사이트 주소 — Cloudflare Pages 프로젝트를 만든 뒤 실제 주소로 바꾸면 됩니다.
+    private const string KboUrl = "https://albatross-kbo.pages.dev";
+    private const string GymUrl = "https://albatross-gym.pages.dev";
+}

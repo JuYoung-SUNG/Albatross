@@ -1,11 +1,13 @@
-@namespace Albatross.Web
+@namespace AlbatrossGym
 @inject IJSRuntime JS
 
 <nav class="topnav">
-    <a class="brand" href="">🕊️ Albatross</a>
+    <a class="brand" href="">🌿 Albatross 건강</a>
     <div class="nav-links">
-        <a href="https://albatross-kbo.pages.dev">KBO</a>
-        <a href="https://albatross-gym.pages.dev">건강</a>
+        <NavLink href="exercise">운동</NavLink>
+        <NavLink href="meal">식사</NavLink>
+        <NavLink href="supplement">영양제</NavLink>
+        <a class="nav-external" href="@PortalUrl" title="Albatross 홈으로">🕊️ Albatross</a>
         <div class="theme-switch">
             @foreach (var theme in Themes)
             {
@@ -19,6 +21,9 @@
 </nav>
 
 @code {
+    // 대문(포털) 사이트 주소 — 배포 후 실제 주소로 바꾸면 됩니다.
+    private const string PortalUrl = "https://albatross-portal.pages.dev";
+
     private static readonly string[] Themes = ["white", "blue", "yellow", "green"];
     private string _currentTheme = "white";
 
