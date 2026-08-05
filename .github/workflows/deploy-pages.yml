@@ -30,7 +30,6 @@ jobs:
       portal: ${{ steps.filter.outputs.portal }}
       kbo: ${{ steps.filter.outputs.kbo }}
       gym: ${{ steps.filter.outputs.gym }}
-      golf: ${{ steps.filter.outputs.golf }}
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
@@ -45,9 +44,6 @@ jobs:
               - 'Albatross.Shared/**'
             gym:
               - 'AlbatrossGym/**'
-              - 'Albatross.Shared/**'
-            golf:
-              - 'AlbatrossGolf/**'
               - 'Albatross.Shared/**'
 
   deploy-portal:
@@ -107,21 +103,3 @@ jobs:
           command: pages deploy AlbatrossGym/bin/Release/net10.0/publish/wwwroot --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME_GYM }} --branch=${{ github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
-  deploy-golf:
-    needs: changes
-    if: needs.changes.outputs.golf == 'true' || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-      - name: Publish Golf site
-        run: dotnet publish AlbatrossGolf/AlbatrossGolf.csproj --configuration Release
-      - name: Deploy Golf site
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy AlbatrossGolf/bin/Release/net10.0/publish/wwwroot --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME_GOLF }} --branch=${{ github.ref_name }}
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

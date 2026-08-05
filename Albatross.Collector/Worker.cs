@@ -349,7 +349,26 @@ namespace Albatross.Collector
 
         private static string KboDataDirectory => ResolveSiteDataDirectory("AlbatrossKBO");
         private static string GymDataDirectory => ResolveSiteDataDirectory("AlbatrossGym");
-        private static string GolfDataDirectory => ResolveSiteDataDirectory("AlbatrossGolf");
+
+        /// <summary>
+        /// 골프 사이트는 별도 저장소(C:\works\AlbatrossGolf)로 분리되어 솔루션 밖에 있다.
+        /// 형제 폴더를 먼저 찾고, 없으면(분리 전 환경) 솔루션 안쪽을 쓴다.
+        /// </summary>
+        private static string GolfDataDirectory
+        {
+            get
+            {
+                var sibling = Path.GetFullPath(Path.Combine(SolutionRoot, "..", "AlbatrossGolf"));
+                if (Directory.Exists(sibling))
+                {
+                    var dir = Path.Combine(sibling, "wwwroot", "data");
+                    Directory.CreateDirectory(dir);
+                    return dir;
+                }
+
+                return ResolveSiteDataDirectory("AlbatrossGolf");
+            }
+        }
 
         private string ResolveDatabasePath()
         {
