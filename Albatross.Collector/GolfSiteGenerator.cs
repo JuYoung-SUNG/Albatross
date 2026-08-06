@@ -76,15 +76,16 @@ namespace Albatross.Collector
                 </head>
                 <body>
                 <header class="topbar">
-                  <a class="brand" href="/">⛳ Albatross Golf</a>
+                  <a class="brand" href="/"><span class="mark">⛳</span> Albatross <em>Golf</em></a>
                   <nav><a href="/">연습장 찾기</a><a href="https://albatross.pages.dev">Albatross 홈</a></nav>
                 </header>
                 <main>
                 {bodyHtml}
                 </main>
                 <footer class="foot">
-                  <p>요금·운영 정책은 변경될 수 있으니 방문 전 반드시 확인하세요.</p>
-                  <p>© Albatross Golf</p>
+                  <p class="warn">요금과 운영 정책은 자주 바뀝니다. <strong>방문 전 전화로 한 번 더 확인하세요.</strong></p>
+                  <p>정보는 각 시설의 공식 안내를 기준으로 정리하며, 확인되지 않은 항목은 채우지 않고 <em>미확인</em>으로 둡니다.</p>
+                  <p class="copy">© Albatross Golf</p>
                 </footer>
                 </body>
                 </html>
@@ -95,65 +96,76 @@ namespace Albatross.Collector
         private static string BuildIndex(List<GolfRangeDto> ranges)
         {
             var body = new StringBuilder();
-            body.AppendLine("""<h1>수도권·전국 골프 연습장 정보</h1>""");
-            body.AppendLine("""<p class="lede">파3·야외 인도어 연습장의 <strong>일일 요금, 좌타석 유무, 드라이버 사용 가능 여부, 주차</strong> 정보를 한곳에 정리했습니다.</p>""");
 
             if (ranges.Count == 0)
             {
-                body.AppendLine("""<p class="empty">연습장 정보를 준비하고 있습니다.</p>""");
+                body.AppendLine("""
+                    <section class="hero">
+                      <p class="kicker">수도권 골프 연습장</p>
+                      <h1>연습장 갈 때마다 매번 전화로 물어보던 것들</h1>
+                    </section>
+                    <p class="empty">연습장 정보를 준비하고 있습니다.</p>
+                    """);
                 return Page($"골프 연습장 정보 — {SiteName}",
                     "파3·야외 인도어 골프 연습장의 요금, 좌타석, 드라이버 사용 여부, 주차 정보를 정리했습니다.",
                     "/", body.ToString());
             }
 
-            var regions = ranges.Select(r => r.Region).Where(x => !string.IsNullOrWhiteSpace(x)).Distinct().ToList();
-            var types = ranges.Select(r => r.Type).Where(x => !string.IsNullOrWhiteSpace(x)).Distinct().ToList();
+            var sorted = ranges.OrderBy(r => r.City).ThenBy(r => r.Name).ToList();
+            var cities = sorted.Select(r => CityGroup(r)).Where(x => x.Length > 0).Distinct().ToList();
+            var types = sorted.Select(r => r.Type).Where(x => !string.IsNullOrWhiteSpace(x)).Distinct().ToList();
 
-            body.AppendLine("""<div class="filters" id="filters">""");
-            body.AppendLine("""<div class="fgroup"><span class="flabel">지역</span><button class="fbtn on" data-f="region" data-v="">전체</button>""");
-            foreach (var g in regions) body.AppendLine($"""<button class="fbtn" data-f="region" data-v="{E(g!)}">{E(g!)}</button>""");
+            // 히어로 — 이 사이트가 답해주는 것을 먼저 말한다
+            body.AppendLine($"""
+                <section class="hero">
+                  <p class="kicker">수도권 골프 연습장 {sorted.Count}곳</p>
+                  <h1>연습장 갈 때마다<br>매번 전화로 물어보던 것들</h1>
+                  <p class="lede">요금이 얼마인지, 좌타석은 있는지, 드라이버를 쳐도 되는지, 주차는 되는지.
+                     공식 안내를 확인해 한곳에 정리했습니다.</p>
+                  <ul class="answers">
+                    <li><span>₩</span>일일 요금</li>
+                    <li><span>↰</span>좌타석</li>
+                    <li><span>🏌</span>드라이버</li>
+                    <li><span>P</span>주차</li>
+                  </ul>
+                </section>
+                """);
+
+            // 필터 — 검색엔진은 아래 카드 전체를 그대로 읽고, 사용자는 JS로 걸러 본다
+            body.AppendLine("""<section class="toolbar" id="filters">""");
+            body.AppendLine("""<div class="fgroup"><span class="flabel">지역</span><button class="fbtn on" data-f="city" data-v="">전체</button>""");
+            foreach (var c in cities) body.AppendLine($"""<button class="fbtn" data-f="city" data-v="{E(c)}">{E(c)}</button>""");
             body.AppendLine("""</div>""");
             body.AppendLine("""<div class="fgroup"><span class="flabel">유형</span><button class="fbtn on" data-f="type" data-v="">전체</button>""");
             foreach (var t in types) body.AppendLine($"""<button class="fbtn" data-f="type" data-v="{E(t!)}">{E(t!)}</button>""");
-            body.AppendLine("""</div></div>""");
-
+            body.AppendLine("""</div>""");
             body.AppendLine("""
-                <div class="tablewrap"><table class="ranges"><thead><tr>
-                <th>연습장</th><th>지역</th><th>유형</th><th>일일 요금</th><th>좌타석</th><th>드라이버</th><th>주차</th>
-                </tr></thead><tbody>
+                <label class="search"><input type="search" id="q" placeholder="연습장 이름이나 지역으로 찾기" autocomplete="off"></label>
+                </section>
+                <p class="count" id="count"></p>
                 """);
 
-            foreach (var r in ranges.OrderBy(r => r.Region).ThenBy(r => r.City).ThenBy(r => r.Name))
-            {
-                body.AppendLine($"""
-                    <tr data-region="{E(r.Region ?? "")}" data-type="{E(r.Type ?? "")}">
-                      <td><a href="/range/{E(r.Slug)}/">{E(r.Name)}</a></td>
-                      <td>{E(r.City ?? r.Region ?? "-")}</td>
-                      <td>{E(r.Type ?? "-")}</td>
-                      <td>{E(r.Price ?? "-")}</td>
-                      <td>{E(r.LeftHanded ?? "-")}</td>
-                      <td>{E(r.DriverAllowed ?? "-")}</td>
-                      <td>{E(r.Parking ?? "-")}</td>
-                    </tr>
-                    """);
-            }
-            body.AppendLine("""</tbody></table></div>""");
-            body.AppendLine("""<p class="count" id="count"></p>""");
+            body.AppendLine("""<div class="grid" id="grid">""");
+            foreach (var r in sorted) body.AppendLine(BuildCard(r));
+            body.AppendLine("""</div>""");
+            body.AppendLine("""<p class="noresult" id="noresult" hidden>조건에 맞는 연습장이 없습니다.</p>""");
 
-            // 필터: 검색엔진은 위 표 전체를 그대로 읽고, 사용자는 JS로 걸러 본다
             body.AppendLine("""
                 <script>
                 (function(){
-                  var sel={region:'',type:''};
-                  var rows=[].slice.call(document.querySelectorAll('table.ranges tbody tr'));
-                  var count=document.getElementById('count');
+                  var sel={city:'',type:''}, q='';
+                  var cards=[].slice.call(document.querySelectorAll('.card'));
+                  var count=document.getElementById('count'), none=document.getElementById('noresult');
                   function apply(){
                     var n=0;
-                    rows.forEach(function(tr){
-                      var ok=(!sel.region||tr.dataset.region===sel.region)&&(!sel.type||tr.dataset.type===sel.type);
-                      tr.style.display=ok?'':'none'; if(ok)n++;
+                    cards.forEach(function(el){
+                      var ok=(!sel.city||el.dataset.city===sel.city)
+                          && (!sel.type||el.dataset.type===sel.type)
+                          && (!q||el.dataset.search.indexOf(q)>-1);
+                      el.hidden=!ok; if(ok)n++;
                     });
                     count.textContent=n+'곳';
+                    none.hidden=n>0;
                   }
                   document.getElementById('filters').addEventListener('click',function(e){
                     var b=e.target.closest('.fbtn'); if(!b)return;
@@ -161,13 +173,70 @@ namespace Albatross.Collector
                     [].forEach.call(document.querySelectorAll('.fbtn[data-f="'+f+'"]'),function(x){x.classList.remove('on');});
                     b.classList.add('on'); apply();
                   });
+                  document.getElementById('q').addEventListener('input',function(e){
+                    q=e.target.value.trim().toLowerCase(); apply();
+                  });
                   apply();
                 })();
                 </script>
                 """);
 
-            var desc = $"수도권을 비롯한 골프 연습장 {ranges.Count}곳의 일일 요금, 좌타석, 드라이버 사용 여부, 주차 정보를 정리했습니다.";
-            return Page($"골프 연습장 정보 {ranges.Count}곳 — {SiteName}", desc, "/", body.ToString());
+            var desc = $"수도권 골프 연습장 {sorted.Count}곳의 일일 요금, 좌타석, 드라이버 사용 여부, 주차 정보를 공식 안내 기준으로 정리했습니다.";
+            return Page($"수도권 골프 연습장 {sorted.Count}곳 요금·좌타석 정보 — {SiteName}", desc, "/", body.ToString());
+        }
+
+        /// <summary>목록 카드 하나. 확인된 정보는 강조하고 미확인은 눈에 덜 띄게 둔다.</summary>
+        private static string BuildCard(GolfRangeDto r)
+        {
+            var search = $"{r.Name} {r.City} {r.Region} {r.Type} {r.Address}".ToLowerInvariant();
+            var sb = new StringBuilder();
+
+            sb.AppendLine($"""
+                <article class="card" data-city="{E(CityGroup(r))}" data-type="{E(r.Type ?? "")}" data-search="{E(search)}">
+                  <a class="cardlink" href="/range/{E(r.Slug)}/">
+                  <header>
+                    <h2>{E(r.Name)}</h2>
+                    <p class="where">{E(r.City ?? r.Region ?? "")}{(string.IsNullOrWhiteSpace(r.Type) ? "" : $" · {E(r.Type!)}")}</p>
+                  </header>
+                """);
+
+            sb.AppendLine(IsUnknown(r.Price)
+                ? """<p class="price none">요금 미확인</p>"""
+                : $"""<p class="price">{E(r.Price!)}</p>""");
+
+            sb.AppendLine("""<dl class="facts">""");
+            sb.AppendLine(Fact("좌타석", r.LeftHanded));
+            sb.AppendLine(Fact("드라이버", r.DriverAllowed));
+            sb.AppendLine(Fact("주차", r.Parking));
+            sb.AppendLine("""</dl>""");
+
+            sb.AppendLine("""<span class="more">자세히 보기</span></a></article>""");
+            return sb.ToString();
+
+            static string Fact(string label, string? value) => IsUnknown(value)
+                ? $"""<div><dt>{E(label)}</dt><dd class="unk">미확인</dd></div>"""
+                : $"""<div><dt>{E(label)}</dt><dd>{E(Shorten(value!))}</dd></div>""";
+        }
+
+        /// <summary>카드에서는 값이 길면 잘라 보여준다 (상세 페이지에 전문이 있다).</summary>
+        private static string Shorten(string s, int max = 22)
+        {
+            s = s.Trim();
+            var cut = s.IndexOf(" (", StringComparison.Ordinal);
+            if (cut > 3) s = s[..cut];
+            return s.Length > max ? s[..(max - 1)] + "…" : s;
+        }
+
+        private static bool IsUnknown(string? v) =>
+            string.IsNullOrWhiteSpace(v) || v.TrimStart().StartsWith("미확인", StringComparison.Ordinal);
+
+        /// <summary>필터용 지역 묶음. "경기 용인시" → "경기", "인천 서구" → "인천", "서울 강북구" → "서울".</summary>
+        private static string CityGroup(GolfRangeDto r)
+        {
+            var city = r.City?.Trim();
+            if (string.IsNullOrWhiteSpace(city)) return r.Region?.Trim() ?? "";
+            var space = city.IndexOf(' ');
+            return space > 0 ? city[..space] : city;
         }
 
         // ── 상세 페이지 ───────────────────────────────────────────────
@@ -186,45 +255,58 @@ namespace Albatross.Collector
             if (!string.IsNullOrWhiteSpace(r.Summary))
                 body.AppendLine($"""<p class="lede">{E(r.Summary!)}</p>""");
 
-            // 핵심 정보 표 — 검색 사용자가 가장 궁금해하는 항목
-            body.AppendLine("""<table class="facts"><tbody>""");
+            // 핵심 4가지 — 방문 전에 가장 많이 확인하는 항목을 맨 위에 크게
+            body.AppendLine("""<section class="keyfacts">""");
+            body.AppendLine(KeyFact("일일 요금", r.Price, true));
+            body.AppendLine(KeyFact("좌타석", r.LeftHanded));
+            body.AppendLine(KeyFact("드라이버", r.DriverAllowed));
+            body.AppendLine(KeyFact("주차", r.Parking));
+            body.AppendLine("""</section>""");
+
+            // 나머지 기본 정보
+            var infoRows = new StringBuilder();
             void Row(string label, string? value)
             {
-                if (!string.IsNullOrWhiteSpace(value))
-                    body.AppendLine($"""<tr><th>{E(label)}</th><td>{E(value!)}</td></tr>""");
+                if (IsUnknown(value)) return;
+                var cell = label switch
+                {
+                    "전화" => $"""<a href="tel:{E(value!.Replace("-", ""))}">{E(value!)}</a>""",
+                    _ => E(value!)
+                };
+                infoRows.AppendLine($"""<tr><th>{E(label)}</th><td>{cell}</td></tr>""");
             }
-            Row("일일 타석 요금", r.Price);
-            Row("좌타석", r.LeftHanded);
-            Row("드라이버 사용", r.DriverAllowed);
-            Row("주차", r.Parking);
             Row("영업시간", r.Hours);
             Row("주소", r.Address);
             Row("전화", r.Phone);
-            body.AppendLine("""</tbody></table>""");
+            if (infoRows.Length > 0)
+                body.AppendLine($"""<table class="info"><tbody>{infoRows}</tbody></table>""");
 
             if (r.Highlights.Count > 0)
             {
-                body.AppendLine("""<h2>이런 점이 좋아요</h2><ul class="good">""");
+                body.AppendLine("""<section class="block good"><h2>이런 점이 좋아요</h2><ul>""");
                 foreach (var h in r.Highlights) body.AppendLine($"<li>{E(h)}</li>");
-                body.AppendLine("</ul>");
+                body.AppendLine("</ul></section>");
             }
 
             if (r.Cautions.Count > 0)
             {
-                body.AppendLine("""<h2>미리 알아두세요</h2><ul class="caution">""");
+                body.AppendLine("""<section class="block caution"><h2>미리 알아두세요</h2><ul>""");
                 foreach (var c in r.Cautions) body.AppendLine($"<li>{E(c)}</li>");
-                body.AppendLine("</ul>");
+                body.AppendLine("</ul></section>");
             }
 
+            body.AppendLine($"""
+                <section class="provenance">
+                  <p class="asof">정보 기준 <strong>{E(r.UpdatedAt ?? "-")}</strong> · 요금과 운영 정책은 바뀔 수 있으니 방문 전 확인하세요.</p>
+                """);
             if (r.SourceUrls.Count > 0)
             {
-                body.AppendLine("""<h2>참고한 곳</h2><ul class="sources">""");
+                body.AppendLine("""<details><summary>참고한 곳</summary><ul class="sources">""");
                 foreach (var u in r.SourceUrls)
                     body.AppendLine($"""<li><a href="{E(u)}" target="_blank" rel="noopener nofollow">{E(u)}</a></li>""");
-                body.AppendLine("</ul>");
+                body.AppendLine("</ul></details>");
             }
-
-            body.AppendLine($"""<p class="asof">정보 기준: {E(r.UpdatedAt ?? "-")}</p>""");
+            body.AppendLine("""</section><p class="back"><a href="/">← 다른 연습장 보기</a></p>""");
 
             // 구조화 데이터 — 구글이 지역 업체로 이해하면 지도·리치결과에 노출될 수 있다
             var jsonLd = BuildJsonLd(r);
@@ -233,13 +315,28 @@ namespace Albatross.Collector
             return Page(title, desc, $"/range/{r.Slug}/", body.ToString(), jsonLd);
         }
 
+        /// <summary>핵심 정보 카드. 값이 없으면 "미확인"으로 두되 시각적으로 가라앉힌다.</summary>
+        private static string KeyFact(string label, string? value, bool lead = false)
+        {
+            var cls = lead ? "kf lead" : "kf";
+            return IsUnknown(value)
+                ? $"""<div class="{cls} unknown"><dt>{E(label)}</dt><dd>미확인</dd></div>"""
+                : $"""<div class="{cls}"><dt>{E(label)}</dt><dd>{E(value!)}</dd></div>""";
+        }
+
+        /// <summary>
+        /// 검색결과에 뜨는 설명문. 확인된 정보만 넣는다 —
+        /// "미확인"으로 채우면 클릭할 이유가 없는 설명이 된다.
+        /// </summary>
         private static string BuildDetailDescription(GolfRangeDto r)
         {
             var parts = new List<string> { $"{r.City ?? r.Region ?? ""} {r.Name}".Trim() };
-            if (!string.IsNullOrWhiteSpace(r.Price)) parts.Add($"요금 {r.Price}");
-            if (!string.IsNullOrWhiteSpace(r.LeftHanded)) parts.Add($"좌타석 {r.LeftHanded}");
-            if (!string.IsNullOrWhiteSpace(r.DriverAllowed)) parts.Add($"드라이버 {r.DriverAllowed}");
-            if (!string.IsNullOrWhiteSpace(r.Parking)) parts.Add($"주차 {r.Parking}");
+            if (!IsUnknown(r.Price)) parts.Add($"요금 {r.Price}");
+            if (!IsUnknown(r.Hours)) parts.Add($"영업시간 {r.Hours}");
+            if (!IsUnknown(r.LeftHanded)) parts.Add($"좌타석 {r.LeftHanded}");
+            if (!IsUnknown(r.DriverAllowed)) parts.Add($"드라이버 {r.DriverAllowed}");
+            if (!IsUnknown(r.Parking)) parts.Add($"주차 {r.Parking}");
+            if (parts.Count == 1 && !string.IsNullOrWhiteSpace(r.Summary)) parts.Add(r.Summary!);
             var text = string.Join(" · ", parts);
             return text.Length > 155 ? text[..152] + "..." : text;
         }
