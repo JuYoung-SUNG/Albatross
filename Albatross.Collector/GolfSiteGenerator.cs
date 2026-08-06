@@ -21,6 +21,16 @@ namespace Albatross.Collector
         private const string SiteUrl = "https://albatrossgolf.pages.dev";
         private const string SiteName = "Albatross Golf";
 
+        /// <summary>
+        /// Google Search Console 소유권 확인용 값.
+        /// Search Console → 속성 추가 → URL 접두어 → 소유권 확인 "HTML 태그"에서 나오는
+        /// &lt;meta name="google-site-verification" content="..."&gt; 의 content 값만 여기에 넣는다.
+        /// 비어 있으면 태그 자체를 넣지 않는다(빈 태그가 나가면 확인이 실패한다).
+        /// 환경변수 GOOGLE_SITE_VERIFICATION 이 있으면 그 값이 우선한다.
+        /// </summary>
+        private static string GoogleSiteVerification =>
+            Environment.GetEnvironmentVariable("GOOGLE_SITE_VERIFICATION") ?? "";
+
         public static async Task<int> GenerateAsync(List<GolfRangeDto> ranges, string outputDir, CancellationToken ct)
         {
             Directory.CreateDirectory(outputDir);
@@ -44,6 +54,9 @@ namespace Albatross.Collector
         private static string Page(string title, string description, string canonicalPath, string bodyHtml, string extraHead = "")
         {
             var canonical = SiteUrl + canonicalPath;
+            var verify = string.IsNullOrWhiteSpace(GoogleSiteVerification)
+                ? ""
+                : $"""<meta name="google-site-verification" content="{E(GoogleSiteVerification)}">{Environment.NewLine}""";
             return $"""
                 <!doctype html>
                 <html lang="ko">
@@ -59,7 +72,7 @@ namespace Albatross.Collector
                 <meta property="og:url" content="{E(canonical)}">
                 <meta property="og:site_name" content="{E(SiteName)}">
                 <link rel="stylesheet" href="/css/site.css">
-                {extraHead}
+                {verify}{extraHead}
                 </head>
                 <body>
                 <header class="topbar">
