@@ -20,6 +20,7 @@ namespace Albatross.Collector
         private readonly NaverNewsService _naverNews;
         private readonly GemmaClassificationService _classifier;
         private readonly KeywordExtractionService _keywordExtractor;
+        private readonly KeywordOpportunityService _keywordOpportunity;
         private readonly IConfiguration _config;
         private readonly HttpClient _httpClient;
         private readonly IHostApplicationLifetime _appLifetime;
@@ -38,6 +39,7 @@ namespace Albatross.Collector
             NaverNewsService naverNews,
             GemmaClassificationService classifier,
             KeywordExtractionService keywordExtractor,
+            KeywordOpportunityService keywordOpportunity,
             IConfiguration config,
             IHttpClientFactory httpClientFactory,
             IHostApplicationLifetime appLifetime)
@@ -47,6 +49,7 @@ namespace Albatross.Collector
             _kboOfficialSite = kboOfficialSite;
             _naverNews = naverNews;
             _keywordExtractor = keywordExtractor;
+            _keywordOpportunity = keywordOpportunity;
             _classifier = classifier;
             _config = config;
             _httpClient = httpClientFactory.CreateClient();
@@ -83,6 +86,10 @@ namespace Albatross.Collector
             //   사용법: --import-golf "C:\경로\ranges.json"   /   --export-golf (DB → JSON만 다시 내보내기)
             var importGolf = Environment.GetCommandLineArgs().Contains("--import-golf");
             var exportGolf = Environment.GetCommandLineArgs().Contains("--export-golf");
+            // NewsKeywords를 검색광고 API(월간 검색수)와 블로그 검색 API(경쟁·상위글)로 분석해
+            // "이 주제로 쓰면 될 것 같다" 목록을 만들고 사이트까지 생성하는 모드
+            var analyzeKeywords = Environment.GetCommandLineArgs().Contains("--analyze-keywords");
+            var exportKeywords = Environment.GetCommandLineArgs().Contains("--export-keywords");
 
             if (backfillSeason)
             {
@@ -170,6 +177,13 @@ namespace Albatross.Collector
                 var siteRoot = Path.GetFullPath(Path.Combine(GolfDataDirectory, "..", ".."));
                 var pages = await GolfContentImporter.GenerateSiteAsync(golfDbPath, siteRoot, stoppingToken);
                 _logger.LogInformation("[골프] 정적 페이지 생성 완료 — {n}개 (public/)", pages);
+                _appLifetime.StopApplication();
+                return;
+            }
+
+            if (analyzeKeywords || exportKeywords)
+            {
+                await RunKeywordOpportunityAsync(analyzeKeywords, stoppingToken);
                 _appLifetime.StopApplication();
                 return;
             }
@@ -371,6 +385,7 @@ namespace Albatross.Collector
         private static string KboDataDirectory => ResolveSiteDataDirectory("AlbatrossKBO");
         private static string GymDataDirectory => ResolveSiteDataDirectory("AlbatrossGym");
         private static string GolfDataDirectory => ResolveSiteDataDirectory("AlbatrossGolf");
+        private static string KeywordDataDirectory => ResolveSiteDataDirectory("AlbatrossKeyword");
 
         private string ResolveDatabasePath()
         {
@@ -530,9 +545,64 @@ namespace Albatross.Collector
             var end = new DateTimeOffset(nowKst, TimeSpan.FromHours(9));
             var start = new DateTimeOffset(nowKst.Date, TimeSpan.FromHours(9)); // 오늘 00:00 KST
 
-            _logger.LogInformation("[키워드] 추출 시작 — 대상 {s} ~ {e} (오늘 크롤링한 뉴스)", start, end);
+            // 수집이 멈춰 있으면 오늘 뉴스가 0건이라 아무것도 못 뽑는다.
+            // 그럴 때는 뉴스가 실제로 있는 가장 최근 날짜로 창을 옮겨 분석이라도 되게 한다.
+            var latest = await GetLatestNewsDateAsync(databasePath, ct);
+            if (latest is { } lastDay && lastDay < nowKst.Date)
+            {
+                start = new DateTimeOffset(lastDay, TimeSpan.FromHours(9));
+                end = start.AddDays(1);
+                _logger.LogWarning(
+                    "[키워드] 오늘({today:yyyy-MM-dd}) 수집된 뉴스가 없어 최신 수집일({last:yyyy-MM-dd})로 대상을 옮깁니다 — 뉴스 수집 스케줄을 확인하세요",
+                    nowKst.Date, lastDay);
+            }
+
+            _logger.LogInformation("[키워드] 추출 시작 — 대상 {s} ~ {e}", start, end);
             var count = await _keywordExtractor.ExtractAndSaveAsync(databasePath, start, end, baselineDays: 7, topCandidates: 120, ct);
             _logger.LogInformation("[키워드] 완료 — NewsKeywords에 {n}개 저장", count);
+        }
+
+        /// <summary>RawNews에 실제로 데이터가 있는 가장 최근 날짜(KST 기준). 비어 있으면 null.</summary>
+        private static async Task<DateTime?> GetLatestNewsDateAsync(string databasePath, CancellationToken ct)
+        {
+            await using var conn = new SqliteConnection($"Data Source={databasePath}");
+            await conn.OpenAsync(ct);
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT MAX(date(CreatedAt)) FROM RawNews;";
+            var value = await cmd.ExecuteScalarAsync(ct);
+            return value is string s && DateTime.TryParse(s, out var d) ? d : null;
+        }
+
+        /// <summary>
+        /// 블로그 소재 발굴 파이프라인.
+        ///   --analyze-keywords : 검색수·경쟁 조회부터 사이트 생성까지 전부
+        ///   --export-keywords  : API 호출 없이 DB에 있는 분석 결과로 사이트만 다시 생성
+        /// </summary>
+        private async Task RunKeywordOpportunityAsync(bool analyze, CancellationToken ct)
+        {
+            var databasePath = ResolveDatabasePath();
+            await InitializeDatabaseAsync(databasePath, ct);
+
+            if (analyze)
+            {
+                _logger.LogInformation("[기회] 블로그 소재 분석 시작 (최근 7일 키워드 기준)");
+                var n = await _keywordOpportunity.AnalyzeAndSaveAsync(
+                    databasePath,
+                    days: 7,
+                    minSearchVolume: 100,   // 월 100회 미만이면 글을 써도 볼 사람이 거의 없다
+                    maxKeywords: 120,
+                    includeRelated: true,   // 연관 키워드까지 받아 후보를 넓힌다
+                    ct);
+                if (n == 0)
+                {
+                    _logger.LogWarning("[기회] 분석 결과가 없어 사이트 생성을 건너뜁니다");
+                    return;
+                }
+            }
+
+            var siteRoot = Path.GetFullPath(Path.Combine(KeywordDataDirectory, "..", ".."));
+            var pages = await KeywordSiteGenerator.GenerateFromDatabaseAsync(databasePath, siteRoot, ct);
+            _logger.LogInformation("[기회] 정적 페이지 생성 완료 — {n}개 (public/)", pages);
         }
 
         private static async Task InitializeDatabaseAsync(string databasePath, CancellationToken cancellationToken)

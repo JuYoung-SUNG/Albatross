@@ -65,6 +65,11 @@ try
             // 뉴스 키워드 추출기 (RawNews 급상승 통계 + 로컬 Gemma 정제 + DataLab 검색량)
             services.AddSingleton<KeywordExtractionService>();
 
+            // 블로그 소재 발굴 — 검색광고 API(월간 검색수)와 블로그 검색 API(경쟁·상위글)
+            services.AddHttpClient<NaverSearchAdService>();
+            services.AddHttpClient<NaverBlogSearchService>();
+            services.AddSingleton<KeywordOpportunityService>();
+
             services.AddSingleton<Worker>();
             services.AddHostedService<Worker>(sp => sp.GetRequiredService<Worker>());
         })
