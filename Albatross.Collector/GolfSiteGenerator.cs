@@ -252,21 +252,32 @@ namespace Albatross.Collector
         private static string BuildTournamentCard(GolfTournamentImporter.TournamentRow t, string today)
         {
             var search = $"{t.Title} {t.EngTitle} {t.Course}".ToLowerInvariant();
-            var done = string.CompareOrdinal(t.EndDate ?? t.StartDate, today) < 0;
+            var end = t.EndDate ?? t.StartDate;
+
+            // 진행 상태를 라벨로 먼저 보여준다 — 일정표에서 제일 먼저 찾는 정보다
+            var (status, statusCls) =
+                string.CompareOrdinal(end, today) < 0 ? ("종료", "done")
+                : string.CompareOrdinal(t.StartDate, today) <= 0 ? ("진행중", "live")
+                : ("예정", "planned");
+
             var sb = new StringBuilder();
             sb.AppendLine($"""
                 <article class="card" data-tier="{E(t.Tier)}" data-search="{E(search)}">
                   <a class="cardlink" href="/tournament/{E(t.Slug)}/">
-                    <span class="badge {TierClass(t.Tier)}">{E(t.Tier)}</span>
+                    <p class="labels">
+                      <span class="label {statusCls}">{status}</span>
+                      <span class="label tier {TierClass(t.Tier)}">{E(t.Tier)}</span>
+                    </p>
                     <h3>{E(t.Title)}</h3>
                     <p class="when">{E(FormatRange(t.StartDate, t.EndDate))}</p>
                 """);
-            if (t.PrizeMoney is { } p)
-                sb.AppendLine($"""<p class="prize">총상금 {E(FormatMoney(p))}</p>""");
             if (t.Course != null)
                 sb.AppendLine($"""<p class="course">{E(t.Course)}</p>""");
-            if (done && t.WinnerName != null)
-                sb.AppendLine($"""<p class="winner">우승 <strong>{E(t.WinnerName)}</strong></p>""");
+            sb.AppendLine("""<span class="divider"></span>""");
+            if (t.PrizeMoney is { } p)
+                sb.AppendLine($"""<p class="prize"><span>총상금</span><strong>{E(FormatMoney(p))}</strong></p>""");
+            if (status == "종료" && t.WinnerName != null)
+                sb.AppendLine($"""<p class="winner"><span>우승</span><strong>{E(t.WinnerName)}</strong></p>""");
             sb.AppendLine("""</a></article>""");
             return sb.ToString();
         }
@@ -374,36 +385,69 @@ namespace Albatross.Collector
                   <p class="lede">상금과 대상포인트부터 벙커세이브율까지 <strong>{groups.Count}개 부문</strong>의
                      상위 선수입니다. 부문마다 잘하는 선수가 다릅니다.</p>
                 </section>
-                <section class="toolbar" id="filters">
-                  <label class="search"><input type="search" id="q" placeholder="부문 이름으로 찾기" autocomplete="off"></label>
-                </section>
-                <p class="count" id="count"></p>
-                <div class="recgrid" id="grid">
                 """);
 
-            foreach (var g in ordered)
+            // 부문이 35개라 한 화면에 다 깔면 읽히지 않는다. 묶음 탭으로 나눈다.
+            var tabs = new (string Name, string[] Cats)[]
             {
-                body.AppendLine($"""
-                    <section class="reccard" data-search="{E(g!.Key.ToLowerInvariant())}">
-                      <h2>{E(g.Key)}</h2>
-                      <ol class="ranklist">
-                    """);
-                foreach (var e in g.OrderBy(x => x.Rank).Take(5))
+                ("주요", GolfRecordImporter.FeaturedCategories),
+                ("타수·스코어", new[] { "평균타수", "파3성적", "파4성적", "파5성적", "파브레이크율", "60타대 라운드획득률", "탑텐피니쉬율" }),
+                ("버디·이글", new[] { "평균버디", "버디율", "파3평균버디", "파4평균버디", "파5평균버디", "이글", "홀인원" }),
+                ("샷", new[] { "드라이브 거리", "페어웨이안착률", "그린적중률", "파3그린적중률", "파4그린적중률", "파5그린적중률", "아이언샷 지수", "드라이빙 지수", "히팅능력지수" }),
+                ("퍼팅·리커버리", new[] { "평균퍼팅", "파3평균퍼팅", "파4평균퍼팅", "파5평균퍼팅", "벙커세이브율", "리커버리율", "필드샷과 퍼팅비율", "종합 능력 지수" }),
+            };
+
+            body.AppendLine("""<nav class="tabs" id="tabs">""");
+            for (var i = 0; i < tabs.Length; i++)
+                body.AppendLine($"""<button class="tab{(i == 0 ? " on" : "")}" data-tab="{i}">{E(tabs[i].Name)}</button>""");
+            body.AppendLine("""</nav>""");
+
+            var used = new HashSet<string>(StringComparer.Ordinal);
+            for (var i = 0; i < tabs.Length; i++)
+            {
+                var cats = tabs[i].Cats
+                    .Select(c => groups.FirstOrDefault(g => g.Key == c))
+                    .Where(g => g != null).ToList();
+
+                // 마지막 탭에는 어디에도 안 들어간 부문을 모아 빠뜨리지 않는다
+                if (i == tabs.Length - 1)
+                    cats.AddRange(ordered.Where(g => g != null && !used.Contains(g.Key) && !cats.Contains(g))!);
+                foreach (var g in cats) used.Add(g!.Key);
+
+                body.AppendLine($"""<div class="tabpanel recgrid" data-tab="{i}"{(i == 0 ? "" : " hidden")}>""");
+                foreach (var g in cats)
                 {
-                    body.AppendLine($"""
-                        <li>
-                          <span class="rk">{e.Rank}</span>
-                          <a class="pn" href="/player/{E(e.PlayerCode)}/">{E(e.PlayerName)}</a>
-                          <span class="tm">{E(e.Team ?? "")}</span>
-                          <span class="vl">{E(e.Value)}</span>
-                        </li>
-                        """);
+                    body.AppendLine($"""<section class="reccard"><h2>{E(g!.Key)}</h2><ol class="ranklist">""");
+                    foreach (var e in g.OrderBy(x => x.Rank).Take(5))
+                        body.AppendLine($"""
+                            <li>
+                              <span class="rk">{e.Rank}</span>
+                              <a class="pn" href="/player/{E(e.PlayerCode)}/">{E(e.PlayerName)}</a>
+                              <span class="tm">{E(e.Team ?? "")}</span>
+                              <span class="vl">{E(e.Value)}</span>
+                            </li>
+                            """);
+                    body.AppendLine("""</ol></section>""");
                 }
-                body.AppendLine("""</ol></section>""");
+                body.AppendLine("""</div>""");
             }
 
-            body.AppendLine("""</div><p class="noresult" id="noresult" hidden>해당 부문이 없습니다.</p>""");
-            body.AppendLine(FilterScript("reccard", "search"));
+            body.AppendLine("""
+                <script>
+                (function(){
+                  var nav=document.getElementById('tabs');
+                  if(!nav)return;
+                  nav.addEventListener('click',function(e){
+                    var b=e.target.closest('.tab'); if(!b)return;
+                    [].forEach.call(nav.querySelectorAll('.tab'),function(x){x.classList.remove('on');});
+                    b.classList.add('on');
+                    [].forEach.call(document.querySelectorAll('.tabpanel'),function(p){
+                      p.hidden = p.dataset.tab !== b.dataset.tab;
+                    });
+                  });
+                })();
+                </script>
+                """);
             body.AppendLine("""
                 <section class="provenance">
                   <p class="asof">KLPGA 공식 기록실 기준입니다. 부문별 상위 5명만 표시합니다.</p>
