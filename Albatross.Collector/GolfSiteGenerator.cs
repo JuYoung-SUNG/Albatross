@@ -35,25 +35,33 @@ namespace Albatross.Collector
         public static async Task<int> GenerateAsync(
             List<GolfRangeDto> ranges,
             List<GolfTournamentImporter.TournamentRow> tournaments,
+            List<GolfRecordImporter.RankingRow> rankings,
+            List<GolfRecordImporter.PlayerRow> players,
             string outputDir,
             CancellationToken ct)
         {
             Directory.CreateDirectory(outputDir);
             var pages = 0;
 
-            // 홈 — 대회 중심. 연습장 목록은 /ranges/ 로 내렸다.
-            await Write(Path.Combine(outputDir, "index.html"), BuildHome(tournaments, ranges));
+            // 홈 — 대회 + 기록 요약. 연습장 목록은 /ranges/ 로 내렸다.
+            await Write(Path.Combine(outputDir, "index.html"), BuildHome(tournaments, rankings, ranges));
             await Write(Path.Combine(outputDir, "tier", "index.html"), BuildTierGuide(tournaments));
+            await Write(Path.Combine(outputDir, "record", "index.html"), BuildRecordIndex(rankings));
+            await Write(Path.Combine(outputDir, "player", "index.html"), BuildPlayerIndex(players, rankings));
             await Write(Path.Combine(outputDir, "ranges", "index.html"), BuildRangeIndex(ranges));
 
             foreach (var t in tournaments.Where(t => t.Season >= DateTime.Now.Year - 1))
                 await Write(Path.Combine(outputDir, "tournament", t.Slug, "index.html"), BuildTournamentDetail(t, tournaments));
 
+            foreach (var p in players)
+                await Write(Path.Combine(outputDir, "player", p.PlayerCode, "index.html"),
+                    BuildPlayerDetail(p, rankings, tournaments));
+
             foreach (var r in ranges)
                 await Write(Path.Combine(outputDir, "range", r.Slug, "index.html"), BuildDetail(r));
 
             await File.WriteAllTextAsync(Path.Combine(outputDir, "sitemap.xml"),
-                BuildSitemap(ranges, tournaments), Encoding.UTF8, ct);
+                BuildSitemap(ranges, tournaments, players), Encoding.UTF8, ct);
             await File.WriteAllTextAsync(Path.Combine(outputDir, "robots.txt"), BuildRobots(), Encoding.UTF8, ct);
 
             return pages;
@@ -93,7 +101,10 @@ namespace Albatross.Collector
                 <body>
                 <header class="topbar">
                   <a class="brand" href="/"><span class="mark">⛳</span> Albatross <em>Golf</em></a>
-                  <nav><a href="/">대회</a><a href="/tier/">등급 기준</a><a href="/ranges/">연습장</a></nav>
+                  <nav>
+                    <a href="/">대회</a><a href="/record/">기록</a><a href="/player/">선수</a>
+                    <a href="/tier/">등급 기준</a><a href="/ranges/">연습장</a>
+                  </nav>
                 </header>
                 <main>
                 {bodyHtml}
@@ -109,7 +120,10 @@ namespace Albatross.Collector
         }
 
         // ── 홈: 대회 중심 ─────────────────────────────────────────────
-        private static string BuildHome(List<GolfTournamentImporter.TournamentRow> all, List<GolfRangeDto> ranges)
+        private static string BuildHome(
+            List<GolfTournamentImporter.TournamentRow> all,
+            List<GolfRecordImporter.RankingRow> rankings,
+            List<GolfRangeDto> ranges)
         {
             var season = all.Count > 0 ? all.Max(t => t.Season) : DateTime.Now.Year;
             var year = all.Where(t => t.Season == season).OrderBy(t => t.StartDate).ToList();
@@ -179,6 +193,34 @@ namespace Albatross.Collector
             foreach (var t in regular) body.AppendLine(BuildTournamentCard(t, today));
 
             body.AppendLine("""</div><p class="noresult" id="noresult" hidden>조건에 맞는 대회가 없습니다.</p>""");
+
+            // 기록 요약 — 상금·대상포인트만 맛보기로 보여주고 나머지는 /record/ 로 보낸다
+            var featured = new[] { "상금순위", "대상포인트", "평균타수" };
+            var recGroups = rankings.Where(r => featured.Contains(r.Category))
+                                    .GroupBy(r => r.Category).ToList();
+            if (recGroups.Count > 0)
+            {
+                body.AppendLine("""
+                    <section class="block">
+                      <div class="blockhead"><h2>지금 잘하고 있는 선수</h2><a class="more" href="/record/">전체 기록 →</a></div>
+                      <div class="recgrid">
+                    """);
+                foreach (var f in featured)
+                {
+                    var g = recGroups.FirstOrDefault(x => x.Key == f);
+                    if (g == null) continue;
+                    body.AppendLine($"""<section class="reccard"><h3>{E(g.Key)}</h3><ol class="ranklist">""");
+                    foreach (var e in g.OrderBy(x => x.Rank).Take(5))
+                        body.AppendLine($"""
+                            <li><span class="rk">{e.Rank}</span>
+                              <a class="pn" href="/player/{E(e.PlayerCode)}/">{E(e.PlayerName)}</a>
+                              <span class="tm">{E(e.Team ?? "")}</span>
+                              <span class="vl">{E(e.Value)}</span></li>
+                            """);
+                    body.AppendLine("""</ol></section>""");
+                }
+                body.AppendLine("""</div></section>""");
+            }
 
             // 다른 투어
             var others = year.Where(t => t.TourType != "RE").GroupBy(t => t.Tier).ToList();
@@ -303,6 +345,204 @@ namespace Albatross.Collector
             return Page($"{t.Title} 총상금·일정·우승자 — {SiteName}",
                 desc.Length > 155 ? desc[..152] + "..." : desc,
                 $"/tournament/{t.Slug}/", body.ToString(), BuildTournamentJsonLd(t));
+        }
+
+        // ── 기록: 부문별 랭킹 ─────────────────────────────────────────
+        private static string BuildRecordIndex(List<GolfRecordImporter.RankingRow> rankings)
+        {
+            var body = new StringBuilder();
+            if (rankings.Count == 0)
+            {
+                body.AppendLine("""<h1>기록</h1><p class="empty">기록을 준비하고 있습니다.</p>""");
+                return Page($"KLPGA 기록 — {SiteName}", "KLPGA 부문별 랭킹입니다.", "/record/", body.ToString());
+            }
+
+            var season = rankings[0].Season;
+            var groups = rankings.GroupBy(r => r.Category).ToList();
+
+            // 주요 부문을 앞으로, 나머지는 원래 순서대로
+            var ordered = GolfRecordImporter.FeaturedCategories
+                .Select(f => groups.FirstOrDefault(g => g.Key == f))
+                .Where(g => g != null)
+                .Concat(groups.Where(g => !GolfRecordImporter.FeaturedCategories.Contains(g.Key)))
+                .ToList();
+
+            body.AppendLine($"""
+                <section class="hero compact">
+                  <p class="kicker">KLPGA {season} 시즌</p>
+                  <h1>누가 잘하고 있나</h1>
+                  <p class="lede">상금과 대상포인트부터 벙커세이브율까지 <strong>{groups.Count}개 부문</strong>의
+                     상위 선수입니다. 부문마다 잘하는 선수가 다릅니다.</p>
+                </section>
+                <section class="toolbar" id="filters">
+                  <label class="search"><input type="search" id="q" placeholder="부문 이름으로 찾기" autocomplete="off"></label>
+                </section>
+                <p class="count" id="count"></p>
+                <div class="recgrid" id="grid">
+                """);
+
+            foreach (var g in ordered)
+            {
+                body.AppendLine($"""
+                    <section class="reccard" data-search="{E(g!.Key.ToLowerInvariant())}">
+                      <h2>{E(g.Key)}</h2>
+                      <ol class="ranklist">
+                    """);
+                foreach (var e in g.OrderBy(x => x.Rank).Take(5))
+                {
+                    body.AppendLine($"""
+                        <li>
+                          <span class="rk">{e.Rank}</span>
+                          <a class="pn" href="/player/{E(e.PlayerCode)}/">{E(e.PlayerName)}</a>
+                          <span class="tm">{E(e.Team ?? "")}</span>
+                          <span class="vl">{E(e.Value)}</span>
+                        </li>
+                        """);
+                }
+                body.AppendLine("""</ol></section>""");
+            }
+
+            body.AppendLine("""</div><p class="noresult" id="noresult" hidden>해당 부문이 없습니다.</p>""");
+            body.AppendLine(FilterScript("reccard", "search"));
+            body.AppendLine("""
+                <section class="provenance">
+                  <p class="asof">KLPGA 공식 기록실 기준입니다. 부문별 상위 5명만 표시합니다.</p>
+                </section>
+                """);
+
+            return Page($"KLPGA {season} 기록 — 상금·대상포인트·평균타수 랭킹 | {SiteName}",
+                $"KLPGA {season} 시즌 상금순위, 대상포인트, 평균타수, 드라이브 거리 등 {groups.Count}개 부문의 상위 선수 기록입니다.",
+                "/record/", body.ToString());
+        }
+
+        // ── 선수 목록 ─────────────────────────────────────────────────
+        private static string BuildPlayerIndex(
+            List<GolfRecordImporter.PlayerRow> players, List<GolfRecordImporter.RankingRow> rankings)
+        {
+            var body = new StringBuilder();
+            if (players.Count == 0)
+            {
+                body.AppendLine("""<h1>선수</h1><p class="empty">선수 정보를 준비하고 있습니다.</p>""");
+                return Page($"KLPGA 선수 — {SiteName}", "KLPGA 선수 기록입니다.", "/player/", body.ToString());
+            }
+
+            var season = players[0].Season;
+            body.AppendLine($"""
+                <section class="hero compact">
+                  <p class="kicker">KLPGA {season} 시즌</p>
+                  <h1>기록에 이름을 올린 선수</h1>
+                  <p class="lede">35개 부문 상위 5위 안에 든 <strong>{players.Count}명</strong>입니다.
+                     여러 부문에 걸쳐 이름이 나올수록 시즌 전반이 좋다는 뜻입니다.</p>
+                </section>
+                <section class="toolbar" id="filters">
+                  <label class="search"><input type="search" id="q" placeholder="선수 이름이나 소속으로 찾기" autocomplete="off"></label>
+                </section>
+                <p class="count" id="count"></p>
+                <div class="grid" id="grid">
+                """);
+
+            foreach (var p in players)
+            {
+                var search = $"{p.Name} {p.Team}".ToLowerInvariant();
+                body.AppendLine($"""
+                    <article class="card pcard" data-search="{E(search)}">
+                      <a class="cardlink" href="/player/{E(p.PlayerCode)}/">
+                        <h3>{E(p.Name)}</h3>
+                        <p class="team">{E(p.Team ?? "소속 미상")}</p>
+                        <p class="best">{E(p.BestCategory ?? "")} <strong>{p.BestRank}위</strong></p>
+                        <p class="cnt">{p.RankCount}개 부문 진입</p>
+                      </a>
+                    </article>
+                    """);
+            }
+
+            body.AppendLine("""</div><p class="noresult" id="noresult" hidden>해당 선수가 없습니다.</p>""");
+            body.AppendLine(FilterScript("pcard", "search"));
+
+            return Page($"KLPGA {season} 선수 기록 — {SiteName}",
+                $"KLPGA {season} 시즌 부문별 상위에 오른 선수 {players.Count}명의 기록입니다.",
+                "/player/", body.ToString());
+        }
+
+        // ── 선수 상세 ─────────────────────────────────────────────────
+        private static string BuildPlayerDetail(
+            GolfRecordImporter.PlayerRow p,
+            List<GolfRecordImporter.RankingRow> rankings,
+            List<GolfTournamentImporter.TournamentRow> tournaments)
+        {
+            var mine = rankings.Where(r => r.PlayerCode == p.PlayerCode).OrderBy(r => r.Rank).ToList();
+
+            // 우승은 반드시 "언제, 어느 투어에서"를 구분해야 한다.
+            // 전부 합쳐서 세면 2부 드림투어 우승이 정규투어 우승처럼 읽힌다 —
+            // 실제로 한 선수의 통산 9승(정규 5 + 드림 4)이 "시즌 9승"으로 표시된 적이 있다.
+            var allWins = tournaments
+                .Where(t => t.WinnerName != null && t.WinnerName == p.Name)
+                .OrderByDescending(t => t.StartDate).ToList();
+            var seasonRegular = allWins.Count(t => t.Season == p.Season && t.TourType == "RE");
+            var careerRegular = allWins.Count(t => t.TourType == "RE");
+            var careerOther = allWins.Count - careerRegular;
+
+            var body = new StringBuilder();
+            body.AppendLine($"""
+                <nav class="crumb"><a href="/player/">선수</a> › <span>{E(p.Name)}</span></nav>
+                <h1>{E(p.Name)}</h1>
+                <p class="chips"><span class="chip">{E(p.Team ?? "소속 미상")}</span><span class="chip">{p.Season} 시즌</span></p>
+                """);
+
+            body.AppendLine("""<section class="keyfacts">""");
+            body.AppendLine(KeyFact("최고 순위", p.BestCategory is null ? null : $"{p.BestCategory} {p.BestRank}위", true));
+            body.AppendLine(KeyFact("진입 부문", $"{p.RankCount}개"));
+            body.AppendLine(KeyFact($"{p.Season} 정규투어 우승", $"{seasonRegular}승"));
+            body.AppendLine(KeyFact("정규투어 통산",
+                careerOther > 0 ? $"{careerRegular}승 (2부 {careerOther}승 별도)" : $"{careerRegular}승"));
+            body.AppendLine("""</section>""");
+
+            if (allWins.Count > 0)
+            {
+                body.AppendLine("""<section class="block"><h2>우승 기록</h2><ul class="linklist wins">""");
+                foreach (var w in allWins.Take(15))
+                {
+                    // 정규투어가 아니면 어떤 투어인지 분명히 적는다
+                    var tag = w.TourType == "RE"
+                        ? (w.Tier == "메이저" ? """<span class="wtag major">메이저</span>""" : "")
+                        : $"""<span class="wtag sub">{E(w.Tier)}</span>""";
+                    body.AppendLine($"""
+                        <li><span class="wyear">{w.Season}</span>
+                          <a href="/tournament/{E(w.Slug)}/">{E(w.Title)}</a>{tag}</li>
+                        """);
+                }
+                if (allWins.Count > 15)
+                    body.AppendLine($"""<li class="dim">그 밖에 {allWins.Count - 15}승</li>""");
+                body.AppendLine("""</ul>""");
+                body.AppendLine($"""
+                    <p class="dim">수집한 2019~{tournaments.Max(t => t.Season)} 시즌 기준입니다.
+                       그 이전 우승은 포함되지 않습니다.</p>
+                    </section>
+                    """);
+            }
+
+            if (mine.Count > 0)
+            {
+                body.AppendLine("""<section class="block"><h2>부문별 기록</h2><div class="tablewrap"><table class="rank"><tbody>""");
+                foreach (var r in mine)
+                    body.AppendLine($"""<tr><th>{E(r.Category)}</th><td class="rk">{r.Rank}위</td><td class="vl">{E(r.Value)}</td></tr>""");
+                body.AppendLine("""</tbody></table></div></section>""");
+            }
+
+            body.AppendLine("""
+                <section class="provenance">
+                  <p class="asof">KLPGA 공식 기록실 기준입니다. 부문별 상위 5위 안에 든 기록만 표시하므로,
+                     실제 성적의 일부만 보여줍니다.</p>
+                </section>
+                <p class="back"><a href="/player/">← 다른 선수 보기</a></p>
+                """);
+
+            var desc = $"{p.Name} ({p.Team ?? "소속 미상"}) KLPGA {p.Season} 시즌 기록 · {p.BestCategory} {p.BestRank}위 · {p.RankCount}개 부문 진입"
+                       + (seasonRegular > 0 ? $" · {p.Season} 정규투어 {seasonRegular}승" : "");
+
+            return Page($"{p.Name} KLPGA {p.Season} 기록·우승 — {SiteName}",
+                desc.Length > 155 ? desc[..152] + "..." : desc,
+                $"/player/{p.PlayerCode}/", body.ToString());
         }
 
         // ── 등급 안내 ─────────────────────────────────────────────────
@@ -736,7 +976,9 @@ namespace Albatross.Collector
 
         // ── 색인용 파일 ───────────────────────────────────────────────
         private static string BuildSitemap(
-            List<GolfRangeDto> ranges, List<GolfTournamentImporter.TournamentRow> tournaments)
+            List<GolfRangeDto> ranges,
+            List<GolfTournamentImporter.TournamentRow> tournaments,
+            List<GolfRecordImporter.PlayerRow> players)
         {
             var today = DateTime.Now.ToString("yyyy-MM-dd");
             var sb = new StringBuilder();
@@ -744,8 +986,13 @@ namespace Albatross.Collector
             sb.AppendLine("""<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">""");
 
             Add("/", today, "weekly", "1.0");
+            Add("/record/", today, "weekly", "0.9");
+            Add("/player/", today, "weekly", "0.8");
             Add("/tier/", today, "monthly", "0.9");
             Add("/ranges/", today, "weekly", "0.7");
+
+            foreach (var p in players)
+                Add($"/player/{p.PlayerCode}/", today, "weekly", "0.7");
 
             // 시즌 중인 대회는 결과가 계속 바뀌므로 자주 확인해달라고 알린다
             foreach (var t in tournaments.Where(t => t.Season >= DateTime.Now.Year - 1))

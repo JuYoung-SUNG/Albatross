@@ -211,8 +211,10 @@ namespace Albatross.Collector
             }
 
             var tournaments = await GolfTournamentImporter.LoadAsync(databasePath, ct);
+            var rankings = await GolfRecordImporter.LoadRankingsAsync(databasePath, ct);
+            var players = await GolfRecordImporter.LoadPlayersAsync(databasePath, ct);
             var publicDir = Path.Combine(siteRoot, "public");
-            return await GolfSiteGenerator.GenerateAsync(ranges, tournaments, publicDir, ct);
+            return await GolfSiteGenerator.GenerateAsync(ranges, tournaments, rankings, players, publicDir, ct);
         }
 
         private static List<string> DeserializeList(string json)

@@ -22,6 +22,7 @@ namespace Albatross.Collector
         private readonly KeywordExtractionService _keywordExtractor;
         private readonly KeywordOpportunityService _keywordOpportunity;
         private readonly KlpgaTourService _klpgaTour;
+        private readonly KlpgaRecordService _klpgaRecord;
         private readonly IConfiguration _config;
         private readonly HttpClient _httpClient;
         private readonly IHostApplicationLifetime _appLifetime;
@@ -42,6 +43,7 @@ namespace Albatross.Collector
             KeywordExtractionService keywordExtractor,
             KeywordOpportunityService keywordOpportunity,
             KlpgaTourService klpgaTour,
+            KlpgaRecordService klpgaRecord,
             IConfiguration config,
             IHttpClientFactory httpClientFactory,
             IHostApplicationLifetime appLifetime)
@@ -53,6 +55,7 @@ namespace Albatross.Collector
             _keywordExtractor = keywordExtractor;
             _keywordOpportunity = keywordOpportunity;
             _klpgaTour = klpgaTour;
+            _klpgaRecord = klpgaRecord;
             _classifier = classifier;
             _config = config;
             _httpClient = httpClientFactory.CreateClient();
@@ -610,6 +613,15 @@ namespace Albatross.Collector
             var (added, updated) = await GolfTournamentImporter.ImportAsync(databasePath, all, ct);
             _logger.LogInformation("[대회] 저장 완료 — 신규 {a}개, 갱신 {u}개 ({y})",
                 added, updated, string.Join(", ", years));
+
+            // 부문별 랭킹은 현재 시즌만 의미가 있다 (지난 시즌 페이지는 협회가 유지하지 않는다)
+            var current = years.Max();
+            var rankings = await _klpgaRecord.GetRankingsAsync(current, topN: 10, ct);
+            if (rankings.Count > 0)
+            {
+                var saved = await GolfRecordImporter.ImportAsync(databasePath, current, rankings, ct);
+                _logger.LogInformation("[기록] {season} {c}개 부문 {n}건 저장", current, rankings.Count, saved);
+            }
 
             var exported = await GolfTournamentImporter.ExportAsync(databasePath, GolfDataDirectory, ct);
             _logger.LogInformation("[대회] golf-tournaments.json 내보내기 완료 — {n}개", exported);

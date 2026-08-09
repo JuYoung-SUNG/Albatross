@@ -67,6 +67,8 @@ try
 
             // KLPGA 대회 일정·결과 수집 (협회 공식 사이트의 대회 목록 JSON)
             services.AddHttpClient<KlpgaTourService>();
+            // 부문별 랭킹(상금·대상포인트·평균타수 등 35개 부문)
+            services.AddHttpClient<KlpgaRecordService>();
 
             // 블로그 소재 발굴 — 검색광고 API(월간 검색수)와 블로그 검색 API(경쟁·상위글)
             services.AddHttpClient<NaverSearchAdService>();
