@@ -21,6 +21,7 @@ namespace Albatross.Collector
         private readonly GemmaClassificationService _classifier;
         private readonly KeywordExtractionService _keywordExtractor;
         private readonly KeywordOpportunityService _keywordOpportunity;
+        private readonly KlpgaTourService _klpgaTour;
         private readonly IConfiguration _config;
         private readonly HttpClient _httpClient;
         private readonly IHostApplicationLifetime _appLifetime;
@@ -40,6 +41,7 @@ namespace Albatross.Collector
             GemmaClassificationService classifier,
             KeywordExtractionService keywordExtractor,
             KeywordOpportunityService keywordOpportunity,
+            KlpgaTourService klpgaTour,
             IConfiguration config,
             IHttpClientFactory httpClientFactory,
             IHostApplicationLifetime appLifetime)
@@ -50,6 +52,7 @@ namespace Albatross.Collector
             _naverNews = naverNews;
             _keywordExtractor = keywordExtractor;
             _keywordOpportunity = keywordOpportunity;
+            _klpgaTour = klpgaTour;
             _classifier = classifier;
             _config = config;
             _httpClient = httpClientFactory.CreateClient();
@@ -90,6 +93,9 @@ namespace Albatross.Collector
             // "이 주제로 쓰면 될 것 같다" 목록을 만들고 사이트까지 생성하는 모드
             var analyzeKeywords = Environment.GetCommandLineArgs().Contains("--analyze-keywords");
             var exportKeywords = Environment.GetCommandLineArgs().Contains("--export-keywords");
+            // KLPGA 대회 일정·결과를 협회 사이트에서 받아 저장하고 골프 사이트를 다시 생성하는 모드
+            //   사용법: --collect-tournaments [연도]   (연도 생략 시 올해)
+            var collectTournaments = Environment.GetCommandLineArgs().Contains("--collect-tournaments");
 
             if (backfillSeason)
             {
@@ -177,6 +183,13 @@ namespace Albatross.Collector
                 var siteRoot = Path.GetFullPath(Path.Combine(GolfDataDirectory, "..", ".."));
                 var pages = await GolfContentImporter.GenerateSiteAsync(golfDbPath, siteRoot, stoppingToken);
                 _logger.LogInformation("[골프] 정적 페이지 생성 완료 — {n}개 (public/)", pages);
+                _appLifetime.StopApplication();
+                return;
+            }
+
+            if (collectTournaments)
+            {
+                await RunTournamentCollectionAsync(stoppingToken);
                 _appLifetime.StopApplication();
                 return;
             }
@@ -560,6 +573,50 @@ namespace Albatross.Collector
             _logger.LogInformation("[키워드] 추출 시작 — 대상 {s} ~ {e}", start, end);
             var count = await _keywordExtractor.ExtractAndSaveAsync(databasePath, start, end, baselineDays: 7, topCandidates: 120, ct);
             _logger.LogInformation("[키워드] 완료 — NewsKeywords에 {n}개 저장", count);
+        }
+
+        /// <summary>
+        /// KLPGA 대회 수집. 인자로 연도를 여러 개 줄 수 있다 (예: --collect-tournaments 2025 2026).
+        /// 연도를 생략하면 올해만 받는다.
+        /// </summary>
+        private async Task RunTournamentCollectionAsync(CancellationToken ct)
+        {
+            var databasePath = ResolveDatabasePath();
+            await InitializeDatabaseAsync(databasePath, ct);
+
+            var args = Environment.GetCommandLineArgs();
+            var idx = Array.IndexOf(args, "--collect-tournaments");
+            var years = args.Skip(idx + 1)
+                .TakeWhile(a => !a.StartsWith("--", StringComparison.Ordinal))
+                .Select(a => int.TryParse(a, out var y) ? y : 0)
+                .Where(y => y is >= 1978 and <= 2100)
+                .ToList();
+            if (years.Count == 0) years.Add(GetKoreaNow().Year);
+
+            var all = new List<KlpgaTourService.Tournament>();
+            foreach (var year in years)
+            {
+                var list = await _klpgaTour.GetTournamentsAsync(year, ct);
+                all.AddRange(list);
+                await Task.Delay(500, ct);   // 협회 서버에 부담 주지 않도록 간격을 둔다
+            }
+
+            if (all.Count == 0)
+            {
+                _logger.LogWarning("[대회] 가져온 대회가 없습니다 — 협회 사이트 응답을 확인하세요");
+                return;
+            }
+
+            var (added, updated) = await GolfTournamentImporter.ImportAsync(databasePath, all, ct);
+            _logger.LogInformation("[대회] 저장 완료 — 신규 {a}개, 갱신 {u}개 ({y})",
+                added, updated, string.Join(", ", years));
+
+            var exported = await GolfTournamentImporter.ExportAsync(databasePath, GolfDataDirectory, ct);
+            _logger.LogInformation("[대회] golf-tournaments.json 내보내기 완료 — {n}개", exported);
+
+            var siteRoot = Path.GetFullPath(Path.Combine(GolfDataDirectory, "..", ".."));
+            var pages = await GolfContentImporter.GenerateSiteAsync(databasePath, siteRoot, ct);
+            _logger.LogInformation("[대회] 골프 사이트 재생성 완료 — {n}개 페이지", pages);
         }
 
         /// <summary>RawNews에 실제로 데이터가 있는 가장 최근 날짜(KST 기준). 비어 있으면 null.</summary>
