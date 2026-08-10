@@ -37,9 +37,15 @@ namespace Albatross.Collector
             List<GolfTournamentImporter.TournamentRow> tournaments,
             List<GolfRecordImporter.RankingRow> rankings,
             List<GolfRecordImporter.PlayerRow> players,
+            List<GolfLeaderboardImporter.LeaderboardRow> leaderboards,
             string outputDir,
             CancellationToken ct)
         {
+            // 대회별 / 선수별로 미리 나눠두고 페이지마다 꺼내 쓴다
+            var boardByGame = leaderboards.GroupBy(l => l.GameCode)
+                .ToDictionary(g => g.Key, g => g.OrderBy(x => x.Rank).ToList());
+            var boardByPlayer = leaderboards.GroupBy(l => l.PlayerCode)
+                .ToDictionary(g => g.Key, g => g.ToList());
             Directory.CreateDirectory(outputDir);
             var pages = 0;
 
@@ -51,11 +57,14 @@ namespace Albatross.Collector
             await Write(Path.Combine(outputDir, "ranges", "index.html"), BuildRangeIndex(ranges));
 
             foreach (var t in tournaments.Where(t => t.Season >= DateTime.Now.Year - 1))
-                await Write(Path.Combine(outputDir, "tournament", t.Slug, "index.html"), BuildTournamentDetail(t, tournaments));
+                await Write(Path.Combine(outputDir, "tournament", t.Slug, "index.html"),
+                    BuildTournamentDetail(t, tournaments,
+                        boardByGame.GetValueOrDefault(t.GameCode) ?? new()));
 
             foreach (var p in players)
                 await Write(Path.Combine(outputDir, "player", p.PlayerCode, "index.html"),
-                    BuildPlayerDetail(p, rankings, tournaments));
+                    BuildPlayerDetail(p, rankings, tournaments,
+                        boardByPlayer.GetValueOrDefault(p.PlayerCode) ?? new()));
 
             foreach (var r in ranges)
                 await Write(Path.Combine(outputDir, "range", r.Slug, "index.html"), BuildDetail(r));
@@ -284,7 +293,9 @@ namespace Albatross.Collector
 
         // ── 대회 상세 ─────────────────────────────────────────────────
         private static string BuildTournamentDetail(
-            GolfTournamentImporter.TournamentRow t, List<GolfTournamentImporter.TournamentRow> all)
+            GolfTournamentImporter.TournamentRow t,
+            List<GolfTournamentImporter.TournamentRow> all,
+            List<GolfLeaderboardImporter.LeaderboardRow> board)
         {
             var body = new StringBuilder();
             body.AppendLine($"""
@@ -314,6 +325,43 @@ namespace Albatross.Collector
             Row("직전 우승자", t.DefendingName);
             Row("이번 우승자", t.WinnerName);
             if (rows.Length > 0) body.AppendLine($"""<table class="info"><tbody>{rows}</tbody></table>""");
+
+            // 최종 순위 — 우승자 한 명보다 상위권 흐름이 보이는 게 대회를 이해하는 데 낫다
+            if (board.Count > 0)
+            {
+                var hasR4 = board.Any(b => b.R4 is not null);
+                var hasR3 = board.Any(b => b.R3 is not null);
+                body.AppendLine($"""
+                    <section class="block">
+                      <h2>최종 순위</h2>
+                      <div class="tablewrap"><table class="board"><thead><tr>
+                        <th class="c-rank">순위</th><th>선수</th><th class="c-tot">합계</th>
+                        <th class="c-r">R1</th><th class="c-r">R2</th>
+                        {(hasR3 ? """<th class="c-r">R3</th>""" : "")}
+                        {(hasR4 ? """<th class="c-r">R4</th>""" : "")}
+                        <th class="c-tot">타수</th>
+                      </tr></thead><tbody>
+                    """);
+                foreach (var b in board.Take(20))
+                {
+                    var win = b.Rank == 1 ? " class=\"win\"" : "";
+                    body.AppendLine($"""
+                        <tr{win}>
+                          <td class="c-rank">{b.Rank}</td>
+                          <td><a href="/player/{E(b.PlayerCode)}/">{E(b.PlayerName)}</a></td>
+                          <td class="c-tot par">{E(b.TotalUnderPar ?? "-")}</td>
+                          <td class="c-r">{b.R1?.ToString() ?? "-"}</td>
+                          <td class="c-r">{b.R2?.ToString() ?? "-"}</td>
+                          {(hasR3 ? $"""<td class="c-r">{b.R3?.ToString() ?? "-"}</td>""" : "")}
+                          {(hasR4 ? $"""<td class="c-r">{b.R4?.ToString() ?? "-"}</td>""" : "")}
+                          <td class="c-tot">{b.TotalStrokes?.ToString() ?? "-"}</td>
+                        </tr>
+                        """);
+                }
+                body.AppendLine("""</tbody></table></div>""");
+                body.AppendLine("""<p class="dim">컷을 통과한 선수만 순위에 들어갑니다. 상위 20명까지 표시합니다.</p>""");
+                body.AppendLine("""</section>""");
+            }
 
             // 같은 대회의 지난 시즌 — 시즌이 다른 것만, 그리고 확실히 같은 대회일 때만
             var history = all.Where(x => x.Season != t.Season
@@ -512,7 +560,8 @@ namespace Albatross.Collector
         private static string BuildPlayerDetail(
             GolfRecordImporter.PlayerRow p,
             List<GolfRecordImporter.RankingRow> rankings,
-            List<GolfTournamentImporter.TournamentRow> tournaments)
+            List<GolfTournamentImporter.TournamentRow> tournaments,
+            List<GolfLeaderboardImporter.LeaderboardRow> results)
         {
             var mine = rankings.Where(r => r.PlayerCode == p.PlayerCode).OrderBy(r => r.Rank).ToList();
 
@@ -563,6 +612,45 @@ namespace Albatross.Collector
                        그 이전 우승은 포함되지 않습니다.</p>
                     </section>
                     """);
+            }
+
+            // 대회 성적 — 우승만이 아니라 어디서 어떻게 쳤는지가 보여야 선수를 알 수 있다
+            if (results.Count > 0)
+            {
+                var byGame = tournaments.Where(t => t.GameCode != null)
+                    .GroupBy(t => t.GameCode!).ToDictionary(g => g.Key, g => g.First());
+                var rows = results
+                    .Select(r => (Result: r, Tour: byGame.GetValueOrDefault(r.GameCode)))
+                    .Where(x => x.Tour != null)
+                    .OrderByDescending(x => x.Tour!.StartDate)
+                    .ToList();
+
+                if (rows.Count > 0)
+                {
+                    var top10 = rows.Count(x => x.Result.Rank <= 10);
+                    body.AppendLine($"""
+                        <section class="block">
+                          <h2>대회 성적</h2>
+                          <p class="dim">수집된 {rows.Count}개 대회 중 <strong>톱10 {top10}회</strong></p>
+                          <div class="tablewrap"><table class="board"><thead><tr>
+                            <th class="c-rank">순위</th><th>대회</th><th class="c-tot">합계</th><th class="c-tot">타수</th>
+                          </tr></thead><tbody>
+                        """);
+                    foreach (var (res, tour) in rows.Take(20))
+                    {
+                        var win = res.Rank == 1 ? " class=\"win\"" : "";
+                        body.AppendLine($"""
+                            <tr{win}>
+                              <td class="c-rank">{res.Rank}</td>
+                              <td><a href="/tournament/{E(tour!.Slug)}/">{E(tour.Title)}</a>
+                                  <span class="dim">{tour.Season}</span></td>
+                              <td class="c-tot par">{E(res.TotalUnderPar ?? "-")}</td>
+                              <td class="c-tot">{res.TotalStrokes?.ToString() ?? "-"}</td>
+                            </tr>
+                            """);
+                    }
+                    body.AppendLine("""</tbody></table></div></section>""");
+                }
             }
 
             if (mine.Count > 0)

@@ -208,7 +208,8 @@ namespace Albatross.Collector
         public sealed record TournamentRow(
             string Slug, string Title, string? EngTitle, string TourType, string Tier, string? TierReason,
             int Season, string StartDate, string? EndDate, long? PrizeMoney, string? MoneyUnit,
-            string? Course, int? Rounds, int? Par, int? EntryCount, string? WinnerName, string? DefendingName);
+            string? Course, int? Rounds, int? Par, int? EntryCount, string? WinnerName, string? DefendingName,
+            string? GameCode = null);
 
         public static async Task<List<TournamentRow>> LoadAsync(string databasePath, CancellationToken ct)
         {
@@ -220,7 +221,8 @@ namespace Albatross.Collector
             var cmd = conn.CreateCommand();
             cmd.CommandText = """
                 SELECT Slug, Title, EngTitle, TourType, Tier, TierReason, Season, StartDate, EndDate,
-                       PrizeMoney, MoneyUnit, Course, Rounds, Par, EntryCount, WinnerName, DefendingName
+                       PrizeMoney, MoneyUnit, Course, Rounds, Par, EntryCount, WinnerName, DefendingName,
+                       GameCode
                 FROM GolfTournaments
                 ORDER BY Season DESC, StartDate;
                 """;
@@ -233,7 +235,7 @@ namespace Albatross.Collector
                     r.GetString(0), r.GetString(1), S(2), r.GetString(3), r.GetString(4), S(5),
                     r.GetInt32(6), r.GetString(7), S(8),
                     r.IsDBNull(9) ? null : r.GetInt64(9), S(10),
-                    S(11), I(12), I(13), I(14), S(15), S(16)));
+                    S(11), I(12), I(13), I(14), S(15), S(16), S(17)));
             }
             return list;
         }

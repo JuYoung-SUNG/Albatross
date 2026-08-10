@@ -69,6 +69,8 @@ try
             services.AddHttpClient<KlpgaTourService>();
             // 부문별 랭킹(상금·대상포인트·평균타수 등 35개 부문)
             services.AddHttpClient<KlpgaRecordService>();
+            // 대회별 최종 순위 (응답이 대회당 1~2MB라 타임아웃을 서비스 안에서 늘려 둔다)
+            services.AddHttpClient<KlpgaLeaderboardService>();
 
             // 블로그 소재 발굴 — 검색광고 API(월간 검색수)와 블로그 검색 API(경쟁·상위글)
             services.AddHttpClient<NaverSearchAdService>();

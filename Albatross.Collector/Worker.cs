@@ -23,6 +23,7 @@ namespace Albatross.Collector
         private readonly KeywordOpportunityService _keywordOpportunity;
         private readonly KlpgaTourService _klpgaTour;
         private readonly KlpgaRecordService _klpgaRecord;
+        private readonly KlpgaLeaderboardService _klpgaLeaderboard;
         private readonly IConfiguration _config;
         private readonly HttpClient _httpClient;
         private readonly IHostApplicationLifetime _appLifetime;
@@ -44,6 +45,7 @@ namespace Albatross.Collector
             KeywordOpportunityService keywordOpportunity,
             KlpgaTourService klpgaTour,
             KlpgaRecordService klpgaRecord,
+            KlpgaLeaderboardService klpgaLeaderboard,
             IConfiguration config,
             IHttpClientFactory httpClientFactory,
             IHostApplicationLifetime appLifetime)
@@ -56,6 +58,7 @@ namespace Albatross.Collector
             _keywordOpportunity = keywordOpportunity;
             _klpgaTour = klpgaTour;
             _klpgaRecord = klpgaRecord;
+            _klpgaLeaderboard = klpgaLeaderboard;
             _classifier = classifier;
             _config = config;
             _httpClient = httpClientFactory.CreateClient();
@@ -621,6 +624,33 @@ namespace Albatross.Collector
             {
                 var saved = await GolfRecordImporter.ImportAsync(databasePath, current, rankings, ct);
                 _logger.LogInformation("[기록] {season} {c}개 부문 {n}건 저장", current, rankings.Count, saved);
+            }
+
+            // 대회별 최종 순위 — 이미 받아둔 대회는 건너뛰므로 주간 실행 시 새 대회만 받는다
+            var missing = await GolfLeaderboardImporter.FindMissingAsync(
+                databasePath, fromSeason: years.Max() - 1, maxCount: 40, ct);
+            if (missing.Count > 0)
+            {
+                _logger.LogInformation("[리더보드] 최종 순위가 없는 대회 {n}개 — 수집 시작", missing.Count);
+                var ok = 0;
+                foreach (var m in missing)
+                {
+                    ct.ThrowIfCancellationRequested();
+                    var board = await _klpgaLeaderboard.GetFinalLeaderboardAsync(m.GameCode, m.Rounds, ct);
+                    if (board.Count > 0)
+                    {
+                        await GolfLeaderboardImporter.SaveAsync(databasePath, m.GameCode, board, ct);
+                        ok++;
+                        _logger.LogInformation("[리더보드] {title} — {n}명 (우승 {w})",
+                            m.Title, board.Count, board[0].PlayerName);
+                    }
+                    else
+                    {
+                        _logger.LogWarning("[리더보드] {title} — 순위를 얻지 못했습니다", m.Title);
+                    }
+                    await Task.Delay(800, ct);   // 응답이 크므로 여유를 둔다
+                }
+                _logger.LogInformation("[리더보드] {ok}/{all}개 대회 저장", ok, missing.Count);
             }
 
             var exported = await GolfTournamentImporter.ExportAsync(databasePath, GolfDataDirectory, ct);
