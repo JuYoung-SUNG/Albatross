@@ -73,9 +73,11 @@ try
             services.AddHttpClient<KlpgaLeaderboardService>();
 
             // 블로그 소재 발굴 — 검색광고 API(월간 검색수)와 블로그 검색 API(경쟁·상위글)
+            services.AddHttpClient<NaverAutocompleteService>();
             services.AddHttpClient<NaverSearchAdService>();
             services.AddHttpClient<NaverBlogSearchService>();
             services.AddSingleton<KeywordOpportunityService>();
+            services.AddSingleton<KeywordResearchService>();
 
             services.AddSingleton<Worker>();
             services.AddHostedService<Worker>(sp => sp.GetRequiredService<Worker>());

@@ -21,6 +21,7 @@ namespace Albatross.Collector
         private readonly GemmaClassificationService _classifier;
         private readonly KeywordExtractionService _keywordExtractor;
         private readonly KeywordOpportunityService _keywordOpportunity;
+        private readonly KeywordResearchService _keywordResearch;
         private readonly KlpgaTourService _klpgaTour;
         private readonly KlpgaRecordService _klpgaRecord;
         private readonly KlpgaLeaderboardService _klpgaLeaderboard;
@@ -43,6 +44,7 @@ namespace Albatross.Collector
             GemmaClassificationService classifier,
             KeywordExtractionService keywordExtractor,
             KeywordOpportunityService keywordOpportunity,
+            KeywordResearchService keywordResearch,
             KlpgaTourService klpgaTour,
             KlpgaRecordService klpgaRecord,
             KlpgaLeaderboardService klpgaLeaderboard,
@@ -56,6 +58,7 @@ namespace Albatross.Collector
             _naverNews = naverNews;
             _keywordExtractor = keywordExtractor;
             _keywordOpportunity = keywordOpportunity;
+            _keywordResearch = keywordResearch;
             _klpgaTour = klpgaTour;
             _klpgaRecord = klpgaRecord;
             _klpgaLeaderboard = klpgaLeaderboard;
@@ -102,6 +105,9 @@ namespace Albatross.Collector
             // KLPGA 대회 일정·결과를 협회 사이트에서 받아 저장하고 골프 사이트를 다시 생성하는 모드
             //   사용법: --collect-tournaments [연도]   (연도 생략 시 올해)
             var collectTournaments = Environment.GetCommandLineArgs().Contains("--collect-tournaments");
+            // 블로그 글감용 키워드 조사: 시드 키워드 하나로 연관어를 넓히고 경쟁·검색량을 재서 저장
+            //   사용법: --keyword "골프연습장"  [--depth 1] [--max 40]
+            var researchKeyword = Environment.GetCommandLineArgs().Contains("--keyword");
 
             if (backfillSeason)
             {
@@ -189,6 +195,13 @@ namespace Albatross.Collector
                 var siteRoot = Path.GetFullPath(Path.Combine(GolfDataDirectory, "..", ".."));
                 var pages = await GolfContentImporter.GenerateSiteAsync(golfDbPath, siteRoot, stoppingToken);
                 _logger.LogInformation("[골프] 정적 페이지 생성 완료 — {n}개 (public/)", pages);
+                _appLifetime.StopApplication();
+                return;
+            }
+
+            if (researchKeyword)
+            {
+                await RunKeywordResearchAsync(stoppingToken);
                 _appLifetime.StopApplication();
                 return;
             }
@@ -579,6 +592,54 @@ namespace Albatross.Collector
             _logger.LogInformation("[키워드] 추출 시작 — 대상 {s} ~ {e}", start, end);
             var count = await _keywordExtractor.ExtractAndSaveAsync(databasePath, start, end, baselineDays: 7, topCandidates: 120, ct);
             _logger.LogInformation("[키워드] 완료 — NewsKeywords에 {n}개 저장", count);
+        }
+
+        /// <summary>
+        /// 블로그 글감 키워드 조사.
+        ///   --keyword "골프연습장" [--depth 1] [--max 40] [--min 0]
+        /// 시드를 여러 개 주면 순서대로 조사한다.
+        /// </summary>
+        private async Task RunKeywordResearchAsync(CancellationToken ct)
+        {
+            var databasePath = ResolveDatabasePath();
+            await InitializeDatabaseAsync(databasePath, ct);
+
+            var args = Environment.GetCommandLineArgs();
+            var idx = Array.IndexOf(args, "--keyword");
+
+            // --keyword 뒤에 오는 값들 중 다음 옵션(--)이 나오기 전까지가 시드다
+            var seeds = args.Skip(idx + 1)
+                .TakeWhile(a => !a.StartsWith("--", StringComparison.Ordinal))
+                .Where(a => !string.IsNullOrWhiteSpace(a))
+                .ToList();
+
+            if (seeds.Count == 0)
+            {
+                _logger.LogError("[키워드조사] 시드 키워드가 필요합니다. 예: --keyword \"골프연습장\"");
+                return;
+            }
+
+            static int Opt(string[] a, string name, int fallback)
+            {
+                var i = Array.IndexOf(a, name);
+                return i >= 0 && i + 1 < a.Length && int.TryParse(a[i + 1], out var v) ? v : fallback;
+            }
+
+            var options = new KeywordResearchService.Options(
+                ExpandDepth: Opt(args, "--depth", 1),
+                MaxKeywords: Opt(args, "--max", 40),
+                MinMonthlySearch: Opt(args, "--min", 0));
+
+            _logger.LogInformation("[키워드조사] 시드 {n}개, depth {d}, 최대 {m}개",
+                seeds.Count, options.ExpandDepth, options.MaxKeywords);
+
+            var total = 0;
+            foreach (var seed in seeds)
+            {
+                total += await _keywordResearch.ResearchAsync(databasePath, seed, options, ct);
+                await Task.Delay(500, ct);
+            }
+            _logger.LogInformation("[키워드조사] 전체 완료 — 키워드 {n}개 저장", total);
         }
 
         /// <summary>
