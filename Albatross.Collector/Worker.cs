@@ -648,17 +648,14 @@ namespace Albatross.Collector
             var options = new KeywordResearchService.Options(
                 ExpandDepth: Opt(args, "--depth", 1),
                 MaxKeywords: Opt(args, "--max", 40),
-                MinMonthlySearch: Opt(args, "--min", 0));
+                MinMonthlySearch: Opt(args, "--min", 0),
+                PerTier: Opt(args, "--per-tier", 30));
 
             _logger.LogInformation("[키워드조사] 시드 {n}개, depth {d}, 최대 {m}개",
                 seeds.Count, options.ExpandDepth, options.MaxKeywords);
 
-            var total = 0;
-            foreach (var seed in seeds)
-            {
-                total += await _keywordResearch.ResearchAsync(databasePath, seed, options, ct);
-                await Task.Delay(500, ct);
-            }
+            // 시드를 묶어서 한 번에 넘긴다 — 연관 키워드가 서로 겹치므로 나눠 부르면 중복 호출이 된다
+            var total = await _keywordResearch.ResearchManyAsync(databasePath, seeds, options, ct);
             _logger.LogInformation("[키워드조사] 전체 완료 — 키워드 {n}개 저장", total);
         }
 

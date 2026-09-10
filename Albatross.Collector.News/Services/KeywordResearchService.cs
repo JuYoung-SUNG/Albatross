@@ -7,13 +7,19 @@ namespace Albatross.Collector.News.Services;
 /// <summary>
 /// 블로그에 쓸 키워드를 조사한다.
 ///
-///   시드 키워드 하나 입력
-///     → 자동완성으로 연관 키워드 확장 (키 불필요)
-///     → 검색광고 API로 월간 검색수 (키 있을 때만)
-///     → 블로그 검색 API로 누적 문서수 = 경쟁, 그리고 현재 상위 글
+///   시드 키워드 몇 개 입력
+///     → 검색광고 API가 연관 키워드를 수백~수천 개 돌려준다 (검색량 포함)
+///     → 검색량 구간(대형/중형/롱테일)으로 나눠 구간마다 상위 N개만 남긴다
+///     → 남은 것만 블로그 검색으로 실제 경쟁을 확인한다
 ///     → 기회 점수 계산 후 저장
 ///
-/// 저장 구조를 3장으로 나눈 이유:
+/// 구간을 나누는 이유:
+///   검색량 순으로만 줄 세우면 대형 키워드가 화면을 다 먹는다.
+///   그런데 "삼성전자주가"(월 2,700만) 같은 건 네이버 증권·뉴스가 차지하고 있어
+///   블로그가 비집을 자리가 없다. 실제로 쓸 만한 건 중형·롱테일 구간이라
+///   구간을 갈라서 각각 상위를 뽑아야 후보가 고르게 나온다.
+///
+/// 저장을 3장으로 나눈 이유:
 ///   검색량은 계절을 타서 한 시점만 보면 판단을 그르친다.
 ///   측정값을 시계열로 쌓아야 "뜨는 중인지 지는 중인지"가 보인다.
 /// </summary>
@@ -36,72 +42,105 @@ public class KeywordResearchService
         _logger = logger;
     }
 
+    /// <param name="PerTier">구간마다 블로그 경쟁을 확인할 최대 개수</param>
+    /// <param name="UseRelated">검색광고 API의 연관 키워드까지 후보로 받을지</param>
     public sealed record Options(
         int ExpandDepth = 1,
         int MaxKeywords = 40,
-        int MinMonthlySearch = 0,   // 검색광고 키가 없으면 검색량을 모르므로 기본 0
-        int TopPosts = 5);
+        int MinMonthlySearch = 0,
+        int TopPosts = 5,
+        int PerTier = 30,
+        bool UseRelated = true);
 
-    /// <summary>시드 하나를 조사해 DB에 저장한다. 저장된 키워드 수를 반환.</summary>
+    /// <summary>
+    /// 검색량 구간. 구간마다 노려야 할 방식이 다르다.
+    ///   A-대형   유입은 크지만 포털·언론이 차지해 상위 노출이 매우 어렵다
+    ///   B-중형   현실적으로 승산이 있는 구간
+    ///   C-롱테일 쉽지만 하나로는 유입이 적어 여러 개를 모아야 한다
+    /// </summary>
+    public static string TierOf(int monthly) => monthly switch
+    {
+        >= 100_000 => "A-대형",
+        >= 1_000 => "B-중형",
+        >= 100 => "C-롱테일",
+        _ => "D-미미"
+    };
+
     public async Task<int> ResearchAsync(string databasePath, string seed, Options opt, CancellationToken ct)
+        => await ResearchManyAsync(databasePath, new List<string> { seed }, opt, ct);
+
+    /// <summary>시드 여러 개를 한 번에 조사한다. 연관 키워드가 겹치므로 묶어서 부르는 편이 효율적이다.</summary>
+    public async Task<int> ResearchManyAsync(
+        string databasePath, List<string> seeds, Options opt, CancellationToken ct)
     {
         await using var conn = new SqliteConnection($"Data Source={databasePath}");
         await conn.OpenAsync(ct);
         await EnsureTablesAsync(conn, ct);
 
         var now = DateTimeOffset.Now.ToString("O");
-        _logger.LogInformation("[키워드조사] '{seed}' 시작", seed);
+        var seedLabel = string.Join(", ", seeds);
+        _logger.LogInformation("[키워드조사] 시드 [{seeds}] 시작", seedLabel);
 
-        // 1) 후보 넓히기
-        var candidates = await _autocomplete.ExpandAsync(seed, opt.ExpandDepth, opt.MaxKeywords, ct);
-        if (candidates.Count == 0)
+        // 1) 후보 넓히기 — 자동완성으로 한 겹, 검색광고 연관어로 크게 한 겹
+        var candidates = new List<string>(seeds);
+        foreach (var s in seeds)
+            candidates.AddRange(await _autocomplete.ExpandAsync(s, opt.ExpandDepth, opt.MaxKeywords, ct));
+        candidates = candidates.Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+
+        // 2) 검색량 조회. UseRelated면 요청하지 않은 연관 키워드까지 받아 후보가 수백~수천으로 늘어난다
+        var volumes = await _searchAd.GetVolumesAsync(candidates, opt.UseRelated, ct);
+        if (volumes.Count == 0)
         {
-            _logger.LogWarning("[키워드조사] '{seed}' — 후보를 얻지 못했습니다", seed);
+            _logger.LogError("[키워드조사] 검색량을 하나도 얻지 못했습니다 — NAVER_AD_* 설정을 확인하세요");
             return 0;
         }
+        _logger.LogInformation("[키워드조사] 검색량 확보 {n}개 (자동완성 후보 {c}개에서 확장)",
+            volumes.Count, candidates.Count);
 
-        // 2) 월간 검색수 (키가 없으면 빈 사전이 온다 — 나머지 단계는 그대로 진행)
-        var volumes = await _searchAd.GetVolumesAsync(candidates, includeRelated: false, ct);
-        if (volumes.Count == 0)
-            _logger.LogWarning("[키워드조사] 월간 검색수를 얻지 못했습니다 (NAVER_AD_* 미설정이면 정상)");
+        // 3) 구간별로 나눠 상위 N개만 남긴다 — 블로그 조회 횟수를 통제하면서 후보를 고르게 뽑는다
+        var picked = volumes.Values
+            .Where(v => v.MonthlyTotal >= Math.Max(opt.MinMonthlySearch, 100))
+            .GroupBy(v => TierOf(v.MonthlyTotal))
+            .SelectMany(g => g.OrderByDescending(v => v.MonthlyTotal).Take(opt.PerTier))
+            .OrderByDescending(v => v.MonthlyTotal)
+            .ToList();
 
-        // 3) 시드 이력 기록
-        var seedId = await InsertSeedAsync(conn, seed, now, ct);
+        foreach (var g in picked.GroupBy(v => TierOf(v.MonthlyTotal)).OrderBy(g => g.Key))
+            _logger.LogInformation("[키워드조사]   {tier} {n}개", g.Key, g.Count());
 
-        // 4) 키워드별 경쟁 조사 후 저장
+        var seedId = await InsertSeedAsync(conn, seedLabel, now, ct);
+
+        // 4) 남은 것만 블로그 경쟁 확인
         var saved = 0;
-        foreach (var kw in candidates)
+        foreach (var vol in picked)
         {
             ct.ThrowIfCancellationRequested();
 
-            volumes.TryGetValue(kw, out var vol);
-            var monthly = vol?.MonthlyTotal ?? 0;
-
-            // 검색량을 아는데 하한 미달이면 블로그 API를 부르지 않고 건너뛴다 (호출 절약)
-            if (vol is not null && monthly < opt.MinMonthlySearch) continue;
-
-            var search = await _blog.SearchAsync(kw, opt.TopPosts, ct);
+            var search = await _blog.SearchAsync(vol.Keyword, opt.TopPosts, ct);
             if (search is null) continue;
 
-            // 경쟁은 total이 아니라 "제목에 정확히 그 키워드를 쓴 글 수"로 본다
-            var score = vol is null ? (double?)null : CalcScore(monthly, search.ExactTitleMatches, search.Analyzed);
-            var grade = Grade(search, vol?.MonthlyTotal);
+            var tier = TierOf(vol.MonthlyTotal);
+            var score = CalcScore(vol.MonthlyTotal, search.ExactTitleMatches, search.Analyzed);
+            var grade = Grade(search, vol.MonthlyTotal);
 
-            var keywordId = await UpsertKeywordAsync(conn, kw, seedId, now, ct);
-            await InsertMetricAsync(conn, keywordId, now, vol, search, score, grade, ct);
+            var keywordId = await UpsertKeywordAsync(conn, vol.Keyword, seedId, now, ct);
+            await InsertMetricAsync(conn, keywordId, now, vol, search, tier, score, grade, ct);
             saved++;
+
+            if (saved % 25 == 0)
+                _logger.LogInformation("[키워드조사]   진행 {n}/{all}", saved, picked.Count);
 
             await Task.Delay(120, ct);   // 검색 API 초당 호출 제한 회피
         }
 
         await UpdateSeedCountAsync(conn, seedId, saved, ct);
-        _logger.LogInformation("[키워드조사] '{seed}' 완료 — 키워드 {n}개 저장", seed, saved);
+        _logger.LogInformation("[키워드조사] 완료 — 키워드 {n}개 저장", saved);
         return saved;
     }
 
     /// <summary>
     /// 기회 점수 = 월간 검색수 ÷ (제목에 그 키워드를 정확히 쓴 글의 비율).
-    /// 상위 10개 중 정확히 겨냥한 글이 적을수록 비집고 들어갈 자리가 크다.
+    /// 상위 글 중 정확히 겨냥한 글이 적을수록 비집고 들어갈 자리가 크다.
     /// </summary>
     private static double CalcScore(int monthlySearch, int exactTitle, int analyzed)
     {
@@ -112,7 +151,7 @@ public class KeywordResearchService
 
     /// <summary>
     /// 등급. 검색량을 모르면(검색광고 키 없음) 경쟁만으로 매긴다.
-    /// 상위 10개 중 제목에 키워드를 정확히 쓴 글이 몇 개인지가 핵심이다.
+    /// 상위 글 중 제목에 키워드를 정확히 쓴 글이 몇 개인지가 핵심이다.
     /// </summary>
     private static string Grade(NaverBlogSearchService.BlogSearchResult s, int? monthly)
     {
@@ -120,7 +159,7 @@ public class KeywordResearchService
         if (monthly is null)
             return hits switch
             {
-                0 => "빈자리",          // 아무도 정확히 겨냥하지 않음
+                0 => "빈자리",
                 <= 2 => "여지있음",
                 <= 5 => "보통",
                 _ => "포화"
@@ -181,15 +220,15 @@ public class KeywordResearchService
         SqliteConnection c, long keywordId, string now,
         NaverSearchAdService.KeywordVolume? vol,
         NaverBlogSearchService.BlogSearchResult search,
-        double? score, string grade, CancellationToken ct)
+        string tier, double? score, string grade, CancellationToken ct)
     {
         var cmd = c.CreateCommand();
         cmd.CommandText = """
             INSERT INTO KeywordMetrics
                 (KeywordId, MeasuredAt, NaverPc, NaverMobile, NaverCompetition,
                  BlogTotalCount, Analyzed, ExactTitleMatches, ExactAnyMatches,
-                 LatestPostDate, OpportunityScore, Grade, TopPostsJson)
-            VALUES ($id, $t, $pc, $mo, $comp, $blog, $an, $et, $ea, $latest, $score, $grade, $posts);
+                 LatestPostDate, VolumeTier, OpportunityScore, Grade, TopPostsJson)
+            VALUES ($id, $t, $pc, $mo, $comp, $blog, $an, $et, $ea, $latest, $tier, $score, $grade, $posts);
             """;
         cmd.Parameters.AddWithValue("$id", keywordId);
         cmd.Parameters.AddWithValue("$t", now);
@@ -201,6 +240,7 @@ public class KeywordResearchService
         cmd.Parameters.AddWithValue("$et", search.ExactTitleMatches);
         cmd.Parameters.AddWithValue("$ea", search.ExactAnyMatches);
         cmd.Parameters.AddWithValue("$latest", (object?)search.LatestPostDate ?? DBNull.Value);
+        cmd.Parameters.AddWithValue("$tier", tier);
         cmd.Parameters.AddWithValue("$score", (object?)score ?? DBNull.Value);
         cmd.Parameters.AddWithValue("$grade", grade);
         cmd.Parameters.AddWithValue("$posts", JsonSerializer.Serialize(search.TopPosts));
@@ -239,12 +279,13 @@ public class KeywordResearchService
                 MeasuredAt TEXT NOT NULL,
                 NaverPc INTEGER,
                 NaverMobile INTEGER,
-                NaverCompetition TEXT,
+                NaverCompetition TEXT,                       -- 광고 경쟁도. 블로그 경쟁과는 다른 값이다
                 BlogTotalCount INTEGER NOT NULL DEFAULT 0,   -- 네이버 보고 건수(느슨한 매칭, 참고용)
                 Analyzed INTEGER NOT NULL DEFAULT 0,         -- 정확도 계산에 쓴 상위 글 수
                 ExactTitleMatches INTEGER NOT NULL DEFAULT 0,-- 그중 제목에 키워드가 그대로 있는 글 = 실질 경쟁
                 ExactAnyMatches INTEGER NOT NULL DEFAULT 0,
                 LatestPostDate TEXT,                         -- 가장 최근 글 날짜. 오래됐으면 아무도 안 쓰는 주제다
+                VolumeTier TEXT,                             -- A-대형 / B-중형 / C-롱테일
                 OpportunityScore REAL,
                 Grade TEXT,
                 GoogleTrendIndex INTEGER,
@@ -252,6 +293,7 @@ public class KeywordResearchService
                 FOREIGN KEY (KeywordId) REFERENCES Keywords(Id)
             );
             CREATE INDEX IF NOT EXISTS IX_KeywordMetrics_Keyword ON KeywordMetrics(KeywordId, MeasuredAt);
+            CREATE INDEX IF NOT EXISTS IX_KeywordMetrics_Tier ON KeywordMetrics(VolumeTier, OpportunityScore);
             """;
         await cmd.ExecuteNonQueryAsync(ct);
     }
