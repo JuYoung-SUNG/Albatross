@@ -48,7 +48,7 @@ public class KeywordResearchService
         int ExpandDepth = 1,
         int MaxKeywords = 40,
         int MinMonthlySearch = 0,
-        int TopPosts = 5,
+        int TopPosts = 10,
         int PerTier = 30,
         bool UseRelated = true);
 

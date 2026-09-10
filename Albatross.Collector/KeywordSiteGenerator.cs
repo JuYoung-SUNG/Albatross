@@ -217,7 +217,7 @@ namespace Albatross.Collector
 
             if (r.TopPosts.Count > 0)
             {
-                sb.AppendLine("""<h3>지금 이 키워드로 올라온 글</h3><ol class="posts">""");
+                sb.AppendLine("""<h3>이 키워드로 검색되는 최근 글 10개 (최신순)</h3><ol class="posts">""");
                 foreach (var p in r.TopPosts)
                     sb.AppendLine($"""
                         <li>
@@ -296,6 +296,9 @@ namespace Albatross.Collector
               <p>제목 일치 = 최근 글 10개 중 제목에 그 키워드를 그대로 쓴 글 수. 네이버가 보고하는 전체 건수는
                  검색어를 쪼개 느슨하게 세므로 경쟁 지표로 쓰지 않습니다.</p>
               <p>기회 점수 = 월간 검색수 ÷ 제목 점유 비율. 클수록 수요 대비 정면으로 다룬 글이 적다는 뜻입니다.</p>
+              <p>글 목록은 <strong>정확도순이 아니라 최신순</strong>입니다. 네이버 검색 API의 정확도순(sim)은
+                 관련 없는 글이 섞여 나와 쓸 수 없어서 최신순(date)을 씁니다.
+                 따라서 "지금 상위 노출 중인 글"이 아니라 "최근에 이 키워드로 올라온 글"입니다.</p>
             </footer>
             </body>
             </html>
