@@ -229,6 +229,25 @@ namespace Albatross.Collector
 
                     var databasePath = ResolveDatabasePath();
 
+
+                    // ══════════════════════════════════════════════════════════════
+                    // [상시 수집 스위치]  키워드 조사에 집중하려고 꺼둔 상태.
+                    //
+                    //   꺼짐 : 뉴스 RSS 40개 수집 + RawNews 저장,
+                    //          KBO 경기결과/박스스코어 수집, kbo-games.json 내보내기
+                    //   영향 없음 : --keyword(키워드 조사) 등 CLI 모드는 이 스위치와 무관하게 동작
+                    //
+                    //   되살리려면 appsettings.json 에 Collector:EnableCollection = true 를 넣으면 된다.
+                    //   (코드를 고치거나 다시 빌드할 필요 없다)
+                    // ══════════════════════════════════════════════════════════════
+                    var collectionEnabled = _config.GetValue<bool>("Collector:EnableCollection", false);
+                    if (!collectionEnabled)
+                    {
+                        _logger.LogInformation(
+                            "[중단] 상시 수집이 꺼져 있습니다 (Collector:EnableCollection=false). 키워드 조사만 사용 중입니다.");
+                    }
+                    else
+                    {
                     await InitializeDatabaseAsync(databasePath, stoppingToken);
 
                     // 1. 날짜 및 차수 계산
@@ -298,6 +317,7 @@ namespace Albatross.Collector
                         // 가벼운 모드: 박스스코어 변경으로 값이 바뀔 수 있는 kbo-games.json만 다시 내보낸다
                         await ExportGamesOnlyAsync(databasePath, stoppingToken);
                     }
+                    }   // ← [상시 수집 스위치] 끝
                     // [임시 비활성화] 뉴스만 수집/저장하도록, 일반 모드의 KBO 하이라이트 생성과 KBO JSON 내보내기를 중단.
                     // (뉴스 크롤링 결과는 위 SaveRawNewsAsync에서 이미 RawNews에 저장됨. 필요 시 아래 주석 해제로 원복)
                     // else
