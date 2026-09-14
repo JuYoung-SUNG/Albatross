@@ -29,7 +29,7 @@ namespace Albatross.Collector
 
         private sealed record Post(string Title, string Link, string BloggerName, string PostDate, string Snippet);
 
-        private static readonly string[] Tiers = { "A-대형", "B-중형", "C-롱테일", "D-미미" };
+        private static readonly string[] Tiers = { "S-초대형", "A-대형", "B-중대형", "C-중형", "D-롱테일", "E-미미" };
 
         public static async Task<int> GenerateFromDatabaseAsync(string databasePath, string siteRoot, CancellationToken ct)
         {
@@ -58,7 +58,7 @@ namespace Albatross.Collector
             var cmd = conn.CreateCommand();
             cmd.CommandText = """
                 SELECT k.Id, k.Keyword, k.Status,
-                       COALESCE(m.VolumeTier,'D-미미'),
+                       COALESCE(m.VolumeTier,'E-미미'),
                        m.NaverPc, m.NaverMobile, m.NaverCompetition,
                        m.BlogTotalCount, m.Analyzed, m.ExactTitleMatches, m.ExactAnyMatches,
                        m.LatestPostDate, m.OpportunityScore, m.Grade, m.MeasuredAt, m.TopPostsJson
@@ -169,9 +169,11 @@ namespace Albatross.Collector
         /// <summary>구간마다 어떻게 접근해야 하는지 한 줄로 알려준다.</summary>
         private static string TierHint(string tier) => tier switch
         {
-            "A-대형" => "월 10만 회 이상. 유입은 크지만 네이버 증권·뉴스 같은 포털 서비스가 최상단을 차지해 블로그가 올라가기 어렵습니다. 지표가 좋아 보여도 실제로는 힘든 경우가 많습니다.",
-            "B-중형" => "월 1천~10만 회. 현실적으로 승산이 있는 구간입니다. 여기서 고르는 것을 권합니다.",
-            "C-롱테일" => "월 100~1천 회. 상위 노출은 쉽지만 하나로는 유입이 적어 여러 개를 모아야 합니다.",
+            "S-초대형" => "월 100만 회 이상. 네이버 증권·환율·복권 같은 포털 자체 서비스가 답을 바로 주는 키워드라, 블로그가 끼어들 자리가 거의 없습니다. 참고용으로만 보세요.",
+            "A-대형" => "월 10만~100만 회. 유입은 크지만 경쟁이 심해 이미 자리 잡은 블로그가 노릴 구간입니다. 지표가 좋아 보여도 실제로는 힘든 경우가 많습니다.",
+            "B-중대형" => "월 1만~10만 회. 승산이 있으면서 유입도 의미 있는 구간입니다. 어느 정도 글이 쌓인 블로그라면 여기서 고르세요.",
+            "C-중형" => "월 1천~1만 회. 시작하는 블로그의 현실적인 목표입니다. 정면으로 다룬 글이 적은 것부터 쓰면 됩니다.",
+            "D-롱테일" => "월 100~1천 회. 상위 노출은 쉽지만 하나로는 유입이 적어 여러 개를 묶어서 써야 합니다.",
             _ => "월 100회 미만. 글을 써도 볼 사람이 거의 없습니다."
         };
 
