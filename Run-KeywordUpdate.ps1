@@ -11,8 +11,10 @@
 # 시드 교체:  ... -File .\Run-KeywordUpdate.ps1 -Seeds "주식","금리"
 
 param(
+    [string]$Levels = "2,3",   # 다시 잴 단계. 2=중분류, 3=소분류
+    [int]$Max = 800,           # 한 번에 잴 최대 개수
+    [switch]$Discover,         # 지정하면 트리를 새로 파낸다 (오래 걸림)
     [string[]]$Seeds = @("주식","금리","부동산","재테크","창업","세금","연금","대출","환율","보험"),
-    [int]$PerTier = 25,
     [switch]$NoPush
 )
 
@@ -32,7 +34,8 @@ function Write-Log {
 }
 
 Write-Log "=== Albatross Keyword 갱신 시작 ===" "Cyan"
-Write-Log ("시드 {0}개: {1}" -f $Seeds.Count, ($Seeds -join ", "))
+if ($Discover) { Write-Log ("발굴 모드 — 대분류 {0}개: {1}" -f $Seeds.Count, ($Seeds -join ", ")) }
+else            { Write-Log ("재측정 모드 — 단계 {0}, 최대 {1}개" -f $Levels, $Max) }
 
 # 환경변수를 User 범위에서 읽어 현재 프로세스에 넣는다.
 # 이렇게 하지 않으면 이 스크립트를 띄운 셸이 변수 등록 전에 열렸을 때
@@ -46,11 +49,18 @@ if (-not $env:NAVER_AD_API_KEY) {
 }
 
 # 1. 조사 — 자동완성 확장 + 검색광고 연관어 + 블로그 경쟁 확인
-Write-Log "[1/3] 키워드 조사..." "Cyan"
+Write-Log "[1/3] 키워드 측정..." "Cyan"
 Push-Location $repoRoot
 try {
-    $dotnetArgs = @("run","--project","Albatross.Collector","--configuration","Release","--","--keyword") `
-          + $Seeds + @("--depth","1","--max","10","--per-tier","$PerTier")
+    # 기본은 재측정. 트리 구조는 자주 바뀌지 않고 바뀌는 건 경쟁이라 그것만 다시 잰다.
+    # 새 키워드를 발굴하려면 -Discover 를 준다.
+    $dotnetArgs = if ($Discover) {
+        @("run","--project","Albatross.Collector","--configuration","Release","--","--tree") `
+          + $Seeds + @("--per-root","8","--per-branch","8")
+    } else {
+        @("run","--project","Albatross.Collector","--configuration","Release","--",
+          "--remeasure","--levels",$Levels,"--max","$Max")
+    }
     & dotnet @dotnetArgs 2>&1 | Out-Null
     if ($LASTEXITCODE -ne 0) {
         Write-Log "수집기 실행 실패 (exit $LASTEXITCODE)" "Red"

@@ -147,6 +147,199 @@ public class KeywordResearchService
         return saved;
     }
 
+
+    /// <summary>
+    /// 3단계 트리로 조사한다.
+    ///
+    ///   L1 대분류  시드 그대로 (주식, 금리, …)
+    ///   L2 중분류  검색광고 연관어 상위 N개 (주식 → 코스피지수, 삼성전자주가, 나스닥)
+    ///   L3 소분류  자동완성 (코스피지수 → 코스피지수 뜻, 코스피지수 etf, 오늘코스피지수)
+    ///
+    /// 단계마다 다른 API를 쓰는 이유 —
+    ///   L2를 자동완성으로 뽑으면 "주식투자", "주식시세"처럼 시드를 살짝 바꾼 말만 나와 넓어지지 않는다.
+    ///   반대로 L3를 검색광고 연관어로 뽑으면 "코스피지수 → 루닛주가, 공모주"처럼
+    ///   하위가 아니라 옆 키워드가 나와 트리가 그물이 된다. 실제로 확인하고 갈랐다.
+    ///
+    /// 블로그 경쟁 조사는 L2·L3만 한다. L1은 분류 이름일 뿐 글을 쓸 대상이 아니다.
+    /// </summary>
+    public async Task<int> ResearchTreeAsync(
+        string databasePath, List<string> roots, int perRoot, int perBranch,
+        Options opt, CancellationToken ct)
+    {
+        await using var conn = new SqliteConnection($"Data Source={databasePath}");
+        await conn.OpenAsync(ct);
+        await EnsureTablesAsync(conn, ct);
+
+        var now = DateTimeOffset.Now.ToString("O");
+        _logger.LogInformation("[트리조사] 대분류 {n}개 시작 — L2 각 {a}개, L3 각 {b}개",
+            roots.Count, perRoot, perBranch);
+
+        var seedId = await InsertSeedAsync(conn, "트리: " + string.Join(", ", roots), now, ct);
+        var saved = 0;
+
+        foreach (var root in roots)
+        {
+            ct.ThrowIfCancellationRequested();
+
+            // L1 — 분류 이름. 측정은 하지 않고 뼈대만 만든다.
+            var rootId = await UpsertTreeKeywordAsync(conn, root, null, root, 1, seedId, now, ct);
+
+            // L2 — 검색광고 연관어에서 검색량 큰 순으로
+            var l2Volumes = await _searchAd.GetVolumesAsync(new[] { root }, includeRelated: true, ct);
+            var l2 = l2Volumes.Values
+                .Where(v => v.MonthlyTotal >= 1000 && !Same(v.Keyword, root))
+                .OrderByDescending(v => v.MonthlyTotal)
+                .Take(perRoot)
+                .ToList();
+            _logger.LogInformation("[트리조사] {root} → 중분류 {n}개", root, l2.Count);
+
+            foreach (var mid in l2)
+            {
+                ct.ThrowIfCancellationRequested();
+                var midId = await UpsertTreeKeywordAsync(conn, mid.Keyword, rootId, root, 2, seedId, now, ct);
+                if (await MeasureAsync(conn, midId, mid, now, opt, ct)) saved++;
+
+                // L3 — 자동완성. 부모를 포함한 구체적인 질문이 나온다.
+                var suggestions = await _autocomplete.SuggestAsync(mid.Keyword, ct);
+                var children = suggestions
+                    .Where(s => !Same(s, mid.Keyword) && !Same(s, root))
+                    .Take(perBranch)
+                    .ToList();
+                if (children.Count == 0) continue;
+
+                // 자식들의 검색량을 한 번에 조회 (연관어는 받지 않는다 — 트리가 흐트러진다)
+                var childVolumes = await _searchAd.GetVolumesAsync(children, includeRelated: false, ct);
+
+                foreach (var child in children)
+                {
+                    ct.ThrowIfCancellationRequested();
+                    childVolumes.TryGetValue(child, out var vol);
+                    if (vol is null || vol.MonthlyTotal < 100) continue;   // 볼 사람이 없는 말은 버린다
+
+                    var childId = await UpsertTreeKeywordAsync(conn, child, midId, root, 3, seedId, now, ct);
+                    if (await MeasureAsync(conn, childId, vol, now, opt, ct)) saved++;
+                }
+            }
+        }
+
+        await UpdateSeedCountAsync(conn, seedId, saved, ct);
+        _logger.LogInformation("[트리조사] 완료 — 측정 {n}건 저장", saved);
+        return saved;
+    }
+
+
+    /// <summary>
+    /// 이미 만들어진 트리의 키워드를 다시 잰다. 새로 발굴하지 않는다.
+    ///
+    /// 주간 갱신이 이걸 쓴다 — 트리 구조(어떤 중분류 아래 어떤 소분류가 있는지)는 자주 바뀌지 않지만
+    /// 경쟁(제목 일치·최신 글)은 새 글이 올라오며 매일 바뀐다. 구조를 다시 파면 15분이 걸리는데,
+    /// 바뀌는 값만 재면 그 절반이면 끝나고 시계열도 끊기지 않는다.
+    ///
+    /// 검색량도 함께 새로 받는다 — 네이버가 월평균을 갱신하므로 값이 조금씩 움직인다.
+    /// </summary>
+    /// <param name="levels">다시 잴 단계. 기본은 중분류·소분류 둘 다.</param>
+    public async Task<int> RemeasureAsync(
+        string databasePath, int[] levels, int maxCount, Options opt, CancellationToken ct)
+    {
+        await using var conn = new SqliteConnection($"Data Source={databasePath}");
+        await conn.OpenAsync(ct);
+        await EnsureTablesAsync(conn, ct);
+
+        var targets = new List<(long Id, string Keyword)>();
+        var sel = conn.CreateCommand();
+        sel.CommandText = $"""
+            SELECT Id, Keyword FROM Keywords
+            WHERE TreeLevel IN ({string.Join(",", levels)})
+            ORDER BY LastCheckedAt
+            LIMIT $max;
+            """;
+        sel.Parameters.AddWithValue("$max", maxCount);
+        await using (var r = await sel.ExecuteReaderAsync(ct))
+            while (await r.ReadAsync(ct)) targets.Add((r.GetInt64(0), r.GetString(1)));
+
+        if (targets.Count == 0)
+        {
+            _logger.LogWarning("[재측정] 대상이 없습니다. 먼저 --tree 로 트리를 만드세요");
+            return 0;
+        }
+
+        var now = DateTimeOffset.Now.ToString("O");
+        _logger.LogInformation("[재측정] {n}개 시작 (단계 {lv})", targets.Count, string.Join("·", levels));
+        var seedId = await InsertSeedAsync(conn, $"재측정 {targets.Count}개", now, ct);
+
+        // 검색량은 5개씩 묶어 받는 편이 호출이 적다. 연관어는 받지 않는다 — 트리를 흐트러뜨리지 않기 위해서다.
+        var volumes = await _searchAd.GetVolumesAsync(targets.Select(t => t.Keyword), includeRelated: false, ct);
+
+        var saved = 0;
+        foreach (var (id, keyword) in targets)
+        {
+            ct.ThrowIfCancellationRequested();
+            if (!volumes.TryGetValue(keyword, out var vol)) continue;   // 검색량을 못 받으면 건너뛴다
+
+            if (await MeasureAsync(conn, id, vol, now, opt, ct))
+            {
+                saved++;
+                var upd = conn.CreateCommand();
+                upd.CommandText = "UPDATE Keywords SET LastCheckedAt = $t WHERE Id = $id;";
+                upd.Parameters.AddWithValue("$t", now);
+                upd.Parameters.AddWithValue("$id", id);
+                await upd.ExecuteNonQueryAsync(ct);
+            }
+
+            if (saved % 50 == 0 && saved > 0)
+                _logger.LogInformation("[재측정]   진행 {n}/{all}", saved, targets.Count);
+        }
+
+        await UpdateSeedCountAsync(conn, seedId, saved, ct);
+        _logger.LogInformation("[재측정] 완료 — {n}건 갱신", saved);
+        return saved;
+    }
+    /// <summary>블로그 경쟁을 재서 KeywordMetrics에 한 행 남긴다.</summary>
+    private async Task<bool> MeasureAsync(
+        SqliteConnection conn, long keywordId, NaverSearchAdService.KeywordVolume vol,
+        string now, Options opt, CancellationToken ct)
+    {
+        var search = await _blog.SearchAsync(vol.Keyword, opt.TopPosts, ct);
+        if (search is null) return false;
+
+        var tier = TierOf(vol.MonthlyTotal);
+        var score = CalcScore(vol.MonthlyTotal, search.ExactTitleMatches, search.Analyzed);
+        var grade = Grade(search, vol.MonthlyTotal);
+        await InsertMetricAsync(conn, keywordId, now, vol, search, tier, score, grade, ct);
+
+        await Task.Delay(120, ct);   // 검색 API 초당 호출 제한 회피
+        return true;
+    }
+
+    /// <summary>공백만 다른 키워드를 같은 것으로 본다 ("엔화 환율" vs "엔화환율").</summary>
+    private static bool Same(string a, string b) =>
+        string.Equals(a.Replace(" ", ""), b.Replace(" ", ""), StringComparison.OrdinalIgnoreCase);
+
+    /// <summary>
+    /// 트리 위치까지 함께 저장한다. 이미 있는 키워드면 위치를 갱신한다 —
+    /// 같은 말이 여러 분류에 걸칠 때는 마지막에 본 위치를 따른다.
+    /// </summary>
+    private static async Task<long> UpsertTreeKeywordAsync(
+        SqliteConnection c, string keyword, long? parentId, string root, int level,
+        long seedId, string now, CancellationToken ct)
+    {
+        var cmd = c.CreateCommand();
+        cmd.CommandText = """
+            INSERT INTO Keywords (Keyword, SourceSeedId, FirstSeenAt, LastCheckedAt, Status,
+                                  ParentId, RootKeyword, TreeLevel)
+            VALUES ($k, $s, $t, $t, '후보', $p, $r, $l)
+            ON CONFLICT(Keyword) DO UPDATE SET
+                LastCheckedAt = $t, ParentId = $p, RootKeyword = $r, TreeLevel = $l;
+            SELECT Id FROM Keywords WHERE Keyword = $k;
+            """;
+        cmd.Parameters.AddWithValue("$k", keyword);
+        cmd.Parameters.AddWithValue("$s", seedId);
+        cmd.Parameters.AddWithValue("$t", now);
+        cmd.Parameters.AddWithValue("$p", (object?)parentId ?? DBNull.Value);
+        cmd.Parameters.AddWithValue("$r", root);
+        cmd.Parameters.AddWithValue("$l", level);
+        return Convert.ToInt64(await cmd.ExecuteScalarAsync(ct));
+    }
     /// <summary>
     /// 기회 점수 = 월간 검색수 ÷ (제목에 그 키워드를 정확히 쓴 글의 비율).
     /// 상위 글 중 정확히 겨냥한 글이 적을수록 비집고 들어갈 자리가 크다.
@@ -278,8 +471,15 @@ public class KeywordResearchService
                 Memo TEXT,
                 Status TEXT NOT NULL DEFAULT '후보',   -- 후보 / 작성예정 / 작성완료 / 제외
                 FirstSeenAt TEXT NOT NULL,
-                LastCheckedAt TEXT NOT NULL
+                LastCheckedAt TEXT NOT NULL,
+                -- 트리 구조: L1 대분류(시드) → L2 중분류(검색광고 연관어) → L3 소분류(자동완성)
+                ParentId INTEGER,      -- 바로 위 단계의 Keywords.Id
+                RootKeyword TEXT,      -- L1 이름. 화면 탭을 이걸로 가른다
+                TreeLevel INTEGER NOT NULL DEFAULT 0   -- 1 / 2 / 3, 0은 트리 이전에 수집된 것
             );
+            -- IX_Keywords_Tree 는 아래 ALTER 로 컬럼을 붙인 뒤에 만든다.
+            -- 여기서 만들면 기존 DB에는 아직 컬럼이 없어 이 배치 전체가 실패하고
+            -- 뒤따르는 ALTER 가 아예 실행되지 않는다 (실제로 그렇게 막혔다).
 
             -- 측정값 시계열. 같은 키워드를 다시 재면 행이 쌓여 추이가 된다.
             CREATE TABLE IF NOT EXISTS KeywordMetrics (
@@ -305,5 +505,22 @@ public class KeywordResearchService
             CREATE INDEX IF NOT EXISTS IX_KeywordMetrics_Tier ON KeywordMetrics(VolumeTier, OpportunityScore);
             """;
         await cmd.ExecuteNonQueryAsync(ct);
+
+        // 이미 만들어진 DB에는 CREATE TABLE이 적용되지 않으므로 컬럼을 따로 붙인다.
+        // 있으면 예외가 나는데 그게 정상이라 삼킨다 (SQLite에 ADD COLUMN IF NOT EXISTS가 없다).
+        foreach (var ddl in new[]
+        {
+            "ALTER TABLE Keywords ADD COLUMN ParentId INTEGER",
+            "ALTER TABLE Keywords ADD COLUMN RootKeyword TEXT",
+            "ALTER TABLE Keywords ADD COLUMN TreeLevel INTEGER NOT NULL DEFAULT 0"
+        })
+        {
+            try { var a = c.CreateCommand(); a.CommandText = ddl; await a.ExecuteNonQueryAsync(ct); }
+            catch (SqliteException) { /* 이미 있음 */ }
+        }
+
+        var idx = c.CreateCommand();
+        idx.CommandText = "CREATE INDEX IF NOT EXISTS IX_Keywords_Tree ON Keywords(RootKeyword, TreeLevel, ParentId);";
+        await idx.ExecuteNonQueryAsync(ct);
     }
 }

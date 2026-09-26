@@ -108,6 +108,12 @@ namespace Albatross.Collector
             // 블로그 글감용 키워드 조사: 시드 키워드 하나로 연관어를 넓히고 경쟁·검색량을 재서 저장
             //   사용법: --keyword "골프연습장"  [--depth 1] [--max 40]
             var researchKeyword = Environment.GetCommandLineArgs().Contains("--keyword");
+            // 3단계 트리 조사: 대분류(시드) → 중분류(검색광고 연관어) → 소분류(자동완성)
+            //   사용법: --tree "주식" "금리"  [--per-root 10] [--per-branch 8]
+            var researchTree = Environment.GetCommandLineArgs().Contains("--tree");
+            // 기존 트리의 경쟁만 다시 재는 모드. 새로 발굴하지 않아 빠르고 시계열이 쌓인다.
+            //   사용법: --remeasure [--levels 2,3] [--max 800]
+            var remeasure = Environment.GetCommandLineArgs().Contains("--remeasure");
 
             if (backfillSeason)
             {
@@ -202,6 +208,20 @@ namespace Albatross.Collector
             if (researchKeyword)
             {
                 await RunKeywordResearchAsync(stoppingToken);
+                _appLifetime.StopApplication();
+                return;
+            }
+
+            if (researchTree)
+            {
+                await RunKeywordTreeAsync(stoppingToken);
+                _appLifetime.StopApplication();
+                return;
+            }
+
+            if (remeasure)
+            {
+                await RunKeywordRemeasureAsync(stoppingToken);
                 _appLifetime.StopApplication();
                 return;
             }
@@ -612,6 +632,77 @@ namespace Albatross.Collector
             _logger.LogInformation("[키워드] 추출 시작 — 대상 {s} ~ {e}", start, end);
             var count = await _keywordExtractor.ExtractAndSaveAsync(databasePath, start, end, baselineDays: 7, topCandidates: 120, ct);
             _logger.LogInformation("[키워드] 완료 — NewsKeywords에 {n}개 저장", count);
+        }
+
+        /// <summary>
+        /// 기존 트리의 경쟁을 다시 잰다. 주간 갱신이 쓰는 모드다.
+        ///   --remeasure [--levels 2,3] [--max 800]
+        /// 오래 확인하지 않은 키워드부터 잰다 — 한도에 걸려 잘려도 다음 회차에 이어진다.
+        /// </summary>
+        private async Task RunKeywordRemeasureAsync(CancellationToken ct)
+        {
+            var databasePath = ResolveDatabasePath();
+            await InitializeDatabaseAsync(databasePath, ct);
+
+            var args = Environment.GetCommandLineArgs();
+
+            static string? Str(string[] a, string name)
+            {
+                var i = Array.IndexOf(a, name);
+                return i >= 0 && i + 1 < a.Length ? a[i + 1] : null;
+            }
+            static int Num(string[] a, string name, int fallback)
+                => int.TryParse(Str(a, name), out var v) ? v : fallback;
+
+            var levels = (Str(args, "--levels") ?? "2,3")
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(s => int.TryParse(s, out var v) ? v : -1)
+                .Where(v => v is >= 1 and <= 3)
+                .DefaultIfEmpty(3)
+                .ToArray();
+
+            var n = await _keywordResearch.RemeasureAsync(
+                databasePath, levels, Num(args, "--max", 800),
+                new KeywordResearchService.Options(), ct);
+
+            _logger.LogInformation("[재측정] 전체 완료 — {n}건", n);
+        }
+
+        /// <summary>
+        /// 3단계 트리 조사.
+        ///   --tree "주식" "금리" [--per-root 10] [--per-branch 8]
+        /// 대분류를 생략하면 경제 시드 10개를 쓴다.
+        /// </summary>
+        private async Task RunKeywordTreeAsync(CancellationToken ct)
+        {
+            var databasePath = ResolveDatabasePath();
+            await InitializeDatabaseAsync(databasePath, ct);
+
+            var args = Environment.GetCommandLineArgs();
+            var idx = Array.IndexOf(args, "--tree");
+            var roots = args.Skip(idx + 1)
+                .TakeWhile(a => !a.StartsWith("--", StringComparison.Ordinal))
+                .Where(a => !string.IsNullOrWhiteSpace(a))
+                .ToList();
+
+            if (roots.Count == 0)
+                roots = new List<string> { "주식", "금리", "부동산", "재테크", "창업",
+                                           "세금", "연금", "대출", "환율", "보험" };
+
+            static int Opt(string[] a, string name, int fallback)
+            {
+                var i = Array.IndexOf(a, name);
+                return i >= 0 && i + 1 < a.Length && int.TryParse(a[i + 1], out var v) ? v : fallback;
+            }
+
+            var perRoot = Opt(args, "--per-root", 10);
+            var perBranch = Opt(args, "--per-branch", 8);
+
+            var n = await _keywordResearch.ResearchTreeAsync(
+                databasePath, roots, perRoot, perBranch,
+                new KeywordResearchService.Options(), ct);
+
+            _logger.LogInformation("[트리조사] 전체 완료 — {n}건", n);
         }
 
         /// <summary>
